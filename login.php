@@ -1,0 +1,55 @@
+<?php 
+
+  include 'logcode.php';
+  include 'inc/header.php'; 
+?>
+<!-- navbar -->
+<nav class="blue lighten-2 z-depth-2">
+    <div class="container">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Shop</a>
+        </div>
+    </div>  
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col s2">
+      <img src="img/login.svg" alt="img" height="320" style="margin-top: 80%;" class="hide-on-med-and-down animated ">
+    </div>
+    <div class="col s12 m6 right">
+      <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+        <div class="card-panel z-depth-2 animated " id="login-card" style="margin-top: 35px;">
+          <div class="row">
+            <div class="input-field">
+              <i class="material-icons prefix">account_circle</i>
+              <input id="user_input" type="text" class="validate <?php echo (!empty($userinput_err)) ? 'invalid' : ''; ?>" value="<?php echo $userinput; ?>" name="userinput">
+              <label for="user_input">Email or username</label>
+              <span class="red-text" style="margin-left: 40px;" id="error"><?php echo $userinput_err; ?></span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field" style="margin-bottom: -5px !important;">
+              <i class="material-icons prefix">security</i>
+              <input id="password" type="password" value="<?php echo $password; ?>" class="validate <?php echo (!empty($password_err)) ? 'invalid' : ''; ?>" name="password">
+              <label for="password">Password</label>
+              <span class="red-text" style="margin-left: 40px;"><?php echo $password_err; ?></span>
+            </div>
+          </div>
+          <label style="margin-left: 5px;">
+            <input type="checkbox" class="filled-in" name="remember"/>
+            <span class="grey-text lighten-2">Remember me</span>
+          </label>
+          <div class="row" style=" margin-top: 20px; margin-left: 10px;">
+            <input type="submit" value="Login" name="login" class="btn btn-small blue" style="margin-right: 20px;">
+            <input type="reset" value="cancel" class="btn grey btn-small lighten-1">
+          </div>
+          <div class="row" style="margin-top: 10px; margin-left: 10px;">
+            <a href="forgot.php">Forgot Password?</a>  
+          </div>
+          <p style="margin-left: 10px;">Don't have an account? Click to <a href="reg.php">Signup</a></p>  
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<?php include 'inc/footer.php'; ?>    
