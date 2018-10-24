@@ -5,12 +5,7 @@
   if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
     header('Location: login.php');
     exit;
-  }
-  if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-    header('Location: login.php');
-    exit;
-  }
-  
+  } 
 
   $email = $phone = $address = $username = '';
   $email_err = $phone_err = $address_err = $username_err = '';
@@ -63,8 +58,7 @@
       }
     }
   }
-  $sql = "SELECT * FROM users";
-  $result = mysqli_query($conn, $sql);
+  
 		
 ?>
 <?php include 'inc/header.php'; ?>
@@ -76,15 +70,18 @@
 <?php include 'inc/mobilenav.php'; ?>
 <!--Content area -->
 <div class="container-fluid lighten-4">
-<?php while($row = mysqli_fetch_row($result)){ ?>
+<?php 
+  $sql = "SELECT * FROM users WHERE user_id = '$id'";
+  $result = mysqli_query($conn, $sql);
+  while($row = mysqli_fetch_row($result)){ ?>
   <div class="row">
     <div class="col s12 m4 l2"></div>
     <div class="col s12 m4 l8">
-    
+
       <div class="card z-depth-1 waves-effect hoverable">
         <div class="card-image">
           <img src="img/back.jpeg" height="400">
-          <span class="card-title white-text"><h4><?php echo $row['firstname']." ".$row['lastname'];  ?></h4></span>
+          <span class="card-title white-text"><h4><?php echo $row[1]." ".$row[2];  ?></h4></span>
           <a href="#modal1" class="btn-floating halfway-fab waves-effect waves-light blue lighten-2 modal-trigger"><i class="material-icons">create</i></a>
         </div>
         <div class="card-content black-text">
@@ -100,8 +97,10 @@
     <div class="col s12 m4 l3">
       <div class="card z-depth-1 waves-effect lighten-2 rounded hoverable" id="address">
         <div class="card-content">
-          <div class="card-title center">Address</div><hr>
-          <p class="center-align"><?php echo $row['address']; ?></p>
+          <div class="card-title center">Delivery Address</div><hr>
+          <ul>
+            <li><?php echo $row[4]; ?></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -115,7 +114,7 @@
     </div>
     <div class="col s12 m4 l2"></div>
   </div>
-<?php } ?>
+  <?php } ?>
 </div>
 
 <!--Edit Modal-->

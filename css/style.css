@@ -13,6 +13,14 @@ input[type="text"]{
 #menu-items{
     margin: 0px 140px 0px 0px !important
 }
+#qty-input{
+    background: rgba(255, 254, 192, 0.938);
+    width: 40px;
+    border-bottom-color: transparent !important;
+}
+#visa-card-panel{
+    display: none;
+}
 li > a{
     font-size: 15px !important;
 }

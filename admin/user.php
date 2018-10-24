@@ -49,28 +49,28 @@
 			<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" style="margin-top: 30px;">
 				<div class="card-panel z-depth-2 hoverable">
 						<div class="row">
-								<div class="input-field">
-										<input type="text" name="firstname" autocomplete="off" value="<?php echo $firstname; ?>" id="firstname">
-										<label for="firstname">Firstname</label>
-								</div>
+							<div class="input-field">
+									<input type="text" name="firstname" autocomplete="off" value="<?php echo $firstname; ?>" id="firstname">
+									<label for="firstname">Firstname</label>
+							</div>
 						</div>
 						<div class="row">
-								<div class="input-field">
-										<input type="text" name="lastname" id="lastname" value="<?php echo $lastname; ?>" autocomplete="off">
-										<label for="lastname">Lastname</label>
-								</div>
+							<div class="input-field">
+									<input type="text" name="lastname" id="lastname" value="<?php echo $lastname; ?>" autocomplete="off">
+									<label for="lastname">Lastname</label>
+							</div>
 						</div>
 						<div class="row">
-								<div class="input-field">
-										<input type="text" name="email" data-error="invalid" value="<?php echo $email; ?>" id="email" autocomplete="off">
-										<label for="email">Email</label>
-								</div>
+							<div class="input-field">
+									<input type="text" name="email" data-error="invalid" value="<?php echo $email; ?>" id="email" autocomplete="off">
+									<label for="email">Email</label>
+							</div>
 						</div>
 						<div class="row">
-								<div class="input-field">
-										<input type="text" id="phone" data-length="10" value="<?php echo $phone; ?>" name="phone" autocomplete="off">
-										<label for="phone">Phone no</label>
-								</div>
+							<div class="input-field">
+									<input type="text" id="phone" data-length="10" value="<?php echo $phone; ?>" name="phone" autocomplete="off">
+									<label for="phone">Phone no</label>
+							</div>
 						</div>                    
 						<div class="row">
 							<div class="input-field">
@@ -90,7 +90,7 @@
 				<form>
 					<div class="input-field col s8 right" style="margin-top: 30px;">
 						<input type="text" name="user" id="q" onkeyup="search()" autocomplete="off">
-						<label for="label-icon"><i class="fa fa-search left"></i>Enter name to search</label>
+						<label for="label-icon"><i class="fa fa-search left"></i>Enter firstname to search</label>
 					</div>
 				</form>
 			</div>
@@ -127,25 +127,26 @@
 	</div>    
 </div>
 <script>
-// $("#deleteBtn").click(function(){
-//         swal({
-//             title: 'Are you sure?',
-//             text: "You won't be able to revert this!",
-//             type: 'warning',
-//             showCancelButton: true,
-//             confirmButtonColor: '#3085d6',
-//             cancelButtonColor: '#d33',
-//             confirmButtonText: 'Yes, delete it!'
-//           }).then((result) => {
-//             if (result.value) {
-//               swal(
-//                 'Deleted!',
-//                 'Your file has been deleted.',
-//                 'success'
-//               )
-//             }
-//           });
-//     });
+	// $("#deleteBtn").mouseover(function(){
+	// 	swal({
+  // 		title: 'Are you sure?',
+	// 		text: "You won't be able to revert this!",
+	// 		type: 'warning',
+	// 		showCancelButton: true,
+	// 		confirmButtonColor: '#3085d6',
+	// 		cancelButtonColor: '#d33',
+	// 		confirmButtonText: 'Yes, delete it!'
+	// 	}).then((result) => {
+	// 		if (result.value) {
+	// 			swal(
+	// 				'Deleted!',
+	// 				'Your file has been deleted.',
+	// 				'success'
+	// 			)
+	// 		}
+	// 	});
+	// });
+	
 
 function search() {
     // Declare variables 
@@ -157,7 +158,7 @@ function search() {
   
     // Loop through all table rows, and hide those who don't match the search query
     for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[0];
+      td = tr[i].getElementsByTagName("td")[1];
       if (td) {
         if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
           tr[i].style.display = "";

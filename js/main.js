@@ -147,6 +147,17 @@ $(document).ready(function(){
     // Select 
     $('select').formSelect();
 
+    // Floating Button
+    $('.fixed-action-btn').floatingActionButton({
+        toolbarEnabled: true
+
+    });
+
+    $('#card-toggle').click(function(){
+        $('#visa-card-panel').css("display", "block");  
+    });
+
+
 });
 
 
