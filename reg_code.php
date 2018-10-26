@@ -73,8 +73,8 @@
                     // echo $sql;
                     $result = mysqli_query($conn, $sql);
                     header("Location:login.php");
-                    exit;
-                }
+                    
+                    }
                 }
               }
             }

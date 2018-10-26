@@ -1,6 +1,7 @@
 <?php 
-    include 'inc/header.php'; 
-    include 'inc/reg_code.php'; 
+		include 'reg_code.php'; 
+		include 'inc/header.php'; 
+    
 
 ?>
 <!-- navbar -->

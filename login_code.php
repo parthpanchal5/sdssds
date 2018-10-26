@@ -18,9 +18,11 @@
     // Validate email
     if(empty($userinput)){
       $userinput_err = 'Please enter email or username';
+      header("Location:login.php");
     }
     if(empty($password)){
       $password_err = 'Please enter password';
+      header("Location:login.php");
     } else{
         $sql = "SELECT * FROM users WHERE username = '$userinput' OR email = '$userinput'";
         $result = mysqli_query($conn, $sql);
