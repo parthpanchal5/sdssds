@@ -71,16 +71,15 @@
 <!--Content area -->
 <div class="container-fluid lighten-4">
 <?php 
-  $sql = "SELECT * FROM users WHERE user_id = '$id'";
+  $sql = "SELECT * FROM users WHERE user_id = '".$_SESSION['user_id']."'";
   $result = mysqli_query($conn, $sql);
   while($row = mysqli_fetch_row($result)){ ?>
   <div class="row">
     <div class="col s12 m4 l2"></div>
     <div class="col s12 m4 l8">
-
       <div class="card z-depth-1 waves-effect hoverable">
         <div class="card-image">
-          <img src="img/back.jpeg" height="400">
+          <img src="img/back.jpeg" height="380">
           <span class="card-title white-text"><h4><?php echo $row[1]." ".$row[2];  ?></h4></span>
           <a href="#modal1" class="btn-floating halfway-fab waves-effect waves-light blue lighten-2 modal-trigger"><i class="material-icons">create</i></a>
         </div>
@@ -90,12 +89,12 @@
         </div>
       </div>
     </div>
-    <div class="col s12 m4 l2"></div>
+    
   </div>
   <div class="row">
-    <div class="col s12 m4 l2"></div>
-    <div class="col s12 m4 l3">
-      <div class="card z-depth-1 waves-effect lighten-2 rounded hoverable" id="address">
+  <div class="col m2 l2"></div>
+    <div class="col s12 m4 l4">
+      <div class="card z-depth-1  waves-effect lighten-2 rounded hoverable" id="address">
         <div class="card-content">
           <div class="card-title center">Delivery Address</div><hr>
           <ul>
@@ -104,7 +103,7 @@
         </div>
       </div>
     </div>
-    <div class="col s12 m4 l5">
+    <div class="col s12 m4 l4">
       <div class="card z-depth-1  waves-effect  lighten-2 rounded hoverable">
         <div class="card-content"> 
           <div class="card-title">Purchased</div>

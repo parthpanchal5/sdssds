@@ -153,11 +153,6 @@ $(document).ready(function(){
 
     });
 
-    $('#card-toggle').click(function(){
-        $('#visa-card-panel').css("display", "block");  
-    });
-
-
 });
 
 
