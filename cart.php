@@ -39,11 +39,9 @@
 								<td>Samsung Phone </td>
 								<td>
 									<form>
-										<!-- <a class="btn-floating btn-small waves-effect waves-light blue lighten-2"><i class="material-icons">add</i></a> -->
-										<p class="range-field">
-      								<input type="range" id="test5" min="0" max="5" />
-										</p>
-										<!-- <a class="btn-floating btn-small waves-effect waves-light green lighten-2"><i class="material-icons">remove</i> -->
+										<a class="btn-floating btn-small waves-effect waves-light blue lighten-2"><i class="material-icons">add</i></a>
+											<input type="text" name="qty" id="qty-input" min="0" max="10">
+										<a class="btn-floating btn-small waves-effect waves-light green lighten-2"><i class="material-icons">remove</i>
 									</form>
 								</td>
 								<td>35000</td>
@@ -54,9 +52,9 @@
 								<td>Lorem, ipsum </td>
 								<td>
 									<form action="">
-										<a class="btn-floating btn-small waves-effect waves-light blue lighten-2"><i class="material-icons">add</i></a>
-											<input type="text" name="qty" class="small" id="qty-input">
-										<a class="btn-floating btn-small waves-effect waves-light green lighten-2"><i class="material-icons">remove</i>
+										<button type="button" class="btn-floating btn-small waves-effect waves-light blue lighten-2" id="addBtn"><i class="material-icons">add</i></button>
+											<input type="text" name="qty" class="small" id="qty-input" style="text-align:center;">
+										<button type="button" class="btn-floating btn-small waves-effect waves-light red lighten-1" id="removeBtn"><i class="material-icons">remove</i></button>
 									</form>
 								</td>
 								<td>35000</td>
@@ -85,22 +83,13 @@
 									<td>35000 <i class="fa fa-rupee-sign fa-1x"></i></td>
 								</tr>								
 								<tr>
-									<th class="center-align green lighten-2 white-text">Subtotal : </th>
+									<th class="center-align green white-text">Subtotal : </th>
 									<td>1050000 <i class="fa fa-rupee-sign fa-1x"></i></td>
 								</tr>
 								<tr>
 									<td colspan="2">
-										<a href="#" class="btn btn-medium btn-block blue lighten-2" id="card-toggle">Pay via <i class="fab fa-cc-visa" style="margin-left:10px;"></i></a>
+										<a href="#" class="btn btn-medium btn-block amber darken-3 white-text" id="card-toggle">Checkout <i class="fab fa-cc-visa" style="margin-left:10px;"></i></a>
 									</td>
-								</tr>
-								<tr>
-									<td colspan="2">
-										<p>Add a card</p>
-										<form id="visa-card-panel">
-											<label for="ks" class="icon-prefix"><i class="material-icons">cart</i></label>
-											<input type="text">
-										</form>
-									</td>	
 								</tr>
 							</tbody>
 					</table> 

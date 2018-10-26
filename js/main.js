@@ -1,3 +1,4 @@
+var counter = 0;
 $(document).ready(function(){
     // Check if js is running
     console.log('Js loaded');
@@ -86,8 +87,13 @@ $(document).ready(function(){
         }
     });
     
-    
-
+    $("#addBtn").click(function(e){
+        e.preventDefault();
+        let output = $("#qty-input").val(counter++);      
+    });
+    $("#removeBtn").click(function(){
+        let output = $("#qty-input").val(counter--);      
+    })
 
     // Config for dropdown
     $(".dropdown-trigger").dropdown({
@@ -105,7 +111,7 @@ $(document).ready(function(){
         inDuration: 420,
         startingTop: '2%',
         endingTop: '10%',
-        dismissible: false,
+        dismissible: true,
         outDuration: 360,
         preventScrolling: true
     });    
@@ -154,6 +160,8 @@ $(document).ready(function(){
     });
 
 });
+
+
 
 
 

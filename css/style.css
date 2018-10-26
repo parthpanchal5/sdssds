@@ -25,21 +25,10 @@ li > a{
     font-size: 15px !important;
 }
 /* Gradients */
-.gradient-1{
-    background: linear-gradient(to bottom, #ffb347, #ffcc33);
-}
-.gradient-2{
-    background: linear-gradient(to top, #dce35b, #45b649); 
-
-}
-.gradient-3{
-    background: linear-gradient(to top, #7f00ff, #e100ff); 
-
-}
-.gradient-4{
-    background: linear-gradient(to right, #ff416c, #ff4b2b); 
-
-}
+.gradient-1{background: linear-gradient(to bottom, #ffb347, #ffcc33);}
+.gradient-2{background: linear-gradient(to top, #dce35b, #45b649); }
+.gradient-3{background: linear-gradient(to top, #7f00ff, #e100ff); }
+.gradient-4{background: linear-gradient(to right, #ff416c, #ff4b2b);}
 /* For Mobiles */
 @media (max-width: 600px) {
     .carousel-slider{
