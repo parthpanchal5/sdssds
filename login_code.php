@@ -41,7 +41,6 @@
                 $_SESSION['address'] = $row['address'];
                 $_SESSION['user_id'] = $row['user_id'];
                 header("Location:index.php");
-                exit;
               }
             } 
           }

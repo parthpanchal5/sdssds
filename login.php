@@ -17,7 +17,7 @@
       <img src="img/login.svg" alt="img" height="320" style="margin-top: 80%;" class="hide-on-med-and-down animated ">
     </div>
     <div class="col s12 m6 right">
-      <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+      <form action="login_code.php" method="POST">
         <div class="card-panel z-depth-2 animated " id="login-card" style="margin-top: 35px;">
           <div class="row">
             <div class="input-field">

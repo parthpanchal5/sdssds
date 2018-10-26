@@ -1,7 +1,7 @@
 
 <?php 
-  include 'inc/header.php';
-  include 'edit_profile.php'; 
+	include 'inc/header.php';
+	include 'edit_profile_code.php'; 
 ?>
 
 <!--Main navbar-->
@@ -61,7 +61,7 @@
 <div id="modal1" class="modal modal-fixed-footer">
   <div class="modal-content">
     <h5 class="center">Edit Profile <i class="fa fa-edit fa-1x"></i></h5>
-    <form action="edit_profile.php" method="POST">
+    <form action="edit_profile_code.php" method="POST">
       <div class="row">
         <div class="input-field col s12">
             <input id="email" type="text" class="validate <?php echo (!empty($email_err)) ? 'invalid' : ''; ?>" name="email" value="<?php echo $row[3]; ?>">
