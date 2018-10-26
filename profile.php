@@ -18,7 +18,7 @@
 <div class="container-fluid lighten-4">
   <div class="row">
     <div class="col s12 m2 l2 xl2"></div>
-    <div class="col s12 m4 l8">
+    <div class="col s12 m8 l8">
       <div class="card z-depth-1 waves-effect hoverable">
         <div class="card-image">
           <img src="img/back.jpeg" height="380">
@@ -45,7 +45,7 @@
         </div>
       </div>
     </div>
-    <div class="col s12 m4 l4">
+    <div class="col s12 m2 l4">
       <div class="card z-depth-1  waves-effect  lighten-2 hoverable">
         <div class="card-content"> 
           <div class="card-title center">Purchased</div>
@@ -60,7 +60,7 @@
 <!--Edit Modal-->
 <div id="modal1" class="modal modal-fixed-footer">
   <div class="modal-content">
-    <h5 class="center">Edit Profile</h5>
+    <h5 class="center">Edit Profile <i class="fa fa-edit fa-1x"></i></h5>
     <form action="edit_profile.php" method="POST">
       <div class="row">
         <div class="input-field col s12">
