@@ -1,7 +1,9 @@
 <nav class="blue lighten-2">
 	<div class="nav-wrapper">
 		<a href="index.php" class="brand-logo" id="brand-logo">Shop</a>
+		
 		<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+		
 		<ul class="right hide-on-med-and-down" id="menu-items">
       <!--concept.php  -->
 			<li><a class="dropdown-trigger" data-target="more-dropdown">More <i class="fa fa-angle-down fa-1x" style="margin-left: 5px;"></i></a></li>                                       
@@ -9,6 +11,18 @@
 			<li><a class="dropdown-trigger" data-target='profile-dropdown'>Profile <i class="fa fa-user fa-1x" style="margin-left: 5px;"></i></a></li>
 		</ul>
 	</div>
+	<div class="container">
+			<div class="row">
+				<div class="col s6">
+					<form action="" method="POST">
+						<div class="input-field">
+							<input type="text" name="q" id="mega-search" placeholder="Search for products...">
+							<i id="filtersubmit" class="fa fa-search"></i>
+						</div>
+					</form>		
+				</div>
+			</div>
+		</div>
 
 
 	<!-- Dropdown Contents (Non-Mobile) -->
@@ -23,4 +37,5 @@
 	<ul id="cart-dropdown" class="dropdown-content">
 		<li><a href="cart.php" class="left blue-text">View Cart<i class="fa fa-shopping-cart fa-1x right" style="padding-left: 10px; margin-left: 5px;"></i></a></li>
 	</ul>
+	
 </nav>
