@@ -50,11 +50,11 @@
 <?php include 'inc/header.php'; ?>
 <!-- navbar -->
 <nav class="blue lighten-2">
-    <div class="container">
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Shop</a>
-        </div>
-    </div>  
+	<div class="container">
+		<div class="nav-wrapper">
+			<a href="#" class="brand-logo">Shop</a>
+		</div>
+	</div>  
 </nav>
 <div class="container">
   <div class="row">
