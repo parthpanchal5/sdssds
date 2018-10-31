@@ -4,21 +4,22 @@
 	include 'edit_profile_code.php'; 
 ?>
 
+
+
+
 <!--Main navbar-->
 <?php include 'inc/mainnav.php'; ?>
-
 <!--Mobile navbar -->
 <?php include 'inc/mobilenav.php'; ?>
-<!--Content area -->
 
+<!--Content area -->
 <?php 
   $sql = "SELECT * FROM users WHERE user_id = '".$_SESSION['user_id']."'";
   $result = mysqli_query($conn, $sql);
   while($row = mysqli_fetch_row($result)){ ?>
-<div class="container-fluid lighten-4">
+<div class="container lighten-4">
   <div class="row">
-    <div class="col s12 m2 l2 xl2"></div>
-    <div class="col s12 m8 l8">
+    <div class="col s12 m8 l12" style="margin-top: 10px;">
       <div class="card z-depth-1 waves-effect hoverable">
         <div class="card-image">
           <img src="img/back.jpeg" height="380">
@@ -31,12 +32,10 @@
         </div>
       </div>
     </div>
-    <div class="col s12 m2 l2"></div>
   </div>
   <div class="row">
-    <div class="col s12 m2 l2"></div>
-    <div class="col s12 m4 l4">
-      <div class="card z-depth-1  waves-effect lighten-2 gradient-4 hoverable" id="address">
+    <div class="col s12 m8 l4">
+      <div class="card z-depth-1 waves-effect lighten-2 gradient-4 hoverable" id="address">
         <div class="card-content">
           <div class="card-title white-text center">Delivery Address</div>
           <ul class="white-text">
@@ -45,15 +44,6 @@
         </div>
       </div>
     </div>
-    <div class="col s12 m2 l4">
-      <div class="card z-depth-1  waves-effect  lighten-2 hoverable">
-        <div class="card-content"> 
-          <div class="card-title center">Purchased</div>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed, veniam?</p>
-        </div>
-      </div>
-    </div>
-    <div class="col s12 m2 l2"></div>
   </div>
 </div>
 

@@ -1,6 +1,6 @@
 <nav class="blue lighten-2">
 	<div class="nav-wrapper">
-		<a href="index.php" class="brand-logo" id="brand-logo">Shop</a>
+		<a href="index.php" class="brand-logo hide-on-med-and-down" id="brand-logo">Shop</a>
 		
 		<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 		
@@ -17,7 +17,7 @@
 					<form action="" method="POST">
 						<div class="input-field">
 							<input type="text" name="q" id="mega-search" placeholder="Search for products...">
-							<i id="filtersubmit" class="fa fa-search"></i>
+							<i id="filtersubmit" class="fa fa-search fa-1x"></i>
 						</div>
 					</form>		
 				</div>
