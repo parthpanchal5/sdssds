@@ -159,8 +159,13 @@ $(document).ready(function(){
 
     });
 
-});
+    // tiny text editor
+    
 
+});
+// tinymce.init({
+//     selector: '#mytextarea'
+//   });
 
 
 

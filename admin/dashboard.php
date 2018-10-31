@@ -16,6 +16,8 @@
 
 ?>
  <?php include 'inc/header.php'; ?>
+  <?php include 'inc/horizonnav.php';?> 
+ 
 <ul class="sidenav collapsible expandable" id="mobile-demo">
 	<li>
 		<div class="user-view">

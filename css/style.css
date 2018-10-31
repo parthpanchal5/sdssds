@@ -59,6 +59,9 @@ li > a{
         margin-top: 10px !important;
         transition: 0.4s ease;
     }
+    #admin-brand-logo{
+        margin: 0px !important;
+    }
     .indicators{
         position: absolute;
         top: 85% !important;
@@ -74,12 +77,10 @@ li > a{
         left: 40%;
         width: 160%;
         font-size: 12px;     
-        display: none;   
     }
     #filtersubmit {
         position: absolute;
         bottom: 0%;
-        display: none;
         padding-top: 22px;
         left: 190%;
         color: rgb(133, 118, 118);
@@ -89,8 +90,8 @@ li > a{
 }
 /* For tablets and laptops */
 @media (min-width: 768px) {
-    #brand-logo{
-        margin: 0px 0px 0px 100px;
+    #admin-brand-logo{
+        margin-left: 80px;
     }     
     
 } 

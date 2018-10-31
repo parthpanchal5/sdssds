@@ -71,7 +71,7 @@
 									<input type="text" id="phone" data-length="10" value="<?php echo $phone; ?>" name="phone" autocomplete="off">
 									<label for="phone">Phone no</label>
 							</div>
-						</div>                    
+						</div>   
 						<div class="row">
 							<div class="input-field">
 								<?php if ($edit_state == false) : ?> 
