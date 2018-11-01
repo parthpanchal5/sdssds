@@ -92,6 +92,9 @@ li > a{
 @media (min-width: 768px) {
     #admin-brand-logo{
         margin-left: 80px;
+    }
+    #client-brand-logo{
+        margin-left: 80px;
     }     
     
 } 

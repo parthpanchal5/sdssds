@@ -1,6 +1,6 @@
 <nav class="blue lighten-2">
 	<div class="nav-wrapper">
-		<a href="index.php" class="brand-logo hide-on-med-and-down" id="brand-logo">Shop</a>
+		<a href="index.php" class="brand-logo hide-on-med-and-down" id="client-brand-logo">Shop</a>
 		
 		<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 		

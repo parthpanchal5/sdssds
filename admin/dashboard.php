@@ -65,7 +65,7 @@
 </ul>
 
 
-<div class="container-fluid">
+<!-- <div class="container-fluid">
 	<div class="row center-align">
 		<div class="col s12 m3 l3 xl3">
 			<div class="card small rounded gradient-4 z-depth-1 waves-effect waves-white lighten-2 hoverable">
@@ -109,7 +109,7 @@
 			</div>
 		</div>   
 	</div>
-</div>
+</div> -->
 <?php include 'inc/footer.php'; ?>
 
         
