@@ -69,27 +69,14 @@
 				if(!preg_match("/^[0-9]*$/", $qty)){
 					$qty_err = "Please insert quantity";
 				}else{
-					// For cat_id
-					// $query = "SELECT `cat_id` FROM category WHERE `cat_name` = '$category'";
-					// $result1 = mysqli_query($conn, $sql);
-					// while($row = mysqli_fetch_array($result1)){
-					// 	$cat_id = $row[0];
-					// 	echo "cat_id: ".$cat_id;
-					// } 
-
-					$sql = "INSERT INTO item(`cat_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `status`) VALUES((SELECT	`cat_id` FROM category WHERE cat_name = 'TV'),	'$itemName', '$newFileName', '$category', '$itemDesc', '$itemPrice', '$qty', '$status'));";
-					echo $sql;
+					$sql = "INSERT INTO item(`cat_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `status`) VALUES((SELECT	`cat_id` FROM category WHERE cat_name = '$category'),	'$itemName', '$newFileName', '$category', '$itemDesc', '$itemPrice', '$qty', '$status');";
 					$result = mysqli_query($conn, $sql);
+					header("Location:insert_item.php");
+					exit;
 				}
 			}
 		}
-
-
-
 	}
-		
-
-
 ?>
 <?php include 'inc/header.php'; ?>
 <?php include 'inc/horizonnav.php'; ?>
@@ -135,8 +122,8 @@
 									<select name="status" >
 										<option value="none"selected>Status</option>
 										<option value="available">Available</option>
-										<option value="out-of-stock">Out of stock</option>
-										<option value="low-stock">Low stock</option>
+										<option value="Out of Stock">Out of stock</option>
+										<option value="Low Stock">Low stock</option>
     							</select>
     							<label>Status</label>
 									<span class="red-text animated fadeIn"><?php echo $status_err; ?></span>
