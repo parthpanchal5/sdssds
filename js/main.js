@@ -136,7 +136,7 @@ $(document).ready(function(){
         endingTop: '10%',
         dismissible: true,
         outDuration: 360,
-        preventScrolling: true
+        preventScrolling: false
     });    
     
     // Textarea

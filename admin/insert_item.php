@@ -25,6 +25,22 @@
 		$fileActualExt = strtolower(end($fileExt));
 		$allowedExt = array('jpg', 'jpeg', 'png', 'pdf');
 		
+		if(in_array($fileActualExt, $allowedExt)){
+			if($fileError === 0){
+				if($fileSize < 500000){
+					$random = rand(6000, 8000);
+					// $newFileName = $random.$fileActualExt;
+					$newFileName = uniqid('', true).".".$fileActualExt;
+					$fileDestination = 'img/'.$newFileName;
+					
+					move_uploaded_file($fileTmpName, $fileDestination);
+				}else{
+					echo "File is too big";		
+				}
+			}else{
+				echo "There was an error uploading file";	
+			}
+		}
 		if(empty($itemName)){
 			$itemName_err = "Item name is required";
 		}
@@ -43,22 +59,6 @@
 		if(empty($itemDesc)){
 			$itemDesc_err = "Item Descripton is required";
 		}
-		if(in_array($fileActualExt, $allowedExt)){
-			if($fileError === 0){
-				if($fileSize < 500000){
-					$random = rand(6000, 8000);
-					// $newFileName = $random.$fileActualExt;
-					$newFileName = uniqid('', true).".".$fileActualExt;
-					$fileDestination = 'img/'.$newFileName;
-					
-					move_uploaded_file($fileTmpName, $fileDestination);
-				}else{
-					echo "File is too big";		
-				}
-			}else{
-				echo "There was an error uploading file";	
-			}
-		}
 		// if(!preg_match("/^[a-zA-Z]$/", $itemName)){
 		// 	$itemName_err = "Invalid Item name";
 		// }
@@ -69,11 +69,17 @@
 				if(!preg_match("/^[0-9]*$/", $qty)){
 					$qty_err = "Please insert quantity";
 				}else{
-					$sql = "INSERT INTO item (item_name, item_img, item_cat, item_desc, item_price, item_qty, status) VALUES ('$itemName', '$newFileName', '$category', '$itemDesc', '$itemPrice', '$qty', '$status')";
+					// For cat_id
+					// $query = "SELECT `cat_id` FROM category WHERE `cat_name` = '$category'";
+					// $result1 = mysqli_query($conn, $sql);
+					// while($row = mysqli_fetch_array($result1)){
+					// 	$cat_id = $row[0];
+					// 	echo "cat_id: ".$cat_id;
+					// } 
+
+					$sql = "INSERT INTO item(`cat_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `status`) VALUES((SELECT	`cat_id` FROM category WHERE cat_name = 'TV'),	'$itemName', '$newFileName', '$category', '$itemDesc', '$itemPrice', '$qty', '$status'));";
 					echo $sql;
 					$result = mysqli_query($conn, $sql);
-					
-					
 				}
 			}
 		}
