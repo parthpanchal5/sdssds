@@ -11,8 +11,7 @@
 			<li><a class="dropdown-trigger" data-target="admin-dropdown">Hello <?php echo $_SESSION['firstname']; ?>!<i class="fa fa-angle-down fa-1x" style="margin-left: 5px;"></i></a></li>                                       
 		</ul>
 	</div>
-	
-</div>
+
 
 	<!-- Dropdown Contents (Non-Mobile) -->
 	<ul id="admin-dropdown" class="dropdown-content">
@@ -20,7 +19,6 @@
 	</ul>
 	<ul id="user-dropdown" class="dropdown-content">
 		<li><a href="view_user.php" class="blue-text">View User</a></li>
-		<li><a href="edit_user.php" class="blue-text">Edit User</a></li>
 	</ul>
 	<ul id="category-dropdown" class="dropdown-content">
 		<li><a href="view_cat.php" class="blue-text">View Category</li></a>
@@ -51,50 +49,45 @@
 		</div>
 	</li>
 	<li class="bold"><a href="dashboard.php" class="collapsible-header waves-effect" id="mobile-links">Dashboard <i class="material-icons right blue-text">home</i></a></li>	
+	<li><div class="divider"></div></li>
 	<li class="bold"><a class="collapsible-header waves-effect" id="mobile-links">Users <i class="material-icons grey-text right">expand_more</i></a>
 		<div class="collapsible-body">
 			<ul>
-				<li><a href="view_user.php" class="blue-text">View Users</a></li>
-				<li><a href="edit_user.php" class="blue-text">Edit User</a></li>
+				<li><a href="view_user.php" class="blue-text">View Users <i class="fa fa-eye fa-1x blue-text right"></i></a></li>
+				<li><a href="edit_user.php" class="blue-text">Edit User <i class="fa fa-edit fa-1x right blue-text"></i></a></li>
 			</ul>
 		</div>
 	</li>
 	<li class="bold"><a class="collapsible-header waves-effect" id="mobile-links">Category <i class="material-icons grey-text right">expand_more</i></a>
 		<div class="collapsible-body">
 			<ul>
-				<li><a href="view_cat.php" class="blue-text">View Category</li></a>
-				<li><a href="insert_cat.php" class="blue-text">Insert Category</li></a>
-				<li><a href="edit_cat.php" class="blue-text">Edit Category</li></a>
+				<li><a href="insert_cat.php" class="blue-text">Add Category <i class="fa fa-plus fa-1x right blue-text"></i></li></a>
+				<li><a href="view_cat.php" class="blue-text">View Category <i class="fa fa-eye fa-1x blue-text right"></i></li></a>
+				<li><a href="edit_cat.php" class="blue-text">Edit Category <i class="fa fa-edit fa-1x right blue-text"></i></li></a>
 			</ul>
 		</div>
 	</li>
 	<li class="bold"><a class="collapsible-header waves-effect" id="mobile-links">Products <i class="material-icons grey-text right">expand_more</i></a>
 		<div class="collapsible-body">
 			<ul>
-				<li><a href="insert_item.php" class="blue-text">Add Items</a></li>
-				<li><a href="view_item.php" class="blue-text">View Items</a></li>
+				<li><a href="insert_item.php" class="blue-text">Add Items <i class="fa fa-plus fa-1x right blue-text"></i></a></li>
+				<li><a href="view_item.php" class="blue-text">View Items <i class="fa fa-eye fa-1x blue-text right"></i></a></li>
 			</ul>
 		</div>
 	</li>
-	<li><div class="divider"></div></li>
-	<li class="bold active"><a class="collapsible-header waves-effect" id="mobile-links">Categories <i class="material-icons grey-text right">expand_more</i></a>
+	<li class="bold"><a class="collapsible-header waves-effect" id="mobile-links">Messages <i class="material-icons grey-text right">expand_more</i></a>
 		<div class="collapsible-body">
 			<ul>
-				<li><a href="sell.php" class="blue-text">Sell Products</a></li>
-				<li><a href="ads.php" class="blue-text">Create Ads</a></li>			
+			<li><a href="messages.php" class="blue-text">View Messages <i class="fa fa-envelope fa-1x blue-text right"></i></a></li>	
+			</ul>
+		</div>
+	</li>
+	<li class="bold"><a class="collapsible-header waves-effect" id="mobile-links">Transcations <i class="material-icons grey-text right">expand_more</i></a>
+		<div class="collapsible-body">
+			<ul>
+			<li><a href="view_transaction.php" class="blue-text">View Transaction <i class="fa fa-hand-holding-usd fa-1x blue-text right"></i></a></li>	
 			</ul>
 		</div>
 	</li>
 	<li class="bold"><a href="logout.php" class="collapsible-header waves-effect" id="mobile-links">Logout <i class="fa fa-power-off fa-1x right red-text" style="font-size: 15px;"></i></a></li>
 </ul>
-
-
-			
-    
-
-
-
-    
-        
-        
-      
