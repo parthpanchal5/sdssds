@@ -14,7 +14,6 @@
 		<div class="collapsible-body">
 			<ul>
 				<li><a href="profile.php" class="blue-text"><?php echo $_SESSION['firstname']; ?>'s Profile</a></li>
-				<li><a href="logout.php" class="blue-text">Logout</a></li>			
 			</ul>
 		</div>
 	</li>
@@ -42,4 +41,6 @@
 			</ul>
 		</div>
 	</li>
+	<li class="bold"><a href="logout.php" class="collapsible-header waves-effect" id="mobile-links">Logout <i class="fa fa-power-off fa-1x right red-text" style="font-size: 15px;"></i></a></li>
+
 </ul>
