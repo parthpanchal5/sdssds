@@ -21,16 +21,15 @@
 		<li><a href="view_user.php" class="blue-text">View User</a></li>
 	</ul>
 	<ul id="category-dropdown" class="dropdown-content">
+		<li><a href="insert_cat.php" class="blue-text">Add Category</li></a>
 		<li><a href="view_cat.php" class="blue-text">View Category</li></a>
-		<li><a href="insert_cat.php" class="blue-text">Insert Category</li></a>
-		<li><a href="edit_cat.php" class="blue-text">Edit Category</li></a>
 	</ul>	
 	<ul id="transaction-dropdown" class="dropdown-content">
 		<li><a href="view_transaction.php" class="blue-text">View Transaction</a></li>
 	</ul>	
 	<ul id="product-dropdown" class="dropdown-content">
-		<li><a href="view_item.php" class="blue-text">View Items</a></li>
 		<li><a href="insert_item.php" class="blue-text">Add Items</a></li>
+		<li><a href="view_item.php" class="blue-text">View Items</a></li>
 	</ul>
 	<ul id="message-dropdown" class="dropdown-content">
 		<li><a href="message.php" class="blue-text">View Messages</a></li>
@@ -54,7 +53,6 @@
 		<div class="collapsible-body">
 			<ul>
 				<li><a href="view_user.php" class="blue-text">View Users <i class="fa fa-eye fa-1x blue-text right"></i></a></li>
-				<li><a href="edit_user.php" class="blue-text">Edit User <i class="fa fa-edit fa-1x right blue-text"></i></a></li>
 			</ul>
 		</div>
 	</li>
@@ -63,7 +61,6 @@
 			<ul>
 				<li><a href="insert_cat.php" class="blue-text">Add Category <i class="fa fa-plus fa-1x right blue-text"></i></li></a>
 				<li><a href="view_cat.php" class="blue-text">View Category <i class="fa fa-eye fa-1x blue-text right"></i></li></a>
-				<li><a href="edit_cat.php" class="blue-text">Edit Category <i class="fa fa-edit fa-1x right blue-text"></i></li></a>
 			</ul>
 		</div>
 	</li>

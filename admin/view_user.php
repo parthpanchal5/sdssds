@@ -38,7 +38,7 @@
   <div class="row">
     <div class="col s12 m4 l2"></div>
     <div class="col s12 m4 l8 black-text" id="content">
-      <div class="card">  
+      <div class="card hoverable">  
         <div class="card-content">
           <table class="highlight responsive-table black-text center-align" style="margin-top: 10px;"  id="searchTable">
           <thead>

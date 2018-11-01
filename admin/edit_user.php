@@ -76,4 +76,6 @@
     </div>
   </div>
   <div class="col s12 m4 l3"></div>
+</div>
+
 <?php include 'inc/footer.php'; ?>  

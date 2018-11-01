@@ -45,8 +45,8 @@
         $address_err = "Maximum length exceded (Limit: 200)";
     }else{
       if(!preg_match("/^[a-zA-Z]*$/", $firstname) || !preg_match("/^[a-zA-Z]*$/", $lastname)){
-        $firstname_err =  "Firstname is required";
-        $lastname_err = "Lastname is required";
+        $firstname_err =  "Firstname is invalid";
+        $lastname_err = "Lastname is invalid";
       }else{
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
           $email_err = "Email is invalid";                        

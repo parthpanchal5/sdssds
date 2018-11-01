@@ -86,6 +86,29 @@ $(document).ready(function(){
             $('#user_input').addClass('valid');
         }
     });
+
+    $('#price').keyup(function(){
+        var regExp = /^[0-9.]+$/;
+        if(!regExp.test($('#price').val())){
+            $('#price').addClass('invalid animated shake');
+        }else{
+            $('#price').removeClass('invalid animated shake');
+            $('#price').addClass('valid');
+        }
+    });
+
+    $('#qty').keyup(function(){
+        var regExp = /^[0-9]+$/;
+        if(!regExp.test($('#qty').val())){
+            $('#qty').addClass('invalid animated shake');
+        }else{
+            $('#qty').removeClass('invalid animated shake');
+            $('#qty').addClass('valid');
+        }
+    });
+    $('#name').keyup(function(){
+        var regExp = /^[a-bA-B0-9 ]+$/;
+    })
     
     $("#addBtn").click(function(e){
         e.preventDefault();
@@ -116,8 +139,11 @@ $(document).ready(function(){
         preventScrolling: true
     });    
     
+    // Textarea
+    M.textareaAutoResize($('#textarea1'));
+
     // Count character
-    $('input#phone, textarea#address').characterCounter();
+    $('input#phone, textarea#address, textarea#desc').characterCounter();
 
     // text fields
     M.updateTextFields();
