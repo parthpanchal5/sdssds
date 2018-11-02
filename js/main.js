@@ -133,9 +133,8 @@ $(document).ready(function(){
         opacity: 0.8,
         inDuration: 420,
         startingTop: '2%',
-        endingTop: '10%',
         dismissible: true,
-        outDuration: 360,
+        outDuration: 420,
         preventScrolling: false
     });    
     

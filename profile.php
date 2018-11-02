@@ -74,7 +74,7 @@
       <div class="row">
         <div class="input-field col s12">
           <textarea id="address" name="address" data-length="120" class="materialize-textarea bold <?php echo (!empty($address_err)) ? 'invalid' : ''; ?>"><?php echo $row[4]; ?></textarea>
-          <label for="address">Address</label>
+          <label for="address">Delivery Address</label>
           <span class="red-text"><?php echo $address_err; ?></span>
           </div>
       </div>

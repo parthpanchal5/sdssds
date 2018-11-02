@@ -18,6 +18,12 @@ input[type="text"]{
     width: 40px;
     border-bottom-color: transparent !important;
 }
+th{
+    text-align: center;
+}
+td{
+    text-align: center;
+}
 #mega-search{
     display: block;
     background: #ffffff;
