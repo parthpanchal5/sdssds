@@ -1,4 +1,5 @@
-<nav class="blue lighten-2">
+<div class="navbar-fixed">
+<nav class="blue lighten-2 z-depth-2">
 	<div class="nav-wrapper">
 		<a href="index.php" class="brand-logo hide-on-med-and-down" id="client-brand-logo">Shop</a>
 		
@@ -24,11 +25,11 @@
 			</div>
 		</div>
 
-
+</div>
 	<!-- Dropdown Contents (Non-Mobile) -->
 	<ul id="profile-dropdown" class="dropdown-content">
 		<li><a href="profile.php" class="blue-text">Hello <?php echo $_SESSION['firstname']; ?></a></li>
-		<li><a href="logout.php" class="blue-text">Logout</a></li>
+		<li><a href="logout.php" class="blue-text">Logout <i class="fa fa-power-off red-text fa-1x right" style="margin-left: 20px;"></i></a></li>
 	</ul>
 	<ul id="more-dropdown" class="dropdown-content">
 		<li><a href="sell.php" class="left blue-text">Sell Products<i class="fas fa-chart-line right fa-1x" style="padding-left: 15px;"></i></a></li>

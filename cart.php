@@ -18,7 +18,7 @@
 <div class="container-fluid lighten-4">
   <div class="row" style="margin-top: 20px;">
 	<div class="col s12 l1"></div>
-		<div class="col s12 m8 l6">
+		<div class="col s12 m12 l6">
 			<div class="card hoverable">
 				<div class="card-content">
 					<div class="card-title center-align">
@@ -64,7 +64,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col s12 m5 l4 x4">
+		<div class="col s12 m12 l4 x4">
 			<div class="card hoverable">
 				<div class="card-content">
 					<div class="card-title center-align">Checkout Bill</div><hr>

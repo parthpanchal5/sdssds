@@ -84,7 +84,7 @@
     <h3 class="center" style="margin-top: 1em;">Add items</h3>
 		<div class="row">
 			<div class="col s12 m2 l2"></div>
-			<div class="col s12 m8 l8">
+			<div class="col s12 m12 l8">
 				<div class="card hoverable">
 					<div class="card-content">
 						<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">

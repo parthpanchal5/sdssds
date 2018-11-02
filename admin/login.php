@@ -59,10 +59,11 @@
 </nav>
 <div class="container">
   <div class="row">
+		<h3 class="center">Login</h3>	
     <div class="col s3"></div>
-    <div class="col s12 m6">
+    <div class="col s12 m12 l6">
       <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-        <div class="card-panel z-depth-2 animated fade " id="login-card" style="margin-top: 50px;">
+        <div class="card-panel z-depth-1 hoverable animated fade " id="login-card" style="margin-top: 40px;">
           <div class="row">
             <div class="input-field">
               <i class="material-icons prefix">account_circle</i>

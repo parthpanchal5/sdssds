@@ -50,21 +50,24 @@
   
 
 <!-- navbar -->
-<nav class="blue lighten-2 z-depth-2">
-  <div class="container">
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Shop</a>
-    </div>
-  </div>  
-</nav>
+<div class="navbar-fixed">
+  <nav class="blue lighten-2 z-depth-2">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Shop</a>
+      </div>
+    </div>  
+  </nav>
+</div>
 <div class="container">
   <div class="row">
-    <div class="col s2">
+  <h3 class="center animated fadeInDown">Login</h3>
+    <div class="col s2 hide-on-med-and-down m2 l2">
       <img src="img/login.svg" alt="img" height="320" style="margin-top: 80%;" class="hide-on-med-and-down animated ">
     </div>
-    <div class="col s12 m6 right">
+    <div class="col s12 m12 l6 right">
       <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-        <div class="card-panel z-depth-2 animated " id="login-card" style="margin-top: 35px;">
+        <div class="card-panel z-depth-1 hoverable animated fadeIn" id="login-card" style="margin-top: 10px;">
           <div class="row">
             <div class="input-field">
               <i class="material-icons prefix">account_circle</i>

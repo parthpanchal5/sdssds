@@ -1,3 +1,4 @@
+<div class="navbar-fixed">
 <nav class="blue lighten-2 z-depth-2">
 	<div class="nav-wrapper">
 		<a href="dashboard.php" class="brand-logo" id="admin-brand-logo">Shop</a>
@@ -12,7 +13,7 @@
 		</ul>
 	</div>
 
-
+</div>
 	<!-- Dropdown Contents (Non-Mobile) -->
 	<ul id="admin-dropdown" class="dropdown-content">
 		<li><a href="logout.php" class="blue-text" style="padding-right: 80px;">Logout</a></li>

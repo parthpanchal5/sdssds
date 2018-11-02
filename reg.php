@@ -84,18 +84,21 @@
   }
 ?>
 <!-- navbar -->
-<nav class="blue lighten-2">
-	<div class="container">
-		<div class="nav-wrapper">
-			<a href="#" class="brand-logo">Shop</a>
-		</div>
-	</div>
-</nav>
+<div class="navbar-fixed">
+  <nav class="blue lighten-2 z-depth-2">
+	  <div class="container">
+		  <div class="nav-wrapper">
+			  <a href="#" class="brand-logo">Shop</a>
+		  </div>
+	  </div>
+  </nav>
+</div>  
 <div class="container">
 	<div class="row">
-		<div class="col s12 m6 right">
+    <h3 class="center animated fadeInDown">Sign Up</h3>
+		<div class="col s12 m12 l6 right">
 			<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-				<div class="card-panel animated fadeInRight" id="reg-card" style="margin-top: 20px;">
+				<div class="card-panel animated hoverable fadeIn" id="reg-card" style="margin-top: 25px;">
 					<div class="row">
 						<div class="input-field  col s6">
 								<input id="firstname" type="text" class="validate <?php echo (!empty($firstname_err)) ? 'invalid' : ''; ?>" name="firstname" value="<?php echo $firstname; ?>">
@@ -152,8 +155,8 @@
 				</div>
 			</form>
 		</div>
-		<div class="col m2">
-			<img src="img/shop.svg" alt="img" height="340" style="margin-top: 100%;" class="hide-on-med-and-down animated fadeInLeft">
+		<div class="col s12 m2 hide-on-med-and-down">
+			<img src="img/shop.svg" alt="img" height="340" style="margin-top: 100%;" class="animated fadeInLeft">
 		</div>
 	</div>
 </div>

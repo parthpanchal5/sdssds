@@ -35,19 +35,21 @@
             </thead>
             <tbody>
               <?php while($row = mysqli_fetch_array($result)) { ?>
-              <td><b><?php echo $row[0];?></b></td>
-              <td><?php echo $row[1];?></td>
-              <td><img src="img/<?php echo $row[2];?>" alt="<?php echo $row[1]; ?>" class="materialboxed" data-caption="<?php echo $row[1]?>" id="admin-prod-img" width="120"></td>
-              <td><?php echo $row[3]?></td>
-              <td><?php echo $row[4];?></td>
-              <td><?php echo $row[5];?></td>
-              <td><?php echo $row[6];?></td>
-              <td><?php echo $row[7];?></td>
-              <td>
-                <a href="edit_item.php?edit=<?php echo $row[0]; ?>" class="blue-text">edit <i class="fa fa-edit"></i></a> | 
-                <a href="view_item.php?delete=<?php echo $row[0]; ?>" id="deleteBtn" class="red-text">delete <i class="fa fa-trash"></i></a>
-              </td>
-              <?php } ?>
+              <tr>
+                <td><b><?php echo $row[0];?></b></td>
+                <td><?php echo $row[1];?></td>
+                <td><img src="img/<?php echo $row[2];?>" alt="<?php echo $row[1]; ?>" class="materialboxed" data-caption="<?php echo $row[1]?>" id="admin-prod-img" width="120"></td>
+                <td><?php echo $row[3]?></td>
+                <td><?php echo $row[4];?></td>
+                <td><?php echo $row[5];?></td>
+                <td><?php echo $row[6];?></td>
+                <td><?php echo $row[7];?></td>
+                <td>
+                  <a href="edit_item.php?edit=<?php echo $row[0]; ?>" class="blue-text">edit <i class="fa fa-edit"></i></a> | 
+                  <a href="view_item.php?delete=<?php echo $row[0]; ?>" id="deleteBtn" class="red-text">delete <i class="fa fa-trash"></i></a>
+                </td>
+                <?php } ?>
+              </tr>
             </tbody>
           </table>
         </div>

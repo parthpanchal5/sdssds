@@ -19,7 +19,7 @@
   while($row = mysqli_fetch_row($result)){ ?>
 <div class="container lighten-4">
   <div class="row">
-    <div class="col s12 m8 l12" style="margin-top: 10px;">
+    <div class="col s12 m12 l12" style="margin-top: 10px;">
       <div class="card z-depth-1 waves-effect hoverable">
         <div class="card-image">
           <img src="img/back.jpeg" height="380">
@@ -34,7 +34,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col s12 m8 l4">
+    <div class="col s12 m12 l12">
       <div class="card z-depth-1 waves-effect lighten-2 gradient-4 hoverable" id="address">
         <div class="card-content">
           <div class="card-title white-text center">Delivery Address</div>

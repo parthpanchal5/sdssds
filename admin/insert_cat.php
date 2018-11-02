@@ -41,7 +41,7 @@
   <div class="row"> 
   <span class="green-text"><?php $msg; ?></span>
     <div class="col s12 m2 l3"></div>
-    <div class="col s12 m7 l6">
+    <div class="col s12 m12 l6">
       <div class="card" style="margin-top: 30px;">
         <div class="card-content">
           <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="POST">
