@@ -21,7 +21,7 @@
       <h3 class="center">View Item</h3>
       <div class="card-panel">
         <div class="card-content">
-          <table class="table stripped">
+          <table class="table highlight responsive-table stripped">
             <thead>
               <th>Item.id</th>
               <th>Item Name</th>
@@ -35,7 +35,7 @@
             </thead>
             <tbody>
               <?php while($row = mysqli_fetch_array($result)) { ?>
-              <td><?php echo $row[0];?></td>
+              <td><b><?php echo $row[0];?></b></td>
               <td><?php echo $row[1];?></td>
               <td><img src="img/<?php echo $row[2];?>" alt="<?php echo $row[1]; ?>" width="120"></td>
               <td><?php echo $row[3]?></td>

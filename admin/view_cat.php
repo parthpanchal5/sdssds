@@ -21,7 +21,7 @@
 	<h3 class="center">Category</h3>
   <div class="row">
     <div class="col s12 m2 l3"></div>
-    <div class="col s12 m2 l6">
+    <div class="col s12 m8 l6">
       <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET">
         <div class="row">
           <div class="input-field col s12">
@@ -35,8 +35,8 @@
     <div class="col s12 m2 l3"></div>
   </div>
   <div class="row">
-    <div class="col s12 m4 l2"></div>
-    <div class="col s12 m4 l8 black-text" id="content">
+    <div class="col s12 m0 l2"></div>
+    <div class="col s12 m12 l8 black-text" id="content">
       <div class="card hoverable">  
         <div class="card-content">
           <table class="highlight responsive-table black-text center-align" style="margin-top: 10px;"  id="searchTable">
@@ -66,7 +66,7 @@
         </table>
       </div>    
     </div>	
-  <div class="col s12 m4 l2"></div>
+  <div class="col s12 m0 l2"></div>
 </div>    
 <?php include 'inc/footer.php'; ?>
 
