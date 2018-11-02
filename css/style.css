@@ -93,6 +93,13 @@ li > a{
         cursor:pointer;
         width: 0;
     }
+    #admin-prod-img{
+        height: 100px;
+        width: 100px;
+    }
+    #admin-prod-row{
+        margin-bottom: 86px;
+    }
 }
 /* For tablets and laptops */
 @media (min-width: 768px) {

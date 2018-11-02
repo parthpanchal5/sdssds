@@ -174,6 +174,9 @@ $(document).ready(function(){
         $('.carousel').carousel('next');
         setTimeout(autoplay, 4000);
     }
+    
+    // For materialbox
+    $('.materialboxed').materialbox();
 
     // Select 
     $('select').formSelect();
