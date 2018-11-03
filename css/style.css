@@ -81,7 +81,7 @@ li > a{
         position: absolute;
         transform: translateY(10%);
         left: 40%;
-        width: 160%;
+        width: 190%;
         font-size: 12px;     
     }
     #filtersubmit {

@@ -3,7 +3,7 @@
 		<div class="user-view">
 			<div class="background">
 			<img src="img/back.jpeg" style="height: 820px"></div>
-			<a class="sidenav-close"><i class="material-icons small white-text">arrow_back</i></a>
+			<a class="sidenav-close"><i class="material-icons small white-text" style="cursor: pointer;">arrow_back</i></a>
 			<a><img class="circle right" src="img/avatar.svg"></a>
 			<a><span class="white-text name"><h4><?php echo $_SESSION['firstname']." ".$_SESSION['lastname'];?></span></h4></a>
 			<a><span class="white-text email"><?php echo $_SESSION['email']; ?></span></a>

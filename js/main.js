@@ -149,7 +149,7 @@ $(document).ready(function(){
 
     // For sidenav
     $('.sidenav').sidenav({
-        inDuration: 350,
+        inDuration: 300,
         outDuration: 300,
         draggable: true,
         preventScrolling: true
