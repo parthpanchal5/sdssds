@@ -37,7 +37,7 @@
 	<div class="row">
 		<div class="col s12 m3 l3">
 		<!-- Where do this php will go  -->
-		<!-- <?php $sql = "SELECT `item_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `status` FROM item"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($conn, $result)) { ?> -->
+		<?php $sql = "SELECT `item_id`, `cat_id`,`item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `status` FROM item"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($conn, $result)) { ?>
 			<div class="card">
         <div class="card-image">
           <img src="admin/img/<?php echo $row[3]; ?>">

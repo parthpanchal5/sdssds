@@ -22,7 +22,7 @@
     <div class="col s12 m12 l12" style="margin-top: 10px;">
       <div class="card z-depth-1 waves-effect hoverable">
         <div class="card-image">
-          <img src="img/back.jpeg" height="380">
+          <img src="img/back.jpeg" height="360">
           <span class="card-title white-text"><h4><?php echo $row[1]." ".$row[2];  ?></h4></span>
           <a href="#modal1" class="btn-floating halfway-fab waves-effect waves-light blue lighten-2 modal-trigger"><i class="material-icons">create</i></a>
         </div>
@@ -48,7 +48,7 @@
 </div>
 
 <!--Edit Modal-->
-<div id="modal1" class="modal modal-fixed-footer animated fadeInDown">
+<div id="modal1" class="modal modal-fixed-footer animated slideInDown">
   <div class="modal-content">
     <h5 class="center">Edit Profile <i class="fa fa-edit fa-1x"></i></h5>
     <form action="edit_profile_code.php" method="POST">
@@ -79,12 +79,13 @@
           </div>
       </div>
     </div>
+    <?php } ?>
     <div class="modal-footer">
       <input type="submit" value="Update" name="edit" class="btn btn-block btn-small right red lighten-1" style="margin-right: 30px;">
     </div>
   </form>
 </div>
-<?php } ?>
+
 
 
 <!--Footer  -->

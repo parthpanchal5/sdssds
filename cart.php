@@ -88,7 +88,7 @@
 								</tr>
 								<tr>
 									<td colspan="2">
-										<a href="#" class="btn btn-medium btn-block amber darken-3 white-text" id="card-toggle">Checkout <i class="fab fa-cc-visa" style="margin-left:10px;"></i></a>
+										<a href="checkout.php" class="btn btn-medium btn-block amber darken-3 white-text" id="card-toggle">Checkout <i class="fab fa-cc-visa" style="margin-left:10px;"></i></a>
 									</td>
 								</tr>
 							</tbody>

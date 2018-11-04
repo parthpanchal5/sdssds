@@ -24,7 +24,7 @@
 		<div class="col s12 m6 l3">
 			<div class="card gradient-4 z-depth-1 hoverable center-align">
 				<div class="card-content white-text">
-					<p class="card-stats-title"><i class="fa fa-user-plus" style="margin-right: 5px;"></i> New Users</p>
+					<p class="card-stats-title"><i class="fa fa-user-plus" style="margin-right: 5px;"></i> Total Users</p>
 					<?php $sql = "SELECT COUNT(`user_id`) FROM users"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)) { ?>
 					<h4 class="card-stats-number"><?php echo $row[0]; ?></h4>
 					<?php } ?>
@@ -44,7 +44,7 @@
 		<div class="col s12 m6 l3">
 			<div class="card gradient-2 hoverable z-depth-1 center-align">
 				<div class="card-content white-text">
-					<p class="card-stats-title"><i class="fa fa-user-plus" style="margin-right: 5px;"></i> New Users</p>
+					<p class="card-stats-title"><i class="fa fa-user-plus" style="margin-right: 5px;"></i> Total Categories</p>
 					<?php $sql = "SELECT COUNT(`cat_id`) FROM category"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)) { ?>
 					<h4 class="card-stats-number"><?php echo $row[0]; ?></h4>
 					<?php } ?>
@@ -54,7 +54,7 @@
 		<div class="col s12 m6 l3">
 			<div class="card z-depth-1 hoverable gradient-5 center-align">
 				<div class="card-content white-text">
-					<p class="card-stats-title"><i class="fa fa-user-plus" style="margin-right: 5px;"></i> New Users</p>
+					<p class="card-stats-title"><i class="fa fa-chart-bar" style="margin-right: 5px;"></i> Total Sales</p>
 					<?php $sql = "SELECT COUNT(`user_id`) FROM users"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)) { ?>
 					<h4 class="card-stats-number"><?php echo $row[0]; ?></h4>
 					<?php } ?>

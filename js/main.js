@@ -135,7 +135,7 @@ $(document).ready(function(){
     // Modal
     $('.modal').modal({
         opacity: 0.8,
-        inDuration: 420,
+        inDuration: 300,
         startingTop: '5%',
         dismissible: true,
         outDuration: 420,
