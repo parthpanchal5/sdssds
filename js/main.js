@@ -154,7 +154,7 @@ $(document).ready(function(){
     // For sidenav
     $('.sidenav').sidenav({
         inDuration: 300,
-        outDuration: 300,
+        outDuration: 280,
         draggable: true,
         preventScrolling: true
     });
