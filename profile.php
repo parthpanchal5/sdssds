@@ -48,7 +48,7 @@
 </div>
 
 <!--Edit Modal-->
-<div id="modal1" class="modal modal-fixed-footer">
+<div id="modal1" class="modal modal-fixed-footer animated fadeInDown">
   <div class="modal-content">
     <h5 class="center">Edit Profile <i class="fa fa-edit fa-1x"></i></h5>
     <form action="edit_profile_code.php" method="POST">
@@ -80,7 +80,7 @@
       </div>
     </div>
     <div class="modal-footer">
-      <input type="submit" value="Update" name="edit" class="btn btn-block btn-small right red lighten-1">
+      <input type="submit" value="Update" name="edit" class="btn btn-block btn-small right red lighten-1" style="margin-right: 30px;">
     </div>
   </form>
 </div>

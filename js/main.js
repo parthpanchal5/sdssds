@@ -116,7 +116,11 @@ $(document).ready(function(){
     });
     $("#removeBtn").click(function(){
         let output = $("#qty-input").val(counter--);      
-    })
+    });
+
+    // $('#modal1').blur(function(){
+    //     $('#modal1').addClass('animated fadeOutDown');
+    //  });
 
     // Config for dropdown
     $(".dropdown-trigger").dropdown({
@@ -132,7 +136,7 @@ $(document).ready(function(){
     $('.modal').modal({
         opacity: 0.8,
         inDuration: 420,
-        startingTop: '2%',
+        startingTop: '5%',
         dismissible: true,
         outDuration: 420,
         preventScrolling: false

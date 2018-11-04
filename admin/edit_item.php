@@ -26,23 +26,6 @@
 		$fileActualExt = strtolower(end($fileExt));
     $allowedExt = array('jpg', 'jpeg', 'png', 'pdf', 'JPG', 'JPEG', 'PDF', 'PNG');
     
-    // File condition block
-		if(in_array($fileActualExt, $allowedExt)){
-			if($fileError === 0){
-				if($fileSize < 10000000){
-					$random = rand(6000, 8000);
-					// $newFileName = $random.$fileActualExt;
-					$newFileName = uniqid('', true).".".$fileActualExt;
-					$fileDestination = 'img/'.$newFileName;
-					
-					move_uploaded_file($fileTmpName, $fileDestination);
-				}else{
-					echo "File is too big";		
-				}
-			}else{
-				echo "There was an error uploading file";	
-			}
-    }
 
     if(empty($itemName)){
 			$itemName_err = "Item name is required";
@@ -61,29 +44,46 @@
 		}
 		if(empty($itemDesc)){
 			$itemDesc_err = "Item Descripton is required";
-		}else{
-			if(!preg_match("/^[0-9.]*$/", $itemPrice)){
-				$itemPrice_err = "Invalid amount";
-			}else{
-				if(!preg_match("/^[0-9]*$/", $qty)){
-					$qty_err = "Please insert quantity";
+    }
+    if(!preg_match("/^[0-9.]*$/", $itemPrice)){
+      $itemPrice_err = "Invalid amount";
+    }
+    if(!preg_match("/^[0-9]*$/", $qty)){
+      $qty_err = "Please insert quantity";
+    }
+    
+    // File condition block
+		if(in_array($fileActualExt, $allowedExt)){
+			if($fileError === 0){
+				if($fileSize < 10000000){
+					$random = rand(6000, 8000);
+					// $newFileName = $random.$fileActualExt;
+					$newFileName = uniqid('', true).".".$fileActualExt;
+					$fileDestination = 'img/'.$newFileName;
+					
+					move_uploaded_file($fileTmpName, $fileDestination);
 				}else{
-					$sql = "UPDATE item SET 
-                  cat_id = (SELECT	`cat_id` FROM category WHERE cat_name = '$category'), 
-                  item_name = '$itemName', 
-                  item_img = '$newFileName', 
-                  item_cat = '$category', 
-                  item_desc = '$itemDesc', 
-                  item_price = '$itemPrice', 
-                  item_qty = '$qty', 
-                  status = '$status' 
-                  WHERE item_id = '$id'";
-					$result = mysqli_query($conn, $sql);
-          header("Location:view_item.php");
-          exit();
+					echo "File is too big";		
 				}
+			}else{
+				echo "There was an error uploading file";	
 			}
-		}
+    }
+    else{
+      $sql = "UPDATE item SET 
+              cat_id = (SELECT	`cat_id` FROM category WHERE cat_name = '$category'), 
+              item_name = '$itemName', 
+              item_img = '$newFileName', 
+              item_cat = '$category', 
+              item_desc = '$itemDesc', 
+              item_price = '$itemPrice', 
+              item_qty = '$qty', 
+              status = '$status' 
+              WHERE item_id = '$id'";
+      $result = mysqli_query($conn, $sql);
+      header("Location:view_item.php");
+      exit();
+    }
   }
   
   // Fetch Data into textbox
