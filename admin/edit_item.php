@@ -90,15 +90,15 @@
   if(isset($_GET['edit'])){
     $id = $_GET['edit'];
     $edit_state = true;
-    $rec = mysqli_query($conn, "SELECT * FROM item WHERE item_id = $id");
-    $record = mysqli_fetch_array($rec);
-    $itemName = $record['item_name'];
-    $itemPrice = $record['item_price'];
-    $category = $record['category'];
-    $qty = $record['item_qty'];
-    $status = $record['status'];
-    $itemDesc = $record['item_desc'];
-    $newFileName = $record['item_img'];
+    $getRecord = mysqli_query($conn, "SELECT * FROM item WHERE item_id = $id");
+    $storeRecord = mysqli_fetch_array($getRecord);
+    $itemName = $storeRecord['item_name'];
+    $itemPrice = $storeRecord['item_price'];
+    $category = $storeRecord['category'];
+    $qty = $storeRecord['item_qty'];
+    $status = $storeRecord['status'];
+    $itemDesc = $storeRecord['item_desc'];
+    $newFileName = $storeRecord['item_img'];
     
   }
 ?>
@@ -163,7 +163,7 @@
           <div class="row">
 						<p style="margin-bottom: 10px; margin-left: 10px;">Uploaded Image: </p>
 						<div class="col s12 m12 l12">
-							<img src="img/<?php echo $record['item_img']; ?>" alt="<?php echo $record['item_name'];?>" data-caption="<?php echo $record['item_name']; ?>" class="materialboxed" width="320">
+							<img src="img/<?php echo $storeRecord['item_img']; ?>" alt="<?php echo $storeRecord['item_name'];?>" data-caption="<?php echo $storeRecord['item_name']; ?>" class="materialboxed" width="320">
 						</div>
           </div>
           <div class="row">

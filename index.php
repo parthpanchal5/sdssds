@@ -9,10 +9,7 @@
 		}
 		
 ?>
-<?php 
-	include 'logcode.php';
-	include 'inc/header.php'; 
-?>
+<?php include 'inc/header.php'; ?>
 <!--Main navbar -->
 <?php include 'inc/mainnav.php'; ?>
 	
@@ -36,9 +33,31 @@
 			<img src="img/products/laptop.jpeg" alt="">
 		</div>
 	</div>	
-</div>
+
+	<div class="row">
+		<div class="col s12 m3 l3">
+		<!-- Where do this php will go  -->
+		<?php $sql = "SELECT `item_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `status` FROM item"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($conn, $result)) { ?>
+			<div class="card">
+        <div class="card-image">
+          <img src="admin/img/<?php echo $row[3]; ?>">
+          <span class="card-title"><?php echo $row[2]; ?></span>
+        </div>
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+		</div>
+	<?php } ?>
+	</div>
 
 </div>
+
+
 		
 <?php include 'inc/footer.php'; ?>
 
