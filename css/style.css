@@ -96,9 +96,10 @@ li > a{
     #admin-prod-img{
         height: 100px;
         width: 100px;
+        margin-bottom: 20px;
     }
     #admin-prod-row{
-        margin-bottom:95px;
+        margin-bottom: 20px;
     }
 }
 /* For tablets and laptops */

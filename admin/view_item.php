@@ -19,6 +19,9 @@
     <div class="col s12 m0 l0"></div>
     <div class="col s12 m12 l12">
       <h3 class="center">View Item</h3>
+      <?php $sql = "SELECT COUNT(`item_id`) FROM item"; $result1 = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result1)) { ?>
+      <p class="center">Total no of products: <h5 class="center-align"><?php echo $row[0]; ?></h5></p>
+      <?php }?>
       <div class="card-panel hoverable">
         <div class="card-content">
           <table class="table highlight responsive-table stripped">
@@ -38,7 +41,7 @@
               <tr>
                 <td><b><?php echo $row[0];?></b></td>
                 <td><?php echo $row[1];?></td>
-                <td><img src="img/<?php echo $row[2];?>" alt="<?php echo $row[1]; ?>" class="materialboxed" data-caption="<?php echo $row[1]?>" id="admin-prod-img" width="120"></td>
+                <td><img src="img/<?php echo $row[2];?>" alt="<?php echo $row[1]; ?>" class="materialboxed" data-caption="<?php echo $row[1]; ?>" id="admin-prod-img" width="120"></td>
                 <td><?php echo $row[3]?></td>
                 <td><?php echo $row[4];?></td>
                 <td><?php echo $row[5];?></td>

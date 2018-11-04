@@ -163,7 +163,7 @@
           <div class="row">
 						<p style="margin-bottom: 10px; margin-left: 10px;">Uploaded Image: </p>
 						<div class="col s12 m12 l12">
-							<img src="img/<?php echo $record['item_img']; ?>" alt="" class="materialboxed" width="520">
+							<img src="img/<?php echo $record['item_img']; ?>" alt="<?php echo $record['item_name'];?>" data-caption="<?php echo $record['item_name']; ?>" class="materialboxed" width="320">
 						</div>
           </div>
           <div class="row">

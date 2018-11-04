@@ -28,7 +28,7 @@
 		// File condition block
 		if(in_array($fileActualExt, $allowedExt)){
 			if($fileError === 0){
-				if($fileSize < 10000000){
+				if($fileSize < 100000000){
 					$random = rand(6000, 8000);
 					// $newFileName = $random.$fileActualExt;
 					$newFileName = uniqid('', true).".".$fileActualExt;
@@ -141,10 +141,10 @@
 								<div class="file-field input-field">
       						<div class="btn right btn-small blue lighten-1 rounded" style="border-radius: 50px !important;">
         						<span>Upload <i class="fa fa-upload fa-1x"></i></span>
-        						<input type="file" name="item_img">
+        						<input type="file" name="item_img" value="<?php echo $newFileName; ?>">
       						</div>
       						<div class="file-path-wrapper">
-        						<input class="file-path validate" value="<?php echo $newFileName; ?>" name="img-name" type="text">
+        						<input class="file-path validate"  name="img-name" type="text">
       						</div>
     						</div>							
 							</div>
