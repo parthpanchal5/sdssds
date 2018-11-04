@@ -23,12 +23,12 @@
 		$fileType = $_FILES['item_img']['type'];
 		$fileExt = explode('.', $fileName);
 		$fileActualExt = strtolower(end($fileExt));
-		$allowedExt = array('jpg', 'jpeg', 'png', 'pdf');
+		$allowedExt = array('jpg', 'jpeg', 'png', 'pdf', 'JPG', 'JPEG', 'PDF', 'PNG');
 		
 		// File condition block
 		if(in_array($fileActualExt, $allowedExt)){
 			if($fileError === 0){
-				if($fileSize < 500000){
+				if($fileSize < 10000000){
 					$random = rand(6000, 8000);
 					// $newFileName = $random.$fileActualExt;
 					$newFileName = uniqid('', true).".".$fileActualExt;
@@ -64,7 +64,7 @@
 		// 	$itemName_err = "Invalid Item name";
 		// }
 		else{
-			if(!preg_match("/^[0-9.]*$/", $itemPrice)){
+			if(!preg_match("/^[0-9.,]*$/", $itemPrice)){
 				$itemPrice_err = "Invalid amount";
 			}else{
 				if(!preg_match("/^[0-9]*$/", $qty)){
@@ -97,7 +97,7 @@
 								</div>
 								<div class="input-field col s6">
 									<input type="text" name="price" autocomplete="off" id="price" value="<?php echo $itemPrice; ?>" >
-									<label for="price">Item Price</label>
+									<label for="price">Item Price <i class="fas fa-rupee-sign"></i></label>
 									<span class="red-text animated fadeIn"><?php echo $itemPrice_err; ?></span>
 								</div>
 							</div>
@@ -116,7 +116,7 @@
 							<div class="row">	
 								<div class="input-field col s6">
 									<input type="text" name="qty" id="qty" value="<?php echo $qty; ?>" >
-									<label for="qty">Quantity</label>
+									<label for="qty">Quantity (x1)</label>
 									<span class="red-text"><?php echo $qty_err; ?></span>
 								</div>
 								<div class="input-field col s6">
@@ -141,10 +141,10 @@
 								<div class="file-field input-field">
       						<div class="btn right btn-small blue lighten-1 rounded" style="border-radius: 50px !important;">
         						<span>Upload <i class="fa fa-upload fa-1x"></i></span>
-        						<input type="file" name="item_img"  value="<?php echo $file; ?>">
+        						<input type="file" name="item_img">
       						</div>
       						<div class="file-path-wrapper">
-        						<input class="file-path validate" name="img-name" type="text">
+        						<input class="file-path validate" value="<?php echo $newFileName; ?>" name="img-name" type="text">
       						</div>
     						</div>							
 							</div>

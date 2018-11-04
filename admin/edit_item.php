@@ -24,7 +24,7 @@
 		$fileType = $_FILES['item_img']['type'];
 		$fileExt = explode('.', $fileName);
 		$fileActualExt = strtolower(end($fileExt));
-    $allowedExt = array('jpg', 'jpeg', 'png', 'pdf');
+    $allowedExt = array('jpg', 'jpeg', 'png', 'pdf', 'JPG', 'JPEG', 'PDF', 'PNG');
     
     // File condition block
 		if(in_array($fileActualExt, $allowedExt)){

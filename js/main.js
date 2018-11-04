@@ -88,7 +88,7 @@ $(document).ready(function(){
     });
 
     $('#price').keyup(function(){
-        var regExp = /^[0-9.]+$/;
+        var regExp = /^[0-9.,]+$/;
         if(!regExp.test($('#price').val())){
             $('#price').addClass('invalid animated shake');
         }else{
