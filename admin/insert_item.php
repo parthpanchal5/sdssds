@@ -25,6 +25,7 @@
 		$fileActualExt = strtolower(end($fileExt));
 		$allowedExt = array('jpg', 'jpeg', 'png', 'pdf');
 		
+		// File condition block
 		if(in_array($fileActualExt, $allowedExt)){
 			if($fileError === 0){
 				if($fileSize < 500000){
