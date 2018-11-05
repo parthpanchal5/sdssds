@@ -2,14 +2,15 @@
 	session_start(); 
 	include 'inc/conn.php';
 	
-	$itemName = $itemPrice = $category = $qty = $status = $itemDesc  = '';
-	$itemName_err = $itemPrice_err = $category_err = $qty_err = $status_err = $itemDesc_err = '';
+	$itemName = $itemPrice = $category = $qty = $status = $itemDesc  = $subCat = '';
+	$itemName_err = $itemPrice_err = $category_err = $qty_err = $status_err = $itemDesc_err = $subCat_err = '';
 
 	if(isset($_POST['add'])){
 		
 		$itemName = ucwords(mysqli_real_escape_string($conn, $_POST['item_name']));
 		$itemPrice = mysqli_real_escape_string($conn, $_POST['price']);
 		$category = mysqli_real_escape_string($conn, $_POST['item_cat']);
+		$subCat = mysqli_real_escape_string($conn, $_POST['sub_cat']);
 		$qty = mysqli_real_escape_string($conn, $_POST['qty']);
 		$status = mysqli_real_escape_string($conn, $_POST['status']);
 		$itemDesc = mysqli_real_escape_string($conn, $_POST['item_desc']);
@@ -51,6 +52,9 @@
 		if($category === 'none'){
 			$category_err = "Please select category";
 		}
+		if($subCat === 'none'){
+			$subCat_err = "Please select sub-category";
+		}
 		if(empty($qty)){
 			$qty_err = "Please enter quantity";
 		}
@@ -70,10 +74,11 @@
 				if(!preg_match("/^[0-9]*$/", $qty)){
 					$qty_err = "Please insert quantity";
 				}else{
-					$sql = "INSERT INTO item(`cat_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `status`) VALUES((SELECT	`cat_id` FROM category WHERE cat_name = '$category'),	'$itemName', '$newFileName', '$category', '$itemDesc', '$itemPrice', '$qty', '$status');";
+					$sql = "INSERT INTO item(`cat_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `status`, `sub_category`) VALUES((SELECT	`cat_id` FROM category WHERE cat_name = '$category'),	'$itemName', '$newFileName', '$category', '$itemDesc', '$itemPrice', '$qty', '$status', '$subCat');";
 					$result = mysqli_query($conn, $sql);
-					header("Location:insert_item.php");
-					exit;
+					echo $sql;
+					// header("Location:insert_item.php");
+					// exit;
 				}
 			}
 		}
@@ -102,11 +107,21 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="input-field col s12">
+								<div class="input-field col s6">
     							<select name="item_cat" >
 										<option value="none" selected>Category Listing</option>
 										<?php $sql = "SELECT * FROM category"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)) { ?>
-										<option class="blue-text" value="<?php echo $row[1]; ?>"><?php echo $row[1]?></option>
+										<option class="blue-text" value="<?php echo $row[1]; ?>"><?php echo $row[1]; ?></option>
+										<?php }?>
+    							</select>
+    							<label>Select Category</label>
+									<span class="red-text animated fadeIn"><?php echo $category_err; ?></span>
+								</div>
+								<div class="input-field col s6">
+    							<select name="sub_cat" >
+										<option value="none" selected>Sub-Category</option>
+										<?php $sql = "SELECT * FROM category"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)) { ?>
+										<option class="blue-text" value="<?php echo $row[2]; ?>"><?php echo $row[2]; ?></option>
 										<?php }?>
     							</select>
     							<label>Select Category</label>
