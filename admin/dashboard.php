@@ -44,7 +44,7 @@
 		<div class="col s12 m6 l3">
 			<div class="card gradient-2 hoverable z-depth-1 center-align">
 				<div class="card-content white-text">
-					<p class="card-stats-title"><i class="fa fa-user-plus" style="margin-right: 5px;"></i> Total Categories</p>
+					<p class="card-stats-title"><i class="fa fa-list-ul" style="margin-right: 5px;"></i> Total Categories</p>
 					<?php $sql = "SELECT COUNT(`cat_id`) FROM category"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)) { ?>
 					<h4 class="card-stats-number"><?php echo $row[0]; ?></h4>
 					<?php } ?>

@@ -3,12 +3,13 @@
   include 'inc/conn.php';
 
   $edit_state = false;
-  $catName = $catDesc = '';
-  $catName_err = $catDesc_err = '';
+  $catName = $catDesc = $subCatName = '';
+  $catName_err = $catDesc_err = $subCatName_err = '';
   // Update
   if (isset($_POST['update'])) {
     $catName = ucwords(mysqli_real_escape_string($conn, $_POST['cat_name']));
     $catDesc = ucwords(mysqli_real_escape_string($conn, $_POST['cat_desc']));
+    $subCatName = ucwords(mysqli_real_escape_string($conn, $_POST['sub_cat']));
     $id = mysqli_real_escape_string($conn, $_POST['id']);
 
     if(empty($catName)){
@@ -16,14 +17,18 @@
     }
     if(empty($catDesc)){
       $catDesc_err = "Description is required";
-    }else{
+    }
+    if(empty($subCatName)){
+      $subCatName_err = "Sub-Category is required";
+    }
+    else{
       if(preg_match("/^[0-9]*$/", $catName)){
         $catName_err = "Invalid Category Name";
       }else{
         if(strlen($catDesc) > 200){
           $catDesc_err = "Maximum length exceded (Limit: 200)";
         }else{
-          $sql = "UPDATE category SET cat_name = '$catName', cat_desc = '$catDesc' WHERE cat_id = $id";
+          $sql = "UPDATE category SET cat_name = '$catName', sub_cat_name = '$subCatName',cat_desc = '$catDesc' WHERE cat_id = $id";
           mysqli_query($conn, $sql);
           header("Location:view_cat.php?Updated");
           exit;
@@ -36,10 +41,11 @@
   if(isset($_GET['edit'])){
     $id = $_GET['edit'];
     $edit_state = true;
-    $rec = mysqli_query($conn, "SELECT * FROM category WHERE cat_id = $id");
-    $record = mysqli_fetch_array($rec);
-    $catName = $record['cat_name'];
-    $catDesc = $record['cat_desc'];
+    $getRecord = mysqli_query($conn, "SELECT * FROM category WHERE cat_id = $id");
+    $storeRecord = mysqli_fetch_array($getRecord);
+    $catName = $storeRecord['cat_name'];
+    $catDesc = $storeRecord['cat_desc'];
+    $subCatName = $storeRecord['sub_cat_name'];
   }
 ?>
 <?php include 'inc/header.php'; ?>
@@ -59,6 +65,13 @@
                   <span class="red-text animated fadeIn"><?php echo $catName_err; ?></span>    
 							  </div>
 						  </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="sub_cat" autocomplete="off" value="<?php echo $subCatName; ?>" class="<?php echo (!empty($subCatName_err)) ? 'invalid' : ''; ?>">
+                  <label for="sub-category">Sub-Category</label>
+								  <span class="red-text animted fadeIn"><?php echo $subCatName_err; ?></span>
+                </div>
+              </div>
 						  <div class="row">
                 <div class="input-field col s12">
                   <textarea id="desc" name="cat_desc" class="materialize-textarea <?php echo (!empty($catDesc_err)) ? 'invalid' : ''; ?>" autocomplete="off"><?php echo $catDesc; ?></textarea>

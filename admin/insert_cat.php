@@ -2,12 +2,13 @@
     session_start();
     include 'inc/conn.php';
 
-    $catName = $catDesc = '';
-    $catName_err = $catDesc_err = '';
+    $catName = $catDesc = $subCatName = '';
+    $catName_err = $catDesc_err = $subCatName_err = '';
     
     if(isset($_POST['submit'])){
       $catName = ucwords(mysqli_real_escape_string($conn, $_POST['cat_name']));
       $catDesc = ucwords(mysqli_real_escape_string($conn, $_POST['cat_desc']));
+      $subCatName = ucwords(mysqli_real_escape_string($conn, $_POST['sub_cat']));
 
 
       // Empty fields
@@ -17,14 +18,21 @@
       if(empty($catDesc)){
         $catDesc_err = "Category Description required";
       }
+      if(empty($subCatName)){
+        $subCatName_err = "Sub-Category required";
+      }
       else{
         if(preg_match("/^[0-9]*$/", $catName)){
           $catName_err = "Invalid Category Name";
-        }else{
+        }
+        // if(preg_match("/^[0-9]*$/", $subCatName)){
+        //   $subCatName_err = "Invalid Category Name";
+        // }
+        else{
           if(strlen($catDesc) > 200){
             $catDesc_err = "Maximum length exceded (Limit: 200)";
           }else{
-            $sql = "INSERT INTO category (cat_name, cat_desc) VALUES ('$catName', '$catDesc')";
+            $sql = "INSERT INTO category (cat_name, sub_cat_name, cat_desc) VALUES ('$catName', '$subCatName', '$catDesc')";
             $result = mysqli_query($conn, $sql);
             header("Location:view_cat.php");
             exit;
@@ -32,7 +40,6 @@
         }
       }      
     }
-
 ?>
 <?php include 'inc/header.php'; ?>
 <?php include 'inc/horizonnav.php'; ?>
@@ -50,6 +57,13 @@
                 <input type="text" name="cat_name" autocomplete="off" value="<?php echo $catName; ?>" class="<?php echo (!empty($catName_err)) ? 'invalid' : ''; ?>">
                 <label for="category">Category</label>
 								<span class="red-text animted fadeIn"><?php echo $catName_err; ?></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="text" name="sub_cat" autocomplete="off" value="<?php echo $subCatName; ?>" class="<?php echo (!empty($subCatName_err)) ? 'invalid' : ''; ?>">
+                <label for="sub-category">Sub-Category</label>
+								<span class="red-text animted fadeIn"><?php echo $subCatName_err; ?></span>
               </div>
             </div>
             <div class="row">

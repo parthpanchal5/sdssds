@@ -29,6 +29,7 @@
             <input id="icon_prefix" type="text" name="q" class="validate">
             <label for="icon_prefix">Search Categories</label>
           </div>
+          <input type="submit" class="right btn btn-small blue lighten-1" value="search"> 
         </div>
       </form>
     </div>
@@ -43,7 +44,8 @@
           <thead>
             <tr>
               <th>Cat Id</th>
-              <th>Category Name</th>
+              <th>Category</th>
+              <th>Sub Category</th>
               <th>Category Desc</th>
               <th>Created on</th>
               <th>Action</th>
@@ -56,6 +58,7 @@
               <td><?php echo $row[1]; ?></td>
               <td><?php echo $row[2]; ?></td>
               <td><?php echo $row[3]; ?></td>
+              <td><?php echo $row[4]; ?></td>
               <td>
                 <a href="edit_cat.php?edit=<?php echo $row['cat_id']; ?>" class="blue-text">edit <i class="fa fa-edit"></i></a> | 
                 <a href="view_cat.php?delete=<?php echo $row['cat_id']; ?>" id="deleteBtn" class="red-text">delete <i class="fa fa-trash"></i></a>

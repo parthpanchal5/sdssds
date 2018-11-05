@@ -109,6 +109,7 @@ li > a{
     #admin-prod-row{
         margin-bottom: 20px;
     }
+    
 }
 /* For tablets and laptops */
 @media (min-width: 768px){
@@ -117,7 +118,12 @@ li > a{
     }
     #client-brand-logo{
         margin-left: 80px;
-    }     
+    }
+    #contact-card{
+        margin-top: 60px; 
+        margin-right: 80px;
+    }
+
 }
 @media (max-width: 768px) { 
     #mega-search{

@@ -29,6 +29,7 @@
 			<ul>
 				<li><a href="sell.php" class="blue-text">Sell Products <i class="fas fa-chart-line fa-1x right blue-text"></i></a></li>
 				<li><a href="ads.php" class="blue-text">Create Ads <i class="fas fa-ad fa-1x right blue-text"></i></a></li>			
+				<li><a href="contact_us.php" class="blue-text">Contact Us<i class="fas fa-envelope blue-text right fa-1x"></i></a></li>
 			</ul>
 		</div>
 	</li>
