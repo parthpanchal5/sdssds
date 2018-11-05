@@ -1,6 +1,10 @@
 <?php 
 	session_start();
   include 'inc/conn.php';
+  // if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
+  //   header('Location: index.php');
+  //   exit;
+  // }
   
 ?>
 <?php include 'inc/header.php'; ?>

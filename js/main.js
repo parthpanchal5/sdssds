@@ -110,6 +110,12 @@ $(document).ready(function(){
         var regExp = /^[a-bA-B0-9 ]+$/;
     })
     
+    // Delete button
+    $('#deleteBtn').click(function(){
+        $("#contact-row").addClass('animated fadeOutRight');
+        setTimeout(3600);
+    });
+
     $("#addBtn").click(function(e){
         e.preventDefault();
         let output = $("#qty-input").val(counter++);      
@@ -135,10 +141,10 @@ $(document).ready(function(){
     // Modal
     $('.modal').modal({
         opacity: 0.8,
-        inDuration: 300,
+        inDuration: 200,
         startingTop: '5%',
         dismissible: true,
-        outDuration: 420,
+        // outDuration: 420,
         preventScrolling: false
     });    
     

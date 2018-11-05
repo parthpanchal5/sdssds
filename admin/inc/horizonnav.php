@@ -33,7 +33,7 @@
 		<li><a href="view_item.php" class="blue-text">View Items</a></li>
 	</ul>
 	<ul id="message-dropdown" class="dropdown-content">
-		<li><a href="message.php" class="blue-text">View Messages</a></li>
+		<li><a href="view_contact_msg.php" class="blue-text">View Messages</a></li>
 	</ul>
 	
 </nav>
@@ -76,7 +76,7 @@
 	<li class="bold"><a class="collapsible-header waves-effect" id="mobile-links">Messages <i class="material-icons grey-text right">expand_more</i></a>
 		<div class="collapsible-body">
 			<ul>
-			<li><a href="messages.php" class="blue-text">View Messages <i class="fa fa-envelope fa-1x blue-text right"></i></a></li>	
+			<li><a href="view_contact_msg.php" class="blue-text">View Messages <i class="fa fa-envelope fa-1x blue-text right"></i></a></li>	
 			</ul>
 		</div>
 	</li>
