@@ -70,7 +70,7 @@
                     $hashedPass = password_hash($password, PASSWORD_DEFAULT);
                     // Insert user in DB
                     $sql = "INSERT INTO users (firstname, lastname, email, address, username, phone, password) VALUES ('$firstname', '$lastname', '$email', '$address','$username', '$phone', '$hashedPass')";
-                    // echo $sql;
+                    echo $sql;
                     $result = mysqli_query($conn, $sql);
                     header("Location:login.php");
                     

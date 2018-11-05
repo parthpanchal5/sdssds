@@ -197,6 +197,10 @@ $(document).ready(function(){
 
     });
 
+    // Scroll reveal
+    ScrollReveal().reveal('.row .product-showcase');
+
+
     // tiny text editor
     
 

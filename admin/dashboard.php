@@ -19,7 +19,7 @@
 <?php include 'inc/horizonnav.php';?> 
 
 
-<div id="card-stats" style="margin-top: 20px;">
+<div id="card-stats" style="margin-top: 20px;" class="animated fadeInDown">
 	<div class="row">
 		<div class="col s12 m6 l3">
 			<div class="card gradient-4 z-depth-1 hoverable center-align">
