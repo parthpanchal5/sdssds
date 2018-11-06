@@ -109,7 +109,7 @@
   <div class="row">
     <div class="col s12 m2 l2"></div>
     <div class="col s12 m12 l8">
-      <div class="card hoverable">
+      <div class="card hoverable animated fadeIn">
         <div class="card-content">
           <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
             <div class="row">

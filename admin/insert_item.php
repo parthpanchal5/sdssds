@@ -124,7 +124,7 @@
 										<option class="blue-text" value="<?php echo $row[2]; ?>"><?php echo $row[2]; ?></option>
 										<?php }?>
     							</select>
-    							<label>Select Category</label>
+    							<label>Select Sub-Category</label>
 									<span class="red-text animated fadeIn"><?php echo $category_err; ?></span>
 								</div>
 							</div>
@@ -151,7 +151,7 @@
 									<label for="item_desc">Item Description</label>    
 									<span class="red-text animated fadeIn"><?php echo $itemDesc_err; ?></span>    
 								</div>
-            </div>
+            	</div>
 							<div class="row">
 								<div class="file-field input-field">
       						<div class="btn right btn-small blue lighten-1 rounded" style="border-radius: 50px !important;">
@@ -171,7 +171,7 @@
 			</div>
 			<div class="col s12 m2 l2"></div>
 		</div>
-</div>
+	</div>
 <?php include 'inc/footer.php'; ?>
 
         

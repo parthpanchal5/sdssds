@@ -196,6 +196,8 @@ $(document).ready(function(){
         toolbarEnabled: true
 
     });
+    // Tooltip
+    $('.tooltipped').tooltip();
 
     // Scroll reveal
     ScrollReveal().reveal('.row .product-showcase');

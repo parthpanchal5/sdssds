@@ -48,8 +48,8 @@
                 <td><?php echo $row[6];?></td>
                 <td><?php echo $row[7];?></td>
                 <td>
-                  <a href="edit_item.php?edit=<?php echo $row[0]; ?>" class="blue-text">edit <i class="fa fa-edit"></i></a> | 
-                  <a href="view_item.php?delete=<?php echo $row[0]; ?>" id="deleteBtn" class="red-text">delete <i class="fa fa-trash"></i></a>
+                  <a href="edit_item.php?edit=<?php echo $row[0]; ?>" class="blue-text"><i class="fa fa-edit"></i></a> | 
+                  <a href="view_item.php?delete=<?php echo $row[0]; ?>" id="deleteBtn" class="red-text"><i class="fa fa-trash"></i></a>
                 </td>
                 <?php } ?>
               </tr>

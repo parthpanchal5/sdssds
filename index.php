@@ -35,13 +35,13 @@
 	</div>	
 	<?php $sql = "SELECT * FROM item ORDER BY item_id DESC LIMIT 4"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
 <div class="row product-showcase" style="margin-top: 1em;">
-	<div class="col s12 m3 l3">
+	<div class="col s12 m6 l6">
 		<div class="card hoverable">
 			<div class="card-image">
 				<img src="admin/img/<?php echo $row[3]; ?>" class="materialboxed">
-				<span class="card-title"><?php echo $row[2]; ?></span>
 			</div>
 			<div class="card-content">
+				<span class="card-title black-text"><?php echo $row[2]; ?></span>
 				<p><b><h6>Description:</h6></b> <?php echo $row[5]; ?></p>
 				<p class="right"><b><h6>Price:</h6></b> <?php echo $row[6]; ?></p>
 			</div>
@@ -50,7 +50,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col s12 m6 l6">
+	<!-- <div class="col s12 m6 l6">
 		<div class="card sticky-action" style="overflow: visible;">
 			<div class="card-image waves-effect waves-block waves-light">
 				<img src="admin/img/<?php echo $row[3]; ?>" class="activator">
@@ -71,13 +71,12 @@
 				<p>Here is some more information about this product that is only revealed once clicked on.</p>
 			</div>
 		</div>
-	</div>
-	<div class="col s12 m3 l3">
+	</div> -->
+	<div class="col s12 m6 l6">
 		<div class="card hoverable">
 			<div class="card-image">
 				<img src="admin/img/<?php echo $row[3]; ?>" class="materialboxed">
 			</div>
-			
 			<div class="card-content">
 			<span class="card-title black-text"><?php echo $row[2]; ?></span>
 				<p><b><h6>Description:</h6></b> <?php echo $row[5]; ?></p>
