@@ -15,7 +15,7 @@
 		if(isset($_GET['delete'])){
 			$id = $_GET['delete'];
 			mysqli_query($conn, "DELETE FROM contact_us WHERE contact_id = $id");
-			header("Location:view_contact_msg.php?Deleted");
+			header("Location:view_contact_msg.php");
 		}
 		
 		$sql = "SELECT `contact_id`, `user_email`, `message`, `sent_date` FROM contact_us ORDER BY `contact_id` DESC";
@@ -45,8 +45,8 @@
               <td><?php echo $row[2]; ?></td>
               <td><?php echo $row[3]; ?></td>
               <td>
-                <a href="edit_user.php?edit=<?php echo $row['user_id']; ?>" class="blue-text">Reply <i class="fa fa-reply"></i></a> | 
-                <a href="view_contact_msg.php?delete=<?php echo $row[0]; ?>" id="deleteBtn" class="red-text">delete <i class="fa fa-trash"></i></a>
+                <a href="edit_user.php?edit=<?php echo $row['user_id']; ?>" class="green-text">Reply <i class="fa fa-reply"></i> </a> | 
+                <a href="view_contact_msg.php?delete=<?php echo $row[0]; ?>" id="deleteBtn" class="red-text"><i class="fa fa-trash"></i></a>
               </td>
             </tr>
             <?php } ?>

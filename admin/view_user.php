@@ -60,8 +60,8 @@
               <td><?php echo $row['email']; ?></td>
               <td><?php echo $row['phone']; ?></td>
               <td>
-                <a href="edit_user.php?edit=<?php echo $row['user_id']; ?>" class="blue-text">edit <i class="fa fa-edit"></i></a> | 
-                <a href="view_user.php?delete=<?php echo $row['user_id']; ?>" id="deleteBtn" class="red-text">delete <i class="fa fa-trash"></i></a>
+                <a href="edit_user.php?edit=<?php echo $row['user_id']; ?>" class="blue-text"><i class="fa fa-edit"></i></a> | 
+                <a href="view_user.php?delete=<?php echo $row['user_id']; ?>" id="deleteBtn" class="red-text"><i class="fa fa-trash"></i></a>
               </td>
             </tr>
             <?php } ?>

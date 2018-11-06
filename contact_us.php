@@ -18,14 +18,19 @@
       // Empty
       if(empty($userEmail)){
         $userEmail_err = "It Cannot be left Blank";
-      }if(empty($message)){
-        $message_err = "C'mon Don't be shy";
-      }if(!filter_var($userEmail, FILTER_VALIDATE_EMAIL)){
-        $email_err = "Email is invalid";                        
       }else{
-        $sql = "INSERT INTO contact_us (user_email, message) VALUES ('$userEmail', '$message')";
-        $result = mysqli_query($conn, $sql);
-        header("Location:msg_success.php");
+        if(empty($message)){
+          $message_err = "C'mon Don't be shy";
+        }else{
+          if(!filter_var($userEmail, FILTER_VALIDATE_EMAIL)){
+            $email_err = "Email is invalid";                        
+          }else{
+            $sql = "INSERT INTO contact_us (user_email, message) VALUES ('$userEmail', '$message')";
+            $result = mysqli_query($conn, $sql);
+            header("Location:msg_success.php");
+            exit;
+          }
+        }
       }
     }
 
@@ -49,14 +54,14 @@
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
           <div class="row">
             <div class="input-field col s12">
-              <input type="text" name="user_email" id="email" value="<?php echo $_SESSION['email'];?>">
+              <input type="text" name="user_email" id="email" class="<?php echo (!empty($email_err)) ? 'invalid' : ''; ?>" value="<?php echo $_SESSION['email'];?>">
               <label for="email">Email</label>
               <span class="red-text animated fadeIn"><?php echo $email_err;?></span>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <textarea id="textarea3" class="materialize-textarea" name="message"><?php echo $message; ?></textarea>
+              <textarea id="textarea3" autocomplete="off" class="materialize-textarea <?php echo (!empty($message_err)) ? 'invalid' : ''; ?>" name="message"><?php echo $message; ?></textarea>
               <label for="textarea3">Message</label>
               <span class="red-text animated fadeIn"><?php echo $message_err;?></span>
             </div>
