@@ -104,10 +104,10 @@ li > a{
     #admin-prod-img{
         height: 100px;
         width: 100px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
     #admin-prod-row{
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
     
 }
@@ -122,6 +122,9 @@ li > a{
     #contact-card{
         margin-top: 60px; 
         margin-right: 80px;
+    }
+    #admin-prod-row{
+        margin-bottom: 20px;
     }
 
 }
