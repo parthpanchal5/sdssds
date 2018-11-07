@@ -27,6 +27,24 @@
 		$fileExt = explode('.', $fileName);
 		$fileActualExt = strtolower(end($fileExt));
     $allowedExt = array('jpg', 'jpeg', 'png', 'pdf', 'JPG', 'JPEG', 'PDF', 'PNG');
+
+    // File condition block
+		if(in_array($fileActualExt, $allowedExt)){
+			if($fileError === 0){
+				if($fileSize < 10000000){
+					$random = rand(6000, 8000);
+					// $newFileName = $random.$fileActualExt;
+					$newFileName = uniqid('', true).".".$fileActualExt;
+					$fileDestination = 'img/'.$newFileName;
+					
+					move_uploaded_file($fileTmpName, $fileDestination);
+				}else{
+					echo "File is too big";		
+				}
+			}else{
+				echo "There was an error uploading file";	
+			}
+    }
     
 
     if(empty($itemName)){
@@ -57,38 +75,13 @@
       $qty_err = "Please insert quantity";
     }
     
-    // File condition block
-		if(in_array($fileActualExt, $allowedExt)){
-			if($fileError === 0){
-				if($fileSize < 10000000){
-					$random = rand(6000, 8000);
-					// $newFileName = $random.$fileActualExt;
-					$newFileName = uniqid('', true).".".$fileActualExt;
-					$fileDestination = 'img/'.$newFileName;
-					
-					move_uploaded_file($fileTmpName, $fileDestination);
-				}else{
-					echo "File is too big";		
-				}
-			}else{
-				echo "There was an error uploading file";	
-			}
-    }
+    
     else{
-      $sql = "UPDATE item SET 
-              cat_id = (SELECT	`cat_id` FROM category WHERE cat_name = '$category' AND sub_cat_name = '$subCat'), 
-              item_name = '$itemName', 
-              item_img = '$newFileName', 
-              item_cat = '$category', 
-              item_desc = '$itemDesc', 
-              item_price = '$itemPrice', 
-              item_qty = '$qty', 
-              status = '$status',
-              sub_category = '$subCat' 
-              WHERE item_id = '$id'";
+      $sql = "UPDATE item SET cat_id = (SELECT `cat_id` FROM category WHERE cat_name = '$category'), item_name = '$itemName', item_img = '$newFileName', item_cat = '$category', item_desc = '$itemDesc', item_price = '$itemPrice', item_qty = '$qty', status = '$status', sub_category = '$subCat' WHERE item_id = '$id'";
       $result = mysqli_query($conn, $sql);
-      header("Location:view_item.php");
-      exit;
+      echo $sql;
+      // header("Location:view_item.php");
+      // exit;
     }
   }
   
@@ -100,8 +93,8 @@
     $storeRecord = mysqli_fetch_array($getRecord);
     $itemName = $storeRecord['item_name'];
     $itemPrice = $storeRecord['item_price'];
-    $category = $storeRecord['category'];
-    $subCat = $storeRecord['sub_category'];
+    $category = $storeRecord['item_cat'];
+    $subCat = $storeRecord['sub_cat'];
     $qty = $storeRecord['item_qty'];
     $status = $storeRecord['status'];
     $itemDesc = $storeRecord['item_desc'];

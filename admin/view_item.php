@@ -43,24 +43,26 @@
         <div class="card-content">
           <table class="table highlight responsive-table stripped">
             <thead>
-              <th>Item.id</th>
-              <th>Item Name</th>
-              <th id="admin-prod-row">Item Image</th>
-              <th>Item Category</th>
-              <th>Description</th>
+              <th>Id</th>
+              <th>Name</th>
+              <th id="admin-prod-row">Image</th>
+              <th>Category</th>
+              <th>Sub-Category</th>
+              <th class="center">Description</th>
               <th>Price</th>
               <th>Qty</th>
               <th>Status</th>
               <th>Action</th>
             </thead>
             <tbody>
-              <?php $sql = "SELECT `item_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `status` FROM item LIMIT " . $startingLimitNo .','. $resultPerPage; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)){ ?>
+              <?php $sql = "SELECT `item_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `status`, `sub_category` FROM item LIMIT " . $startingLimitNo .','. $resultPerPage; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)){ ?>
               <tr>
                 <td><b><?php echo $row[0];?></b></td>
                 <td><?php echo $row[1];?></td>
                 <td><img src="img/<?php echo $row[2];?>" alt="<?php echo $row[1]; ?>" class="materialboxed" data-caption="<?php echo $row[1]; ?>" id="admin-prod-img" width="120"></td>
                 <td><?php echo $row[3];?></td>
-                <td><?php echo $row[4];?></td>
+                <td><?php echo $row['sub_category'];?></td>
+                <td><?php echo $row['item_desc']; ?></td>
                 <td><?php echo $row[5];?></td>
                 <td><?php echo $row[6];?></td>
                 <td><?php echo $row[7];?></td>
