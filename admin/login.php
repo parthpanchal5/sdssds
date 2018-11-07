@@ -59,7 +59,7 @@
 </nav>
 <div class="container">
   <div class="row">
-		<h3 class="center">Login</h3>	
+		<h3 class="center">Admin Login</h3>	
     <div class="col s3"></div>
     <div class="col s12 m12 l6">
       <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">

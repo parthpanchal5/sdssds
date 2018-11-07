@@ -1,5 +1,5 @@
 <div class="navbar-fixed">
-<nav class="blue lighten-2 z-depth-2">
+<nav class="blue lighten-2 z-depth-3">
 	<div class="nav-wrapper">
 		<a href="index.php" class="brand-logo hide-on-med-and-down" id="client-brand-logo">Shop</a>
 		

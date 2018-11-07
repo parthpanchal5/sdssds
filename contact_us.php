@@ -50,7 +50,7 @@
       <img src="img/contact.svg" alt="contact us" class="hide-on-med-and-down" height="420" style="margin-top: 30px; margin-left: 80px;">
     </div>
     <div class="col s12 m12 l5 right">
-      <div class="card-panel hoverable" style=""id="contact-card">
+      <div class="card-panel hoverable animated fadeInUp" style=""id="contact-card">
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
           <div class="row">
             <div class="input-field col s12">

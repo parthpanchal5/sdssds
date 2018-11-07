@@ -3,8 +3,8 @@
   include 'inc/conn.php';
       
   $edit_state = false;
-  $itemName = $itemPrice = $category = $qty = $status = $itemDesc  = '';
-	$itemName_err = $itemPrice_err = $category_err = $qty_err = $status_err = $itemDesc_err = '';
+  $itemName = $itemPrice = $category = $qty = $status = $itemDesc  = $subCat = '';
+	$itemName_err = $itemPrice_err = $category_err = $qty_err = $status_err = $itemDesc_err = $subCat_err = '';
   // Update
   if (isset($_POST['update'])) {
     $id = mysqli_real_escape_string($conn, $_POST['id']);
@@ -14,6 +14,8 @@
 		$qty = mysqli_real_escape_string($conn, $_POST['qty']);
 		$status = mysqli_real_escape_string($conn, $_POST['status']);
     $itemDesc = mysqli_real_escape_string($conn, $_POST['item_desc']);
+    $subCat = mysqli_real_escape_string($conn, $_POST['sub_cat']);
+
     
     // Vars for img-file
 		$file = $_FILES['item_img'];
@@ -38,6 +40,9 @@
 		}
 		if(empty($qty)){
 			$qty_err = "Please enter quantity";
+    }
+    if($subCat === 'none'){
+			$subCat_err = "Please select sub-category";
 		}
 		if($status === 'none'){
 			$status_err ="Please select Status";
@@ -71,18 +76,19 @@
     }
     else{
       $sql = "UPDATE item SET 
-              cat_id = (SELECT	`cat_id` FROM category WHERE cat_name = '$category'), 
+              cat_id = (SELECT	`cat_id` FROM category WHERE cat_name = '$category' AND sub_cat_name = '$subCat'), 
               item_name = '$itemName', 
               item_img = '$newFileName', 
               item_cat = '$category', 
               item_desc = '$itemDesc', 
               item_price = '$itemPrice', 
               item_qty = '$qty', 
-              status = '$status' 
+              status = '$status',
+              sub_category = '$subCat' 
               WHERE item_id = '$id'";
       $result = mysqli_query($conn, $sql);
       header("Location:view_item.php");
-      exit();
+      exit;
     }
   }
   
@@ -95,6 +101,7 @@
     $itemName = $storeRecord['item_name'];
     $itemPrice = $storeRecord['item_price'];
     $category = $storeRecord['category'];
+    $subCat = $storeRecord['sub_category'];
     $qty = $storeRecord['item_qty'];
     $status = $storeRecord['status'];
     $itemDesc = $storeRecord['item_desc'];
@@ -125,15 +132,25 @@
               </div>
             </div>
             <div class="row">
-              <div class="input-field col s12">
+              <div class="input-field col s6">
                 <select name="item_cat">
-                  <option value="none">Choose your option</option>
+                  <option value="none">Categories</option>
                   <?php $sql = "SELECT * FROM category"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)) { ?>
                   <option class="blue-text" value="<?php echo $row[1]; ?>"><?php echo $row[1]?></option>
                   <?php }?>
                 </select>
                 <label>Select Category</label>
                 <span class="red-text animated fadeIn"><?php echo $category_err; ?></span>
+              </div>
+              <div class="input-field col s6">
+                <select name="sub_cat" >
+                  <option value="none" selected>Sub-Category</option>
+                  <?php $sql = "SELECT * FROM category"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)) { ?>
+                  <option class="blue-text" value="<?php echo $row[2]; ?>"><?php echo $row[2]; ?></option>
+                  <?php }?>
+                </select>
+                <label>Select Sub-Category</label>
+                <span class="red-text animated fadeIn"><?php echo $subCat_err; ?></span>
               </div>
             </div>
             <div class="row">	

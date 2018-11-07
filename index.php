@@ -18,7 +18,7 @@
 
 
 <!-- Content area -->
-<div class="container-fluid grey lighten-4" >
+<div class="container-fluid animated fadeIn">
 	<div class="carousel carousel-slider center" style="">
 		<div class="carousel-item white-text" href="#one!">
 		<img src="img/products/laptop.jpeg" alt="">
@@ -34,14 +34,14 @@
 		</div>
 	</div>	
 	<?php $sql = "SELECT * FROM item ORDER BY item_id DESC LIMIT 4"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
-<div class="row product-showcase" style="margin-top: 1em;">
+<div class="row product-showcase animated fadeInUp" style="margin-top: 1em;">
 	<div class="col s12 m6 l6">
 		<div class="card hoverable">
 			<div class="card-image">
-				<img src="admin/img/<?php echo $row[3]; ?>" class="materialboxed">
+				<img src="admin/img/<?php echo $row[3]; ?>" class="materialboxed responsive-img">
 			</div>
 			<div class="card-content">
-				<span class="card-title black-text"><?php echo $row[2]; ?></span>
+				<span class="card-title black-text"style="font-size: 14px !important;"><?php echo $row[2]; ?></span>
 				<p><b><h6>Description:</h6></b> <?php echo $row[5]; ?></p>
 				<p class="right"><b><h6>Price:</h6></b> <?php echo $row[6]; ?></p>
 			</div>
@@ -75,7 +75,7 @@
 	<div class="col s12 m6 l6">
 		<div class="card hoverable">
 			<div class="card-image">
-				<img src="admin/img/<?php echo $row[3]; ?>" class="materialboxed">
+				<img src="admin/img/<?php echo $row[3]; ?>" class="materialboxed responsive-img">
 			</div>
 			<div class="card-content">
 			<span class="card-title black-text"><?php echo $row[2]; ?></span>
@@ -89,7 +89,6 @@
 	</div>
 </div>
 <?php } ?>
-	
 <?php include 'inc/footer.php'; ?>
 
 				

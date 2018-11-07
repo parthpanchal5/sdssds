@@ -192,16 +192,14 @@ $(document).ready(function(){
     $('select').formSelect();
 
     // Floating Button
-    $('.fixed-action-btn').floatingActionButton({
-        toolbarEnabled: true
-
-    });
+    // $('.fixed-action-btn').floatingActionButton({
+    //     toolbarEnabled: false
+    // });
     // Tooltip
     $('.tooltipped').tooltip();
 
     // Scroll reveal
-    ScrollReveal().reveal('.row .product-showcase');
-
+    ScrollReveal().reveal('.row .product-showcase');      
 
     // tiny text editor
     
