@@ -5,6 +5,24 @@
   $edit_state = false;
   $itemName = $itemPrice = $category = $qty = $status = $itemDesc  = $subCat = '';
 	$itemName_err = $itemPrice_err = $category_err = $qty_err = $status_err = $itemDesc_err = $subCat_err = '';
+  
+  // Fetch Data into textbox
+  if(isset($_GET['edit'])){
+    $id = $_GET['edit'];
+    $edit_state = true;
+    $getRecord = mysqli_query($conn, "SELECT * FROM item WHERE item_id = $id");
+    $storeRecord = mysqli_fetch_array($getRecord);
+    $itemName = $storeRecord['item_name'];
+    $itemPrice = $storeRecord['item_price'];
+    $category = $storeRecord['item_cat'];
+    $subCat = $storeRecord['sub_cat'];
+    $qty = $storeRecord['item_qty'];
+    $status = $storeRecord['status'];
+    $itemDesc = $storeRecord['item_desc'];
+    $newFileName = $storeRecord['item_img'];
+    
+  }
+  
   // Update
   if (isset($_POST['update'])) {
     $id = mysqli_real_escape_string($conn, $_POST['id']);
@@ -73,34 +91,15 @@
     }
     if(!preg_match("/^[0-9]*$/", $qty)){
       $qty_err = "Please insert quantity";
-    }
-    
-    
+    }    
     else{
-      $sql = "UPDATE item SET cat_id = (SELECT `cat_id` FROM category WHERE cat_name = '$category'), item_name = '$itemName', item_img = '$newFileName', item_cat = '$category', item_desc = '$itemDesc', item_price = '$itemPrice', item_qty = '$qty', status = '$status', sub_category = '$subCat' WHERE item_id = '$id'";
+      $sql = "UPDATE item SET cat_id = (SELECT `cat_id` FROM category WHERE `cat_id` = `item.cat_id`) , item_name = '$itemName', item_img = '$newFileName', item_cat = '$category', item_desc = '$itemDesc', item_price = '$itemPrice', item_qty = '$qty', status = '$status', sub_category = '$subCat' WHERE item_id = '$id'";
       $result = mysqli_query($conn, $sql);
-      echo $sql;
-      // header("Location:view_item.php");
-      // exit;
+      header("Location:view_item.php?updated");
+      exit;
     }
   }
   
-  // Fetch Data into textbox
-  if(isset($_GET['edit'])){
-    $id = $_GET['edit'];
-    $edit_state = true;
-    $getRecord = mysqli_query($conn, "SELECT * FROM item WHERE item_id = $id");
-    $storeRecord = mysqli_fetch_array($getRecord);
-    $itemName = $storeRecord['item_name'];
-    $itemPrice = $storeRecord['item_price'];
-    $category = $storeRecord['item_cat'];
-    $subCat = $storeRecord['sub_cat'];
-    $qty = $storeRecord['item_qty'];
-    $status = $storeRecord['status'];
-    $itemDesc = $storeRecord['item_desc'];
-    $newFileName = $storeRecord['item_img'];
-    
-  }
 ?>
 <?php include 'inc/header.php'; ?>
 <?php include 'inc/horizonnav.php'; ?>     
