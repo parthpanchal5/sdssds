@@ -20,7 +20,7 @@
 <div class="container lighten-4">
   <div class="row">
     <div class="col s12 m12 l12" style="margin-top: 10px;">
-      <div class="card z-depth-1 waves-effect hoverable">
+      <div class="card z-depth-1 waves-effect hoverable animated fadeIn">
         <div class="card-image">
           <img src="img/back.jpeg" height="360">
           <span class="card-title white-text"><h4><?php echo $row[1]." ".$row[2];  ?></h4></span>
@@ -35,7 +35,7 @@
   </div>
   <div class="row">
     <div class="col s12 m12 l12">
-      <div class="card z-depth-1 waves-effect lighten-2 gradient-4 hoverable" id="address">
+      <div class="card z-depth-1 waves-effect lighten-2 gradient-4 hoverable animated slideInLeft" id="address">
         <div class="card-content">
           <div class="card-title white-text center">Delivery Address</div>
           <ul class="white-text">

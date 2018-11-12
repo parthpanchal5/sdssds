@@ -8,7 +8,7 @@
     	exit;
 	}
     if(($_SESSION['email'] != "admin@admin.com") || ($_SESSION['username'] != "admin123")){
-        header('Location:login.php');
+			header('Location:login.php');
     	exit;
     }
 

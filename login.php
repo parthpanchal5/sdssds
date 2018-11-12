@@ -1,6 +1,5 @@
 <?php 
   session_start();
-  include 'inc/header.php'; 
   include 'inc/conn.php';
   // Init vars
   $userinput = $password = '';
@@ -21,7 +20,8 @@
     }
     if(empty($password)){
       $password_err = 'Please enter password';
-    } else{
+    } 
+    else{
         $sql = "SELECT * FROM users WHERE username = '$userinput' OR email = '$userinput'";
         $result = mysqli_query($conn, $sql);
         $checkResult = mysqli_num_rows($result);
@@ -41,6 +41,11 @@
               $_SESSION['address'] = $row['address'];
               $_SESSION['user_id'] = $row['user_id'];
               header("Location:index.php");
+
+              // if(($_SESSION['email'] === "admin@admin.com") || ($_SESSION['username'] === 'admin123') ||($_SESSION['username'] === "admin123")){
+              //   header('Location:admin/dashboard.php');
+              //   exit;
+              // }
             }
           } 
         }
@@ -48,7 +53,7 @@
     }
 ?>
   
-
+<?php include 'inc/header.php'; ?>
 <!-- navbar -->
 <div class="navbar-fixed">
   <nav class="blue lighten-2 z-depth-2">
