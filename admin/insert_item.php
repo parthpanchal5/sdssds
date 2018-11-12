@@ -110,7 +110,7 @@
 								<div class="input-field col s6">
     							<select name="item_cat">
 										<option value="none" selected>Category</option>
-										<?php $sql = "SELECT * FROM category"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)) { ?>
+										<?php $sql = "SELECT COUNT(*) AS `Rows`, `cat_name` FROM `category` GROUP BY `cat_name` ORDER BY `cat_name`"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)) { ?>
 										<option class="blue-text" value="<?php echo $row[1]; ?>"><?php echo $row[1]; ?></option>
 										<?php }?>
     							</select>

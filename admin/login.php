@@ -57,13 +57,13 @@
         </div>
     </div>  
 </nav>
-<div class="container">
+<div class="container-fluid">
   <div class="row">
 		<h3 class="center">Admin Login</h3>	
-    <div class="col s3"></div>
-    <div class="col s12 m12 l6">
+    <div class="col s12 m3 l4"></div>
+    <div class="col s12 m12 l4">
       <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-        <div class="card-panel z-depth-1 hoverable animated fade " id="login-card" style="margin-top: 40px;">
+        <div class="card-panel z-depth-1 hoverable animated fadeIn" id="login-card" style="margin-top: 40px;">
           <div class="row">
             <div class="input-field">
               <i class="material-icons prefix">account_circle</i>
@@ -92,6 +92,6 @@
       </form>
     </div>
   </div>
-  <div class="col s3"></div>
+  <div class="col s12 m3 l4"></div>
 </div>
 <?php include 'inc/footer.php'; ?>    
