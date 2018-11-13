@@ -26,10 +26,15 @@ input[type="text"]{
 #menu-items{
     margin: 0px 80px 0px 0px !important
 }
-#qty-input{
-    background: rgba(255, 254, 192, 0.938);
+#qty{
+    background: rgba(235, 229, 229, 0.938);
     width: 40px;
     border-bottom-color: transparent !important;
+    text-align: center;
+}
+#qty:focus{
+    border-bottom-color: transparent !important;
+    text-align: center;
 }
 th{
     text-align: center;

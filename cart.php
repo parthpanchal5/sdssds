@@ -15,88 +15,96 @@
 <!--Mobile navbar -->
 <?php include 'inc/mobilenav.php'; ?>
 <!--Content area -->
-<div class="container-fluid lighten-4">
-  <div class="row" style="margin-top: 20px;">
-	<div class="col s12 l1"></div>
-		<div class="col s12 m12 l6">
-			<div class="card hoverable">
+<div class="container-fluid lighten-4" style="margin: 0px 30px 0px 30px;">
+  <div class="row" style="margin-top: 10px;">
+		<div class="col s12 m12 l8">
+			<div class="card">
 				<div class="card-content">
-					<div class="card-title center-align">
-						Cart Items
-					</div><hr>
-					<table class="table responsive-table striped centered">
-						<thead>
-							<th>Sr.no</th>
-							<th>Prod Img</th>
-							<th>Desc.</th>
-							<th>Qty</th>
-							<th>Price (<i class="fa fa-rupee-sign fa-1x" style="margin-left:px;"></i>)</th>
-						</thead>
+					<table class="table responsive-table">
+						<tr>
+							<td colspan="3"><span class="left" style="font-size: 16px;">My Cart ( 1 )</span></td>
+						</tr>
 						<tbody>
 							<tr>
-								<td>1.</td>
-								<td><img src="img/phone.svg" style="width: 100px; height: 100px;"></td>
-								<td>Samsung Phone </td>
+								<td><img src="img/phone.svg" alt="" height="120"></td>
 								<td>
-									<form>
-										<a class="btn-floating btn-small waves-effect waves-light blue lighten-2"><i class="material-icons">add</i></a>
-											<input type="text" name="qty" id="qty-input" min="0" max="10">
-										<a class="btn-floating btn-small waves-effect waves-light green lighten-2"><i class="material-icons">remove</i>
-									</form>
+									Lorem ipsum dolor sit amet consectetur.... <br>
+									<span class="left" style="margin-left: 25px; margin-top: 25px; font-size: 18px;"><i class="fas fa-rupee-sign"></i> 650</span>
 								</td>
-								<td>35000</td>
+								<td style="margin-right: 18px;">Delivery by Mon, Nov 19 | Free</td>
 							</tr>
 							<tr>
-								<td>2.</td>
-								<td><img src="img/phone.svg" class="thumbnail responsive-img" style="width: 100px; height: 100px;"></td>
-								<td>Lorem, ipsum </td>
-								<td>
-									<form action="">
-										<button type="button" class="btn-floating btn-small waves-effect waves-light blue lighten-2" id="addBtn"><i class="material-icons">add</i></button>
-											<input type="text" name="qty" class="small" id="qty-input" style="text-align:center;">
-										<button type="button" class="btn-floating btn-small waves-effect waves-light red lighten-1" id="removeBtn"><i class="material-icons">remove</i></button>
+								<td colspan="3" style="text-align:left;">
+									<form action=""  style="margin-left: 35px;">
+										<a class="btn-floating btn-small waves-effect waves-light grey lighten-3" id="addBtn"><i class="material-icons black-text">remove</i></a>
+										<input type="number" name="qty" id="qty" min="1" max="5">
+										<a class="btn-floating btn-small waves-effect waves-light grey lighten-3" id="removeBtn"><i class="material-icons black-text">add</i></a>
+										<input type="submit" value="Remove" name="remove" class="grey lighten-4 btn black-text" style="margin-left: 3em;">
 									</form>
 								</td>
-								<td>35000</td>
+							</tr>
+							<tr>
+								<td><img src="img/phone.svg" alt="" height="120"></td>
+								<td>
+									Lorem ipsum dolor sit amet consectetur.... <br>
+									<span class="left" style="margin-left: 25px; margin-top: 25px; font-size: 18px;"><i class="fas fa-rupee-sign"></i> 650</span>
+								</td>
+								<td style="margin-right: 18px;">Delivery by Mon, Nov 19 | Free</td>
+							</tr>
+							<tr>
+								<td colspan="3" style="text-align:left;">
+									<form action="" style="margin-left: 35px;">
+										<a class="btn-floating btn-small waves-effect waves-light grey lighten-3" id="addBtn"><i class="material-icons black-text">remove</i></a>
+										<input type="number" name="qty" id="qty" min="1" max="5">
+										<a class="btn-floating btn-small waves-effect waves-light grey lighten-3" id="removeBtn"><i class="material-icons black-text">add</i></a>
+										<input type="submit" value="Remove" name="remove" class="grey lighten-4 btn black-text" style="margin-left: 3em;">
+									</form>
+								</td>
 							</tr>
 						</tbody>
-					</table>
+						
+					</table>	
+					<div class="card-action">
+						<table class="table">
+							<tr>
+								<td class="right">
+									<form action="#" method="POST">
+										<a href="index.php" class="btn btn-large grey lighten-5 black-text" style="margin-right: 20px;"><i class="fas fa-chevron-left" style="font-size: 15px; margin-right: 10px;"></i> Continue Shopping</a>
+										<input type="submit" value="place order" class="btn btn-large  amber darken-4">
+									</form>
+								</td>
+							</tr>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col s12 m12 l4 x4">
+		<div class="col s12 m12 l4">
 			<div class="card hoverable">
 				<div class="card-content">
-					<div class="card-title center-align">Checkout Bill</div><hr>
-						<table class="table stripped centered">
-							<thead>
-								<th>Total Qty</th>
-								<th>Price (<i class="fa fa-rupee-sign fa-1x"></i>)</th>
-							</thead>
-							<tbody>
-								<tr>
-									<td>x 2</td>
-									<td>35000 <i class="fa fa-rupee-sign fa-1x"></i></td>
-								</tr>								
-								<tr>
-									<td>x 1</td>
-									<td>35000 <i class="fa fa-rupee-sign fa-1x"></i></td>
-								</tr>								
-								<tr>
-									<th class="center-align green white-text">Subtotal : </th>
-									<td>1050000 <i class="fa fa-rupee-sign fa-1x"></i></td>
-								</tr>
-								<tr>
-									<td colspan="2">
-										<a href="checkout.php" class="btn btn-medium btn-block amber darken-3 white-text" id="card-toggle">Checkout <i class="fab fa-cc-visa" style="margin-left:10px;"></i></a>
-									</td>
-								</tr>
-							</tbody>
-					</table> 
+					<table class="table">
+						<tr>
+							<td class="left grey-text" style="font-size: 18px; text-transform:uppercase;">Price Details</td>
+						</tr>
+						<tr>
+							<td class="left" style="font-size: 15px;">Price (2 item)</td>
+							<td class="right" style="font-size: 15px;"><i class="fas fa-rupee-sign"></i> 650</td>
+						</tr>
+						<tr>
+							<td class="left">Delivery Charges</td>
+							<td class="right"><span class="green-text" style="font-size: 15px; text-transform:uppercase;">Free</span></td>
+						</tr>
+						<tr>
+							<td class="left">Amount payable</td>
+							<td class="right" style="font-size: 15px;"><i class="fas fa-rupee-sign"></i> 650</td>
+						</tr>
+						<tr>
+							<td class="center green-text" style="text-transform:uppercase;">Your Total savings on this order <i class="fas fa-rupee-sign" style="margin-left: 5px;"></i> 120</td>
+						</tr>
+					</table>	
 				</div>
 			</div>
 		</div>
-
   </div>
 </div>
 <!--Footer  -->

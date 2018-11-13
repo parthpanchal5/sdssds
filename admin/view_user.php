@@ -23,11 +23,14 @@
     <div class="col s12 m2 l3"></div>
     <div class="col s12 m8 l6">
       <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET">
-        <div class="row">
-          <div class="input-field col s12">
-            <i class="material-icons prefix">search</i>
-            <input id="icon_prefix" type="text" name="q" class="validate">
-            <label for="icon_prefix">Search User</label>
+        <div class="card-panel hoverable">
+          <div class="row">
+            <div class="input-field col s10">
+              <i class="material-icons prefix">search</i>
+              <input id="icon_prefix" type="text" name="q" class="validate">
+              <label for="icon_prefix">Search User</label>
+            </div>
+            <input type="submit" name="submit" class="btn btn-small blue lighten-1 right" value="search">
           </div>
         </div>
       </form>

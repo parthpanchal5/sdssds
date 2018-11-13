@@ -118,10 +118,10 @@ $(document).ready(function(){
 
     $("#addBtn").click(function(e){
         e.preventDefault();
-        let output = $("#qty-input").val(counter++);      
+        let output = $("#qty").val(counter++);      
     });
     $("#removeBtn").click(function(){
-        let output = $("#qty-input").val(counter--);      
+        let output = $("#qty").val(counter--);      
     });
 
     // $('#modal1').blur(function(){
