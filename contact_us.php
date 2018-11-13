@@ -33,7 +33,8 @@
         }
       }
     }
-
+    $sql = "SELECT * FROM users WHERE user_id = '".$_SESSION['user_id']."'";
+    $result = mysqli_query($conn, $sql);
     
 		
 ?>
@@ -50,11 +51,13 @@
       <img src="img/contact.svg" alt="contact us" class="hide-on-med-and-down" height="420" style="margin-top: 30px; margin-left: 80px;">
     </div>
     <div class="col s12 m12 l5 right">
-      <div class="card-panel hoverable animated fadeInUp" style=""id="contact-card">
+      <div class="card-panel hoverable animated fadeIn" style=""id="contact-card">
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
           <div class="row">
             <div class="input-field col s12">
-              <input type="text" name="user_email" id="email" class="<?php echo (!empty($email_err)) ? 'invalid' : ''; ?>" value="<?php echo $_SESSION['email'];?>">
+              <?php while ($row = mysqli_fetch_array($result)) { ?>
+              <input type="text" name="user_email" id="email" class="<?php echo (!empty($email_err)) ? 'invalid' : ''; ?>" value="<?php echo $row[3]; ?>">
+              <?php } ?>
               <label for="email">Email</label>
               <span class="red-text animated fadeIn"><?php echo $email_err;?></span>
             </div>
