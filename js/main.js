@@ -118,10 +118,17 @@ $(document).ready(function(){
 
     $("#addBtn").click(function(e){
         e.preventDefault();
-        let output = $("#qty").val(counter++);      
+        let output = $("#qty-input").val(counter++);      
+        if($("#qty-input").val() === 5 || $("#qty-input").val() >= 5){
+            console.log('max reached');
+        }
     });
-    $("#removeBtn").click(function(){
-        let output = $("#qty").val(counter--);      
+    $("#removeBtn").click(function(e){
+        e.preventDefault();
+        let output = $("#qty-input").val(counter--);      
+        if($("#qty-input").val() <= 1){
+            console.log('min reached');
+        }
     });
 
     // $('#modal1').blur(function(){
