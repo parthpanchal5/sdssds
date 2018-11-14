@@ -18,7 +18,10 @@
 
 
 <div class="container-fluid">
-	<h3 class="center">Category</h3>
+  <h4 class="center">Category</h4>
+  <?php $sql = "SELECT COUNT(`cat_id`) FROM category"; $result1 = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result1)) { ?>
+    <p class="center">Total no of categories: <h5 class="center"><?php echo $row[0]; ?></h5></p>
+  <?php }?>
   <div class="row">
     <div class="col s12 m2 l3"></div>
     <div class="col s12 m8 l6">

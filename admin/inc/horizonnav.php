@@ -4,12 +4,12 @@
 		<a href="dashboard.php" class="brand-logo" id="admin-brand-logo">Shop</a>
 		<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 		<ul class="right hide-on-med-and-down" id="menu-items">
-			<li><a class="dropdown-trigger" data-target="user-dropdown">Users <i class="fa fa-angle-down fa-1x" style="margin-left: 5px;"></i></a></li>                                       
-			<li><a class="dropdown-trigger" data-target="category-dropdown">Category <i class="fa fa-angle-down fa-1x" style="margin-left: 5px;"></i></a></li>
-			<li><a class="dropdown-trigger" data-target="product-dropdown">Product <i class="fa fa-angle-down fa-1x" style="margin-left: 5px;"></i></a></li>
-			<li><a class="dropdown-trigger" data-target="transaction-dropdown">Transaction <i class="fa fa-angle-down fa-1x" style="margin-left: 5px;"></i></a></li>			
-			<li><a class="dropdown-trigger" data-target="message-dropdown">Messages <i class="fa fa-angle-down fa-1x" style="margin-left: 5px;"></i></a></li>			
-			<li><a class="dropdown-trigger" data-target="admin-dropdown">Hello <?php echo $_SESSION['firstname']; ?>!<i class="fa fa-angle-down fa-1x" style="margin-left: 5px;"></i></a></li>                                       
+			<li><a class="dropdown-trigger" data-target="user-dropdown" id="parent">Users <i class="fa fa-angle-down fa-1x" style="margin-left: 5px;" id="child"></i></a></li>                                       
+			<li><a class="dropdown-trigger" data-target="category-dropdown" id="parent">Category <i class="fa fa-angle-down fa-1x" style="margin-left: 5px;" id="child"></i></a></li>
+			<li><a class="dropdown-trigger" data-target="product-dropdown" id="parent">Product <i class="fa fa-angle-down fa-1x" style="margin-left: 5px;" id="child"></i></a></li>
+			<li><a class="dropdown-trigger" data-target="transaction-dropdown" id="parent">Transaction <i class="fa fa-angle-down fa-1x" style="margin-left: 5px;" id="child"></i></a></li>			
+			<li><a class="dropdown-trigger" data-target="message-dropdown" id="parent">Messages <i class="fa fa-angle-down fa-1x" style="margin-left: 5px;" id="child"></i></a></li>			
+			<li><a class="dropdown-trigger" data-target="admin-dropdown" id="parent">Hello <?php echo $_SESSION['firstname']; ?>!<i class="fa fa-angle-down fa-1x" style="margin-left: 5px;" id="child"></i></a></li>                                       
 		</ul>
 	</div>
 
