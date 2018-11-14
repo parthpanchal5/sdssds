@@ -37,6 +37,15 @@ input[type="text"]{
     border-bottom-color: transparent !important;
     text-align: center;
 } */
+
+#parent:hover #child{
+    transform: rotate(180deg);
+    transition: 0.1s;
+}
+#mobile-parent:active #mobile-child{
+    transform: rotate(180deg);
+    transition: 0.1s;
+} 
 th{
     text-align: center;
 }
@@ -70,6 +79,13 @@ td{
 
 li > a{
     font-size: 15px !important;
+}
+.slider .indicators .indicator-item{
+    width: 10px !important;
+    height: 10px !important;
+    position: absolute !important;
+    top: -157% !important;
+    left: 50% !important;
 }
 
 
@@ -115,6 +131,9 @@ li > a{
     #admin-prod-row{
         margin-bottom: 10px;
         padding-bottom: 80px;
+    }
+    #product-name{
+        font-size: 14px;
     }
     
 }

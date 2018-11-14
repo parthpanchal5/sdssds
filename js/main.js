@@ -203,6 +203,15 @@ $(document).ready(function(){
 
     // tiny text editor   
 
+    // Slider
+    $('.slider').slider({
+        indicators: true,
+        height: 350,
+        duration: 600,
+        interval: 6000
+    });
+
+
 });
 // tinymce.init({
 //     selector: '#mytextarea'

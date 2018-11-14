@@ -7,7 +7,7 @@
 		
 		<ul class="right hide-on-med-and-down" id="menu-items">
       <!--concept.php  -->
-			<li><a class="dropdown-trigger" data-target="more-dropdown">More <i class="fa fa-angle-down fa-1x" style="margin-left: 5px;"></i></a></li>                                       
+			<li><a class="dropdown-trigger" data-target="more-dropdown" id="parent">More <i class="fa fa-angle-down fa-1x" id="child" style="margin-left: 5px;"></i></a></li>                                       
 			<li><a class="dropdown-trigger" data-target='cart-dropdown'>Cart <i class="fa fa-shopping-cart fa-1x white-text" style="margin-left: 5px;"></i></a></li>
 			<li><a class="dropdown-trigger" data-target='profile-dropdown'>Profile <i class="fa fa-user fa-1x" style="margin-left: 5px;"></i></a></li>
 		</ul>

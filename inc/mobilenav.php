@@ -10,7 +10,7 @@
 		</div>
 	</li>
 	<li class="bold"><a href="index.php" class="collapsible-header waves-effect" id="mobile-links">Home <i class="material-icons right blue-text">home</i></a></li>
-	<li class="bold"><a class="collapsible-header waves-effect" id="mobile-links">Profile <i class="material-icons grey-text right">expand_more</i></a>
+	<li class="bold"><a class="collapsible-header waves-effect" id="mobile-parent">Profile <i class="material-icons grey-text right" id="mobile-child">expand_more</i></a>
 		<div class="collapsible-body">
 			<ul>
 				<li><a href="profile.php" class="blue-text"><?php echo $_SESSION['firstname']; ?>'s Profile</a></li>

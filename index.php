@@ -28,24 +28,24 @@
 
 <!-- Content area -->
 <div class="container-fluid animated fadeIn">
-	<div class="carousel carousel-slider center" style="">
+
+	<div class="carousel carousel-slider" style="">
+	<?php $sql = "SELECT * FROM item ORDER BY item_id ASC LIMIT 1"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
 		<div class="carousel-item white-text" href="#one!">
-		<img src="img/products/laptop.jpeg" alt="">
+			<img src="admin/img/<?php echo $row[3]; ?>" alt="" height="550">
 		</div>
 		<div class="carousel-item white-text" href="#two!">
-			<img src="img/products/laptop.jpeg" alt="">
+		<img src="admin/img/<?php echo $row[3]; ?>" alt="" height="550">
 		</div>
 		<div class="carousel-item white-text" href="#three!">
-		<img src="img/products/laptop.jpeg" alt="">
+		<img src="admin/img/<?php echo $row[3]; ?>" alt="" height="550">
 		</div>
-		<div class="carousel-item white-text" href="#four!">
-			<img src="img/products/laptop.jpeg" alt="">
-		</div>
+		<?php }?>
 	</div>	
 	
 	<?php $sql = "SELECT * FROM item ORDER BY item_id DESC LIMIT 4"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
 	<div class="row product-showcase animated fadeInUp" style="margin-top: 1em;">
-		<div class="col s12 m6 l3 xl3">
+		<div class="col s6 m6 l3 xl3">
 			<div class="card sticky-action" style="overflow: visible;">
 				<div class="card-image waves-effect waves-block waves-light">
 					<img class="activator" src="admin/img/<?php echo $row[3]; ?>">
@@ -63,7 +63,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col s12 m6 l3 xl3">
+		<div class="col s6 m6 l3 xl3">
 			<div class="card sticky-action" style="overflow: visible;">
 				<div class="card-image waves-effect waves-block waves-light">
 					<img class="activator" src="admin/img/<?php echo $row[3]; ?>">
@@ -81,7 +81,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col s12 m6 l3 xl3">
+		<div class="col s6 m6 l3 xl3">
 			<div class="card sticky-action" style="overflow: visible;">
 				<div class="card-image waves-effect waves-block waves-light">
 					<img class="activator" src="admin/img/<?php echo $row[3]; ?>">
@@ -99,7 +99,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col s12 m6 l3 xl3">
+		<div class="col s6 m6 l3 xl3">
 			<div class="card sticky-action" style="overflow: visible;">
 				<div class="card-image waves-effect waves-block waves-light">
 					<img class="activator" src="admin/img/<?php echo $row[3]; ?>">
