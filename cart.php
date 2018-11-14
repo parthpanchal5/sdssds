@@ -54,9 +54,9 @@
 							<tr>
 								<td colspan="3" style="text-align:left;">
 									<form action="" style="margin-left: 35px;">
-										<a class="btn-floating btn-small waves-effect waves-light grey lighten-3" id="addBtn"><i class="material-icons black-text">remove</i></a>
-										<input type="number" name="qty" id="qty" min="1" max="5">
-										<a class="btn-floating btn-small waves-effect waves-light grey lighten-3" id="removeBtn"><i class="material-icons black-text">add</i></a>
+										<a class="btn-floating btn-small waves-effect waves-light grey lighten-3" id="removeBtn"><i class="material-icons black-text">remove</i></a>
+										<input type="number" min="1" max="5" id="qty-input">
+										<a class="btn-floating btn-small waves-effect waves-light grey lighten-3" id="addBtn"><i class="material-icons black-text">add</i></a>
 										<input type="submit" value="Remove" name="remove" class="grey lighten-4 btn black-text" style="margin-left: 3em;">
 									</form>
 								</td>

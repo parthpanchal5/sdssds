@@ -151,7 +151,7 @@
 					</div>
 					<input type="submit" value="Signup" name="submit" class="btn blue btn-small lighten-2" style="margin-right: 30px;">
 					<input type="reset" value="cancel" class="btn btn-small grey lighten-1">
-					<p>Have an account? Click to <a href="login.php">Login</a></p>
+					<p><a href="login.php">Already have an account?</a></p>
 				</div>
 			</form>
 		</div>

@@ -100,7 +100,7 @@
           <div class="row" style="margin-top: 10px; margin-left: 10px;">
             <a href="forgot.php">Forgot Password?</a>  
           </div>
-          <p style="margin-left: 10px;">Don't have an account? Click to <a href="reg.php">Signup</a></p>  
+          <p style="margin-left: 10px;">Need an account? <a href="reg.php">Signup</a></p>  
         </div>
       </form>
     </div>

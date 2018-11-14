@@ -37,7 +37,15 @@ input[type="text"]{
     border-bottom-color: transparent !important;
     text-align: center;
 } */
-
+input[type="number"],  #qty-input{
+    background: rgba(235, 229, 229, 0.938) !important;
+    width: 40px !important;
+    border-bottom-color: transparent !important;
+    text-align: center !important;
+}
+input[type="number"]:active, #qty-input{
+    border-bottom-color: transparent !important;
+}
 #parent:hover #child{
     transform: rotate(180deg);
     transition: 0.2s ease-in;
