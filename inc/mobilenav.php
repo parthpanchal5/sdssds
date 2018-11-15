@@ -38,7 +38,7 @@
 		<div class="collapsible-body">
 			<ul>
 			<?php $sql = "SELECT COUNT(*) AS `Rows`, `cat_name` FROM `category` GROUP BY `cat_name` ORDER BY `cat_name` DESC"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)) {  ?>
-				<li><a href="category=<?php echo $row[1];?>" class="blue-text"><?php echo $row[1]; ?></a></li>	
+				<li><a href="category=<?php echo strtolower($row[1]);?>" class="blue-text"><?php echo $row[1]; ?></a></li>	
 			<?php } ?>
 			</ul>
 		</div>
