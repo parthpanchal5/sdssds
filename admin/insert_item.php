@@ -74,11 +74,13 @@
 				if(!preg_match("/^[0-9]*$/", $qty)){
 					$qty_err = "Please insert quantity";
 				}else{
-					$sql = "INSERT INTO item(`cat_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `status`, `sub_category`) VALUES ((SELECT	`cat_id` FROM category WHERE cat_name = '$category'),	'$itemName', '$newFileName', '$category', '$itemDesc', '$itemPrice', '$qty', '$status', '$subCat');";
+					$sql1 = "SELECT `cat_id` FROM category"; $result1 = mysqli_query($conn, $sql1); while($row = mysqli_fetch_array($result1)){$cat_id = $row[0];
+					$sql = "INSERT INTO item (`cat_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `status`, `sub_category`) VALUES ((SELECT `cat_id` FROM category WHERE `cat_id` = '$cat_id'),	'$itemName', '$newFileName', '$category', '$itemDesc', '$itemPrice', '$qty', '$status', '$subCat');";
+				} 
 					$result = mysqli_query($conn, $sql);
 					echo $sql;
-					header("Location:insert_item.php");
-					exit;
+					// header("Location:insert_item.php");
+					// exit;
 				}
 			}
 		}
