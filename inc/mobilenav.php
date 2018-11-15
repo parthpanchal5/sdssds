@@ -20,7 +20,7 @@
 	<li class="bold"><a class="collapsible-header waves-effect" id="mobile-links">Cart <i class="material-icons grey-text right">expand_more</i></a>
 		<div class="collapsible-body">
 			<ul>
-				<li><a href="cart.php" class="blue-text">View Cart <i class="fa fa-shopping-cart blue-text right"></i></a></li>			
+				<li><a href="cart.php" class="blue-text">View Cart <span class="new rounded badge green center">1</span><i class="fa fa-shopping-cart blue-text right"></i></a></li>			
 			</ul>
 		</div>
 	</li>

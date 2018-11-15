@@ -37,7 +37,9 @@
 		<li><a href="contact_us.php" class="left blue-text">Contact Us<i class="fas fa-envelope right fa-1x" style="padding-left: 15px;"></i></a></li>
 	</ul>
 	<ul id="cart-dropdown" class="dropdown-content">
-		<li><a href="cart.php" class="left blue-text">View Cart<i class="fa fa-shopping-cart fa-1x right" style="padding-left: 10px; margin-left: 5px;"></i></a></li>
+		<li>
+			<a href="cart.php" class="left blue-text">View Cart <span class="new rounded badge green right">1</span><i class="fa fa-shopping-cart fa-1x right" style="padding-left: 5px; margin-left: 2px;"></i></a>
+		</li>
 	</ul>
 	
 </nav>
