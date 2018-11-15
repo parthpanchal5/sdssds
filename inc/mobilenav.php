@@ -37,8 +37,9 @@
 	<li class="bold active"><a class="collapsible-header waves-effect" id="mobile-links">Categories <i class="material-icons grey-text right">expand_more</i></a>
 		<div class="collapsible-body">
 			<ul>
-				<li><a href="sell.php" class="blue-text">Sell Products</a></li>
-				<li><a href="ads.php" class="blue-text">Create Ads</a></li>			
+			<?php $sql = "SELECT COUNT(*) AS `Rows`, `cat_name` FROM `category` GROUP BY `cat_name` ORDER BY `cat_name` DESC"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)) {  ?>
+				<li><a href="category=<?php echo $row[1];?>" class="blue-text"><?php echo $row[1]; ?></a></li>	
+			<?php } ?>
 			</ul>
 		</div>
 	</li>
