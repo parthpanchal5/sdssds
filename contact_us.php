@@ -55,7 +55,7 @@
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
           <div class="row">
             <div class="input-field col s12">
-              <?php while ($row = mysqli_fetch_array($result)) { ?>
+              <?php $sql = "SELECT * FROM `users` WHERE user_id = '".$_SESSION['user_id']."'"; $result1 = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result1)) {?>
               <input type="text" name="user_email" id="email" class="<?php echo (!empty($email_err)) ? 'invalid' : ''; ?>" value="<?php echo $row[3]; ?>">
               <?php } ?>
               <label for="email">Email</label>
