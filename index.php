@@ -21,7 +21,14 @@
   </nav>
 </div>
 <?php include 'inc/mainnav.php'; ?>
-	
+<!-- <div class="navbar-fixed hide-on-large-only	show-on-medium-and-down">
+  <nav class="white lighten-2 z-depth-1">
+    <div class="container">
+      <div class="nav-wrapper">				
+      </div>
+    </div>  
+  </nav>
+</div>	 -->
 <!-- Sidenav Bar -->
 <?php include 'inc/mobilenav.php'; ?>
 

@@ -34,7 +34,7 @@
 		</div>
 	</li>
 	<li><div class="divider"></div></li>
-	<li class="bold active"><a class="collapsible-header waves-effect" id="mobile-links">Categories <i class="material-icons grey-text right">expand_more</i></a>
+	<li class="bold active"><a class="collapsible-header waves-effect" id="mobile-links">Shop by Category <i class="material-icons grey-text right">expand_more</i></a>
 		<div class="collapsible-body">
 			<ul>
 			<?php $sql = "SELECT COUNT(*) AS `Rows`, `cat_name` FROM `category` GROUP BY `cat_name` ORDER BY `cat_name` DESC"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)) {  ?>

@@ -25,7 +25,7 @@
 							<td colspan="3"><span class="left" style="font-size: 16px;">My Cart ( 1 )</span></td>
 						</tr>
 						<tbody>
-							<tr>
+							<!-- <tr>
 								<td><img src="img/phone.svg" alt="" height="120"></td>
 								<td>
 									Lorem ipsum dolor sit amet consectetur.... <br>
@@ -42,11 +42,11 @@
 										<input type="submit" value="Remove" name="remove" class="grey lighten-4 btn black-text" style="margin-left: 3em;">
 									</form>
 								</td>
+							</tr> -->
+							<tr>
+								<td><img src="img/empty-cart.png" class="responsive-img" alt="" id="empty-cart-img"></td>
 							</tr>
-							
-						
 						</tbody>
-						
 					</table>	
 					<div class="card-action">
 						<table class="table">

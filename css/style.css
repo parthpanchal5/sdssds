@@ -143,7 +143,6 @@ li > a{
     #product-name{
         font-size: 14px;
     }
-    
 }
 /* For tablets and laptops */
 @media (min-width: 768px){
@@ -159,6 +158,10 @@ li > a{
     }
     #admin-prod-row{
         margin-bottom: 20px;
+    }
+    #empty-cart-img{
+        height: 50% !important;
+        transition: 0.4s ease;
     }
 
 }
@@ -178,6 +181,9 @@ li > a{
         color: rgb(133, 118, 118);
         cursor:pointer;
         width: 0;
+    }
+    #empty-cart-img{
+        height: 50% !important;
     }
     
 } 
