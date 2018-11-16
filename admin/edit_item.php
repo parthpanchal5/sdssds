@@ -93,17 +93,15 @@
       $qty_err = "Please insert quantity";
     }    
     else{
-      // The error block
-      $sql1 = "SELECT `cat_id` FROM category";
-      $result1 = mysqli_query($conn, $sql1);
-      $row1 = mysqli_fetch_array($result1);
-      $cat_id = $row1[0];
-
-      $sql = "UPDATE item SET cat_id = '$cat_id' , item_name = '$itemName', item_img = '$newFileName', item_cat = '$category', item_desc = '$itemDesc', item_price = '$itemPrice', item_qty = '$qty', status = '$status', sub_category = '$subCat' WHERE item_id = '$id'";
+        // The error block
+        $sql1 = "SELECT * FROM category"; $result1 = mysqli_query($conn, $sql1); while($row = mysqli_fetch_array($result1)){ $cat_id = $row[0];
+        $sql = "UPDATE item SET cat_id = '$cat_id' , item_name = '$itemName', item_img = '$newFileName', item_cat = '$category', item_desc = '$itemDesc', item_price = '$itemPrice', item_qty = '$qty', status = '$status', sub_category = '$subCat' WHERE item_id = '$id'";
+      }
       $result = mysqli_query($conn, $sql);
-      // echo $sql;
-      header("Location:view_item.php?updated");
-      exit;
+      echo $sql;
+
+      // header("Location:view_item.php?updated");
+      // exit;
     }
   }
   
