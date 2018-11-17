@@ -21,7 +21,7 @@
 				<div class="card-title center white-text gradient-4" style="font-size: 14px; text-transform:uppercase; padding:5px 10px !important;">Ads</div>
         <div class="card-image">
 				<?php $sql = "SELECT * FROM `item` ORDER BY RAND() LIMIT 1"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>
-          <img src="admin/img/<?php echo $row[3]; ?>" class=" animated fadeIn">
+          <img src="admin/img/<?php echo $row[3]; ?>" class=" animated fadeIn responsive-img">
         </div>
         <div class="card-content">
 					<span class="card-title black-text"><?php echo $row[2]; ?></span>

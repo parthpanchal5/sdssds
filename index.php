@@ -41,7 +41,6 @@
 		<div class="carousel-item center" href="#one!">
 			<a href="product.php?pid=<?php echo $row[0]; ?>" data-target="_blank">
 				<img src="admin/img/<?php echo $row[3]; ?>" alt="" height="550">
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, rerum.</p>
 			</a>
 		</div>
 	<?php }?>

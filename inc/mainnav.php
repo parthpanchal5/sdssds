@@ -18,7 +18,7 @@
 					<form action="" method="POST">
 						<div class="input-field">
 							<input type="text" name="q" class="z-depth-2" id="mega-search" placeholder="Search for products...">
-							<i id="filtersubmit" class="fa fa-search fa-1x"></i>
+							<i id="searchbtn" class="fa fa-search fa-1x"></i>
 						</div>
 					</form>		
 				</div>
