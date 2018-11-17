@@ -48,7 +48,7 @@
               <th id="admin-prod-row">Image</th>
               <th>Category</th>
               <th>Sub-Category</th>
-              <th class="center">Description</th>
+              <th>Description</th>
               <th>Price</th>
               <th>Qty</th>
               <th>Status</th>
@@ -62,7 +62,7 @@
                 <td><img src="img/<?php echo $row[2];?>" alt="<?php echo $row[1]; ?>" class="materialboxed" data-caption="<?php echo $row[1]; ?>" id="admin-prod-img" width="120"></td>
                 <td><?php echo $row[3];?></td>
                 <td><?php echo $row['sub_category'];?></td>
-                <td><?php echo $row['item_desc']; ?></td>
+                <td><?php echo $row['item_desc']; ?></p></td>
                 <td><?php echo $row[5];?></td>
                 <td><?php echo $row[6];?></td>
                 <td><?php echo $row[7];?></td>

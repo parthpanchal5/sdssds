@@ -19,7 +19,7 @@
 <?php include 'inc/horizonnav.php';?> 
 
 
-<div id="card-stats" style="margin-top: 20px;" class="animated fadeInDown">
+<div id="card-stats" style="margin-top: 20px;" class="animated ">
 	<div class="row">
 		<div class="col s12 m6 l3">
 			<div class="card gradient-4 z-depth-1 hoverable center-align">
@@ -59,6 +59,48 @@
 					<h4 class="card-stats-number"><?php echo $row[0]; ?></h4>
 					<?php } ?>
 				</div>			
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--Messaging card-->
+<?php 	
+	// Delete
+	if(isset($_GET['d'])){
+		$id = $_GET['d'];
+		mysqli_query($conn, "DELETE FROM contact_us WHERE contact_id = $id");
+		header("Location:dashboard.php");
+	}
+		
+	$sql = "SELECT `contact_id`, `user_email`, `message`, `sent_date` FROM contact_us ORDER BY `sent_date` DESC LIMIT 5";
+	$result = mysqli_query($conn, $sql);
+?>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col s12 m6 l6 xl6">
+			<div class="card-panel hoverable">
+				<div class="card-title center" style="font-size: 18px;">New Messages</div><hr>
+					<div class="card-content">
+						<table class="table striped highlight responsive-table">
+							<thead class=left-align>
+								<th>Sender</th>
+								<th>Message</th>
+								<th>Action</th>
+							</thead>
+							<tbody>
+							<?php while ($row = mysqli_fetch_array($result)) { ?>
+								<tr>
+									<td><?php echo $row[1]; ?></td>
+									<td style="text-align:center;"><?php echo $row[2]; ?></td>
+									<td>
+                		<a href="dashboard.php?d=<?php echo $row[0]; ?>" id="deleteBtn" class="red-text"><i class="fa fa-trash"></i></a>
+              		</td>
+								</tr>
+							<?php }?>
+							</tbody>
+						</table>	
+					</div>
 			</div>
 		</div>
 	</div>
