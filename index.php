@@ -35,19 +35,16 @@
 
 <!-- Content area -->
 <div class="container-fluid animated fadeIn">
-
-	<div class="carousel carousel-slider" style="">
-	<?php $sql = "SELECT * FROM item ORDER BY item_id ASC LIMIT 1"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
-		<div class="carousel-item white-text" href="#one!">
-			<img src="admin/img/<?php echo $row[3]; ?>" alt="" height="550">
+	<!-- Carousel Slider -->
+	<div class="carousel carousel-slider" style="margin-top: 15px;">
+	<?php $sql = "SELECT * FROM item ORDER BY RAND(`item_id`) DESC LIMIT 4"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
+		<div class="carousel-item center" href="#one!">
+			<a href="product.php?pid=<?php echo $row[0]; ?>" data-target="_blank">
+				<img src="admin/img/<?php echo $row[3]; ?>" alt="" height="550">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, rerum.</p>
+			</a>
 		</div>
-		<div class="carousel-item white-text" href="#two!">
-		<img src="admin/img/<?php echo $row[3]; ?>" alt="" height="550">
-		</div>
-		<div class="carousel-item white-text" href="#three!">
-		<img src="admin/img/<?php echo $row[3]; ?>" alt="" height="550">
-		</div>
-		<?php }?>
+	<?php }?>
 	</div>	
 	
 	<?php $sql = "SELECT * FROM item ORDER BY item_id DESC LIMIT 4"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	

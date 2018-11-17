@@ -15,7 +15,7 @@
 <!--Mobile navbar -->
 <?php include 'inc/mobilenav.php'; ?>
 <!--Content area -->
-<div class="container-fluid lighten-4" style="margin: 0px 30px 0px 30px;">
+<div class="container-fluid lighten-4 animated fadeIn" style="margin: 0px 30px 0px 30px;">
   <div class="row" style="margin-top: 10px;">
 		<div class="col s12 m12 l8">
 			<div class="card">
