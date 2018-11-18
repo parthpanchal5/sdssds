@@ -110,17 +110,7 @@ $(document).ready(function(){
         var regExp = /^[a-bA-B0-9 ]+$/;
     })
     
-    // Pagination Links active
-    var btnContainer = document.getElementById("page-container");
-    var btns = btnContainer.getElementsByClassName("pagination-links");
     
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function() {
-          var current = document.getElementsByClassName("active");
-          current[0].className = current[0].className.replace(" active", "");
-          this.className += " active";
-        });
-      }
     // Delete button
     $('#deleteBtn').click(function(){
         $("#contact-row").addClass('animated fadeOutRight');
@@ -234,9 +224,3 @@ $(document).ready(function(){
 // tinymce.init({
 //     selector: '#mytextarea'
 //   });
-
-
-
-
-
-
