@@ -72,8 +72,29 @@
 		mysqli_query($conn, "DELETE FROM contact_us WHERE contact_id = $id");
 		header("Location:dashboard.php");
 	}
+
+		// Define results per page
+		$resultPerPage = 2;
+
+		$sql1 = "SELECT * FROM contact_us";
+		$result1 = mysqli_query($conn, $sql1);
+		$noOfResults = mysqli_num_rows($result1);
+	
+	
+		// Determine no of total pages available
+		$noOfPages = ceil($noOfResults / $resultPerPage);
 		
-	$sql = "SELECT `contact_id`, `user_email`, `message`, `sent_date` FROM contact_us ORDER BY `sent_date` DESC LIMIT 5";
+		// Determine which page number visitor is on
+		if (!isset($_GET['page'])) {
+			$page = 1;
+		}else{
+			$page = $_GET['page'];
+		}
+		
+		// Determine sql LIMIT starting no for result on the displaying page
+		$startingLimitNo = ($page - 1) * $resultPerPage;	
+		
+	$sql = "SELECT `contact_id`, `user_email`, `message`, `sent_date` FROM contact_us ORDER BY `sent_date` LIMIT " . $startingLimitNo .','. $resultPerPage;
 	$result = mysqli_query($conn, $sql);
 ?>
 <div class="container-fluid">
@@ -97,9 +118,18 @@
                 		<a href="dashboard.php?d=<?php echo $row[0]; ?>" id="deleteBtn" class="red-text"><i class="fa fa-trash"></i></a>
               		</td>
 								</tr>
-							<?php }?>
+							<?php }?>          
 							</tbody>
 						</table>	
+						<?php 
+							echo "<ul class='pagination center'>";
+								for ($page=1; $page <= $noOfPages; $page++) { 
+									echo "<li class='waves-effect'>";
+									echo '<a href="dashboard.php?page='.$page.'">'. $page . '</a>';
+									echo "</li>";
+								}
+								echo "</ul>";
+      				?>
 					</div>
 			</div>
 		</div>

@@ -8,10 +8,10 @@
     header("Location:view_item.php?Deleted");
   }
   // Define results per page
-	$resultPerPage = 4;
+	$resultPerPage = 2;
 
   $sql1 = "SELECT * FROM item";
-  $result1 = mysqli_query($conn, $sql);
+  $result1 = mysqli_query($conn, $sql1);
   $noOfResults = mysqli_num_rows($result1);
 
 
@@ -74,15 +74,17 @@
               </tr>
             </tbody>
           </table>
+          <?php 
+            echo "<ul class='pagination center' id='page-container'>";
+              for ($page=1; $page <= $noOfPages; $page++) { 
+              echo "<li class='waves-effect pagination-links'>";
+                echo '<a href="view_item.php?page='.$page.'">'. $page . '</a>';
+              echo "</li>";
+            }
+            echo "</ul>";
+          ?>
         </div>
-      </div>
-      <?php 
-        for ($page=1; $page <= $noOfPages; $page++) { 
-          echo '<a href="view_item.php?page='.$page.'">'. $page . '</a>';
-        }
-      ?>
-      
-      
+      </div>      
     </div>
     <div class="col s12 m0 l0"></div>
   </div>
