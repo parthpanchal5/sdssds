@@ -33,9 +33,9 @@
     </div>
 		<div class="col s12 m7 l9 xl9">
 			<div class="card large">
-				<div class="card-title center z-depth-1 gradient-1 white-text" style="font-size: 16px; text-transform:uppercase; padding:10px 0px 10px 0px!important;">Choose Your Payment Mode</div>
+				<div class="card-title center z-depth-1 gradient-1 white-text" style="font-size: 16px; text-transform:uppercase; padding:10px 0px 10px 0px!important;">Payment Gateway</div>
 				<div class="card-content">
-					<form action="">
+					<!-- <form action="">
 						<div class="col s6 m6 l6 xl6 center">
 							<p style="text-transform:uppercase; font-size: 16px;">Credit</p>
 							<div class="row">
@@ -91,13 +91,39 @@
 							</div>
 							<input type="submit" name="pay" class="btn btn-medium" value="pay">
 						</div>
-					</form>
+					</form> -->
+					<div class="col s12 m6 l6 xl6">
+						<div class="row">
+						<?php $sql = "SELECT * FROM users WHERE user_id = '".$_SESSION['user_id']."'"; $result = mysqli_query($conn, $sql); while ($row =  mysqli_fetch_array($result)) { ?>
+							<p style="font-size: 16px; text-align: center; margin-bottom: 20px;">Your Info</p>
+								<form action="<?php echo $SERVER['PHP_SELF']; ?>" method="POST">
+								<div class="input-field col s12 l6 m6">
+									<input type="text" name="firstname" disabled value="<?php echo $row[1]; ?>" id="disabled-inputs">
+									<label for="firstname">Firstname</label>
+								</div>
+								<div class="input-field col s12 l6 m6">
+									<input type="text" name="lastname" disabled value="<?php echo $row[2]; ?>" id="disabled-inputs">
+									<label for="lastname">Lastname</label>
+								</div>
+								<div class="input-field col s12 l12 m6">
+									<input type="text" name="email" disabled value="<?php echo $row[3]; ?>" id="disabled-inputs">
+									<label for="email">Email</label>
+								</div>
+								<div class="input-field col s12 l12 m6">
+									<input type="text" name="phone" disabled value="<?php echo $row[6]; ?>" id="disabled-inputs">
+									<label for="Phone">Phone</label>
+								</div>
+								<div class="input-field col s12 m12 l12">
+									<textarea class="materialize-textarea" disabled id="disabled-inputs"><?php echo $row[4];?></textarea>
+          				<label for="address">Delivery Address</label>
+								</div>
+							</form>
+							<?php } ?>
+						</div>
+					</div>
 				</div>
   		</div>      
 		</div>
-
-
-
 
 <!--Footer-->
 <?php include 'inc/footer.php'; ?>

@@ -10,7 +10,9 @@ html, body{
 .gradient-4{background: linear-gradient(to right, #ff416c, #ff4b2b);}
 .gradient-5{background: linear-gradient(to bottom, #36d1dc, #5b86e5); }
 
-
+#disabled-inputs:hover{
+    cursor: not-allowed;
+}
 .section {
     padding-top: 1rem;
     padding-bottom: 1rem;

@@ -52,7 +52,7 @@
 						<table class="table">
 							<tr>
 								<td class="right">
-									<form action="#" method="POST">
+									<form action="checkout.php" method="POST">
 										<a href="index.php" class="btn btn-large grey lighten-5 black-text" style="margin-right: 20px;"><i class="fas fa-chevron-left" style="font-size: 15px; margin-right: 10px;"></i> Continue Shopping</a>
 										<input type="submit" value="place order" class="btn btn-large  amber darken-4">
 									</form>
