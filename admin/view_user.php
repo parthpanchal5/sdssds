@@ -9,11 +9,27 @@
     header("Location:view_user.php?Deleted");
   }
 
+  // Define results per page
+  $resultPerPage = 3;
 
-  // View 
-  $sql = "SELECT * FROM users ORDER BY user_id DESC";
-  $result = mysqli_query($conn, $sql);
+  $sql1 = "SELECT * FROM category";
+  $result1 = mysqli_query($conn, $sql1);
+  $noOfResults = mysqli_num_rows($result1);
 
+
+  // Determine no of total pages available
+  $noOfPages = ceil($noOfResults / $resultPerPage);
+
+  // Determine which page number visitor is on
+  if (!isset($_GET['page'])) {
+    $page = 1;
+  }else{
+    $page = $_GET['page'];
+  }
+
+  // Determine sql LIMIT starting no for result on the displaying page
+  $startingLimitNo = ($page - 1) * $resultPerPage;	
+  
 ?>
 <?php include 'inc/header.php';?>
 <?php include 'inc/horizonnav.php'; ?>     
@@ -24,7 +40,7 @@
   <?php }?>
   <div class="row">
     <div class="col s12 m2 l3"></div>
-    <div class="col s12 m8 l6">
+    <!-- <div class="col s12 m8 l6">
       <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET">
         <div class="card-panel hoverable">
           <div class="row">
@@ -37,14 +53,14 @@
           </div>
         </div>
       </form>
-    </div>
+    </div> -->
     <div class="col s12 m2 l3"></div>
   </div>
   
   <div class="row">
     <div class="col s12 m0 l2"></div>
     <div class="col s12 m12 l8 black-text" id="content">
-      <div class="card hoverable">  
+      <div class="card hoverable animated fadeIn">  
         <div class="card-content">
           <table class="highlight responsive-table black-text center-align" style="margin-top: 10px;"  id="searchTable">
           <thead>
@@ -58,7 +74,7 @@
             </tr>
           </thead>
           <tbody>
-            <?php while ($row = mysqli_fetch_array($result)) { ?>
+            <?php $sql = "SELECT * FROM users ORDER BY user_id DESC LIMIT ". $startingLimitNo .','. $resultPerPage; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>
             <tr>	
               <td><?php echo $row['user_id']; ?></td>
               <td><?php echo $row['firstname']; ?></td>
@@ -73,6 +89,15 @@
             <?php } ?>
           </tbody>
         </table>
+        <?php 
+          echo "<ul class='pagination center' id='page-container'>";
+            for ($page=1; $page <= $noOfPages; $page++) { 
+            echo "<li class='waves-effect pagination-links'>";
+              echo '<a href="view_user.php?page='.$page.'">'. $page . '</a>';
+            echo "</li>";
+          }
+          echo "</ul>";
+        ?>
       </div>    
     </div>	
   <div class="col s12 m0 l2"></div>

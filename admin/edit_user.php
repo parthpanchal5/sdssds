@@ -34,7 +34,7 @@
   <div class="row">
     <div class="col s12 m2 l3"></div>
     <div class="col s12 m8 l6" style="margin-top: 20px;">
-      <div class="card">
+      <div class="card animated fadeIn">
         <div class="card-content">
           <h4 class="center">Edit User</h4>
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" style="margin-top: 30px;">

@@ -39,7 +39,7 @@
       <?php $sql = "SELECT COUNT(`item_id`) FROM item"; $result1 = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result1)) { ?>
       <p class="center">Total no of products: <h5 class="center-align"><?php echo $row[0]; ?></h5></p>
       <?php }?>
-      <div class="card-panel hoverable">
+      <div class="card-panel hoverable animated fadeIn">
         <div class="card-content">
           <table class="table highlight responsive-table stripped">
             <thead>
