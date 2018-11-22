@@ -64,9 +64,9 @@
   <div class="row">
     <div class="col s12 m0 l2"></div>
     <div class="col s12 m12 l8 black-text" id="content">
-      <div class="card hoverable animated fadeIn">  
+      <div class="card hoverable">  
         <div class="card-content">
-          <table class="highlight responsive-table black-text center-align" style="margin-top: 10px;"  id="searchTable">
+          <table class="highlight animated fadeIn responsive-table black-text center-align" style="margin-top: 10px;"  id="searchTable">
           <thead>
             <tr>
               <th>Cat Id</th>

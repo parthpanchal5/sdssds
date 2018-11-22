@@ -47,9 +47,9 @@
     <div class="col s12 m0 l2"></div>
     <div class="col s12 m12 l8 black-text" id="content">
     <h3 class="center" style="margin-top: 1em; margin-bottom: 1em;">Client's Messages</h3>
-      <div class="card hoverable animated fadeIn">  
+      <div class="card hoverable">  
         <div class="card-content">
-          <table class="highlight responsive-table black-text">
+          <table class="highlight responsive-table black-text animated fadeIn striped">
           <thead>
             <tr>
               <th>Sender</th>

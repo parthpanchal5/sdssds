@@ -100,10 +100,10 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col s12 m6 l6 xl6">
-			<div class="card-panel hoverable animated fadeIn">
+			<div class="card-panel hoverable">
 				<div class="card-title center" style="font-size: 18px;">New Messages</div><hr>
 					<div class="card-content">
-						<table class="table striped highlight responsive-table">
+						<table class="table striped highlight responsive-table animated fadeIn">
 							<thead class=left-align>
 								<th>Sender</th>
 								<th>Message</th>

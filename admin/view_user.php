@@ -34,7 +34,7 @@
 <?php include 'inc/header.php';?>
 <?php include 'inc/horizonnav.php'; ?>     
 <div class="container-fluid">
-  <h4 class="center">User</h4>
+  <h4 class="center">Users</h4>
   <?php $sql = "SELECT COUNT(`user_id`) FROM users"; $result1 = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result1)) { ?>
     <p class="center">Total no of users: <h5 class="center"><?php echo $row[0]; ?></h5></p>
   <?php }?>
@@ -60,9 +60,9 @@
   <div class="row">
     <div class="col s12 m0 l2"></div>
     <div class="col s12 m12 l8 black-text" id="content">
-      <div class="card hoverable animated fadeIn">  
+      <div class="card hoverable">  
         <div class="card-content">
-          <table class="highlight responsive-table black-text center-align" style="margin-top: 10px;"  id="searchTable">
+          <table class="highlight animated fadeIn striped responsive-table black-text center-align" style="margin-top: 10px;"  id="searchTable">
           <thead>
             <tr>
               <th>Id</th>
