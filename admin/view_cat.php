@@ -66,13 +66,13 @@
     <div class="col s12 m12 l8 black-text" id="content">
       <div class="card hoverable">  
         <div class="card-content">
-          <table class="highlight animated fadeIn responsive-table black-text center-align" style="margin-top: 10px;"  id="searchTable">
+          <table class="highlight animated fadeIn responsive-table black-text" style="margin-top: 10px;"  id="searchTable">
           <thead>
             <tr>
               <th>Cat Id</th>
               <th>Category</th>
               <th>Sub Category</th>
-              <th>Category Desc</th>
+              <th>Desc</th>
               <th>Created on</th>
               <th>Action</th>
             </tr>
@@ -83,7 +83,7 @@
               <td><?php echo $row[0]; ?></td>
               <td><?php echo $row[1]; ?></td>
               <td><?php echo $row[2]; ?></td>
-              <td><?php echo $row[3]; ?></td>
+              <td class="left-align"><?php echo $row[3]; ?></td>
               <td><?php $date = date('d-M-y', strtotime($row[4])); echo $date; ?></td>
               <td>
                 <a href="edit_cat.php?edit=<?php echo $row['cat_id']; ?>" class="blue-text"><i class="fa fa-edit"></i></a> | 
