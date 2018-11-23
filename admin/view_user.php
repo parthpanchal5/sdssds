@@ -62,13 +62,14 @@
     <div class="col s12 m12 l8 black-text" id="content">
       <div class="card hoverable">  
         <div class="card-content">
-          <table class="highlight animated fadeIn striped responsive-table black-text center-align" style="margin-top: 10px;"  id="searchTable">
+          <table class="highlight animated fadeIn striped responsive-table black-text" style="margin-top: 10px;"  id="searchTable">
           <thead>
             <tr>
               <th>Id</th>
               <th>Firstname</th>
               <th>Lastname</th>
               <th>Email</th>
+              <th>Delivery Address</th>
               <th>Phone</th>
               <th>Action</th>
             </tr>
@@ -80,6 +81,7 @@
               <td><?php echo $row['firstname']; ?></td>
               <td><?php echo $row['lastname']; ?></td>
               <td><?php echo $row['email']; ?></td>
+              <td class="left-align"><?php echo $row['address']; ?></td>
               <td><?php echo $row['phone']; ?></td>
               <td>
                 <a href="edit_user.php?edit=<?php echo $row['user_id']; ?>" class="blue-text"><i class="fa fa-edit"></i></a> | 
