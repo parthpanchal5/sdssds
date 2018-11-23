@@ -63,7 +63,7 @@
             <tr id="contact-row">	
               <td><?php echo $row[1]; ?></td>
               <td><?php echo $row[2]; ?></td>
-              <td><?php echo $row[3]; ?></td>
+              <td><?php $date = date('d-M-Y', strtotime($row[3])); echo $date; ?></td>
               <td>
                 <a href="edit_user.php?edit=<?php echo $row[0]; ?>" class="green-text">Reply <i class="fa fa-reply"></i> </a> | 
                 <a href="view_contact_msg.php?delete=<?php echo $row[0]; ?>" id="deleteBtn" class="red-text"><i class="fa fa-trash"></i></a>

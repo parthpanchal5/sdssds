@@ -84,7 +84,7 @@
               <td><?php echo $row[1]; ?></td>
               <td><?php echo $row[2]; ?></td>
               <td><?php echo $row[3]; ?></td>
-              <td><?php echo $row[4]; ?></td>
+              <td><?php $date = date('d-M-y', strtotime($row[4])); echo $date; ?></td>
               <td>
                 <a href="edit_cat.php?edit=<?php echo $row['cat_id']; ?>" class="blue-text"><i class="fa fa-edit"></i></a> | 
                 <a href="view_cat.php?delete=<?php echo $row['cat_id']; ?>" id="deleteBtn" class="red-text"><i class="fa fa-trash"></i></a>
