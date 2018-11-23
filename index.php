@@ -15,7 +15,7 @@
   <nav class="blue lighten-2 z-depth-2">
     <div class="container">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Shop</a>
+        <a href="index.php" class="brand-logo">Shop</a>
       </div>
     </div>  
   </nav>
