@@ -15,9 +15,9 @@
 	<div class="container">
 			<div class="row">
 				<div class="col s6">
-					<form action="" method="POST">
+					<form action="<?php echo 'product.php?q='?>" method="GET">
 						<div class="input-field">
-							<input type="text" name="q" class="z-depth-2" id="mega-search" placeholder="Search for products...">
+							<input type="text" name="q" class="z-depth-2" id="mega-search" value="<?php echo $productRequest; ?>" placeholder="Search for products...">
 							<i id="searchbtn" class="fa fa-search fa-1x"></i>
 						</div>
 					</form>		

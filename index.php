@@ -47,17 +47,18 @@
 	</div>	
 	
 	<?php $sql = "SELECT * FROM item ORDER BY item_id DESC LIMIT 4"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
-	<div class="row product-showcase animated fadeInUp" style="margin-top: 1em;">
-		<div class="col s6 m6 l3 xl3">
+	<div class="row product-showcase" style="margin-top: 1em;">
+		<div class="col s12 m6 l3 xl3">
 			<div class="card sticky-action" style="overflow: visible;">
 				<div class="card-image waves-effect waves-block waves-light">
 					<img class="activator" src="admin/img/<?php echo $row[3]; ?>">
 				</div>
 				<div class="card-content">
-					<span class="card-title activator grey-text text-darken-4"><?php echo $row[2]; ?><a class="btn-floating pulse right blue lighten-3"><i class="material-icons">expand_less</i></a></span>
+					<span class="card-title activator grey-text text-darken-4"><?php echo $row[2]; ?><a class="btn-floating btn-small right blue"><i class="material-icons">expand_less</i></a></span>
 				</div>
 				<div class="card-action">
-					<a href="#" class="btn btn-block btn-small orange lighten-1">Add to Cart <i class="fa fa-shopping-cart"></i></a>
+					<a href="product.php?pid=<?php echo $row[0]; ?>" class="btn btn-small">See More <i class="fa fa-eye"></i></a>
+					<a href="cart.php?pid=<?php echo $row[0]; ?>" class="btn btn-small orange lighten-1">Add to Cart <i class="fa fa-shopping-cart"></i></a>
 				</div>
 				<div class="card-reveal" style="display: none; transform: translateY(0%);">
 					<span class="card-title grey-text text-darken-4"><?php echo $row[2]; ?><i class="material-icons right">close</i></span>
@@ -66,16 +67,17 @@
 				</div>
 			</div>
 		</div>
-		<div class="col s6 m6 l3 xl3">
+		<div class="col s12 m6 l3 xl3">
 			<div class="card sticky-action" style="overflow: visible;">
 				<div class="card-image waves-effect waves-block waves-light">
 					<img class="activator" src="admin/img/<?php echo $row[3]; ?>">
 				</div>
 				<div class="card-content">
-					<span class="card-title activator grey-text text-darken-4"><?php echo $row[2]; ?><a class="btn-floating pulse right blue lighten-3"><i class="material-icons">expand_less</i></a></span>
+					<span class="card-title activator grey-text text-darken-4"><?php echo $row[2]; ?><a class="btn-floating btn-small right blue"><i class="material-icons">expand_less</i></a></span>
 				</div>
 				<div class="card-action">
-					<a href="#" class="btn btn-block btn-small orange lighten-1">Add to Cart <i class="fa fa-shopping-cart"></i></a>
+				<a href="product.php?pid=<?php echo $row[0]; ?>" class="btn btn-small">See More <i class="fa fa-eye"></i></a>
+					<a href="cart.php?pid=<?php echo $row[0]; ?>" class="btn btn-small orange lighten-1">Add to Cart <i class="fa fa-shopping-cart"></i></a>
 				</div>
 				<div class="card-reveal" style="display: none; transform: translateY(0%);">
 					<span class="card-title grey-text text-darken-4"><?php echo $row[2]; ?><i class="material-icons right">close</i></span>
@@ -84,16 +86,17 @@
 				</div>
 			</div>
 		</div>
-		<div class="col s6 m6 l3 xl3">
+		<div class="col s12 m6 l3 xl3">
 			<div class="card sticky-action" style="overflow: visible;">
 				<div class="card-image waves-effect waves-block waves-light">
 					<img class="activator" src="admin/img/<?php echo $row[3]; ?>">
 				</div>
 				<div class="card-content">
-					<span class="card-title activator grey-text text-darken-4"><?php echo $row[2]; ?><a class="btn-floating pulse right blue lighten-3"><i class="material-icons">expand_less</i></a></span>
+					<span class="card-title activator grey-text text-darken-4"><?php echo $row[2]; ?><a class="btn-floating btn-small right blue"><i class="material-icons">expand_less</i></a></span>
 				</div>
 				<div class="card-action">
-					<a href="#" class="btn btn-block btn-small orange lighten-1">Add to Cart <i class="fa fa-shopping-cart"></i></a>
+					<a href="product.php?pid=<?php echo $row[0]; ?>" class="btn btn-small">See More <i class="fa fa-eye"></i></a>
+					<a href="cart.php?pid=<?php echo $row[0]; ?>" class="btn btn-small orange lighten-1">Add to Cart <i class="fa fa-shopping-cart"></i></a>
 				</div>
 				<div class="card-reveal" style="display: none; transform: translateY(0%);">
 					<span class="card-title grey-text text-darken-4"><?php echo $row[2]; ?><i class="material-icons right">close</i></span>
@@ -102,16 +105,17 @@
 				</div>
 			</div>
 		</div>
-		<div class="col s6 m6 l3 xl3">
+		<div class="col s12 m6 l3 xl3">
 			<div class="card sticky-action" style="overflow: visible;">
 				<div class="card-image waves-effect waves-block waves-light">
 					<img class="activator" src="admin/img/<?php echo $row[3]; ?>">
 				</div>
 				<div class="card-content">
-					<span class="card-title activator grey-text text-darken-4"><?php echo $row[2]; ?><a class="btn-floating pulse right blue lighten-3"><i class="material-icons">expand_less</i></a></span>
+					<span class="card-title activator grey-text text-darken-4"><?php echo $row[2]; ?><a class="btn-floating btn-small right blue"><i class="material-icons">expand_less</i></a></span>
 				</div>
 				<div class="card-action">
-					<a href="#" class="btn btn-block btn-small orange lighten-1">Add to Cart <i class="fa fa-shopping-cart"></i></a>
+					<a href="product.php?pid=<?php echo $row[0]; ?>" class="btn btn-small">See More <i class="fa fa-eye"></i></a>
+					<a href="cart.php?pid=<?php echo $row[0]; ?>" class="btn btn-small orange lighten-1">Add to Cart <i class="fa fa-shopping-cart"></i></a>
 				</div>
 				<div class="card-reveal" style="display: none; transform: translateY(0%);">
 					<span class="card-title grey-text text-darken-4"><?php echo $row[2]; ?><i class="material-icons right">close</i></span>
