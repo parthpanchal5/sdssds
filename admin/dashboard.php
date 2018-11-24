@@ -13,7 +13,7 @@
 	}
 	if(isset($_GET['hello'])){
 		$message = htmlspecialchars($_GET['hello']);
-		$message = "Message sent";
+		$message = "Hello"." ".$_SESSION['firstname']."!";
 	}
 
       
@@ -145,7 +145,7 @@
   position: 'top-end',
   type: 'success',
   title: '<?php echo $message; ?>',
-  showConfirmButton: true,
+  showConfirmButton: false,
   timer: 1500
 });
 </script>
