@@ -39,7 +39,7 @@
                 $_SESSION['firstname'] = $row['firstname'];
                 $_SESSION['lastname'] = $row['lastname'];
                 $_SESSION['email'] = $row['email'];
-                header("Location:dashboard.php");
+                header("Location:dashboard.php?hello");
                 exit;
               }
             } 

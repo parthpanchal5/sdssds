@@ -1,16 +1,20 @@
 <?php 
-    session_start();
+	session_start();
     
-    include 'inc/conn.php';
+	include 'inc/conn.php';
 
-    if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
-    	header('Location:login.php');
-    	exit;
+	if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
+		header('Location:login.php');
+		exit;
 	}
-    if(($_SESSION['email'] != "admin@admin.com") || ($_SESSION['username'] != "admin123")){
-			header('Location:login.php');
-    	exit;
-    }
+	if(($_SESSION['email'] != "admin@admin.com") || ($_SESSION['username'] != "admin123")){
+		header('Location:login.php');
+		exit;
+	}
+	if(isset($_GET['hello'])){
+		$message = mysqli_real_escape_string($conn, $_GET['hello']);
+		$message = "Message sent";
+	}
 
       
 
@@ -64,6 +68,7 @@
 	</div>
 </div>
 
+
 <!--Messaging card-->
 <?php 	
 	// Delete
@@ -72,7 +77,7 @@
 		mysqli_query($conn, "DELETE FROM contact_us WHERE contact_id = $id");
 		header("Location:dashboard.php");
 	}
-
+	
 		// Define results per page
 		$resultPerPage = 2;
 
@@ -135,6 +140,15 @@
 		</div>
 	</div>
 </div>
+<script>
+	swal({
+  position: 'top-end',
+  type: 'success',
+  title: '<?php echo $message; ?>',
+  showConfirmButton: true,
+  timer: 1500
+});
+</script>
 <?php include 'inc/footer.php'; ?>
 
         
