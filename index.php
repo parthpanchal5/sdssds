@@ -3,10 +3,10 @@
 	include 'inc/conn.php';
 
 		// Validate login
-		// if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
-		// 	header('Location: login.php');
-		// 	exit;
-		// }
+		if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
+			header('Location: login.php');
+			exit;
+		}
 		
 ?>
 <?php include 'inc/header.php'; ?>
@@ -21,14 +21,6 @@
   </nav>
 </div>
 <?php include 'inc/mainnav.php'; ?>
-<!-- <div class="navbar-fixed hide-on-large-only	show-on-medium-and-down">
-  <nav class="white lighten-2 z-depth-1">
-    <div class="container">
-      <div class="nav-wrapper">				
-      </div>
-    </div>  
-  </nav>
-</div>	 -->
 <!-- Sidenav Bar -->
 <?php include 'inc/mobilenav.php'; ?>
 
