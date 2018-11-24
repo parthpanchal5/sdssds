@@ -28,8 +28,12 @@
 </div>
 	<!-- Dropdown Contents (Non-Mobile) -->
 	<ul id="profile-dropdown" class="dropdown-content">
-		<li><a href="profile.php" class="blue-text">Hello <?php echo $_SESSION['firstname']; ?></a></li>
-		<li><a href="logout.php" class="blue-text">Logout <i class="fa fa-power-off red-text fa-1x right" style="margin-left: 20px;"></i></a></li>
+	<li><a href='profile.php' class='blue-text'>Hello <?php echo $_SESSION['firstname']; ?></a></li>
+	<?php if(!isset($_SESSION['email']) || empty($_SESSION['email'])) :?>
+	<?php echo '<li class="bold"><a href="login.php" class="collapsible-header waves-effect" id="mobile-links">Login</a></li>';?>
+	<?php else: ?>
+	<?php echo '<li class="bold"><a href="logout.php" class="collapsible-header waves-effect blue-text" id="mobile-links">Logout <i class="fa fa-power-off fa-1x right red-text" style="font-size: 15px; margin-left: 5px;"></i></a></li>';?>
+	<?php endif; ?>
 	</ul>
 	<ul id="more-dropdown" class="dropdown-content">
 		<li><a href="sell.php" class="left blue-text">Sell Products<i class="fas fa-chart-line right fa-1x" style="padding-left: 15px;"></i></a></li>
@@ -90,6 +94,9 @@
 			</ul>
 		</div>
 	</li>
-	<li class="bold"><a href="logout.php" class="collapsible-header waves-effect" id="mobile-links">Logout <i class="fa fa-power-off fa-1x right red-text" style="font-size: 15px;"></i></a></li>
-
+	<?php if(!isset($_SESSION['email']) || empty($_SESSION['email'])) :?>
+		<?php echo '<li class="bold"><a href="login.php" class="collapsible-header waves-effect" id="mobile-links">Login </a></li>';?>
+	<?php else: ?>
+	<?php echo '<li class="bold"><a href="logout.php" class="collapsible-header waves-effect" id="mobile-links">Logout <i class="fa fa-power-off fa-1x right red-text" style="font-size: 15px;"></i></a></li>';?>
+	<?php endif; ?>
 </ul>

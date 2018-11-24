@@ -96,7 +96,7 @@
 						<div class="row">
 						<?php $sql = "SELECT * FROM users WHERE user_id = '".$_SESSION['user_id']."'"; $result = mysqli_query($conn, $sql); while ($row =  mysqli_fetch_array($result)) { ?>
 							<p style="font-size: 16px; text-align: center; margin-bottom: 20px;">Your Info</p>
-								<form action="<?php echo $SERVER['PHP_SELF']; ?>" method="POST">
+								<form>
 								<div class="input-field col s12 l6 m6">
 									<input type="text" name="firstname" disabled value="<?php echo $row[1]; ?>" id="disabled-inputs">
 									<label for="firstname">Firstname</label>
