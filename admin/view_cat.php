@@ -8,7 +8,22 @@
 			mysqli_query($conn, "DELETE FROM category WHERE cat_id = $id");
 			header("Location:view_cat.php?Deleted");
     }
-    
+    if(isset($_GET['inserted'])){
+      $message = $_GET['inserted']; 
+      $message = "1 New Record Inserted."; 
+
+      echo "<script>
+      swal({
+        position: 'top-end',
+        type: 'success',
+        title: '<?php echo $message; ?>',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      
+      
+      </script>";
+    }
     // Define results per page
 	  $resultPerPage = 3;
 
@@ -105,7 +120,7 @@
       </div>    
     </div>	
   <div class="col s12 m0 l2"></div>
-</div>    
+</div>
 <?php include 'inc/footer.php'; ?>
 
         

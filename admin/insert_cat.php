@@ -34,7 +34,7 @@
           }else{
             $sql = "INSERT INTO category (cat_name, sub_cat_name, cat_desc) VALUES ('$catName', '$subCatName', '$catDesc')";
             $result = mysqli_query($conn, $sql);
-            header("Location:view_cat.php");
+            header("Location:view_cat.php?inserted");
             exit;
           }
         }

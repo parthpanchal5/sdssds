@@ -12,7 +12,7 @@
 		exit;
 	}
 	if(isset($_GET['hello'])){
-		$message = mysqli_real_escape_string($conn, $_GET['hello']);
+		$message = htmlspecialchars($_GET['hello']);
 		$message = "Message sent";
 	}
 
