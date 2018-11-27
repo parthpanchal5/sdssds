@@ -51,7 +51,7 @@
               <th>Description</th>
               <th>Price</th>
               <th>Qty</th>
-              <th>Status</th>
+              <th style="padding: 40px;">Status</th>
               <th>Action</th>
             </thead>
             <tbody>
@@ -66,11 +66,14 @@
                 <td><?php echo $row[5];?></td>
                 <td><?php echo $row[6];?></td>
                 <?php 
-                  if($row[6] <= 1){
+                  if($row[7] <= 1){
                     echo "<td><span class='chips rounded red darken-2 white-text' style='padding: 5px;'>Not Available</span></td>";
                   }
-                  if($row[6] <= 255){
+                  if($row[7] >= 250 && $row[7] < 350){
                     echo "<td><span class='chips rounded amber darken-2 white-text' style='padding: 5px;'>Low Stock</span></td>";
+                  }
+                  if($row[7] >= 360){
+                    echo "<td><span class='chips rounded green darken-2 white-text' style='padding: 5px;'>Available</span></td>";
                   }
                 ?>
                 <td>

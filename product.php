@@ -23,7 +23,7 @@
 <?php include 'inc/mainnav.php'; ?>
 	
 <!--Content area-->
-<div class="container-fluid" style="margin: 00px 00px 0px 0px;">
+<div class="container-fluid" style="margin: 15px 10px 10px 10px;">
   <div class="row animated fadeIn">
     <div class="col s12 m12 l6 xl6">
       <div class="card">
@@ -62,12 +62,12 @@
           <tr>
             <th class="left">Availability: </th>
             <?php 
-              if ($row[8] == "Available"){
-                echo "<td><span class='chips rounded green white-text' style='padding: 5px;'>$row[8]</span></td>";
-              }if ($row[8] == "Out of Stock"){
-                echo "<td><span class='chips rounded red white-text' style='padding: 5px;'>$row[8]</span></td>";
-              }if ($row[8] == "Low stock"){
-                echo "<td><span class='chips rounded amber darken-2 white-text' style='padding: 5px;'>$row[8]</span></td>";
+              if ($row[7] <= 1){
+                echo "<td><span class='chips rounded red white-text' style='padding: 5px;'>Not available</span></td>";
+              }if ($row[7] >= 250 && $row[7] < 350){
+                echo "<td><span class='chips rounded amber darken-2 white-text' style='padding: 5px;'>Low Stock</span></td>";
+              }if ($row[7] >= 360){
+                echo "<td><span class='chips rounded green darken-2 white-text' style='padding: 5px;'>Available</span></td>";
               }
             ?>
           </tr>
