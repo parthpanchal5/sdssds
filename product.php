@@ -23,9 +23,9 @@
 <?php include 'inc/mainnav.php'; ?>
 	
 <!--Content area-->
-<div class="container-fluid" style="margin: 20px 20px 0px 20px;">
+<div class="container-fluid" style="margin: 00px 00px 0px 0px;">
   <div class="row animated fadeIn">
-    <div class="col s6 m12 l6 xl6">
+    <div class="col s12 m12 l6 xl6">
       <div class="card">
       <?php if(isset($_GET['pid'])){ $productId = mysqli_real_escape_string($conn, $_GET['pid']); $sql = "SELECT * FROM item WHERE item_id = $productId"; $result = mysqli_query($conn, $sql); } while ($row = mysqli_fetch_array($result)) { ?>
         <div class="card-image">
@@ -37,7 +37,7 @@
         </div>
       </div>
     </div>
-    <div class="col s6 m12 l6 xl6">
+    <div class="col s12 m12 l6 xl6">
       <div class="card-panel animated fadeIn">
         <table class="table highlight">
           <tr>
