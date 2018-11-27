@@ -2,8 +2,8 @@
 	session_start(); 
 	include 'inc/conn.php';
 	
-	$itemName = $itemPrice = $category = $qty = $status = $itemDesc  = $subCat = '';
-	$itemName_err = $itemPrice_err = $category_err = $qty_err = $status_err = $itemDesc_err = $subCat_err = '';
+	$itemName = $itemPrice = $category = $qty = $itemDesc  = $subCat = '';
+	$itemName_err = $itemPrice_err = $category_err = $qty_err = $itemDesc_err = $subCat_err = '';
 
 	if(isset($_POST['add'])){
 		
@@ -12,7 +12,6 @@
 		$category = mysqli_real_escape_string($conn, $_POST['item_cat']);
 		$subCat = mysqli_real_escape_string($conn, $_POST['sub_cat']);
 		$qty = mysqli_real_escape_string($conn, $_POST['qty']);
-		$status = mysqli_real_escape_string($conn, $_POST['status']);
 		$itemDesc = mysqli_real_escape_string($conn, $_POST['item_desc']);
 
 		// Vars for img-file
@@ -58,9 +57,6 @@
 		if(empty($qty)){
 			$qty_err = "Please enter quantity";
 		}
-		if($status === 'none'){
-			$status_err ="Please select Status";
-		}
 		if(empty($itemDesc)){
 			$itemDesc_err = "Item Descripton is required";
 		}
@@ -75,7 +71,7 @@
 					$qty_err = "Please insert quantity";
 				}else{
 					$sql1 = "SELECT * FROM category"; $result1 = mysqli_query($conn, $sql1); while($row = mysqli_fetch_array($result1)){ $cat_id = $row[0];
-					$sql = "INSERT INTO item (`cat_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `status`, `sub_category`) VALUES ((SELECT `cat_id` FROM category WHERE `cat_id` = '$cat_id'),	'$itemName', '$newFileName', '$category', '$itemDesc', '$itemPrice', '$qty', '$status', '$subCat');";
+					$sql = "INSERT INTO item (`cat_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `sub_category`) VALUES ((SELECT `cat_id` FROM category WHERE `cat_id` = '$cat_id'),	'$itemName', '$newFileName', '$category', '$itemDesc', '$itemPrice', '$qty', '$subCat');";
 					} 
 					$result = mysqli_query($conn, $sql);
 					header("Location:insert_item.php");
@@ -97,7 +93,7 @@
 						<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
 							<div class="row">
 								<div class="input-field col s6">
-									<input type="text" name="item_name" autocomplete="off" id="name" value="<?php echo $itemName; ?>" >
+									<input type="text" name="item_name" autocomplete="off" id="name" value="<?php echo $itemName; ?>" autofocus>
 									<label for="item_name">Item name</label>
 									<span class="red-text animated fadeIn"><?php echo $itemName_err; ?></span>
 								</div>
@@ -135,16 +131,6 @@
 									<label for="qty">Quantity (x1)</label>
 									<span class="red-text"><?php echo $qty_err; ?></span>
 								</div>
-								<div class="input-field col s6">
-									<select name="status" >
-										<option value="none"selected>Status</option>
-										<option value="available">Available</option>
-										<option value="Out of Stock">Out of stock</option>
-										<option value="Low Stock">Low stock</option>
-    							</select>
-    							<label>Status</label>
-									<span class="red-text animated fadeIn"><?php echo $status_err; ?></span>
-  							</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
