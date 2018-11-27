@@ -62,10 +62,17 @@
                 <td><img src="img/<?php echo $row[2];?>" alt="<?php echo $row[1]; ?>" class="materialboxed" data-caption="<?php echo $row[1]; ?>" id="admin-prod-img" width="120"></td>
                 <td><?php echo $row[3];?></td>
                 <td><?php echo $row['sub_category'];?></td>
-                <td><?php echo $row['item_desc']; ?></p></td>
+                <td><p><?php echo $row['item_desc']; ?></p></td>
                 <td><?php echo $row[5];?></td>
                 <td><?php echo $row[6];?></td>
-                <td><?php echo $row[7];?></td>
+                <?php 
+                  if($row[6] <= 1){
+                    echo "<td><span class='chips rounded red darken-2 white-text' style='padding: 5px;'>Not Available</span></td>";
+                  }
+                  if($row[6] <= 255){
+                    echo "<td><span class='chips rounded amber darken-2 white-text' style='padding: 5px;'>Low Stock</span></td>";
+                  }
+                ?>
                 <td>
                   <a href="edit_item.php?edit=<?php echo $row[0]; ?>" class="blue-text"><i class="fa fa-edit"></i></a> | 
                   <a href="view_item.php?delete=<?php echo $row[0]; ?>" id="deleteBtn" class="red-text"><i class="fa fa-trash"></i></a>

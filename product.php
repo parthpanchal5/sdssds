@@ -63,11 +63,11 @@
             <th class="left">Availability: </th>
             <?php 
               if ($row[8] == "Available"){
-                echo "<td><span class='chips rounded green white-text' style='padding: 5px;'>$row[8]</td>";
+                echo "<td><span class='chips rounded green white-text' style='padding: 5px;'>$row[8]</span></td>";
               }if ($row[8] == "Out of Stock"){
-                echo "<td><span class='chips rounded red white-text' style='padding: 5px;'>$row[8]</td>";
+                echo "<td><span class='chips rounded red white-text' style='padding: 5px;'>$row[8]</span></td>";
               }if ($row[8] == "Low stock"){
-                echo "<td><span class='chips rounded amber darken-2 white-text' style='padding: 5px;'>$row[8]</td>";
+                echo "<td><span class='chips rounded amber darken-2 white-text' style='padding: 5px;'>$row[8]</span></td>";
               }
             ?>
           </tr>
