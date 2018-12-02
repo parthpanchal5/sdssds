@@ -55,7 +55,7 @@
               <th>Action</th>
             </thead>
             <tbody>
-              <?php $sql = "SELECT `item_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `status`, `sub_category` FROM item LIMIT " . $startingLimitNo .','. $resultPerPage; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)){ ?>
+              <?php $sql = "SELECT `item_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `sub_category` FROM item LIMIT " . $startingLimitNo .','. $resultPerPage; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)){ ?>
               <tr>
                 <td><b><?php echo $row[0];?></b></td>
                 <td><?php echo $row[1];?></td>
