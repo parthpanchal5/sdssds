@@ -62,17 +62,17 @@
                 <td><img src="img/<?php echo $row[2];?>" alt="<?php echo $row[1]; ?>" class="materialboxed" data-caption="<?php echo $row[1]; ?>" id="admin-prod-img" width="120"></td>
                 <td><?php echo $row[3];?></td>
                 <td><?php echo $row['sub_category'];?></td>
-                <td><p><?php echo $row['item_desc']; ?></p></td>
+                <td><p><?php echo $row[4]; ?></p></td>
                 <td><?php echo $row[5];?></td>
                 <td><?php echo $row[6];?></td>
                 <?php 
-                  if($row[7] <= 1){
-                    echo "<td><span class='chips rounded red darken-2 white-text' style='padding: 5px;'>Not Available</span></td>";
-                  }
-                  if($row[7] >= 250 && $row[7] < 350){
-                    echo "<td><span class='chips rounded amber darken-2 white-text' style='padding: 5px;'>Low Stock</span></td>";
-                  }
-                  if($row[7] >= 360){
+                  if($row['item_qty'] <= 4){
+                    echo "<td><span class='chips rounded red white-text' style='padding: 6px;'>Out of stock</span></td>";
+                  }else if($row['item_qty'] >= 5 && $row['item_qty'] <= 50){
+                    echo "<td><span class='chips rounded yellow darken-4 white-text' style='padding: 6px;'>Low Stock</span></td>";
+                  }else if($row['item_qty'] >= 51 && $row['item_qty'] <= 100){
+                    echo "<td><span class='chips rounded blue darken-1 white-text' style='padding: 6px;'>Few left</span></td>";
+                  }else if($row['item_qty'] >= 101 && $row['item_qty'] >= 350){
                     echo "<td><span class='chips rounded green darken-2 white-text' style='padding: 5px;'>Available</span></td>";
                   }
                 ?>

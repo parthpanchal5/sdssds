@@ -190,7 +190,7 @@ $(document).ready(function(){
       autoplay();
       function autoplay() {
         $('.carousel').carousel('next');
-        setTimeout(autoplay, 4000);
+        setTimeout(autoplay, 6000);
     }
     
     // For materialbox
