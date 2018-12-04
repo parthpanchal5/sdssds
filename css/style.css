@@ -17,7 +17,13 @@ html, body{
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
-
+#product-desc{
+    width: 320px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
 input[type="text"]{
     font-size: 14px;
     font-family: 'Poppins', sans-serif;

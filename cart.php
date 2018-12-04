@@ -1,11 +1,13 @@
 <?php 
 	session_start();
   include 'inc/conn.php';
-  // Validate login
+	
+	// Validate login
   if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
-	header('Location: login.php');
-	exit;
+		header('Location: login.php');
+		exit;
   } 
+
 ?>
 <?php include 'inc/header.php'; ?>
 
@@ -25,24 +27,6 @@
 							<td colspan="3"><span class="left" style="font-size: 16px;">My Cart ( 1 )</span></td>
 						</tr>
 						<tbody>
-							<!-- <tr>
-								<td><img src="img/phone.svg" alt="" height="120"></td>
-								<td>
-									Lorem ipsum dolor sit amet consectetur.... <br>
-									<span class="left" style="margin-left: 25px; margin-top: 25px; font-size: 18px;"><i class="fas fa-rupee-sign"></i> 650</span>
-								</td>
-								<td style="margin-right: 18px;">Delivery by Mon, Nov 19 | Free</td>
-							</tr>
-							<tr>
-								<td colspan="3" style="text-align:left;">
-									<form action=""  style="margin-left: 35px;">
-										<a class="btn-floating btn-small waves-effect waves-light grey lighten-3" id="removeBtn"><i class="material-icons black-text">remove</i></a>
-										<input type="number" name="qty" id="qty-input" min="1" max="5">
-										<a class="btn-floating btn-small waves-effect waves-light grey lighten-3" id="addBtn"><i class="material-icons black-text">add</i></a>
-										<input type="submit" value="Remove" name="remove" class="grey lighten-4 btn black-text" style="margin-left: 3em;">
-									</form>
-								</td>
-							</tr> -->
 							<tr>
 								<td><img src="img/empty-cart.png" class="responsive-img" alt="" id="empty-cart-img"></td>
 							</tr>

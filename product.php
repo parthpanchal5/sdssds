@@ -3,20 +3,9 @@
   include 'inc/conn.php';
   include 'inc/header.php';
 
-  if(isset($_GET['q'])){
-    $productSearchId = mysqli_real_escape_string($conn, $_GET['q']);
-    $productSearchQuery = "SELECT * FROM item WHERE item_name LIKE '$productSearchId%' OR item_desc LIKE '$productSearchId%'";
-    $resultOfSearchQuery = mysqli_query($conn, $productSearchQuery);
-    $row1 = mysqli_fetch_array($resultOfSearchQuery);
-    print_r($row1);
-  }
+  
   	
 ?>  
-
-  <?php echo $row[0]; ?>
-  <?php echo $row[1]; ?>
-  <?php echo $row[2]; ?>
-  
 
 
 <!--Main navbar -->
@@ -27,9 +16,9 @@
   <div class="row animated fadeIn">
     <div class="col s12 m12 l6 xl6">
       <div class="card">
-      <?php if(isset($_GET['pid'])){ $productId = mysqli_real_escape_string($conn, $_GET['pid']); $sql = "SELECT * FROM item WHERE item_id = $productId"; $result = mysqli_query($conn, $sql); } while ($row = mysqli_fetch_array($result)) { ?>
+      <!-- <?php if(isset($_GET['pid'])){ $productId = mysqli_real_escape_string($conn, $_GET['pid']); $sql = "SELECT * FROM item WHERE item_id = $productId"; $result = mysqli_query($conn, $sql); } while ($row = mysqli_fetch_array($result)) { ?> -->
         <div class="card-image">
-          <img src="admin/img/<?php echo $row[3]; ?>" alt="<?php echo $row[2]; ?>" class="responsive-img materialboxed" data-caption="<?php echo $row[2]; ?>">
+          <img src="admin/img/<?php echo $row[3]; ?>" alt="<?php echo $row[2]; ?>" class="materialboxed responsive-img" data-caption="<?php echo $row[2]; ?>">
         </div>
         <div class="card-action">
           <a href="cart.php?pid=<?php echo $row[0]; ?>" class="btn btn-large amber darken-1 left" style="margin-right: 15em;">Add to cart <i class="fas fa-shopping-cart fa-1x"></i></a>
@@ -80,7 +69,7 @@
         </table>
       </div>
     </div>
-    <?php } ?>
+    <?php  } ?>
   </div>
 </div>    
 <?php include 'inc/footer.php'; ?>
