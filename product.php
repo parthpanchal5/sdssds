@@ -21,8 +21,7 @@
           <img src="admin/img/<?php echo $row[3]; ?>" alt="<?php echo $row[2]; ?>" class="materialboxed responsive-img" data-caption="<?php echo $row[2]; ?>">
         </div>
         <div class="card-action">
-          <a href="cart.php?pid=<?php echo $row[0]; ?>" class="btn btn-large amber darken-1 left" style="margin-right: 15em;">Add to cart <i class="fas fa-shopping-cart fa-1x"></i></a>
-          <a href="cart.php?pid=<?php echo $row[0]; ?>" class="btn btn-large amber darken-4">Buy now <i class="fas fa-bolt fa-1x" style="margin-left: 10px;"></i></a>
+          
         </div>
       </div>
     </div>
@@ -64,7 +63,16 @@
           </tr>
           <tr>
             <th>Oty: </th>
-            <td><div class="input-field"><input type="number" min="1" max="5" value="1"></div></td>
+            <td><div class="input-field"><input type="number" min="1" max="5" name="quantity" value="1"></div></td>
+          </tr>
+          <tr>
+              <td>
+                <a href="cart.php?action=add&pid=<?php echo $row[0]; ?>" class="btn btn-large amber darken-1">Add to cart <i class="fas fa-shopping-cart fa-1x"></i></a>
+              </td>
+              <td>
+                <a href="cart.php?pid=<?php echo $row[0]; ?>" class="btn btn-large amber darken-4 right">Buy now <i class="fas fa-bolt fa-1x"></i></a>
+              </td>
+              
           </tr>
         </table>
       </div>
