@@ -93,7 +93,7 @@
         $sql = "UPDATE item SET cat_id = '$cat_id' , item_name = '$itemName', item_img = '$newFileName', item_cat = '$category', item_desc = '$itemDesc', item_price = '$itemPrice', item_qty = '$qty', sub_category = '$subCat' WHERE item_id = '$id'";
       }
       $result = mysqli_query($conn, $sql);
-      echo $sql;
+      // echo $sql;
 
       // header("Location:view_item.php?updated");
       // exit;

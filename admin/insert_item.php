@@ -143,7 +143,7 @@
 								<div class="file-field input-field">
       						<div class="btn right btn-small blue lighten-1 rounded" style="border-radius: 50px !important;">
         						<span>Upload <i class="fa fa-upload fa-1x"></i></span>
-        						<input type="file" name="item_img" value="<?php echo $newFileName; ?>">
+        						<input type="file" name="item_img[]" value="<?php echo $newFileName; ?>" multiple>
       						</div>
       						<div class="file-path-wrapper">
         						<input class="file-path validate"  name="img-name" placeholder="Img-name" type="text">

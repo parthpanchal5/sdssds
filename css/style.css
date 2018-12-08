@@ -24,6 +24,13 @@ html, body{
     text-overflow: ellipsis;
     text-align: left;
 }
+#admin-product-desc{
+    width: 330px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
 input[type="text"]{
     font-size: 14px;
     font-family: 'Poppins', sans-serif;

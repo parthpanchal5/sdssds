@@ -8,8 +8,6 @@
     $resultOfSearchQuery = mysqli_query($conn, $productSearchQuery);
     // $row1 = mysqli_fetch_array($resultOfSearchQuery);
     // print_r($row1);
-  }else{
-    $producterr = "No match found";
   }
   
 ?>

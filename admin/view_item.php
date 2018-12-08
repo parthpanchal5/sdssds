@@ -62,7 +62,7 @@
                 <td><img src="img/<?php echo $row[2];?>" alt="<?php echo $row[1]; ?>" class="materialboxed" data-caption="<?php echo $row[1]; ?>" id="admin-prod-img" width="120"></td>
                 <td><?php echo $row[3];?></td>
                 <td><?php echo $row['sub_category'];?></td>
-                <td><p><?php echo $row[4]; ?></p></td>
+                <td><p id="admin-product-desc"><?php echo $row[4]; ?></p></td>
                 <td><?php echo $row[5];?></td>
                 <td><?php echo $row[6];?></td>
                 <?php 
