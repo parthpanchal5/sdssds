@@ -31,6 +31,13 @@ html, body{
     text-overflow: ellipsis;
     text-align: left;
 }
+#cat-prod-desc{
+    width: 420px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
 input[type="text"]{
     font-size: 14px;
     font-family: 'Poppins', sans-serif;

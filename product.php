@@ -27,7 +27,7 @@
     </div>
     <div class="col s12 m12 l6 xl6">
       <div class="card-panel animated fadeIn">
-        <table class="table highlight">
+        <table class="table highlight striped">
           <tr>
             <th colspan="2"><h5><?php echo $row[2]; ?></h5></th>
           </tr>
@@ -63,7 +63,7 @@
           </tr>
           <tr>
             <th>Oty: </th>
-            <td><div class="input-field"><input type="number" min="1" max="5" name="quantity" value="1"></div></td>
+            <td><input type="number" min="1" max="5" name="quantity" value="1"></td>
           </tr>
           <tr>
               <td>

@@ -8,7 +8,7 @@
     header("Location:view_item.php?Deleted");
   }
   // Define results per page
-	$resultPerPage = 2;
+	$resultPerPage = 3;
 
   $sql1 = "SELECT * FROM item";
   $result1 = mysqli_query($conn, $sql1);
