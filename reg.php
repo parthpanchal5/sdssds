@@ -43,8 +43,8 @@
     }
     if(strlen($address) > 200){
         $address_err = "Maximum length exceded (Limit: 200)";
-    }else{
-      if(!preg_match("/^[a-zA-Z]*$/", $firstname) || !preg_match("/^[a-zA-Z]*$/", $lastname)){
+    }
+    if(!preg_match("/^[a-zA-Z]*$/", $firstname) || !preg_match("/^[a-zA-Z]*$/", $lastname)){
         $firstname_err =  "Firstname is invalid";
         $lastname_err = "Lastname is invalid";
       }else{
@@ -79,10 +79,7 @@
               }
             }
         }
-      }
-    }
-  }
-?>
+ } } ?>
 <!-- navbar -->
 <div class="navbar-fixed">
   <nav class="blue lighten-2 z-depth-2">
