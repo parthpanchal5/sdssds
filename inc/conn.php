@@ -1,6 +1,6 @@
 <?php 
   $dbHost = "localhost";
-  $dbUser = "parth";
+  $dbUser = "root";
   $dbPass = "root";
   $dbName = "shop";
 

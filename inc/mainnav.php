@@ -36,8 +36,6 @@
 	<?php endif; ?>
 	</ul>
 	<ul id="more-dropdown" class="dropdown-content">
-		<li><a href="sell.php" class="left blue-text">Sell Products<i class="fas fa-chart-line right fa-1x" style="padding-left: 15px;"></i></a></li>
-		<li><a href="ads.php" class="left blue-text">Create Ads<i class="fas fa-ad right fa-1x" style="padding-left: 15px;"></i></a></li>
 		<li><a href="contact_us.php" class="left blue-text">Contact Us<i class="fas fa-envelope right fa-1x" style="padding-left: 15px;"></i></a></li>
 	</ul>
 	<ul id="cart-dropdown" class="dropdown-content">
@@ -78,8 +76,6 @@
 	<li class="bold"><a class="collapsible-header waves-effect" id="mobile-links">More <i class="material-icons grey-text right">expand_more</i></a>
 		<div class="collapsible-body">
 			<ul>
-				<li><a href="sell.php" class="blue-text">Sell Products <i class="fas fa-chart-line fa-1x right blue-text"></i></a></li>
-				<li><a href="ads.php" class="blue-text">Create Ads <i class="fas fa-ad fa-1x right blue-text"></i></a></li>			
 				<li><a href="contact_us.php" class="blue-text">Contact Us<i class="fas fa-envelope blue-text right fa-1x"></i></a></li>
 			</ul>
 		</div>
