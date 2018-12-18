@@ -35,7 +35,7 @@
   </div>
   <div class="row">
     <div class="col s12 m12 l12">
-      <div class="card z-depth-1 waves-effect lighten-2 gradient-4 hoverable" id="address">
+      <div class="card small z-depth-1 waves-effect lighten-2 gradient-4 hoverable" id="address">
         <div class="card-content">
           <div class="card-title white-text center">Delivery Address</div>
           <ul class="white-text">

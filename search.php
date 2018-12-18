@@ -34,7 +34,7 @@
       </div>
       <div class="col s12 l9 xl9 m12">
         <div class="card-panel">
-          <p class="left">You Searched for: <?php echo ('<span class="blue-text">'.ucwords($productSearchId).'</span>'); ?></p>
+          <p class="left">You Searched for: <?php echo ucwords('<span class="blue-text darken-2">'.ucwords($productSearchId).'</span>'); ?></p>
           <table class="table striped animated fadeIn">
           <?php while($row = mysqli_fetch_array($resultOfSearchQuery)) { ?>
             <tr>
@@ -45,17 +45,8 @@
             </tr>
             <tr>
               <td colspan="2" class="left-align"><a href="product.php?pid=<?= $row[0]; ?>" class="btn teal btn-small" style="margin-right: 20px;">See more <i class="fa fa-eye"></i></a> <a href="cart.php?pid=<?= $row[0]; ?>" class="btn amber darken-1 btn-small">Add to cart <i class="fa fa-shopping-cart"></i></a></td>
-              
             </tr>
-            <?php } 
-              if($row < 1){
-                  echo "<td>
-                          <img src='img/error.png' class='responsive-img'/>
-                          <h4 class='center'>Something's not right</h4>
-                          <span class='grey-text'>Please try again later</span><br>
-                          <a href='index.php' class='btn btn-medium blue darken-1' style='margin: 20px 0px;'>Go back</a>
-                        </td>";
-                }?>
+            <?php } ?>
           </table>
         </div>
       </div>  
