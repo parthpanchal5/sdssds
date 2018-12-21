@@ -20,9 +20,6 @@
         <div class="card-image">
           <img src="admin/img/<?php echo $row[3]; ?>" alt="<?php echo $row[2]; ?>" class="materialboxed responsive-img" data-caption="<?php echo $row[2]; ?>">
         </div>
-        <div class="card-action">
-          
-        </div>
       </div>
     </div>
     <div class="col s12 m12 l6 xl6">
