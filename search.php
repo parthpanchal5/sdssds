@@ -6,8 +6,12 @@
 
   if(isset($_GET['q'])){
     $productSearchId = mysqli_real_escape_string($conn, $_GET['q']);
-    $productSearchQuery = "SELECT * FROM item WHERE item_name LIKE '%$productSearchId%'";
+    $productSearchQuery = "SELECT `item_id`, `cat_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `sub_category` FROM item WHERE item_name LIKE '%$productSearchId%'";
     $resultOfSearchQuery = mysqli_query($conn, $productSearchQuery);
+
+    if(empty($productSearchId)){
+      header('Location:index.php');
+    }
 
      // check sort options is clicked
     if(isset($_GET['sort_order'])){
