@@ -65,7 +65,7 @@
         <div class="card-content">
 					<span class="card-title" style="font-size: 16px;"><?php echo $row[2]; ?></span>
           	<p class="truncate"><?php echo $row[5]; ?></p>
-						<a href="product.php?pname=<?php echo $row[2]; ?>&pid=<?php echo $row[0]; ?>">See more</a>
+						<a href="product.php?pname=<?php echo $row[2]; ?>&pid=<?php echo $row[0]; ?>" target="_blank">See more</a>
         </div>
       </div>
 			<?php } ?>

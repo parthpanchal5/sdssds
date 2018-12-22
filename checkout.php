@@ -26,7 +26,7 @@
         <div class="card-content">
 					<span class="card-title black-text"><?php echo $row[2]; ?></span>
           <p class="truncate"><?php echo $row[5]; ?></p>
-					<a href="product.php?pid=<?php echo $row[0]; ?>">Read More..</a>
+					<a href="product.php?pid=<?php echo $row[0]; ?>" target="_blank">Read More..</a>
         </div>
 				<?php } ?>
       </div>

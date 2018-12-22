@@ -64,8 +64,8 @@
           </tr>
           <tr>
             <td colspan="2" class="left-align">
-              <a href="cart.php?action=add&pid=<?php echo $row[0]; ?>" class="btn btn-large amber darken-1">Add to cart <i class="fas fa-shopping-cart fa-1x"></i></a>
-              <a href="cart.php?pid=<?php echo $row[0]; ?>" class="btn btn-large amber darken-4 right">Buy now <i class="fas fa-bolt fa-1x"></i></a>
+              <a href="cart.php?action=add&pid=<?php echo $row[0]; ?>" target="_blank" class="btn btn-large amber darken-1">Add to cart <i class="fas fa-shopping-cart fa-1x"></i></a>
+              <a href="cart.php?pid=<?php echo $row[0]; ?>" target="_blank" class="btn btn-large amber darken-4 right">Buy now <i class="fas fa-bolt fa-1x"></i></a>
             </td>            
           </tr>
         </table>

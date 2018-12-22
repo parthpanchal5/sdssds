@@ -67,11 +67,11 @@
             <tr>
               <td><img src="admin/img/<?php echo $row[3]; ?>" class="left" height="420" width="360" alt="<?php echo $row[2]; ?>"></td>
               <td><?= $row[2];?></td>
-              <td><p id="product-desc"><?= $row[5]; ?> <a href="product.php?pid=<?= $row[0]; ?>" class="truncate">See more...</a></p></td>
+              <td><p id="product-desc"><?= $row[5]; ?> <a href="product.php?pid=<?= $row[0]; ?>" class="truncate" target="_blank">See more...</a></p></td>
               <td><i class="fa fa-rupee-sign"></i> <?= $row[6]; ?></td>
             </tr>
             <tr>
-              <td colspan="2" class="left-align"><a href="product.php?pid=<?= $row[0]; ?>" class="btn teal btn-small" style="margin-right: 20px;">See more <i class="fa fa-eye"></i></a> <a href="cart.php?pid=<?= $row[0]; ?>" class="btn amber darken-1 btn-small">Add to cart <i class="fa fa-shopping-cart"></i></a></td>
+              <td colspan="2" class="left-align"><a href="product.php?pid=<?= $row[0]; ?>" class="btn teal btn-small"  target="_blank" style="margin-right: 20px;">See more <i class="fa fa-eye"></i></a> <a href="cart.php?pid=<?= $row[0]; ?>" class="btn amber darken-1 btn-small">Add to cart <i class="fa fa-shopping-cart"></i></a></td>
             </tr>
             <?php } ?>
           </table>
