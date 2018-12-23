@@ -28,7 +28,7 @@
 </div>
 	<!-- Dropdown Contents (Non-Mobile) -->
 	<ul id="profile-dropdown" class="dropdown-content">
-	<li><a href='profile.php' class='blue-text'>Hello <?php echo $_SESSION['firstname']; ?></a></li>
+	<li><a href='profile.php' class='blue-text'>Hello <?php if(!isset($_SESSION['username'])) { echo 'Guest'; } else{ echo $_SESSION['firstname']; }?></a></li>
 	<?php if(!isset($_SESSION['email']) || empty($_SESSION['email'])) :?>
 	<?php echo '<li class="bold"><a href="login.php" class="collapsible-header waves-effect" id="mobile-links">Login</a></li>';?>
 	<?php else: ?>
@@ -59,17 +59,22 @@
 		</div>
 	</li>
 	<li class="bold"><a href="index.php" class="collapsible-header waves-effect" id="mobile-links">Home <i class="material-icons right blue-text">home</i></a></li>
-	<li class="bold"><a class="collapsible-header waves-effect" id="mobile-parent">Profile <i class="material-icons grey-text right" id="mobile-child">expand_more</i></a>
-		<div class="collapsible-body">
-			<ul>
-				<li><a href="profile.php" class="blue-text"><?php echo $_SESSION['firstname']; ?>'s Profile</a></li>
-			</ul>
-		</div>
-	</li>
+	<?php 
+		if(isset($_SESSION['username'])) { 
+			echo "<li class='bold'><a class='collapsible-header waves-effect' id='mobile-parent'>Profile <i class='material-icons grey-text right' id='mobile-child'>expand_more</i></a>
+			<div class='collapsible-body'>
+				<ul>
+					<li><a href='profile.php' class='blue-text'>View Profile</a></li>
+				</ul>
+			</div>
+		</li>";	
+	} 
+	?>
+	
 	<li class="bold"><a class="collapsible-header waves-effect" id="mobile-links">Cart <i class="material-icons grey-text right">expand_more</i></a>
 		<div class="collapsible-body">
 			<ul>
-				<li><a href="cart.php" class="blue-text">View Cart <span class="new rounded badge green center">1</span><i class="fa fa-shopping-cart blue-text right"></i></a></li>			
+				<li><a href="cart.php" class="blue-text">View Cart <span class="new rounded badge red center">1</span><i class="fa fa-shopping-cart blue-text right"></i></a></li>			
 			</ul>
 		</div>
 	</li>
