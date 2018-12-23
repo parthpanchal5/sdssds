@@ -1,4 +1,3 @@
-
 <?php 
 	include 'inc/header.php';
 	include 'edit_profile_code.php'; 
@@ -9,8 +8,7 @@
 
 <!--Main navbar-->
 <?php include 'inc/mainnav.php'; ?>
-<!--Mobile navbar -->
-<?php include 'inc/mobilenav.php'; ?>
+
 
 <!--Content area -->
 <?php 

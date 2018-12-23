@@ -1,5 +1,5 @@
 <?php 
-	session_start();
+  include 'inc/header.php';   
   include 'inc/conn.php';
   // if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
   //   header('Location: index.php');
@@ -7,7 +7,7 @@
   // }
   
 ?>
-<?php include 'inc/header.php'; ?>
+<?php ?>
 <!--Main navbar -->
 <?php include 'inc/mainnav.php'; ?>
 <!-- Sidenav Bar -->

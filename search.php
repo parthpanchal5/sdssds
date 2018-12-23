@@ -1,8 +1,8 @@
 <?php
-  session_start();
-  include 'inc/conn.php';
   include 'inc/header.php';
-  include 'sort.php';
+  include 'inc/conn.php';
+  
+  
 
   if(isset($_GET['q'])){
     $productSearchId = mysqli_real_escape_string($conn, $_GET['q']);

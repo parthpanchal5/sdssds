@@ -1,5 +1,5 @@
 <?php 
-  session_start();
+ include 'inc/header.php';
   include 'inc/conn.php';
   // Init vars
   $userinput = $password = '';
@@ -53,7 +53,7 @@
     }
 ?>
   
-<?php include 'inc/header.php'; ?>
+
 <!-- navbar -->
 <div class="navbar-fixed">
   <nav class="blue lighten-2 z-depth-2">

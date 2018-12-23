@@ -1,5 +1,5 @@
 <?php 
-	session_start();
+	include 'inc/header.php';
 	include 'inc/conn.php';
 
 		// // Validate login
@@ -9,7 +9,7 @@
 		// }
 		
 ?>
-<?php include 'inc/header.php'; ?>
+
 <!--Main navbar -->
 <div class="navbar-fixed hide-on-large-only	show-on-medium-and-down	z-depth-3">
   <nav class="blue lighten-2 z-depth-2">

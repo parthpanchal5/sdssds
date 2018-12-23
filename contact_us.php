@@ -1,5 +1,5 @@
 <?php 
-	session_start();
+	include 'inc/header.php'; 
 	include 'inc/conn.php';
 
 		// Validate login
@@ -39,7 +39,7 @@
 		
 ?>
 
-<?php include 'inc/header.php'; ?>
+<?php ?>
 <!--Main navbar -->
 <?php include 'inc/mainnav.php'; ?>
 <!-- Sidenav Bar -->
