@@ -63,12 +63,24 @@
             <th>Oty: </th>
             <td><input type="number" min="1" max="5" name="quantity" value="1"></td>
           </tr>
-          <tr>
-            <td colspan="2" class="left-align">
-              <a href="cart.php?action=add&pid=<?php echo $row[0]; ?>" target="_blank" class="btn btn-large amber darken-1">Add to cart <i class="fas fa-shopping-cart fa-1x"></i></a>
-              <a href="cart.php?pid=<?php echo $row[0]; ?>" target="_blank" class="btn btn-large amber darken-4 right">Buy now <i class="fas fa-bolt fa-1x"></i></a>
-            </td>            
-          </tr>
+          <?php
+            if($row[7] <= 4){
+              echo '<tr>
+              <td colspan="2">
+                <a href="" class="btn btn-large blue darken-1 left">Notify me <i class="fa fa-bell fa-1x" style="font-size: 15px; margin-left: 10px;"></i></a>
+              </td>
+            </tr>';
+            }else{
+              echo '<tr>
+              <td colspan="2" class="left-align">
+                <a href="cart.php?action=add&pid=<?php echo $row[0]; ?>" target="_blank" class="btn btn-large amber darken-1">Add to cart <i class="fas fa-shopping-cart fa-1x"></i></a>
+                <a href="cart.php?pid=<?php echo $row[0]; ?>" target="_blank" class="btn btn-large amber darken-4 right">Buy now <i class="fas fa-bolt fa-1x"></i></a>
+              </td>            
+            </tr>';
+            }
+          ?>
+          
+          
         </table>
         </form>
       </div>
