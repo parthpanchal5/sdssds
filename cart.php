@@ -1,19 +1,45 @@
 <?php 
 	session_start();
+	include	'inc/header.php';
 	include 'inc/conn.php';
 	
-	
+	if(isset($_GET['action'])){
+    $cartAction = mysqli_real_escape_string($conn, $_GET['action']);
+    
+    // Add
+    if($cartAction === "add"){
+
+      $sqlForAdd = "INSERT INTO cart (cart_id, product_id, user_id) values ('')";
+      
+			echo "added";
+      
+    }
+
+    // Remove
+    else if($cartAction === "remove"){
+      echo "product removed";
+      
+    }
+
+    // Empty
+    else if($cartAction === "empty"){
+			$sqlForDeletinAllItemsInCart = "DELETE FROM cart WHERE cart_id = '$cartAction'";
+			$resultForDel = mysqli_query($conn, $sqlForDeletinAllItemsInCart);
+			
+			print_r($sqlForDeletinAllItemsInCart);
+			echo "<br>cart emptied";
+
+
+    }
+  }
 	// Validate login
-  if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
-		header('Location: login.php');
-		exit;
-	}
+  // if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
+	// 	header('Location: login.php');
+	// 	exit;
+	// }
 	
-
 ?>
-<?php include 'inc/cart_code.php'; ?>
 
-<?php include	'inc/header.php'; ?>
 <!--Main navbar-->
 <?php include 'inc/mainnav.php'; ?>
 
@@ -34,16 +60,16 @@
 						
 								<tr>
 									<td><img src="admin/img/<?php echo $item['image']; ?>" alt=""></td>
-									<td style="text-align:right;"></td>
+									<td style="text-align:right;"><a href="cart.php?action=remove" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">remove</i></a></td>
 									<td  style="text-align:right;"></td>
 									<td  style="text-align:right;"></td>
 									<td style="text-align:center;"></td>
 								</tr>
 						
 								<tr>
-									<td colspan="2" align="right">Total:</td>
-									<td align="right"></td>
-									<td align="right" colspan="2"><strong></strong></td>
+									<td colspan="2">Total:</td>
+									<td></td>
+									<td colspan="2"><strong></strong></td>
 								</tr>
 								
 							

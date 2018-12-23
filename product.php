@@ -59,6 +59,7 @@
             ?>
           </tr>
           <tr>
+          <form action="cart.php" method="GET">
             <th>Oty: </th>
             <td><input type="number" min="1" max="5" name="quantity" value="1"></td>
           </tr>
@@ -69,6 +70,7 @@
             </td>            
           </tr>
         </table>
+        </form>
       </div>
     </div>
     <?php  } ?>
