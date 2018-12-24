@@ -4,14 +4,16 @@
 	include 'inc/conn.php';
 	
 	if(isset($_GET['action'])){
-    $cartAction = mysqli_real_escape_string($conn, $_GET['action']);
+		$cartAction = mysqli_real_escape_string($conn, $_GET['action']);
+		$productId = mysqli_real_escape_string($conn, $_GET['pid']);
+		// echo $productId;
     
     // Add
     if($cartAction === "add"){
-
-      $sqlForAdd = "INSERT INTO cart (cart_id, product_id, user_id) values ('')";
+			
+		$sqlForAdd = "SELECT * FROM item WHERE item_id = '$productId'";
+		$resultForAdd = mysqli_query($conn, $sqlForAdd);
       
-			echo "added";
       
     }
 
@@ -50,32 +52,26 @@
 			<div class="card">
 				<div class="card-content">
 					<table class="table responsive-table">
-						<tr>
-							<td><span class="left" style="font-size: 16px;">My Cart ( 1 )</span></td>
-							<td><a href="cart.php?action=empty" class="btn btn-small red right">Empty cart</a></td>
-						</tr>
-					
+						<thead>
+							<th><h6>Item</h6></th>
+							<th><h6>Name</h6></th>
+							<th><h6>Qty</h6></th>
+							<th><h6>Price</h6></th>
+						</thead>
+
 						<tbody>
-							
-						
-								<tr>
-									<td><img src="admin/img/<?php echo $item['image']; ?>" alt=""></td>
-									<td style="text-align:right;"><a href="cart.php?action=remove" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">remove</i></a></td>
-									<td  style="text-align:right;"></td>
-									<td  style="text-align:right;"></td>
-									<td style="text-align:center;"></td>
-								</tr>
-						
-								<tr>
-									<td colspan="2">Total:</td>
-									<td></td>
-									<td colspan="2"><strong></strong></td>
-								</tr>
-								
-							
-								<td><img src="img/empty-cart.png" class="responsive-img" alt="emptycart" id="empty-cart-img"></td>
-									
+						<?php while($row = mysqli_fetch_array($resultForAdd)) {	?>
+							<tr>
+								<td><img src="admin/img/<?php echo $row[3]; ?>" class="circle" alt="<?php echo $row[2]; ?>" style="width: 120px;"></td>
+								<td><?php echo $row[2]; ?></td>
+								<td>
+									<form action="<?php echo $_SERVER['PHP_SELF']; ?>">
+										<input type="number" min="1" max="5" value="1">
+									</form>
+								</td>
+								<td><i class="fas fa-rupee-sign" style="margin-right: 5px;"></i><?php echo $row[6]; ?></td>
 							</tr>
+						<?php } ?>
 						</tbody>
 					</table>	
 					<div class="card-action">

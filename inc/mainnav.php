@@ -40,7 +40,11 @@
 	</ul>
 	<ul id="cart-dropdown" class="dropdown-content">
 		<li>
-			<a href="cart.php" class="left blue-text">View Cart <span class="new rounded badge green right">1</span><i class="fa fa-shopping-cart fa-1x right" style="padding-left: 5px; margin-left: 2px;"></i></a>
+			<a href="cart.php" class="left blue-text">View Cart <?php
+            $items = $_SESSION['cart'];
+            $cartitems = explode(",", $items);
+            echo count($cartitems);
+          ?> <span class="new rounded badge green right">1</span><i class="fa fa-shopping-cart fa-1x right" style="padding-left: 5px; margin-left: 2px;"></i></a>
 		</li>
 	</ul>
 	

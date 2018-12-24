@@ -31,7 +31,7 @@
 	<div class="carousel carousel-slider" style="margin-top: 15px;">
 	<?php $sql = "SELECT * FROM item ORDER BY RAND(`item_id`) DESC LIMIT 4"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
 		<div class="carousel-item center" href="#one!">
-			<a href="product.php?pname=<?php echo $row[2]; ?>&pid=<?php echo $row[0]; ?>" data-target="_blank">
+			<a href="product.php?pcat=<?php echo $row[4]; ?>&pname=<?php echo $row[2]; ?>&pid=<?php echo $row[0]; ?>" data-target="_blank">
 				<img src="admin/img/<?php echo $row[3]; ?>" alt="<?php echo $row[2]; ?>" height="550">
 			</a>
 		</div>
@@ -65,7 +65,7 @@
         <div class="card-content">
 					<span class="card-title" style="font-size: 16px;"><?php echo $row[2]; ?></span>
           	<p class="truncate"><?php echo $row[5]; ?></p>
-						<a href="product.php?pname=<?php echo $row[2]; ?>&pid=<?php echo $row[0]; ?>" target="_blank">See more</a>
+						<a href="product.php?pcat=<?php echo $row[4]; ?>&pname=<?php echo $row[2]; ?>&pid=<?php echo $row[0]; ?>" target="_blank">See more</a>
         </div>
       </div>
 			<?php } ?>

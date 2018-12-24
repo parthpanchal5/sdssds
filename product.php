@@ -1,10 +1,10 @@
 <?php 
 	include 'inc/header.php';
-  include 'inc/conn.php';
-  
-
-  
-  	
+	include 'inc/conn.php';
+	
+	
+					
+			
 ?>  
 
 
@@ -16,7 +16,7 @@
   <div class="row animated fadeIn">
     <div class="col s12 m12 l6 xl6">
       <div class="card">
-      <!-- <?php if(isset($_GET['pid'])){ $productId = mysqli_real_escape_string($conn, $_GET['pid']); $sql = "SELECT * FROM item WHERE item_id = $productId"; $result = mysqli_query($conn, $sql); } while ($row = mysqli_fetch_array($result)) { ?> -->
+       <?php if(isset($_GET['pid'])){ $productId = mysqli_real_escape_string($conn, $_GET['pid']); $sql = "SELECT * FROM item WHERE item_id = $productId"; $result = mysqli_query($conn, $sql); } while ($row = mysqli_fetch_array($result)) { ?> 
         <div class="card-image">
           <img src="admin/img/<?php echo $row[3]; ?>" alt="<?php echo $row[2]; ?>" class="materialboxed responsive-img" data-caption="<?php echo $row[2]; ?>">
         </div>
@@ -24,7 +24,7 @@
     </div>
     <div class="col s12 m12 l6 xl6">
       <div class="card-panel animated fadeIn">
-        <table class="table highlight striped">
+        <table class="table striped">
           <tr>
             <th colspan="2"><h5><?php echo $row[2]; ?></h5></th>
           </tr>
@@ -45,49 +45,52 @@
             <td><?php echo $row[4]; ?><br></td>
           </tr>
           <tr>
-            <th class="left">Availability: </th>
-            <?php 
-              if($row[7] <= 4){
-                echo "<td><span class='chips rounded red white-text' style='padding: 6px;'>Out of stock</span></td>";
-              }else if($row[7] >= 5 && $row[7] <= 50){
-                echo "<td><span class='chips rounded yellow darken-4 white-text' style='padding: 6px;'>Low Stock</span></td>";
-              }else if($row[7] >= 51 && $row[7] <= 100){
-                echo "<td><span class='chips rounded blue darken-1 white-text' style='padding: 6px;'>Few left</span></td>";
-              }else if($row[7] >= 101 && $row[7] <= 350){
-                echo "<td><span class='chips rounded green darken-2 white-text' style='padding: 5px;'>Available</span></td>";
-              }
-            ?>
+            <th class="left">Ratings: </th>
+            <td>
+              <a class="tooltipped black-text rounded" data-position="right" data-tooltip="Total Ratings: 4.5"><i class="fa fa-star amber-text darken-4"></i><span style="margin-left: 8px;">4.5</span></a>
+            </td>
           </tr>
           <tr>
-          <form action="cart.php" method="GET">
-            <th>Oty: </th>
-            <td><input type="number" min="1" max="5" name="quantity" value="1"></td>
+            <th class="left">Availability: </th>
+            <?php include 'range.php'; ?>
           </tr>
-          <?php
-            if($row[7] <= 4){
-              echo '<tr>
-              <td colspan="2">
-                <a href="" class="btn btn-large blue darken-1 left">Notify me <i class="fa fa-bell fa-1x" style="font-size: 15px; margin-left: 10px;"></i></a>
-              </td>
-            </tr>';
-            }else{
-              echo '<tr>
-              <td colspan="2" class="left-align">
-                <a href="cart.php?action=add&pid=<?php echo $row[0]; ?>" target="_blank" class="btn btn-large amber darken-1">Add to cart <i class="fas fa-shopping-cart fa-1x"></i></a>
-                <a href="cart.php?pid=<?php echo $row[0]; ?>" target="_blank" class="btn btn-large amber darken-4 right">Buy now <i class="fas fa-bolt fa-1x"></i></a>
-              </td>            
-            </tr>';
-            }
-          ?>
-          
-          
+					<tr>
+						<td colspan='2' class='left-align'>
+							<?php if($row[7] <= 4): ?>
+								<a href='#' class='btn btn-large blue darken-1 left'>Notify me <i class='fa fa-bell fa-1x' style='font-size: 15px; margin-left: 10px;'></i></a>
+							<?php else:?>
+								<a href='cart.php?action=add&pid=<?php echo $row[0]; ?>' target='_blank' class='btn btn-large amber darken-1'>Add to cart <i class='fas fa-shopping-cart fa-1x'></i></a>
+								<a href='cart.php?pid=<?php echo $row[0]; ?>' target='_blank' class='btn btn-large amber darken-4 right'>Buy now <i class='fas fa-bolt fa-1x'></i></a>
+							</td>  
+							<?php endif;?>
+						</td>
+					</tr>
         </table>
-        </form>
+      </form>
       </div>
-    </div>
-    <?php  } ?>
+			<?php  } ?>
   </div>
-</div>    
+    
+	
+		<div class="col s12 m12 l6 xl6">
+			<div class="card-panel">
+				<h6>Users who also bought this items</h6>
+				<?php $productCat = mysqli_real_escape_string($conn, $_GET['pcat']); $sqlForItems = "SELECT * FROM `item` WHERE `item_cat` = '$productCat' ORDER BY item_price LIMIT 2"; $resultForItems = mysqli_query($conn, $sqlForItems);  while($rowForItems = mysqli_fetch_array($resultForItems)) {?>	
+					<div class="card" style="margin: 20px 0px;">
+						<div class="card-image">
+							<img src="admin/img/<?php echo $rowForItems[3]; ?>">
+						</div>
+						<div class="card-content">
+							<span class="card-title" style="font-size: 16px;"><?php echo $rowForItems[2]; ?></span>
+								<a href="product.php?pcat=<?php echo $rowForItems[4]; ?>&pname=<?php echo $rowForItems[2]; ?>&pid=<?php echo $rowForItems[0]; ?>" target="_blank">See more</a>
+						</div>
+						<?php } ?>
+					</div>
+				</div>
+			</div>		
+  	</div>
+	</div>
+   
 <?php include 'inc/footer.php'; ?>
 
         
