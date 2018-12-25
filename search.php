@@ -71,7 +71,7 @@
               <td><i class="fa fa-rupee-sign"></i> <?= $row[6]; ?></td>
             </tr>
             <tr>
-              <td colspan="2" class="left-align"><a href="product.php?pcat=<?= $row[4]; ?>&pid=<?= $row[0]; ?>" class="btn teal btn-small"  target="_blank" style="margin-right: 20px;">See more <i class="fa fa-eye"></i></a> <a href="cart.php?pid=<?= $row[0]; ?>" class="btn amber darken-1 btn-small">Add to cart <i class="fa fa-shopping-cart"></i></a></td>
+              <td colspan="2" class="left-align"><a href="product.php?pcat=<?= $row[4]; ?>&pid=<?= $row[0]; ?>" class="btn teal btn-small"  target="_blank" style="margin-right: 20px;">See more <i class="fa fa-eye"></i></a></td>
             </tr>
             <?php } ?>
           </table>

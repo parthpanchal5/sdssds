@@ -38,6 +38,14 @@ html, body{
     text-overflow: ellipsis;
     text-align: left;
 }
+input[type="number"]{
+    border: none !important;
+    outline: none !important;
+    padding: 5px !important;
+    border-radius:  5px !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0. .5);   
+}
+
 input[type="text"]{
     font-size: 14px;
     font-family: 'Poppins', sans-serif;

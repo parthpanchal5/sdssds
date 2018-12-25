@@ -218,9 +218,7 @@ $(document).ready(function(){
         duration: 600,
         interval: 6000
     });
+    
 
 
 });
-// tinymce.init({
-//     selector: '#mytextarea'
-//   });

@@ -1,9 +1,14 @@
 <?php 
 	include 'inc/header.php';
 	include 'inc/conn.php';
-	
-	
-					
+  
+  // if(!isset($_GET['pid'])){
+  //   $productId = mysqli_real_escape_string($conn, $_GET['pid']);
+  //   if($productId == '' || empty($productId)){
+  //     $errorImg = '<img src="img/error.png" class="responsive-img"/>';
+  //   }
+  // }
+			
 			
 ?>  
 
@@ -23,6 +28,8 @@
       </div>
     </div>
     <div class="col s12 m12 l6 xl6">
+    <form action="cart.php?action=add&pid=<?php echo $row[0]; ?>" method="POST">
+      <?php echo $errorImg; ?>
       <div class="card-panel animated fadeIn">
         <table class="table striped">
           <tr>
@@ -54,19 +61,29 @@
             <th class="left">Availability: </th>
             <?php include 'range.php'; ?>
           </tr>
+          <tr>
+            <th class="left">Qty: </th>
+            <td>
+              <input type="number" min="1" max="5" value="1" name="quantity">
+            </td>
+          </tr>
 					<tr>
 						<td colspan='2' class='left-align'>
 							<?php if($row[7] <= 4): ?>
 								<a href='#' class='btn btn-large blue darken-1 left'>Notify me <i class='fa fa-bell fa-1x' style='font-size: 15px; margin-left: 10px;'></i></a>
 							<?php else:?>
-								<a href='cart.php?action=add&pid=<?php echo $row[0]; ?>' target='_blank' class='btn btn-large amber darken-1'>Add to cart <i class='fas fa-shopping-cart fa-1x'></i></a>
+								<button type="submit" name="add_to_cart" class="btn btn-large amber darken-2">Add to cart</button>
 								<a href='cart.php?pid=<?php echo $row[0]; ?>' target='_blank' class='btn btn-large amber darken-4 right'>Buy now <i class='fas fa-bolt fa-1x'></i></a>
 							</td>  
-							<?php endif;?>
-						</td>
-					</tr>
+              <?php endif;?>
+            
+            </td>
+            <input type="hidden" name="hidden_name" value="<?php echo $row['item_name']; ?>">
+            <input type="hidden" name="hidden_price" value="<?php echo $row['item_price']; ?>">
+            <input type="hidden" name="hidden_img" value="<?php echo $row['item_img']; ?>">
+          </tr>
+          </form>
         </table>
-      </form>
       </div>
 			<?php  } ?>
   </div>
