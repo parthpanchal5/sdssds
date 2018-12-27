@@ -12,6 +12,10 @@
     if(empty($productSearchId)){
       header('Location:index.php');
     }
+    // Count total no of results
+    // $sqlForCount = "SELECT COUNT(*) FROM `item` WHERE `item_name` LIKE '%$productSearchId%'";
+    // $resultForCount = mysqli_query($conn, $sqlForCount);
+    // echo $resultForCount;
 
      // check sort options is clicked
     if(isset($_GET['sort_order'])){
@@ -24,9 +28,13 @@
       else if($sortOrder === "high"){
         $sqlForSorting = "SELECT * FROM `item` WHERE item_name LIKE '%$productSearchId%' ORDER BY `item_price` DESC";
         $resultOfSearchQuery = mysqli_query($conn, $sqlForSorting);
-      }
-      
+      }else if($sortOrder === "new"){
+        $sqlForSorting = "SELECT * FROM `item` WHERE item_name LIKE '%$productSearchId%' ORDER BY `created_at` DESC";
+        $resultOfSearchQuery = mysqli_query($conn, $sqlForSorting);
+      } 
     }
+
+    
   }
  
   
@@ -52,8 +60,9 @@
               <i class="material-icons">sort</i>Sort By</div>
             <div class="collapsible-body">
             <ul>
-                <li style="margin: 0px 0px 20px 0px;!important"><a href="search.php?q=<?php echo $productSearchId; ?>&sort_order=low" class="blue-text">Price: Low to High</a></li>
-                <li><a href="search.php?q=<?php echo $productSearchId; ?>&sort_order=high" class="blue-text">Price: High to Low</a></li>
+              <li style="margin: 0px 0px 20px 0px;!important"><a href="search.php?q=<?php echo $productSearchId; ?>&sort_order=new" class="blue-text">Latest</a><br></li>
+              <li style="margin: 0px 0px 20px 0px;!important"><a href="search.php?q=<?php echo $productSearchId; ?>&sort_order=low" class="blue-text">Price: Low to High</a></li>
+              <li><a href="search.php?q=<?php echo $productSearchId; ?>&sort_order=high" class="blue-text">Price: High to Low</a></li>
               </ul>
             </div>
           </li>
@@ -61,7 +70,8 @@
       </div>
       <div class="col s12 l9 xl9 m12">
         <div class="card-panel">
-          <p class="left">You Searched for: <?php echo ucwords('<span class="blue-text darken-2">'.ucwords($productSearchId).'</span>'); ?></p>
+          <p class="left">You Searched for: <?php echo ucwords('<span class="blue-text darken-2">'.ucwords($productSearchId).'</span>'); ?></p><br>
+          <p class="left">Products Found: <?php echo ('<span class="blue-text darken-2">'.$resultForCount. '</span>'); ?></p>
           <table class="table striped animated fadeIn">
           <?php while($row = mysqli_fetch_array($resultOfSearchQuery)) { ?>
             <tr>
