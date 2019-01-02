@@ -50,7 +50,7 @@
 	}
 	// Empty cart img
 	if(empty($_SESSION['cart'])){
-		$emptyCartImg = '<tr><td colspan="6"><img src="img/empty-cart.png"  height="320px" style="margin: 20px 0px;"/><h5>It seems you cart is empty</h5><br><a href="index.php" class="btn blue darken-1" style="margin-bottom: 30px;">Shop something <i class="fa fa-cart-arrow-down"></i></a></tr>';
+		$emptyCartImg = '<tr><td colspan="6"><img src="img/empty-cart.png"  height="320px" style="margin: 20px 0px;"/><h5>It seems your cart is empty</h5><br><a href="index.php" class="btn blue darken-1" style="margin-bottom: 30px;">Shop something <i class="fa fa-cart-arrow-down"></i></a></tr>';
 	}
 	
 	
@@ -83,33 +83,41 @@
 							<th>Action</th>
 						</thead>
 						<tbody>
-							<?php echo $emptyCartImg; ?>
-						<?php 
+							
+						<?php echo $emptyCartImg; ?>
+							<?php 
 							if(!empty($_SESSION['cart'])){
 								$total = 0;
 								foreach ($_SESSION['cart'] as $key => $value) {
 							?>
+							
 							<tr>
 								<td><img src="admin/img/<?php echo $value['item_img']; ?>" class="circle" alt="<?php echo $value['item_name']; ?>" style="width: 120px; height: 120px;"></td>
 								<td><?php echo $value['item_name']; ?></td>
 								<td><?php echo $value['quantity']; ?></td>
-								<td><i class="fas fa-rupee-sign" style="margin-right: 5px;"></i><?php echo $value['item_price']; ?></td>
+								<td><i class="fas fa-rupee-sign" style="margin-right: 5px;"></i><?php echo number_format($value['item_price']); ?></td>
 								<td><?php echo '<i class="fas fa-rupee-sign" style="margin-right: 5px;"></i>'.number_format($value['quantity'] * $value['item_price'], 2); ?></td>
 								<td><a href="cart.php?action=remove&pid=<?php echo $value['item_id']; ?>" class="btn-floating waves-effect btn-small red"><i class="material-icons">remove</i></a></td>
 							</tr>
+							
 							<?php $total = $total + ($value['quantity'] * $value['item_price']); 
 								} 
 							?>
+							
 							<tr>
 								<td colspan="3"><h5 class="right">Total:</h5></td>
 								<td colspan="5"><h5><i class="fa fa-rupee-sign" style="margin-right: 5px;"></i><?php echo number_format($total, 2); ?></h5></td>
 							</tr>
+							
 							<?php  }	?>
+						
 						</tbody>
 					</table>	
 					<div class="card-action">
 						<table class="table">
+
 							<?php if(!empty($_SESSION['cart'])) { ?>
+							
 							<tr>
 								<td class="right">
 									<form action="checkout.php" method="POST">
@@ -118,13 +126,19 @@
 									</form>
 								</td>
 							</tr>
+							
 							<?php } ?>
+
 						</table>
 					</div>
 				</div>
 			</div>
 		</div>
+
 		<div class="col s12 m12 l4">
+		
+		<?php if(!empty($_SESSION['cart'])) { ?>
+
 			<div class="card hoverable">
 				<div class="card-content">
 					<table class="table">
@@ -132,26 +146,21 @@
 							<td class="left grey-text" style="font-size: 18px; text-transform:uppercase;">Price Details</td>
 						</tr>
 						<tr>
-							<td class="left" style="font-size: 15px;">Price (<span><?php count($_SESSION['cart']); ?></span> 2 item)</td>
+							<td class="left" style="font-size: 15px;">Price (<span><?php echo count($_SESSION['cart']); ?></span> item)</td>
 							<td class="right" style="font-size: 15px;"><p><i class="fa fa-rupee-sign" style="margin-right: 5px;"></i><?php echo number_format($total, 2); ?></p></td>
-						</tr>
-						<tr>
-							<td class="left">Delivery Charges</td>
-							<td class="right"><span class="green-text" style="font-size: 15px; text-transform:uppercase;">Free</span></td>
 						</tr>
 						<tr>
 							<td class="left">Amount payable</td>
 							<td class="right" style="font-size: 15px;"><p><i class="fa fa-rupee-sign" style="margin-right: 5px;"></i><?php echo number_format($total, 2); ?></p></td>
 						</tr>
-						<tr>
-							<td class="center green-text" style="text-transform:uppercase;">Your Total savings on this order <i class="fas fa-rupee-sign" style="margin-left: 5px;"></i> 120</td>
-						</tr>
 					</table>	
-				
 				</div>
 			</div>
 		</div>
-  </div>
+
+		<?php } ?>
+	
+	</div>
 </div>
 
 <!--Footer  -->

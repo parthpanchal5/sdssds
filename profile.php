@@ -14,7 +14,7 @@
 <?php 
   $sql = "SELECT * FROM users WHERE user_id = '".$_SESSION['user_id']."'";
   $result = mysqli_query($conn, $sql);
-  while($row = mysqli_fetch_row($result)){ ?>
+  while($row = mysqli_fetch_row($result)) { ?>
 <div class="container lighten-4">
   <div class="row">
     <div class="col s12 m12 l12" style="margin-top: 10px;">
@@ -32,11 +32,11 @@
     </div>
   </div>
   <div class="row">
-    <div class="col s12 m12 l12">
-      <div class="card small z-depth-1 waves-effect lighten-2 gradient-4 hoverable" id="address">
+    <div class="col s12 m6 l6">
+      <div class="card z-depth-1 waves-effect lighten-2  hoverable" id="address">
         <div class="card-content">
-          <div class="card-title white-text center">Delivery Address</div>
-          <ul class="white-text">
+          <div class="card-title center">Delivery Address</div>
+          <ul class="black-text">
             <li><?php echo $row[4]; ?></li>
           </ul>
         </div>

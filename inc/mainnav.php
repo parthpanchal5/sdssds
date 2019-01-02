@@ -40,11 +40,7 @@
 	</ul>
 	<ul id="cart-dropdown" class="dropdown-content">
 		<li>
-			<a href="cart.php" class="left blue-text">View Cart <?php
-            $items = $_SESSION['cart'];
-            $item_array_id = explode(",", $items);
-            echo count($item_array_id);
-          ?> <span class="new rounded badge green right">1</span><i class="fa fa-shopping-cart fa-1x right" style="padding-left: 5px; margin-left: 2px;"></i></a>
+			<a href="cart.php" class="left blue-text">View Cart <span class="new rounded badge red right"><?php echo count($_SESSION['cart']); ?> </span><i class="fa fa-shopping-cart fa-1x right" style="padding-left: 2px; margin-left: 2px;"></i></a>
 		</li>
 	</ul>
 	
@@ -78,7 +74,7 @@
 	<li class="bold"><a class="collapsible-header waves-effect" id="mobile-links">Cart <i class="material-icons grey-text right">expand_more</i></a>
 		<div class="collapsible-body">
 			<ul>
-				<li><a href="cart.php" class="blue-text">View Cart <span class="new rounded badge red center">1</span><i class="fa fa-shopping-cart blue-text right"></i></a></li>			
+				<li><a href="cart.php" class="blue-text">View Cart  <span class="new rounded badge red center">1</span><i class="fa fa-shopping-cart blue-text right"></i></a></li>			
 			</ul>
 		</div>
 	</li>
