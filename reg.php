@@ -48,7 +48,7 @@
         $firstname_err =  "Firstname is invalid";
         $lastname_err = "Lastname is invalid";
       }else{
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        if(filter_var($email, FILTER_VALIDATE_EMAIL)){
           $email_err = "Email is invalid";                        
         }else{
           if(strlen($password) < 8){

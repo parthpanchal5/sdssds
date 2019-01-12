@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Shopit</title>
+	<title> <?php if(isset($_GET['pname'])){ $titleBar =  $_GET['pname']; echo $titleBar; } else{ echo $titleBar = 'Shopit'; }  ?></title>
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="shortcut icon" href="img/logo/logo.png">
