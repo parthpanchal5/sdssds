@@ -104,12 +104,12 @@
 ?>
 <div class="container-fluid">
 	<div class="row">
-		<div class="col s12 m6 l6 xl6">
-			<div class="card-panel hoverable">
-				<div class="card-title center" style="font-size: 18px;">New Messages</div><hr>
+		<div class="col s12 m12 l6 xl6">
+			<div class="card-panel">
+				<div class="card-title center" style="font-size: 18px;">New Messages <i class="fa fa-envelope"></i></div><hr>
 					<div class="card-content">
-						<table class="table striped highlight responsive-table animated fadeIn">
-							<thead class=left-align>
+						<table class="table striped highlight animated fadeIn">
+							<thead>
 								<th>Sender</th>
 								<th>Message</th>
 								<th>Action</th>
