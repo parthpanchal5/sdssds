@@ -46,6 +46,12 @@ input[type="number"]{
     box-shadow: 0 2px 5px rgba(0, 0, 0. .5);   
 }
 
+#search-img:hover{
+    filter: grayscale(100%);
+    transform: scale(1.2);
+    transition: 0.3s ease-in;
+    transition-delay: 0.2s;
+}
 input[type="text"]{
     font-size: 14px;
     font-family: 'Poppins', sans-serif;

@@ -9,6 +9,7 @@
 
     // Add to cart
     if($cartAction == "add"){
+			
 			if(isset($_POST['add_to_cart'])){
 				if(isset($_SESSION['cart'])){
 					$item_array_id = array_column($_SESSION['cart']. "item_id");

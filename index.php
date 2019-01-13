@@ -41,22 +41,27 @@
 
 <div class="container-fluid animated fadeIn grey lighten-3" style="margin-top: 20px;">
 	<div class="row">
-		<div class="col s12 l3 xl3">
+		<div class="col s12 l3 m6 xl3">
 			<div class="card">
 					sd
 			</div>
 		</div>	
-		<div class="col s12 l3 xl3">
+		<div class="col s12 l3 m6 xl3">
 			<div class="card">
 					sd
 			</div>
 		</div>	
-		<div class="col s12 l3 xl3">
+		<div class="col s12 l3 m6 xl3">
 			<div class="card">
 					sd
 			</div>
 		</div>	
-		<div class="col m3 l3 right">
+		<div class="col s12 l3 m6 xl3">
+			<div class="card">
+					sd
+			</div>
+		</div>	
+		<div class="col s12 m12 l3">
 			<div class="card">
 			<?php $sql = "SELECT * FROM `item` ORDER BY RAND() LIMIT 1;"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
         <div class="card-image">

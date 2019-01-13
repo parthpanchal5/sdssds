@@ -28,7 +28,7 @@
 </div>
 	<!-- Dropdown Contents (Non-Mobile) -->
 	<ul id="profile-dropdown" class="dropdown-content">
-	<li><a href='profile.php' class='blue-text'>Hello <?php if(!isset($_SESSION['username'])) { echo 'Guest'; } else{ echo $_SESSION['firstname']; }?></a></li>
+	<li><a href='profile.php' class='blue-text'>Hello <?php if(!isset($_SESSION['user_id'])) { echo 'Guest'; } else{ echo $_SESSION['firstname']; }?></a></li>
 	<?php if(!isset($_SESSION['email']) || empty($_SESSION['email'])) :?>
 	<?php echo '<li class="bold"><a href="login.php" class="collapsible-header waves-effect" id="mobile-links">Login</a></li>';?>
 	<?php else: ?>
