@@ -61,12 +61,16 @@
             <th class="left">Availability: </th>
             <?php include 'range.php'; ?>
           </tr>
-          <tr>
-            <th class="left">Qty: </th>
-            <td>
-              <input type="number" min="1" max="5" value="1" name="quantity">
-            </td>
-          </tr>
+					<?php if($row[7] > 4): ?>
+
+						<tr>
+							<th class="left">Qty: </th>
+							<td>
+								<input type="number" min="1" max="5" value="1" name="quantity">
+							</td>
+						</tr>
+					<?php endif;?>
+
 					<tr>
 						<td colspan='2' class='left-align'>
 							<?php if($row[7] <= 4): ?>
