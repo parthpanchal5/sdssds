@@ -34,11 +34,16 @@
           }else{
             $sql = "INSERT INTO category (cat_name, sub_cat_name, cat_desc) VALUES ('$catName', '$subCatName', '$catDesc')";
             $result = mysqli_query($conn, $sql);
-            header("Location:view_cat.php?inserted");
+            header("Location:view_cat.php?s=inserted");
             exit;
           }
         }
-      }      
+      } 
+      // notification
+      $notification = mysqli_real_escape_string($conn, $_GET['s']);
+      if($notification == "inserted"){
+        $notificationMsg = "New record inserted";
+      }     
     }
 ?>
 <?php include 'inc/header.php'; ?>
@@ -82,4 +87,14 @@
     <div class="col s12 m2 l3"></div>
   </div>
 </div>
+
+<script>
+	swal({
+  position: 'center',
+  type: 'success',
+  title: '<?php echo $notificationMsg; ?>',
+  showConfirmButton: false,
+  timer: 1500
+});
+</script>
 <?php include 'inc/footer.php'; ?>
