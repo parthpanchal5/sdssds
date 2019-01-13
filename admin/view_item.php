@@ -39,7 +39,7 @@
       <?php $sql = "SELECT COUNT(`item_id`) FROM item"; $result1 = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result1)) { ?>
       <p class="center">Total no of products: <h5 class="center-align"><?php echo $row[0]; ?></h5></p>
       <?php }?>
-      <div class="card-panel hoverable">
+      <div class="card-panel">
         <div class="card-content">
           <table class="table highlight responsive-table striped animated fadeIn">
             <thead>
@@ -63,7 +63,7 @@
                 <td><?php echo $row[3];?></td>
                 <td><?php echo $row['sub_category'];?></td>
                 <td><p id="admin-product-desc"><?php echo $row[4]; ?></p></td>
-                <td><?php echo $row[5];?></td>
+                <td><?php echo number_format($row[5], 2);?> <i class="fa fa-rupee-sign green-text"></i></td>
                 <td><?php echo $row[6];?></td>
                 <?php 
                   if($row['item_qty'] <= 4){

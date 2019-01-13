@@ -9,7 +9,7 @@
 
     // Add to cart
     if($cartAction == "add"){
-			
+
 			if(isset($_POST['add_to_cart'])){
 				if(isset($_SESSION['cart'])){
 					$item_array_id = array_column($_SESSION['cart']. "item_id");
@@ -51,7 +51,7 @@
 	}
 	// Empty cart img
 	if(empty($_SESSION['cart'])){
-		$emptyCartImg = '<tr><td colspan="6"><img src="img/empty-cart.png"  height="320px" style="margin: 20px 0px;"/><h5>It seems your cart is empty</h5><br><a href="index.php" class="btn blue darken-1" style="margin-bottom: 30px;">Shop something <i class="fa fa-cart-arrow-down"></i></a></tr>';
+		$emptyCartImg = '<tr><td colspan="6"><img src="img/empty-cart.png"  class="responsive-img circle"  style="margin: 20px 0px;"/><h5>It seems your cart is empty</h5><br><a href="index.php" class="btn blue darken-1" style="margin-bottom: 30px;">Shop something <i class="fa fa-cart-arrow-down"></i></a></tr>';
 	}
 	
 	
@@ -74,7 +74,7 @@
 			<div class="card">
 				<div class="card-content">
 					<h4 class="center">My Cart</h4>
-					<table class="">
+					<table class="table">
 						<thead>
 							<th><h6>Item</h6></th>
 							<th><h6>Name</h6></th>
