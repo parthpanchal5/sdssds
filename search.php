@@ -10,23 +10,23 @@
     $resultOfSearchQuery = mysqli_query($conn, $productSearchQuery);
 
 
-    if(mysqli_num_rows($resultOfSearchQuery) > 0){
-      while($row = mysqli_fetch_array($resultOfSearchQuery)) {
-        $name = $row['item_name'];
-        $data = $row['item_id'];
-        $arr[] = array('name' => $name, 'data' => $data);
-        // echo json_encode($arr);
-        echo "<ul class='autocomplete-content dropdown-content'>
-                <li>
+    // if(mysqli_num_rows($resultOfSearchQuery) > 0){
+    //   while($row = mysqli_fetch_array($resultOfSearchQuery)) {
+    //     $name = $row['item_name'];
+    //     $data = $row['item_id'];
+    //     $arr[] = array('name' => $name, 'data' => $data);
+    //     // echo json_encode($arr);
+    //     echo "<ul class='autocomplete-content dropdown-content'>
+    //             <li>
       
-                  <a href='product.php?pid=".$row["item_id"]."'>".$row["item_name"]."</a></li>";
+    //               <a href='product.php?pid=".$row["item_id"]."'>".$row["item_name"]."</a></li>";
         
-                }
-    }
-    else{
-      echo "<ul class='autocomplete-content dropdown-content'>
-              <li>No results Found</li>";
-    }
+    //             }
+    // }
+    // else{
+    //   echo "<ul class='autocomplete-content dropdown-content'>
+    //           <li>No results Found</li>";
+    // }
     
     if(empty($productSearchId)){
       header('Location:index.php');
