@@ -117,7 +117,7 @@
 					<div class="card-action">
 						<table class="table">
 
-							<?php if(!empty($_SESSION['cart'])) { ?>
+							<?php if(!empty($_SESSION['cart']) && $_SESSION['user_id'] != ''): ?>
 							
 							<tr>
 								<td class="right">
@@ -126,9 +126,17 @@
 										<input type="submit" value="place order" class="btn btn-large  amber darken-4">
 									</form>
 								</td>
+
+								<?php elseif(empty($_SESSION['user_id'])) :?>
+								
+								<td class="right">
+									<a href="login.php" class="btn btn-small blue z-depth-2 hoverable">Login</a>
+								</td>
+
 							</tr>
-							
-							<?php } ?>
+
+
+								<?php endif; ?>
 
 						</table>
 					</div>

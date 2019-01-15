@@ -102,15 +102,4 @@
 	<?php echo '<li class="bold"><a href="logout.php" class="collapsible-header waves-effect" id="mobile-links">Logout <i class="fa fa-power-off fa-1x right red-text" style="font-size: 15px;"></i></a></li>';?>
 	<?php endif; ?>
 
-
-	<script>
-
-
-$(document).ready(function(){
-    $('input.autocomplete').autocomplete({
-      data:{
-			}
-    });
-  });
-  </script>
 </ul>
