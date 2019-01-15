@@ -17,8 +17,9 @@
 				<div class="col s6">
 					<form action="search.php?q=" method="GET">
 						<div class="input-field">
-							<input type="text" name="q" value="<?php echo $productSearchId; ?>" class="z-depth-2" id="mega-search" value="<?php echo $productRequest; ?>" placeholder="Search for products...">
+							<input type="text" name="q" class="autocomplete" autocomplete="off" value="<?php echo $productSearchId; ?>" class="z-depth-2" id="mega-search" value="<?php echo $productRequest; ?>"  placeholder="Search for products...">
 							<i id="searchbtn" class="fa fa-search fa-1x"></i>
+							<div class="result"></div>
 						</div>
 					</form>		
 				</div>
@@ -100,4 +101,16 @@
 	<?php else: ?>
 	<?php echo '<li class="bold"><a href="logout.php" class="collapsible-header waves-effect" id="mobile-links">Logout <i class="fa fa-power-off fa-1x right red-text" style="font-size: 15px;"></i></a></li>';?>
 	<?php endif; ?>
+
+
+	<script>
+
+
+$(document).ready(function(){
+    $('input.autocomplete').autocomplete({
+      data:{
+			}
+    });
+  });
+  </script>
 </ul>

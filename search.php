@@ -9,6 +9,25 @@
     $productSearchQuery = "SELECT `item_id`, `cat_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `sub_category` FROM item WHERE item_name LIKE '%$productSearchId%'";
     $resultOfSearchQuery = mysqli_query($conn, $productSearchQuery);
 
+
+    if(mysqli_num_rows($resultOfSearchQuery) > 0){
+      while($row = mysqli_fetch_array($resultOfSearchQuery)) {
+        $name = $row['item_name'];
+        $data = $row['item_id'];
+        $arr[] = array('name' => $name, 'data' => $data);
+        // echo json_encode($arr);
+        echo "<ul class='autocomplete-content dropdown-content'>
+                <li>
+      
+                  <a href='product.php?pid=".$row["item_id"]."'>".$row["item_name"]."</a></li>";
+        
+                }
+    }
+    else{
+      echo "<ul class='autocomplete-content dropdown-content'>
+              <li>No results Found</li>";
+    }
+    
     if(empty($productSearchId)){
       header('Location:index.php');
     }
@@ -78,11 +97,11 @@
           <?php while($row = mysqli_fetch_array($resultOfSearchQuery)) { ?>
             <tr>
               <td class="left"><img src="admin/img/<?php echo $row[3]; ?>" class="responsive-img" id="search-img" alt="<?php echo $row[2]; ?>"><br><?= $row[2];?></td>
-              <td><p style="margin-right: 200px !important;" id="product-desc" ><?= $row[5]; ?> <a href="product.php?pname=<?= $row[2]; ?>&pid=<?= $row[0]; ?>" class="truncate" target="_blank">See more...</a></p></td>
-              <td><p style="margin-right: 150px !important;"><i class="fa fa-rupee-sign"></i> <?= $row[6]; ?></p></td>
+              <td><p style="margin-right: 120px !important;" id="product-desc" ><?= $row[5]; ?> <a href="product.php?pname=<?= $row[2]; ?>&pid=<?= $row[0]; ?>" class="truncate" target="_blank">See more...</a></p></td>
+              <td><p style="margin-right: 120px !important;"><i class="fa fa-rupee-sign"></i> <?= $row[6]; ?></p></td>
             </tr>
             <tr>
-              <td class="left" colspan="6"><a href="product.php?pname=<?= $row[2]; ?>&pcat=<?= $row[4]; ?>&pid=<?= $row[0]; ?>" class="btn teal btn-small"  target="_blank" style="margin-right: 20px;">See more <i class="fa fa-eye"></i></a></td>
+              <td class="left" colspan="1"><a href="product.php?pname=<?= $row[2]; ?>&pcat=<?= $row[4]; ?>&pid=<?= $row[0]; ?>" class="btn teal btn-small"  target="_blank" style="margin-right: 20px;">See more <i class="fa fa-eye"></i></a></td>
             </tr>
             <?php } ?>
           </table>
@@ -90,4 +109,6 @@
       </div>  
     </div>
   </div>
+
+
 <?php include 'inc/footer.php'; ?>
