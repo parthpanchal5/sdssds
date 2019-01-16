@@ -100,7 +100,7 @@
 								<td><?php echo $value['item_name']; ?></td>
 								<td><?php echo $value['quantity']; ?></td>
 								<td><i class="fas fa-rupee-sign" style="margin-right: 5px;"></i><?php echo number_format($value['item_price']); ?></td>
-								<td><?php echo '<i class="fas fa-rupee-sign" style="margin-right: 5px;"></i>'. number_format($value['discount'], 1); ?> %</td>
+								<td><?php echo  number_format($value['discount'], 1); ?> %</td>
 
 								<td><i class="fas fa-rupee-sign" style="margin-right: 5px;"></i><?php $sp = $value['item_price'] - ($value['item_price'] * ($value['discount'] / 100)); echo number_format($sp); ?></td>
 								<td><a href="cart.php?action=remove&pid=<?php echo $value['item_id']; ?>" class="btn-floating waves-effect btn-small red"><i class="material-icons">remove</i></a></td>
@@ -135,7 +135,7 @@
 								<?php elseif(empty($_SESSION['user_id'])) :?>
 								
 								<td class="right">
-									<a href="login.php" class="btn btn-small blue z-depth-2 hoverable">Login</a>
+									<a href="login.php" class="btn btn-large red z-depth-2 hoverable">Login</a>
 								</td>
 
 							</tr>
