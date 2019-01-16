@@ -20,12 +20,13 @@
 							'item_name' => $_POST['hidden_name'],
 							'item_price' => $_POST['hidden_price'],
 							'item_img' => $_POST['hidden_img'],
+							'discount' => $_POST['hidden_discount'],
 							'quantity' => $_POST['quantity']
 						);
 						$_SESSION['cart'][$count] = $item_array;
 					}else{
 						echo '<script>alert("Item already added");</script>';
-						echo '<script>window.location="cart.php";</script>';
+						// echo '<script>window.location="cart.php";</script>';
 					}
 				}else{
 					$item_array = array(
@@ -33,6 +34,7 @@
 						'item_name' => $_POST['hidden_name'],
 						'item_price' => $_POST['hidden_price'],
 						'item_img' => $_POST['hidden_img'],
+						'discount' => $_POST['hidden_discount'],
 						'quantity' => $_POST['quantity']
 					);
 					$_SESSION['cart'][0] = $item_array;
@@ -80,6 +82,7 @@
 							<th><h6>Name</h6></th>
 							<th><h6>Qty</h6></th>
 							<th><h6>Price</h6></th>
+							<th><h6>Discount</h6></th>
 							<th><h6>Total</h6></th>
 							<th>Action</th>
 						</thead>
@@ -97,11 +100,13 @@
 								<td><?php echo $value['item_name']; ?></td>
 								<td><?php echo $value['quantity']; ?></td>
 								<td><i class="fas fa-rupee-sign" style="margin-right: 5px;"></i><?php echo number_format($value['item_price']); ?></td>
-								<td><?php echo '<i class="fas fa-rupee-sign" style="margin-right: 5px;"></i>'.number_format($value['quantity'] * $value['item_price'], 2); ?></td>
+								<td><?php echo '<i class="fas fa-rupee-sign" style="margin-right: 5px;"></i>'. number_format($value['discount'], 1); ?> %</td>
+
+								<td><i class="fas fa-rupee-sign" style="margin-right: 5px;"></i><?php $sp = $value['item_price'] - ($value['item_price'] * ($value['discount'] / 100)); echo number_format($sp); ?></td>
 								<td><a href="cart.php?action=remove&pid=<?php echo $value['item_id']; ?>" class="btn-floating waves-effect btn-small red"><i class="material-icons">remove</i></a></td>
 							</tr>
 							
-							<?php $total = $total + ($value['quantity'] * $value['item_price']); 
+							<?php $total = $total + ($value['quantity'] * $sp); 
 								} 
 							?>
 							

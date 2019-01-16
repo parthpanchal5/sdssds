@@ -29,7 +29,7 @@
 <div class="container-fluid animated fadeIn">
 	<!-- Carousel Slider -->
 	<div class="carousel carousel-slider" style="margin-top: 15px;">
-	<?php $sql = "SELECT * FROM item ORDER BY RAND(`item_id`) DESC LIMIT 4"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
+	<?php $sql = "SELECT * FROM item ORDER BY RAND(`item_id`) ASC LIMIT 4"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
 		<div class="carousel-item center" href="#one!">
 			<a href="product.php?pcat=<?php echo $row[4]; ?>&pname=<?php echo $row[2]; ?>&pid=<?php echo $row[0]; ?>" data-target="_blank">
 				<img src="admin/img/<?php echo $row[3]; ?>" alt="<?php echo $row[2]; ?>" height="550">

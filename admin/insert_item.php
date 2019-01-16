@@ -2,8 +2,8 @@
 	session_start(); 
 	include 'inc/conn.php';
 	
-	$itemName = $itemPrice = $category = $qty = $itemDesc  = $subCat = '';
-	$itemName_err = $itemPrice_err = $category_err = $qty_err = $itemDesc_err = $subCat_err = '';
+	$itemName = $itemPrice = $category = $qty = $itemDesc  = $subCat = $discount = '';
+	$itemName_err = $itemPrice_err = $category_err = $qty_err = $itemDesc_err = $subCat_err = $discount_err = '';
 
 	if(isset($_POST['add'])){
 		
@@ -13,6 +13,8 @@
 		$subCat = mysqli_real_escape_string($conn, $_POST['sub_cat']);
 		$qty = mysqli_real_escape_string($conn, $_POST['qty']);
 		$itemDesc = mysqli_real_escape_string($conn, $_POST['item_desc']);
+		$discount = mysqli_real_escape_string($conn, $_POST['disc']);
+
 
 		// Vars for img-file
 		$file = $_FILES['item_img'];
@@ -42,6 +44,7 @@
 				echo "There was an error uploading file";	
 			}
 		}
+
 		if(empty($itemName)){
 			$itemName_err = "Item name is required";
 		}
@@ -60,6 +63,9 @@
 		if(empty($itemDesc)){
 			$itemDesc_err = "Item Descripton is required";
 		}
+		if(empty($discount)){
+			$discount = "0.0";
+		}
 		// if(!preg_match("/^[a-zA-Z]$/", $itemName)){
 		// 	$itemName_err = "Invalid Item name";
 		// }
@@ -70,8 +76,8 @@
 				if(!preg_match("/^[0-9]*$/", $qty)){
 					$qty_err = "Please insert quantity";
 				}else{
-					$sql1 = "SELECT * FROM category"; $result1 = mysqli_query($conn, $sql1); while($row = mysqli_fetch_array($result1)){ $cat_id = $row[0];
-					$sql = "INSERT INTO item (`cat_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `sub_category`) VALUES ((SELECT `cat_id` FROM category WHERE `cat_id` = '$cat_id'),	'$itemName', '$newFileName', '$category', '$itemDesc', '$itemPrice', '$qty', '$subCat');";
+						$sql1 = "SELECT * FROM category"; $result1 = mysqli_query($conn, $sql1); while($row = mysqli_fetch_array($result1)){ $cat_id = $row[0];
+						$sql = "INSERT INTO item (`cat_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `sub_category`, `discount`) VALUES ((SELECT `cat_id` FROM category WHERE `cat_id` = '$cat_id'),	'$itemName', '$newFileName', '$category', '$itemDesc', '$itemPrice', '$qty', '$subCat', '$discount');";
 					} 
 					$result = mysqli_query($conn, $sql);
 					header("Location:insert_item.php");
@@ -130,6 +136,11 @@
 									<input type="text" name="qty" id="qty" value="<?php echo $qty; ?>" >
 									<label for="qty">Quantity (x1)</label>
 									<span class="red-text"><?php echo $qty_err; ?></span>
+								</div>
+								<div class="input-field col s6">
+									<input type="text" name="disc" id="discount" value="<?php echo $discount; ?>" >
+									<label for="qty">Discount (%)</label>
+									<span class="red-text"><?php echo $discount_err; ?></span>
 								</div>
 							</div>
 							<div class="row">

@@ -50,21 +50,30 @@
               <th>Sub-Category</th>
               <th>Description</th>
               <th>Price</th>
+              <th>Discount</th>
+              <th>Discounted Price</th>
               <th>Qty</th>
               <th style="padding: 40px;">Status</th>
               <th>Action</th>
             </thead>
             <tbody>
-              <?php $sql = "SELECT `item_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `sub_category` FROM item LIMIT " . $startingLimitNo .','. $resultPerPage; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)){ ?>
+              <?php $sql = "SELECT * FROM item LIMIT " . $startingLimitNo .','. $resultPerPage; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)){ ?>
               <tr>
                 <td><b><?php echo $row[0];?></b></td>
-                <td><?php echo $row[1];?></td>
-                <td><img src="img/<?php echo $row[2];?>" alt="<?php echo $row[1]; ?>" class="materialboxed" data-caption="<?php echo $row[1]; ?>" id="admin-prod-img" width="120"></td>
-                <td><?php echo $row[3];?></td>
+                <td><?php echo $row['item_name'];?></td>
+                <td><img src="img/<?php echo $row['item_img'];?>" alt="<?php echo $row['item_name']; ?>" class="materialboxed" data-caption="<?php echo $row['item_name']; ?>" id="admin-prod-img" width="120"></td>
+                <td><?php echo $row['item_cat'];?></td>
                 <td><?php echo $row['sub_category'];?></td>
-                <td><p id="admin-product-desc"><?php echo $row[4]; ?></p></td>
-                <td><?php echo number_format($row[5], 2);?> <i class="fa fa-rupee-sign green-text"></i></td>
-                <td><?php echo $row[6];?></td>
+                <td><p id="admin-product-desc"><?php echo $row['item_desc']; ?></p></td>
+                <td><?php echo number_format($row['item_price'], 1);?> <i class="fa fa-rupee-sign green-text"></i></td>
+                <td><?php echo number_format($row['discount'], 1);?>% </td>
+                <td>
+                  <?php 
+                    $sp = $row['item_price'] - ($row['item_price'] * ($row['discount'] / 100));
+                    echo number_format($sp, 2);
+                  ?> <i class="fa fa-rupee-sign green-text"></i>
+                </td>
+                <td><?php echo $row['item_qty'];?></td>
                 <?php 
                   if($row['item_qty'] <= 4){
                     echo "<td><span class='chips rounded red white-text' style='padding: 6px;'>Out of stock</span></td>";
