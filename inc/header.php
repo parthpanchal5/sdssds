@@ -4,6 +4,7 @@
 <head>
 	<title> <?php if(isset($_GET['pname'])){ $titleBar =  $_GET['pname']; echo $titleBar; } else{ echo $titleBar = 'Shopit'; }  ?></title>
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="description" content="<?php if(isset($_GET['pname'])){ include 'inc/conn.php'; $metadesc =  $_GET['pname']; $sql = "SELECT * FROM item WHERE `item_name` = '$metadesc'"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)){ echo $row[5]; } } else{ echo $metadesc = 'Shopit is a place where all your wishes of buying products come true so welcome and buy your dream products'; }  ?>"/>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="shortcut icon" href="img/logo/logo.png">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">

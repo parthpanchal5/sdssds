@@ -6,6 +6,18 @@
 			</div>
     </div> -->
     <!-- <script src="js/autocomplete.js"></script> -->
+    <script>
+			function autoload(){
+				var xhttp = new XMLHttpRequest();
+  			xhttp.onreadystatechange = function() {
+    		if (this.readyState == 4 && this.status == 200) {
+     			document.getElementById("mega-search").innerHTML = this.responseText;
+    		}
+  		};
+			xhttp.open("GET", "aj_search.php?", true);
+			xhttp.send();        
+			}
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
