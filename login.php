@@ -40,12 +40,7 @@
               $_SESSION['phone'] = $row['phone'];
               $_SESSION['address'] = $row['address'];
               $_SESSION['user_id'] = $row['user_id'];
-              header("Location:index.php");
-
-              // if(($_SESSION['email'] === "admin@admin.com") || ($_SESSION['username'] === 'admin123') ||($_SESSION['username'] === "admin123")){
-              //   header('Location:admin/dashboard.php');
-              //   exit;
-              // }
+              header("Location:index.php");              
             }
           } 
         }

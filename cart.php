@@ -5,47 +5,41 @@
 
 	
 	if(isset($_GET['action'])){
+
 		$cartAction = mysqli_real_escape_string($conn, $_GET['action']);
 
     // Add to cart
     if($cartAction == "add"){
 
 			if(isset($_POST['add_to_cart'])){
+
 				if(isset($_SESSION['cart'])){
+					
 					$item_array_id = array_column($_SESSION['cart']. "item_id");
+					
 					if(!in_array($_GET['pid'], $item_array)){
+						
 						$count = count($_SESSION['cart']);
-						$item_array = array(
-							'item_id' => $_GET['pid'],
-							'item_name' => $_POST['hidden_name'],
-							'item_price' => $_POST['hidden_price'],
-							'item_img' => $_POST['hidden_img'],
-							'discount' => $_POST['hidden_discount'],
-							'quantity' => $_POST['quantity']
-						);
+						$item_array = array('item_id' => $_GET['pid'], 'item_name' => $_POST['hidden_name'], 'item_price' => $_POST['hidden_price'], 'item_img' => $_POST['hidden_img'], 'discount' => $_POST['hidden_discount'], 'quantity' => $_POST['quantity']);
 						$_SESSION['cart'][$count] = $item_array;
-					}else{
-						echo '<script>alert("Item already added");</script>';
-						// echo '<script>window.location="cart.php";</script>';
 					}
+
 				}else{
-					$item_array = array(
-						'item_id' => $_GET['pid'],
-						'item_name' => $_POST['hidden_name'],
-						'item_price' => $_POST['hidden_price'],
-						'item_img' => $_POST['hidden_img'],
-						'discount' => $_POST['hidden_discount'],
-						'quantity' => $_POST['quantity']
-					);
+					
+					$item_array = array('item_id' => $_GET['pid'], 'item_name' => $_POST['hidden_name'], 'item_price' => $_POST['hidden_price'], 'item_img' => $_POST['hidden_img'], 'discount' => $_POST['hidden_discount'], 'quantity' => $_POST['quantity']);
 					$_SESSION['cart'][0] = $item_array;
+				
 				}
 			}
 		} 
 		
 		// Remove 
 		if($cartAction == "remove"){
+			
 			foreach($_SESSION['cart'] as $key => $value){
+				
 				if($value['item_id'] == $_GET['pid']){
+					
 					unset($_SESSION['cart'][$key]);
 				}
 			}
@@ -53,16 +47,10 @@
 	}
 	// Empty cart img
 	if(empty($_SESSION['cart'])){
-		$emptyCartImg = '<tr><td colspan="6"><img src="img/empty-cart.png" height="350" style="margin: 20px 0px;"/><h5>It seems your cart is empty</h5><br><a href="index.php" class="btn blue darken-1" style="margin-bottom: 30px;">Shop something <i class="fa fa-cart-arrow-down"></i></a></tr>';
-	}
-	
-	
 		
-	// Validate login
-  // if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
-	// 	header('Location: login.php');
-	// 	exit;
-	// }
+		$emptyCartImg = '<tr><td colspan="7"><img src="img/empty-cart.png" height="350" style="margin: 20px 0px;"/><h5>It seems your cart is empty</h5><br><a href="index.php" class="btn blue darken-1" style="margin-bottom: 30px;">Shop something <i class="fa fa-cart-arrow-down"></i></a></tr>';
+	
+	}
 	
 ?>
 
@@ -84,7 +72,7 @@
 							<th><h6>Price</h6></th>
 							<th><h6>Discount</h6></th>
 							<th><h6>Total</h6></th>
-							<th>Action</th>
+							<th><h6>Action</h6></th>
 						</thead>
 						<tbody>
 							
@@ -103,7 +91,7 @@
 								<td><?php echo  number_format($value['discount'], 1); ?> %</td>
 
 								<td><i class="fas fa-rupee-sign" style="margin-right: 5px;"></i><?php $sp = $value['item_price'] - ($value['item_price'] * ($value['discount'] / 100)); echo number_format($sp); ?></td>
-								<td><a href="cart.php?action=remove&pid=<?php echo $value['item_id']; ?>" class="btn-floating waves-effect btn-small red"><i class="material-icons">remove</i></a></td>
+								<td><a href="cart.php?action=remove&pid=<?php echo $value['item_id']; ?>" class="btn-floating waves-effect btn-small red tooltipped" data-position="right" data-tooltip="Remove: <?php echo $value['item_name'];?>"><i class="material-icons">remove</i></a></td>
 							</tr>
 							
 							<?php $total = $total + ($value['quantity'] * $sp); 
@@ -126,10 +114,11 @@
 							
 							<tr>
 								<td class="right">
-									<form action="checkout.php" method="POST">
-										<a href="index.php" class="btn btn-large grey lighten-5 black-text" style="margin-right: 20px;"><i class="fas fa-chevron-left" style="font-size: 15px; margin-right: 10px;"></i> Continue Shopping</a>
-										<input type="submit" value="place order" class="btn btn-large  amber darken-4">
-									</form>
+									<!-- <form action="checkout.php" method="POST"> -->
+										<a href="index.php"  class="btn btn-large grey lighten-5 black-text" style="margin-right: 20px;"><i class="fas fa-chevron-left" style="font-size: 15px; margin-right: 10px;"></i> Continue Shopping</a>
+										<!-- <input type="submit" value="place order" > -->
+										<a href="checkout.php" class="btn btn-large  amber darken-4">Place order</a>
+									<!-- </form> -->
 								</td>
 
 								<?php elseif(empty($_SESSION['user_id'])) :?>
@@ -139,7 +128,6 @@
 								</td>
 
 							</tr>
-
 
 								<?php endif; ?>
 

@@ -12,11 +12,7 @@
     if(empty($productSearchId)){
       header('Location:index.php');
     }
-    // Count total no of results
-    // $sqlForCount = "SELECT COUNT(*) FROM `item` WHERE `item_name` LIKE '%$productSearchId%'";
-    // $resultForCount = mysqli_query($conn, $sqlForCount);
-    // echo $resultForCount;
-
+   
      // check sort options is clicked
     if(isset($_GET['sort_order'])){
       $sortOrder = mysqli_real_escape_string($conn, $_GET['sort_order']);
@@ -32,17 +28,11 @@
         $sqlForSorting = "SELECT * FROM `item` WHERE item_name LIKE '%$productSearchId%' ORDER BY `created_at` DESC";
         $resultOfSearchQuery = mysqli_query($conn, $sqlForSorting);
       } 
-    }
-
-    
-  }else{
-
+    } 
   }
- 
-  
-  
 ?>
 <?php include 'inc/mainnav.php'; ?>
+
   <div class="container-fluid" style="margin: 10px 10px 0px 10px !important;">
     <div class="row">
       <div class="col s12 l3 xl3">
@@ -84,7 +74,9 @@
             <tr>
               <td class="left" colspan="1"><a href="product.php?pname=<?= $row[2]; ?>&pcat=<?= $row[4]; ?>&pid=<?= $row[0]; ?>" class="btn teal btn-small"  target="_blank" style="margin-right: 20px;">See more <i class="fa fa-eye"></i></a></td>
             </tr>
+
             <?php } ?>
+          
           </table>
         </div>
       </div>  
