@@ -139,7 +139,7 @@
 								</div>
 								<div class="input-field col s6">
 									<input type="text" name="disc" id="discount" value="<?php echo $discount; ?>" >
-									<label for="qty">Discount (%)</label>
+									<label for="discount">Discount (%)</label>
 									<span class="red-text"><?php echo $discount_err; ?></span>
 								</div>
 							</div>

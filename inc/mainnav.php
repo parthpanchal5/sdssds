@@ -30,11 +30,17 @@
 	<!-- Dropdown Contents (Non-Mobile) -->
 	<ul id="profile-dropdown" class="dropdown-content">
 	<li><a href='profile.php' class='blue-text'>Hello <?php if(!isset($_SESSION['user_id'])) { echo 'Guest'; } else{ echo $_SESSION['firstname']; }?></a></li>
+	
 	<?php if(!isset($_SESSION['email']) || empty($_SESSION['email'])) :?>
+	
 	<?php echo '<li class="bold"><a href="login.php" class="collapsible-header waves-effect" id="mobile-links">Login</a></li>';?>
-	<?php else: ?>
-	<?php echo '<li class="bold"><a href="logout.php" class="collapsible-header waves-effect blue-text" id="mobile-links">Logout <i class="fa fa-power-off fa-1x right red-text" style="font-size: 15px; margin-left: 5px;"></i></a></li>';?>
+	
+		<?php else: ?>
+	
+		<?php echo '<li class="bold"><a href="logout.php" class="collapsible-header waves-effect blue-text" id="mobile-links">Logout <i class="fa fa-power-off fa-1x right red-text" style="font-size: 15px; margin-left: 5px;"></i></a></li>';?>
+	
 	<?php endif; ?>
+	
 	</ul>
 	<ul id="more-dropdown" class="dropdown-content">
 		<li><a href="contact_us.php" class="left blue-text">Contact Us<i class="fas fa-envelope right fa-1x" style="padding-left: 15px;"></i></a></li>
@@ -75,7 +81,7 @@
 	<li class="bold"><a class="collapsible-header waves-effect" id="mobile-links">Cart <i class="material-icons grey-text right">expand_more</i></a>
 		<div class="collapsible-body">
 			<ul>
-				<li><a href="cart.php" class="blue-text">View Cart  <span class="new rounded badge red center">1</span><i class="fa fa-shopping-cart blue-text right"></i></a></li>			
+				<li><a href="cart.php" class="blue-text">View Cart  <span class="new rounded badge red center"><?php echo count($_SESSION['cart']); ?> </span><i class="fa fa-shopping-cart blue-text right"></i></a></li>			
 			</ul>
 		</div>
 	</li>

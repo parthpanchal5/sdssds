@@ -16,6 +16,10 @@
 			print_r ($_SESSION['cart']);
 		}
 		
+		// PAy
+		if(isset($_POST['pay'])){
+			
+		}
 ?>
 
 
@@ -24,7 +28,7 @@
 
 <div class="container-fluid" style="margin: 10px 10px 0px 10px;">
 	<div class="row">
-	<div class="col s12 m12 l9 xl9">
+		<div class="col s12 m12 l9 xl9">
 			<div class="card large">
 				<div class="card-title center z-depth-1 gradient-1 white-text" style="font-size: 16px; text-transform:uppercase; padding:10px 0px 10px 0px!important;">Payment Gateway</div>
 				<div class="card-content">
@@ -34,7 +38,7 @@
 						<?php $sql = "SELECT * FROM users WHERE user_id = '".$_SESSION['user_id']."'"; $result = mysqli_query($conn, $sql); while ($row =  mysqli_fetch_array($result)) { ?>
 
 							<p style="font-size: 16px; text-align: left; margin-bottom: 20px;">Personal Details</p>
-								<form>
+							<form>
 								<div class="input-field col s12 l6 m6">
 									<input type="text" name="firstname" disabled value="<?php echo $row[1]; ?>" id="disabled-inputs">
 									<label for="firstname">Firstname</label>
@@ -53,37 +57,40 @@
 								</div>
 								<div class="input-field col s12 m12 l12">
 									<textarea class="materialize-textarea" disabled id="disabled-inputs"><?php echo $row[4];?></textarea>
-          				<label for="address">Delivery Address</label>
+									<label for="address">Delivery Address</label>
 								</div>
-							</form>
-
-							<?php } ?>
-						
-						</div>
+						</form>
+							
+					<?php } ?>		
+					
 					</div>
+					
+							
+				</div>
+				
 
-					<div class="col 12 m12 l8 xl8">
-						<table class="table striped highlight responsive-table">
-							<thead>
-								<tr>
-									<th class="left-align">Item name</th>
-									<th >Qty</th>
-									<th class="right-align"><a class="black-text tooltipped" data-position="top" data-tooltip="Including Discounts">Total Price</a></th>
-								</tr>
-							</thead>
-							<tbody>
+				<div class="col 12 m12 l8 xl8">
+					<table class="table striped highlight responsive-table">
+						<thead>
+							<tr>
+								<th class="left-align">Item name</th>
+								<th >Qty</th>
+								<th class="right-align"><a class="black-text tooltipped" data-position="top" data-tooltip="Including Discounts">Total Price</a></th>
+							</tr>
+						</thead>
+						<tbody>
 
-							<?php foreach($_SESSION['cart'] as $key => $value) : ?>
+						<?php foreach($_SESSION['cart'] as $key => $value) : ?>
 
-								<tr>
-									<td class="left-align"><?php echo $value['item_name']; ?></td>
-									<td ><?php echo $value['quantity']; ?></td>
-									<td class="right-align"><?php $sp = $value['item_price'] * $value['quantity'] - ($value['item_price'] * ($value['discount'] / 100) ); echo number_format($sp); ?><i class="fa fa-rupee-sign" style="margin-right: 5px; margin-left: 5px;"></i></td>
-								</tr>
+							<tr>
+								<td class="left-align"><?php echo $value['item_name']; ?></td>
+								<td ><?php echo $value['quantity']; ?></td>
+								<td class="right-align"><?php $sp = $value['item_price'] * $value['quantity'] - ($value['item_price'] * ($value['discount'] / 100) ); echo number_format($sp); ?><i class="fa fa-rupee-sign" style="margin-right: 5px; margin-left: 5px;"></i></td>
+							</tr>
 								
-								<?php $total = $total + $sp; ?>
+						<?php $total = $total + $sp; ?>
 
-								<?php endforeach; ?>
+						<?php endforeach; ?>
 
 								<tr>
 									<td colspan="3" class="right-align"><h6>Sub Total: <i class="fa fa-rupee-sign" style="margin-right: 5px; margin-left: 20px;"></i><?php echo number_format($total, 2); ?></h6></td>
@@ -92,8 +99,36 @@
 						</table>
 					</div>
 				</div>
+				
+				<div class="col s12 m12 l5 xl5 left" style="margin: 10px 0px;">
+					<div class="card-panel small">
+						<span class="card-title">Card</span><br>
+						<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+							<div class="input-field col s12 l12 m6">
+								<input type="text" name="card_name"  id="input-cc">
+								<label for="card-name">Card holder's name</label>
+							</div>
+							<div class="input-field col s12 l12 m6">
+								<input type="text" id="card-no" name="card_no" maxlength="14" data-length="14">
+								<label for="card-no">Enter 14-digit number</label>
+							</div>
+							<div class="row">
+								<div class="input-field col s12 l6 xl6 m6">
+									<input type="text" name="expiry"  value="<?php echo $row[2]; ?>" >
+									<label for="expiry">Expiry</label>
+								</div>
+								<div class="input-field col s12 l6 m6 xl5">
+									<input type="text" maxlength="3" id="cvv" data-length="3" name="cvv"  value="<?php echo $row[2]; ?>" >
+									<label for="cvv">CVV</label>
+								</div>
+							</div>
+							<input type="submit" value="Pay it" name="pay" class="btn blue darken-2">
+						</form>
+					</div>
+				</div>
   		</div>      
 		</div>
+
     <div class="col s12 m12 l3 xl3">
       <div class="card hoverable rounded">
 				<div class="card-title center white-text gradient-4" style="font-size: 14px; text-transform:uppercase; padding:5px 10px !important;">Ads</div>
@@ -113,7 +148,7 @@
 
       </div>
     </div>
-		
-
+	</div>
+	
 <!--Footer-->
 <?php include 'inc/footer.php'; ?>

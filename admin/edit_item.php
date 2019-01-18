@@ -3,8 +3,8 @@
   include 'inc/conn.php';
       
   $edit_state = false;
-  $itemName = $itemPrice = $category = $qty = $itemDesc  = $subCat = '';
-	$itemName_err = $itemPrice_err = $category_err = $qty_err = $itemDesc_err = $subCat_err = '';
+  $itemName = $itemPrice = $category = $qty = $itemDesc  = $subCat = $discount = '';
+	$itemName_err = $itemPrice_err = $category_err = $qty_err = $itemDesc_err = $subCat_err = $discount_err = '';
   
   // Fetch Data into textbox
   if(isset($_GET['edit'])){
@@ -18,6 +18,7 @@
     $subCat = $storeRecord['sub_cat'];
     $qty = $storeRecord['item_qty'];
     $itemDesc = $storeRecord['item_desc'];
+    $discount = $storeRecord['disc'];
     $newFileName = $storeRecord['item_img'];
     
   }
@@ -28,7 +29,8 @@
     $itemName = ucwords(mysqli_real_escape_string($conn, $_POST['item_name']));
 		$itemPrice = mysqli_real_escape_string($conn, $_POST['price']);
 		$category = mysqli_real_escape_string($conn, $_POST['item_cat']);
-		$qty = mysqli_real_escape_string($conn, $_POST['qty']);
+    $qty = mysqli_real_escape_string($conn, $_POST['qty']);
+    $discount = mysqli_real_escape_string($conn, $_POST['disc']);
     $itemDesc = mysqli_real_escape_string($conn, $_POST['item_desc']);
     $subCat = mysqli_real_escape_string($conn, $_POST['sub_cat']);
 
@@ -77,7 +79,10 @@
     }
     if($subCat === 'none'){
 			$subCat_err = "Please select sub-category";
-		}
+    }
+    if(empty($discount)){
+      $discount = 0;
+    }
 		if(empty($itemDesc)){
 			$itemDesc_err = "Item Descripton is required";
     }
@@ -90,7 +95,7 @@
     else{
         // The error block
         $sql1 = "SELECT * FROM category"; $result1 = mysqli_query($conn, $sql1); while($row = mysqli_fetch_array($result1)){ $cat_id = $row[0];
-        $sql = "UPDATE item SET cat_id = '$cat_id' , item_name = '$itemName', item_img = '$newFileName', item_cat = '$category', item_desc = '$itemDesc', item_price = '$itemPrice', item_qty = '$qty', sub_category = '$subCat' WHERE item_id = '$id'";
+        $sql = "UPDATE item SET cat_id = '$cat_id' , item_name = '$itemName', item_img = '$newFileName', item_cat = '$category', item_desc = '$itemDesc', item_price = '$itemPrice', item_qty = '$qty', sub_category = '$subCat', discount = '$discount' WHERE item_id = '$id'";
       }
       $result = mysqli_query($conn, $sql);
       // echo $sql;
@@ -151,6 +156,11 @@
                 <label for="qty">Quantity</label>
                 <span class="red-text"><?php echo $qty_err; ?></span>
               </div>
+              <div class="input-field col s6">
+									<input type="text" name="disc" id="discount" value="<?php echo $discount; ?>" >
+									<label for="discount">Discount (%)</label>
+									<span class="red-text"><?php echo $discount_err; ?></span>
+								</div>
             </div>
             <div class="row">
               <div class="input-field col s12">

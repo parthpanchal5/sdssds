@@ -160,7 +160,7 @@ $(document).ready(function(){
     M.textareaAutoResize($('#textarea1'));
 
     // Count character
-    $('input#phone, textarea#address, textarea#desc').characterCounter();
+    $('input#phone, textarea#address, textarea#desc, input#card-no, input#cvv').characterCounter();
 
     // text fields
     M.updateTextFields();
