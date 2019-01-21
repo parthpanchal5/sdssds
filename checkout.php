@@ -3,7 +3,7 @@
 	include 'inc/conn.php';
 
 		// Validate login
-		if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
+		if(!isset($_SESSION['email']) || empty($_SESSION['user_id'])){
 			header('Location: login.php');
 			exit;
 		}
@@ -13,15 +13,33 @@
 			header('Location: index.php');
 			exit;
 		}else{
-			print_r ($_SESSION['cart']);
+			// print_r ($_SESSION['cart']);
 		}
 		
-		// PAy
-		if(isset($_POST['pay'])){
-			
-		}
-?>
+		// Pay
+		if(isset($_POST['pay'])){			
 
+			foreach($_SESSION['cart'] as $key => $value) {
+				
+				$item_id = $value['item_id'];
+				$inSessionUser = $_SESSION['user_id'];			
+				$price = $value['item_price'];
+				$quantity = $value['quantity'];
+				$discount = $value['discount'];
+				$sp = $value['item_price'] * $value['quantity'] - ($value['item_price'] * ($value['discount'] / 100));
+				$total = $total + $sp;				
+				$bill_no = 100;
+				$shippingdt = date('Y-m-d', mktime(0, 0, 0, date('m'), date('d') + 5, date('Y')));
+
+				$sql = "INSERT INTO order_details (`item_id`, `user_id`, `bill_no`, `price`, `quantity`, `discount`, `sub_total`, `shipping_date`) VALUES ('$item_id', '$inSessionUser', '$bill_no', '$price', '$quantity', '$discount', '$total','$shippingdt')";
+				$result = mysqli_query($conn, $sql);
+				header('Location:pay_success.php');
+			
+			}
+		
+		}
+
+?>
 
 <!--Main navbar -->
 <?php include 'inc/mainnav.php'; ?>
@@ -70,7 +88,7 @@
 				
 
 				<div class="col 12 m12 l8 xl8">
-					<table class="table striped highlight responsive-table">
+					<table class="table striped highlight responsive-table animated fadeIn">
 						<thead>
 							<tr>
 								<th class="left-align">Item name</th>

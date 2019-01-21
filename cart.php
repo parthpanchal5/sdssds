@@ -20,13 +20,18 @@
 					if(!in_array($_GET['pid'], $item_array)){
 						
 						$count = count($_SESSION['cart']);
+
 						$item_array = array('item_id' => $_GET['pid'], 'item_name' => $_POST['hidden_name'], 'item_price' => $_POST['hidden_price'], 'item_img' => $_POST['hidden_img'], 'discount' => $_POST['hidden_discount'], 'quantity' => $_POST['quantity']);
+					
 						$_SESSION['cart'][$count] = $item_array;
+					}else{
+						echo "Item already added";
 					}
 
 				}else{
 					
 					$item_array = array('item_id' => $_GET['pid'], 'item_name' => $_POST['hidden_name'], 'item_price' => $_POST['hidden_price'], 'item_img' => $_POST['hidden_img'], 'discount' => $_POST['hidden_discount'], 'quantity' => $_POST['quantity']);
+					
 					$_SESSION['cart'][0] = $item_array;
 				
 				}
@@ -41,6 +46,7 @@
 				if($value['item_id'] == $_GET['pid']){
 					
 					unset($_SESSION['cart'][$key]);
+					
 				}
 			}
 		}
@@ -110,18 +116,18 @@
 					<div class="card-action">
 						<table class="table">
 
-							<?php if(!empty($_SESSION['cart']) && $_SESSION['user_id'] != ''): ?>
+							<?php if(!empty($_SESSION['cart']) && $_SESSION['user_id'] != '') : ?>
 							
 							<tr>
 								<td class="right">
 									<!-- <form action="checkout.php" method="POST"> -->
 										<a href="index.php"  class="btn btn-large grey lighten-5 black-text" style="margin-right: 20px;"><i class="fas fa-chevron-left" style="font-size: 15px; margin-right: 10px;"></i> Continue Shopping</a>
 										<!-- <input type="submit" value="place order" > -->
-										<a href="checkout.php" class="btn btn-large  amber darken-4">Place order</a>
+										<a href="checkout.php" target="_blank" class="btn btn-large  amber darken-4">Place order</a>
 									<!-- </form> -->
 								</td>
 
-								<?php elseif(empty($_SESSION['user_id'])) :?>
+								<?php elseif(empty($_SESSION['user_id'])) : ?>
 								
 								<td class="right">
 									<a href="login.php" class="btn btn-large red z-depth-2 hoverable">Login</a>
