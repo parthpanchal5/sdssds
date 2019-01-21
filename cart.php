@@ -83,10 +83,15 @@
 						<tbody>
 							
 						<?php echo $emptyCartImg; ?>
-							<?php 
+						
+						<?php 
+
 							if(!empty($_SESSION['cart'])){
+								
 								$total = 0;
+								
 								foreach ($_SESSION['cart'] as $key => $value) {
+							
 							?>
 							
 							<tr>
@@ -101,6 +106,7 @@
 							</tr>
 							
 							<?php $total = $total + ($value['quantity'] * $sp); 
+								
 								} 
 							?>
 							
@@ -123,7 +129,7 @@
 									<!-- <form action="checkout.php" method="POST"> -->
 										<a href="index.php"  class="btn btn-large grey lighten-5 black-text" style="margin-right: 20px;"><i class="fas fa-chevron-left" style="font-size: 15px; margin-right: 10px;"></i> Continue Shopping</a>
 										<!-- <input type="submit" value="place order" > -->
-										<a href="checkout.php" target="_blank" class="btn btn-large  amber darken-4">Place order</a>
+										<a href="checkout.php" class="btn btn-large  amber darken-4">Place order</a>
 									<!-- </form> -->
 								</td>
 

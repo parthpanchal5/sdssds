@@ -42,6 +42,18 @@
         </div>
       </div>
     </div>
+
+    <div class="col s12 m6 l6">
+      <div class="card z-depth-1 waves-effect lighten-2  hoverable">
+        <div class="card-content">
+          <div class="card-title center">Billing</div>
+          <ul class="black-text">
+            <li><?php echo $row[4]; ?></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 

@@ -11,9 +11,6 @@
 		// Check cart is empty or not 
 		if(empty($_SESSION['cart'])){
 			header('Location: index.php');
-			exit;
-		}else{
-			// print_r ($_SESSION['cart']);
 		}
 		
 		// Pay
@@ -33,9 +30,10 @@
 
 				$sql = "INSERT INTO order_details (`item_id`, `user_id`, `bill_no`, `price`, `quantity`, `discount`, `sub_total`, `shipping_date`) VALUES ('$item_id', '$inSessionUser', '$bill_no', '$price', '$quantity', '$discount', '$total','$shippingdt')";
 				$result = mysqli_query($conn, $sql);
-				header('Location:pay_success.php');
+				header('Location:billing.php?s=ok');
 			
 			}
+			unset($_SESSION['cart']);
 		
 		}
 
