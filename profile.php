@@ -27,26 +27,24 @@
   </div>
   <div class="row">
     <div class="col s12 m6 l6 xl6">
-      <div class="card z-depth-1" id="address">
+      <div class="card-panel z-depth-1" id="address">
+        <div class="card-title left-align"><u>Delivery Address:</u></div>
         <div class="card-content">
-          <div class="card-title center">Delivery Address</div>
           <ul class="black-text">
-            <li><?php echo $row[4]; ?></li>
+            <li><h6><?php echo $row[4]; ?></h6></li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="col s12 m6 l6 xl6">
-      <div class="card z-depth-1">
+      <div class="card-panel z-depth-1">
+        <span class="card-title left-align"><u>My Orders</u></span>
         <div class="card-content">
-          <div class="card-title center">Billing</div>
           <ul class="black-text">
-          <p>See your <a href="billing.php">bill</a></p>
-          
-          
+            <li><h6 class="left-align">Click <a href="my_orders.php">here</a>  to see the list of your purchased goods</h6></li> 
           </ul>
-        </div>
+        </div>       
       </div>
     </div>
   </div>
@@ -59,21 +57,21 @@
     <form action="edit_profile_code.php" method="POST">
       <div class="row">
         <div class="input-field col s12">
-            <input id="email" type="text" class="validate <?php echo (!empty($email_err)) ? 'invalid' : ''; ?>" name="email" value="<?php echo $row[3]; ?>">
-            <label for="email">Email</label>
-            <span class="red-text"><?php echo $email_err; ?></span>
+          <input id="email" type="text" class="validate <?php echo (!empty($email_err)) ? 'invalid' : ''; ?>" name="email" value="<?php echo $row[3]; ?>">
+          <label for="email">Email</label>
+          <span class="red-text"><?php echo $email_err; ?></span>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s5">
-            <input id="username" type="text" class="validate <?php echo (!empty($username_err)) ? 'invalid' : ''; ?>" name="username" value="<?php echo $row[5]; ?>">
-            <label for="username">@Username</label>
-            <span class="red-text"><?php echo $username_err; ?></span>
+          <input id="username" type="text" class="validate <?php echo (!empty($username_err)) ? 'invalid' : ''; ?>" name="username" value="<?php echo $row[5]; ?>">
+          <label for="username">@Username</label>
+          <span class="red-text"><?php echo $username_err; ?></span>
         </div>
         <div class="input-field col s7">
-            <input id="phone" type="text" data-length="10" class="validate <?php echo (!empty($phone_err)) ? 'invalid' : ''; ?>" name="phone" value="<?php echo $row[6]; ?>">
-            <label for="phone">Phone no</label>
-            <span class="red-text"><?php echo $phone_err; ?></span>
+          <input id="phone" type="text" data-length="10" class="validate <?php echo (!empty($phone_err)) ? 'invalid' : ''; ?>" name="phone" value="<?php echo $row[6]; ?>">
+          <label for="phone">Phone no</label>
+          <span class="red-text"><?php echo $phone_err; ?></span>
         </div>
       </div>
       <div class="row">
@@ -81,7 +79,7 @@
           <textarea id="address" name="address" data-length="120" class="materialize-textarea bold <?php echo (!empty($address_err)) ? 'invalid' : ''; ?>"><?php echo $row[4]; ?></textarea>
           <label for="address">Delivery Address</label>
           <span class="red-text"><?php echo $address_err; ?></span>
-          </div>
+        </div>
       </div>
     </div>
     

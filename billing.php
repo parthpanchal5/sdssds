@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
+	if(!isset($_SESSION['email']) || empty($_SESSION['email'] || empty($_SESSION['user_id']))){
 		header('Location: index.php');
 		// exit;
 	}
@@ -17,8 +17,8 @@
     $status = mysqli_real_escape_string($conn, $_GET['t_status']);
     
     if($status == "k"){
-      $successMsg = '<h2 class="center green-text">Purchased Successfully</h2>
-			<h5 class="center">Thanks for Shopping with us</h5><br>
+      $successMsg = '<h2 class="center white-text animated fadeInUp">Purchased Successfully</h2>
+			<h5 class="center  white-text animated fadeIn">Thanks for Shopping with us</h5><br>
 			<a href="index.php?s=empty" class="btn btn-small blue">Continue Shopping <i class="fa fa-shopping-cart"></i></a>';
 			unset($_SESSION['cart']);
       $sqlForCardBalance = "";
@@ -43,16 +43,17 @@
 <div class="container-fluid" style="margin: 10px 10px;">
   <div class="row">
     <div class="col s12 m12 l12 xl12">
-			<div class="card-panel center" style="padding-bottom: 50px !important;">
+			<div class="card-panel center gradient-2 animated fadeIn" style="padding-bottom: 50px !important;">
 				<?php echo $successMsg; ?>
 			</div> 
 		</div>
     <div class="col s12 m6 l6 xl6">
       <div class="card-panel">
-        <h6 class="card-title">Bill No: <span class="right">#100</span></h6> <hr>
         <div class="card-content">
           <table class="table striped responsive-table">
             <thead>
+        <h6 class="card-title">Bill No: <span class="right">#100</span></h6> <hr>
+
               <tr>
                 <th>Item Name</th>
                 <th>Qty</th>
