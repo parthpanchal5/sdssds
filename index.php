@@ -7,6 +7,13 @@
 		// 	header('Location: login.php');
 		// 	exit;
 		// }
+		if(isset($_GET['s'])){
+			$status = mysqli_real_escape_string($conn, $_GET['s']);
+
+			if($status == "empty"){
+				unset($_SESSION['cart']);
+			}
+		}
 		
 ?>
 
@@ -77,6 +84,16 @@
 		</div>
 	</div>
 </div>
+
+
+
+<script type="text/javascript">
+	var uri = window.location.toString();
+	if (uri.indexOf("?") > 0) {
+			var clean_uri = uri.substring(0, uri.indexOf("?"));
+			window.history.replaceState({}, document.title, clean_uri);
+	}
+</script>
 
 <?php include 'inc/footer.php'; ?>
 

@@ -3,18 +3,12 @@
 	include 'edit_profile_code.php'; 
 ?>
 
-
-
-
 <!--Main navbar-->
 <?php include 'inc/mainnav.php'; ?>
 
-
 <!--Content area -->
-<?php 
-  $sql = "SELECT * FROM users WHERE user_id = '".$_SESSION['user_id']."'";
-  $result = mysqli_query($conn, $sql);
-  while($row = mysqli_fetch_row($result)) { ?>
+<?php $sql = "SELECT * FROM users WHERE user_id = '".$_SESSION['user_id']."'"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_row($result)) { ?>
+
 <div class="container lighten-4">
   <div class="row">
     <div class="col s12 m12 l12" style="margin-top: 10px;">
@@ -32,8 +26,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col s12 m6 l6">
-      <div class="card z-depth-1 waves-effect lighten-2  hoverable" id="address">
+    <div class="col s12 m6 l6 xl6">
+      <div class="card z-depth-1" id="address">
         <div class="card-content">
           <div class="card-title center">Delivery Address</div>
           <ul class="black-text">
@@ -43,17 +37,18 @@
       </div>
     </div>
 
-    <div class="col s12 m6 l6">
-      <div class="card z-depth-1 waves-effect lighten-2  hoverable">
+    <div class="col s12 m6 l6 xl6">
+      <div class="card z-depth-1">
         <div class="card-content">
           <div class="card-title center">Billing</div>
           <ul class="black-text">
-            <li><?php echo $row[4]; ?></li>
+          <p>See your <a href="billing.php">bill</a></p>
+          
+          
           </ul>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -89,7 +84,9 @@
           </div>
       </div>
     </div>
+    
     <?php } ?>
+    
     <div class="modal-footer">
       <input type="submit" value="Update" name="edit" class="btn btn-block btn-small right red lighten-1" style="margin-right: 30px;">
     </div>
