@@ -77,11 +77,12 @@
 					$qty_err = "Please insert quantity";
 				}else{
 						$sql1 = "SELECT * FROM category"; $result1 = mysqli_query($conn, $sql1); while($row = mysqli_fetch_array($result1)){ $cat_id = $row[0];
-						$sql = "INSERT INTO item (`cat_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `sub_category`, `discount`) VALUES ((SELECT `cat_id` FROM category WHERE `cat_id` = '$cat_id'),	'$itemName', '$newFileName', '$category', '$itemDesc', '$itemPrice', '$qty', '$subCat', '$discount');";
+						$sql = "INSERT INTO item (`cat_id`, `item_name`, `item_img`, `item_cat`, `item_desc`, `item_price`, `item_qty`, `sub_category`, `discount`) VALUES ((SELECT `cat_id` FROM category WHERE `cat_id` = '$cat_id'),	'$itemName', '$newFileName', '$category', '$itemDesc', '$itemPrice', '$qty', '$subCat', '$discount')";
 					} 
 					$result = mysqli_query($conn, $sql);
-					header("Location:insert_item.php");
-					exit;
+					// echo $sql;
+					header("Location:view_item.php?s=su");
+					// exit;
 				}
 			}
 		}
@@ -154,7 +155,7 @@
 								<div class="file-field input-field">
       						<div class="btn right btn-small blue lighten-1 rounded" style="border-radius: 50px !important;">
         						<span>Upload <i class="fa fa-upload fa-1x"></i></span>
-        						<input type="file" name="item_img[]" value="<?php echo $newFileName; ?>" multiple>
+        						<input type="file" name="item_img" value="<?php echo $newFileName; ?>">
       						</div>
       						<div class="file-path-wrapper">
         						<input class="file-path validate"  name="img-name" placeholder="Img-name" type="text">

@@ -7,6 +7,13 @@
     mysqli_query($conn, "DELETE FROM item WHERE item_id = $id");
     header("Location:view_item.php?Deleted");
   }
+  if(isset($_GET['s'])){
+    $status = mysqli_real_escape_string($conn, $_GET['s']);
+    if($status == "su"){
+      echo "<script>  M.toast({html: 'I am a toast!'})
+      </script>";
+    }
+  }
   // Define results per page
 	$resultPerPage = 3;
 
@@ -74,17 +81,7 @@
                   ?> <i class="fa fa-rupee-sign green-text"></i>
                 </td>
                 <td><?php echo $row['item_qty'];?></td>
-                <?php 
-                  if($row['item_qty'] <= 4){
-                    echo "<td><span class='chips rounded red white-text' style='padding: 6px;'>Out of stock</span></td>";
-                  }else if($row['item_qty'] >= 5 && $row['item_qty'] <= 50){
-                    echo "<td><span class='chips rounded yellow darken-4 white-text' style='padding: 6px;'>Low Stock</span></td>";
-                  }else if($row['item_qty'] >= 51 && $row['item_qty'] <= 100){
-                    echo "<td><span class='chips rounded blue darken-1 white-text' style='padding: 6px;'>Few left</span></td>";
-                  }else if($row['item_qty'] >= 101 && $row['item_qty'] >= 350){
-                    echo "<td><span class='chips rounded green darken-2 white-text' style='padding: 5px;'>Available</span></td>";
-                  }
-                ?>
+                <?php include ('../range.php'); ?>
                 <td>
                   <a href="edit_item.php?edit=<?php echo $row[0]; ?>" class="blue-text"><i class="fa fa-edit"></i></a> | 
                   <a href="view_item.php?delete=<?php echo $row[0]; ?>" id="deleteBtn" class="red-text"><i class="fa fa-trash"></i></a>

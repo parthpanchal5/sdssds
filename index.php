@@ -34,45 +34,63 @@
 
 <!-- Content area -->
 <div class="container-fluid animated fadeIn">
+
 	<!-- Carousel Slider -->
-	<div class="carousel carousel-slider" style="margin-top: 15px;">
-	<?php $sql = "SELECT * FROM item ORDER BY RAND(`item_id`) ASC LIMIT 4"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
-		<div class="carousel-item center" href="#one!">
+	<!-- <div class="carousel carousel-slider" style="margin-top: 25px;">
+	
+		<?php $sql = "SELECT * FROM item ORDER BY `created_at` DESC LIMIT 4"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
+		
+		<div class="carousel-item center-align">
 			<a href="product.php?pcat=<?php echo $row[4]; ?>&pname=<?php echo $row[2]; ?>&pid=<?php echo $row[0]; ?>" data-target="_blank">
-				<img src="admin/img/<?php echo $row[3]; ?>" alt="<?php echo $row[2]; ?>" height="550">
+				<img src="admin/img/<?php echo $row[3]; ?>" alt="<?php echo $row[2]; ?>" height="450">
 			</a>
 		</div>
-	<?php }?>
-	</div>	
+	
+		<?php }?>	
+	</div> -->
+	<div class="slider" style="margin-top: 10px; padding: px 0px;">
+    <ul class="slides">
+		<?php $sql = "SELECT * FROM item ORDER BY `created_at` DESC LIMIT 4"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
+      
+			<li>
+			<a href="product.php?pcat=<?php echo $row[4]; ?>&pname=<?php echo $row[2]; ?>&pid=<?php echo $row[0]; ?>" data-target="_blank">
+
+        <img src="admin/img/<?php echo $row[3]; ?>" class="responsive-img"> <!-- random image -->
+				</a>
+        <div class="caption center-align">
+          <h3 class="white-text"><?php echo $row[2]; ?></h3>
+          <h5 class="light black-text text-lighten-3 truncate green"><?php echo $row[5];?></h5>
+        </div>
+      </li>
+  
+		<?php } ?>	
+
+
+    </ul>
+  </div>
+	
 </div>
 
-<div class="container-fluid animated fadeIn grey lighten-3" style="margin-top: 20px;">
+<div class="container-fluid animated fadeIn grey lighten-3" style="margin-top: 0px; padding-top: 20px;">
 	<div class="row">
-		<div class="col s12 l3 m6 xl3">
-			<div class="card">
-					sd
+	<?php $sql = "SELECT * FROM item ORDER BY `created_at` DESC"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
+
+		<div class="col s12 l4 m6 xl4">
+			<div class="card-panel">
+				<h6 class="card-title center" style="padding-bottom: 10px;"><?php echo $row[2]?></h6>
+				<div class="card-image center"><a href="product.php?pname=<?php echo $row[2]; ?>&pid=<?php echo $row[0];?>"><img src="admin/img/<?php echo $row[3]; ?>" alt="<?php echo $row[2]; ?>" class="responsive-img" id="search-img"></a></div>
 			</div>
 		</div>	
-		<div class="col s12 l3 m6 xl3">
+		
+	<?php } ?>
+	
+		<!-- <div class="col s12 m12 l3">
 			<div class="card">
-					sd
-			</div>
-		</div>	
-		<div class="col s12 l3 m6 xl3">
-			<div class="card">
-					sd
-			</div>
-		</div>	
-		<div class="col s12 l3 m6 xl3">
-			<div class="card">
-					sd
-			</div>
-		</div>	
-		<div class="col s12 m12 l3">
-			<div class="card">
+
 			<?php $sql = "SELECT * FROM `item` ORDER BY RAND() LIMIT 1;"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
-        <div class="card-image">
-          <img src="admin/img/<?php echo $row[3]; ?>">
+        
+				<div class="card-image">
+          <img src="admin/img/<?php echo $row[3]; ?>" class="responsive-img" id="search-img">
         </div>
         <div class="card-content">
 					<span class="card-title" style="font-size: 16px;"><?php echo $row[2]; ?></span>
@@ -80,8 +98,10 @@
 						<a href="product.php?pcat=<?php echo $row[4]; ?>&pname=<?php echo $row[2]; ?>&pid=<?php echo $row[0]; ?>" target="_blank">See more</a>
         </div>
       </div>
+			
 			<?php } ?>
-		</div>
+		
+		</div> -->
 	</div>
 </div>
 

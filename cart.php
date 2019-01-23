@@ -136,7 +136,7 @@
 								<?php elseif(empty($_SESSION['user_id'])) : ?>
 								
 								<td class="right">
-									<a href="login.php" class="btn btn-large red z-depth-2 hoverable">Login</a>
+									<a href="login.php" class="btn btn-large red z-depth-2 hoverable">Login to checkout</a>
 								</td>
 
 							</tr>

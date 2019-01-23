@@ -117,20 +117,6 @@ $(document).ready(function(){
         setTimeout(3600);
     });
 
-    $("#addBtn").click(function(e){
-        e.preventDefault();
-        let output = $("#qty-input").val(counter++);      
-        if($("#qty-input").val() === 5 || $("#qty-input").val() >= 5){
-            console.log('max reached');
-        }
-    });
-    $("#removeBtn").click(function(e){
-        e.preventDefault();
-        let output = $("#qty-input").val(counter--);      
-        if($("#qty-input").val() <= 1){
-            console.log('min reached');
-        }
-    });
 
     // $('#modal1').blur(function(){
     //     $('#modal1').addClass('animated fadeOutDown');
@@ -182,16 +168,16 @@ $(document).ready(function(){
 
     // Carousel
     $('.carousel.carousel-slider').carousel({
-        fullWidth: true,
-        indicators: true,
+        fullWidth: false,
+        // indicators: true,
         duration: 250,
         autoplay: true
       });
-      autoplay();
-      function autoplay() {
-        $('.carousel').carousel('next');
-        setTimeout(autoplay, 6000);
-    }
+    //   autoplay();
+    //   function autoplay() {
+    //     $('.carousel').carousel('next');
+    //     setTimeout(autoplay, 6000);
+    // }
     
     // For materialbox
     $('.materialboxed').materialbox();
@@ -213,8 +199,8 @@ $(document).ready(function(){
 
     // Slider
     $('.slider').slider({
-        indicators: true,
-        height: 350,
+        indicators: false,
+        height: 520,
         duration: 600,
         interval: 6000
     });
