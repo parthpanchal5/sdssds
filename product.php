@@ -34,7 +34,9 @@
 								<a href='#' class='btn btn-large blue darken-1 left'>Notify me <i class='fa fa-bell fa-1x' style='font-size: 15px; margin-left: 10px;'></i></a>
 							<?php else: ?>
 								<button type="submit" name="add_to_cart" class="btn btn-large amber darken-2" style="font-family: 'Poppins', sans-serif !important; " onclick="alert('Add to cart');">Add to cart <i class="fa fa-shopping-cart" style="font-size: 16px;"></i></button>
-								<a href='cart.php?pid=<?php echo $row[0]; ?>' target='_blank' class='btn btn-large amber darken-4 right'>Buy now <i class='fas fa-bolt'style="font-size: 16px;"></i></a>
+								<!-- <a href='cart.php?pid=<?php echo $row[0]; ?>' target='_blank' class='btn btn-large amber darken-4 right'>Buy now <i class='fas fa-bolt'style="font-size: 16px;"></i></a> -->
+								<button type="submit" name="buy_now" class="btn btn-large amber darken-2" style="font-family: 'Poppins', sans-serif !important; ">Buy now <i class="fa fa-shopping-cart" style="font-size: 16px;"></i></button>
+
               <?php endif; ?>
             </div>
             <!-- <div class="col s6 m6 l6 xl6"></div> -->
