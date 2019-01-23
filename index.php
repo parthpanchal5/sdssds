@@ -27,9 +27,8 @@
     </div>  
   </nav>
 </div>
+
 <?php include 'inc/mainnav.php'; ?>
-<!-- Sidenav Bar -->
-<?php include 'inc/mobilenav.php'; ?>
 
 
 <!-- Content area -->
@@ -71,37 +70,23 @@
 	
 </div>
 
-<div class="container-fluid animated fadeIn grey lighten-3" style="margin-top: 0px; padding-top: 20px;">
+<div class="container-fluid animated fadeIn grey lighten-3" style="padding-top: 20px;">
 	<div class="row">
+
 	<?php $sql = "SELECT * FROM item ORDER BY `created_at` DESC"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
 
-		<div class="col s12 l4 m6 xl4">
+		<div class="col s12 l3 m6 xl4">
 			<div class="card-panel">
 				<h6 class="card-title center" style="padding-bottom: 10px;"><?php echo $row[2]?></h6>
 				<div class="card-image center"><a href="product.php?pname=<?php echo $row[2]; ?>&pid=<?php echo $row[0];?>"><img src="admin/img/<?php echo $row[3]; ?>" alt="<?php echo $row[2]; ?>" class="responsive-img" id="search-img"></a></div>
+				<div class="card-content">
+					<span class="truncate"><?php echo $row[5]; ?></span><br><a href="product.php?pid=<?php echo $row[0]; ?>&pname=<?php echo $row[2]; ?>" target="_blank">Read More</a>
+				</div>
 			</div>
 		</div>	
 		
 	<?php } ?>
 	
-		<!-- <div class="col s12 m12 l3">
-			<div class="card">
-
-			<?php $sql = "SELECT * FROM `item` ORDER BY RAND() LIMIT 1;"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
-        
-				<div class="card-image">
-          <img src="admin/img/<?php echo $row[3]; ?>" class="responsive-img" id="search-img">
-        </div>
-        <div class="card-content">
-					<span class="card-title" style="font-size: 16px;"><?php echo $row[2]; ?></span>
-          	<p class="truncate"><?php echo $row[5]; ?></p>
-						<a href="product.php?pcat=<?php echo $row[4]; ?>&pname=<?php echo $row[2]; ?>&pid=<?php echo $row[0]; ?>" target="_blank">See more</a>
-        </div>
-      </div>
-			
-			<?php } ?>
-		
-		</div> -->
 	</div>
 </div>
 

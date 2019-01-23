@@ -54,7 +54,7 @@
 	// Empty cart img
 	if(empty($_SESSION['cart'])){
 		
-		$emptyCartImg = '<tr><td colspan="7"><img src="img/empty-cart.png" height="350" style="margin: 20px 0px;"/><h5>It seems your cart is empty</h5><br><a href="index.php" class="btn blue darken-1" style="margin-bottom: 30px;">Shop something <i class="fa fa-cart-arrow-down"></i></a></tr>';
+		$emptyCartImg = '<tr><td colspan="7"><img src="img/empty-cart.png" class="responsive-img" style="margin: 20px 0px;"/><h5>It seems your cart is empty</h5><br><a href="index.php" class="btn blue darken-1" style="margin-bottom: 30px;">Shop something <i class="fa fa-cart-arrow-down"></i></a></tr>';
 	
 	}
 	
@@ -70,7 +70,7 @@
 			<div class="card">
 				<div class="card-content">
 					<h4 class="center">My Cart</h4>
-					<table class="table">
+					<table class="table responsive-table">
 						<thead>
 							<th><h6>Item</h6></th>
 							<th><h6>Name</h6></th>
@@ -136,7 +136,7 @@
 								<?php elseif(empty($_SESSION['user_id'])) : ?>
 								
 								<td class="right">
-									<a href="login.php" class="btn btn-large red z-depth-2 hoverable">Login to checkout</a>
+									<a href="login.php" class="btn btn-large red z-depth-2 hoverable">Login </a>
 								</td>
 
 							</tr>
