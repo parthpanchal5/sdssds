@@ -178,7 +178,7 @@ $(document).ready(function(){
     //     $('.carousel').carousel('next');
     //     setTimeout(autoplay, 6000);
     // }
-    
+    ScrollReveal().reveal('.product-showcase');
     // For materialbox
     $('.materialboxed').materialbox();
 

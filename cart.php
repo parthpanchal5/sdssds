@@ -54,7 +54,7 @@
 	// Empty cart img
 	if(empty($_SESSION['cart'])){
 		
-		$emptyCartImg = '<tr><td colspan="7"><img src="img/empty-cart.png" class="responsive-img" style="margin: 20px 0px;"/><h5>It seems your cart is empty</h5><br><a href="index.php" class="btn blue darken-1" style="margin-bottom: 30px;">Shop something <i class="fa fa-cart-arrow-down"></i></a></tr>';
+		$emptyCartImg = '<tr><td colspan="7"><img src="img/empty-cart.png" height="350" style="margin: 20px 0px;"/><h5>It seems your cart is empty</h5><br><a href="index.php" class="btn blue darken-1" style="margin-bottom: 30px;">Shop something <i class="fa fa-cart-arrow-down"></i></a></tr>';
 	
 	}
 	
@@ -66,12 +66,15 @@
 <!--Content area -->
 <div class="container-fluid lighten-4 animated fadeIn" style="margin: 0px 10px 0px 10px;">
   <div class="row" style="margin-top: 10px;">
-		<div class="col s12 m12 l8">
-			<div class="card">
+		<div class="col s12 m12 l8 xl8">
+			<div class="card-panel">
 				<div class="card-content">
-					<h4 class="center">My Cart</h4>
-					<table class="table responsive-table">
+					<h4 class="center">My Cart</h4><hr>
+					<table class="table centered">
 						<thead>
+
+					<?php if(!empty($_SESSION['cart'])) : ?>
+
 							<th><h6>Item</h6></th>
 							<th><h6>Name</h6></th>
 							<th><h6>Qty</h6></th>
@@ -79,6 +82,9 @@
 							<th><h6>Discount</h6></th>
 							<th><h6>Total</h6></th>
 							<th><h6>Action</h6></th>
+
+					<?php endif; ?>
+
 						</thead>
 						<tbody>
 							
@@ -96,7 +102,7 @@
 							
 							<tr>
 								<td><img src="admin/img/<?php echo $value['item_img']; ?>" class="circle" alt="<?php echo $value['item_name']; ?>" style="width: 120px; height: 120px;"></td>
-								<td><?php echo $value['item_name']; ?></td>
+								<td><a class="black-text" href="product.php?pname=<?php echo $value['item_name']?>&pid=<?php echo $value['item_id']?>"><u><?php echo $value['item_name']; ?></u></a></td>
 								<td><?php echo $value['quantity']; ?></td>
 								<td><i class="fas fa-rupee-sign" style="margin-right: 5px;"></i><?php echo number_format($value['item_price']); ?></td>
 								<td><?php echo  number_format($value['discount'], 1); ?> %</td>
@@ -149,7 +155,7 @@
 			</div>
 		</div>
 
-		<div class="col s12 m12 l4">
+		<div class="col s12 m12 l4 xl4">
 		
 		<?php if(!empty($_SESSION['cart'])) { ?>
 

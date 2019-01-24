@@ -17,7 +17,7 @@
 				<div class="col s6">
 					<form action="search.php?q=" method="GET">
 						<div class="input-field">
-							<input type="text" name="q" class="autocomplete" autocomplete="off" value="<?php echo $productSearchId; ?>" class="z-depth-2" id="mega-search" value="<?php echo $productRequest; ?>"  placeholder="Search for products..." onkeyup="autoload();">
+							<input type="text" name="q" autocomplete="off" value="<?php echo $productSearchId; ?>" id="mega-search" value="<?php echo $productRequest; ?>"  placeholder="Search for products..." onkeyup="autoload();">
 							<i id="searchbtn" class="fa fa-search fa-1x"></i>
 							<div class="result"></div>
 						</div>
