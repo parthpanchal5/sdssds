@@ -106,9 +106,6 @@ $(document).ready(function(){
             $('#qty').addClass('valid');
         }
     });
-    $('#name').keyup(function(){
-        var regExp = /^[a-bA-B0-9 ]+$/;
-    })
     
     
     // Delete button
