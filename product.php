@@ -13,8 +13,10 @@
   <div class="row animated fadeIn">
     <div class="col s12 m12 l6 xl6">
       <div class="card">
+
        <?php if(isset($_GET['pid'])){ $productId = mysqli_real_escape_string($conn, $_GET['pid']); $sql = "SELECT * FROM item WHERE item_id = $productId"; $result = mysqli_query($conn, $sql); } while ($row = mysqli_fetch_array($result)) { ?>
-    <form action="cart.php?action=add&pid=<?php echo $row[0]; ?>" method="POST">
+   
+      <form action="cart.php?action=add&pid=<?php echo $row[0]; ?>" method="POST">
         
         <div class="card-image">
           <img src="admin/img/<?php echo $row[3]; ?>" alt="<?php echo $row[2]; ?>" class="materialboxed responsive-img" data-caption="<?php echo $row[2]; ?>">
@@ -23,31 +25,42 @@
           <div class="row">
           <!-- For Mobile and tablet -->
             <div class="col s12 m12 l12 xl12  hide-on-large-only	show-on-medium-and-down">	
-              <?php if($row[7] <= 4): ?>
-								<a href='#' class='btn btn-large blue darken-1 left'>Notify me <i class='fa fa-bell fa-1x' style='font-size: 15px; margin-left: 10px;'></i></a>
-							<?php else: ?>
-								<button type="submit" name="add_to_cart" class="btn btn-medium amber darken-2" style="font-family: 'Poppins', sans-serif !important; ">Add to cart <i class="fa fa-shopping-cart" style="font-size: 16px;"></i></button>
+
+              <?php if($row[7] <= 4) : ?>
+							
+              	<a href='#' class='btn btn-large blue darken-1 left'>Notify me <i class='fa fa-bell fa-1x' style='font-size: 15px; margin-left: 10px;'></i></a>
+							
+              <?php else : ?>
+							
+              	<button type="submit" name="add_to_cart" class="btn btn-medium amber darken-2" style="font-family: 'Poppins', sans-serif !important; ">Add to cart <i class="fa fa-shopping-cart" style="font-size: 16px;"></i></button>
 								<a href='cart.php?pid=<?php echo $row[0]; ?>' target='_blank' class='btn btn-medium amber darken-4 right'>Buy now <i class='fas fa-bolt'style="font-size: 16px;"></i></a>
+              
               <?php endif; ?>
+
             </div>
             <!-- For Desktop and laptop -->
             <div class="col s12 m12 l12 xl12  show-on-large-only	hide-on-med-and-down">	
-              <?php if($row[7] <= 4): ?>
-								<a href='#' class='btn btn-large blue darken-1 left'>Notify me <i class='fa fa-bell fa-1x' style='font-size: 15px; margin-left: 10px;'></i></a>
-							<?php else: ?>
-								<button type="submit" name="add_to_cart" class="btn btn-large orange darken-2" style="font-family: 'Poppins', sans-serif !important; ">Add to cart <i class="fa fa-shopping-cart" style="font-size: 16px;"></i></button>
-								<!-- <a href='cart.php?pid=<?php echo $row[0]; ?>' target='_blank' class='btn btn-large amber darken-4 right'>Buy now <i class='fas fa-bolt'style="font-size: 16px;"></i></a> -->
+
+              <?php if($row[7] <= 4) : ?>
+							
+              	<a href='#' class='btn btn-large blue darken-1 left'>Notify me <i class='fa fa-bell fa-1x' style='font-size: 15px; margin-left: 10px;'></i></a>
+						
+            	<?php else : ?>
+								
+                <button type="submit" name="add_to_cart" class="btn btn-large orange darken-2" style="font-family: 'Poppins', sans-serif !important; ">Add to cart <i class="fa fa-shopping-cart" style="font-size: 16px;"></i></button>
 								<button type="submit" name="buy_now" class="btn btn-large amber darken-2 right" style="font-family: 'Poppins', sans-serif !important; ">Buy now <i class="fa fa-bolt" style="font-size: 16px;"></i></button>
 
               <?php endif; ?>
+           
             </div>
-            <!-- <div class="col s6 m6 l6 xl6"></div> -->
           </div>
         </div>
       </div>
     </div>
     <div class="col s12 m12 l6 xl6">
+
       <?php echo $errorImg; ?>
+
       <div class="card-panel animated fadeIn">
         <table class="table striped">
           <tr>
@@ -73,8 +86,11 @@
           </tr>
           <tr>
             <th class="left">Availability: </th>
+
             <?php include 'range.php'; ?>
+
           </tr>
+
 					<?php if($row[7] > 4): ?>
 
 						<tr>
@@ -83,6 +99,7 @@
 								<input type="number" min="1" max="5" value="1" name="quantity">
 							</td>
 						</tr>
+
 					<?php endif;?>
 
 					<tr>
@@ -90,17 +107,18 @@
             <input type="hidden" name="hidden_price" value="<?php echo $row['item_price']; ?>">
             <input type="hidden" name="hidden_img" value="<?php echo $row['item_img']; ?>">
             <input type="hidden" name="hidden_discount" value="<?php echo $row['discount']; ?>">
-
           </tr>
           </form>
         </table>
       </div>
-			<?php  } ?>
+
+		<?php  } ?>
+
   </div>
 
-  <div class="col s12 m12 xl6">
-    <div class="card-panel">
-      <div class="card-title"><h5>Ratings & Review</h5></div><hr>
+    <div class="col s12 m12 xl6">
+      <div class="card-panel">
+        <div class="card-title"><h5>Ratings & Review</h5></div><hr>
         <div class="card-content">
           <table class="table">
             <tbody>
@@ -122,10 +140,9 @@
             </tbody>
           </table>
         </div>										
+      </div>
     </div>
   </div>
-
-	</div>
 
 <?php include 'inc/footer.php'; ?>
 

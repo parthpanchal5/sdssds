@@ -2,7 +2,6 @@
 <nav class="light-blue darken-1 z-depth-2">
 	<div class="nav-wrapper">
 		<a href="index.php" class="brand-logo hide-on-med-and-down" id="client-brand-logo">Shop</a>
-		
 		<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 		
 		<ul class="right hide-on-med-and-down" id="menu-items">
@@ -29,11 +28,16 @@
 </div>
 	<!-- Dropdown Contents (Non-Mobile) -->
 	<ul id="profile-dropdown" class="dropdown-content">
-	<li><a href='profile.php' class='blue-text'>Hello <?php if(!isset($_SESSION['user_id'])) { echo 'Guest'; } else{ echo $_SESSION['firstname']; }?></a></li>
+
+	<?php if(isset($_SESSION['user_id'])) : ?>
+	
+		<li><a href='profile.php' class='blue-text'>Hello <?php echo $_SESSION['firstname']; ?></a></li>
+
+	<?php endif; ?>
 	
 	<?php if(!isset($_SESSION['email']) || empty($_SESSION['email'])) : ?>
 	
-	<?php echo '<li class="bold"><a href="login.php" class="collapsible-header waves-effect" id="mobile-links">Login</a></li>';?>
+	<?php echo '<li class="bold"><a href="login.php" class="collapsible-header waves-effect center" id="mobile-links">Login</a></li>';?>
 	
 		<?php else: ?>
 	
@@ -66,6 +70,7 @@
 		</div>
 	</li>
 	<li class="bold"><a href="index.php" class="collapsible-header waves-effect" id="mobile-links">Home <i class="material-icons right blue-text">home</i></a></li>
+
 	<?php 
 		if(isset($_SESSION['username'])) { 
 			echo "<li class='bold'><a class='collapsible-header waves-effect' id='mobile-parent'>Profile <i class='material-icons grey-text right' id='mobile-child'>expand_more</i></a>
@@ -96,16 +101,25 @@
 	<li class="bold active"><a class="collapsible-header waves-effect" id="mobile-links">Shop by Category <i class="material-icons grey-text right">expand_more</i></a>
 		<div class="collapsible-body">
 			<ul>
+
 			<?php $sql = "SELECT COUNT(*) AS `Rows`, `cat_name` FROM `category` GROUP BY `cat_name` ORDER BY `cat_name` DESC"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)) {  ?>
+			
 				<li><a href="category_search.php?cat=<?php echo strtolower($row[1]);?>" class="blue-text"><?php echo $row[1]; ?></a></li>	
+			
 			<?php } ?>
+		
 			</ul>
 		</div>
 	</li>
-	<?php if(!isset($_SESSION['email']) || empty($_SESSION['email'])) :?>
-		<?php echo '<li class="bold"><a href="login.php" class="collapsible-header waves-effect" id="mobile-links">Login </a></li>';?>
+
+	<?php if(!isset($_SESSION['email']) || empty($_SESSION['email'])) : ?>
+
+		<?php echo '<li class="bold"><a href="login.php" class="collapsible-header waves-effect" id="mobile-links">Login </a></li>'; ?>
+
 	<?php else: ?>
-	<?php echo '<li class="bold"><a href="logout.php" class="collapsible-header waves-effect" id="mobile-links">Logout <i class="fa fa-power-off fa-1x right red-text" style="font-size: 15px;"></i></a></li>';?>
+
+		<?php echo '<li class="bold"><a href="logout.php" class="collapsible-header waves-effect" id="mobile-links">Logout <i class="fa fa-power-off fa-1x right red-text" style="font-size: 15px;"></i></a></li>'; ?>
+
 	<?php endif; ?>
 
 </ul>

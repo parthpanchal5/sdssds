@@ -1,3 +1,5 @@
+<?php     session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,12 +13,8 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:500,450,900" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.29.0/sweetalert2.all.js"></script> -->
-    <!-- <script src='https://devpreview.tiny.cloud/demo/tinymce.min.js'></script>
-    <script src="../js/tinymce/jquery.tinymce.min.js"></script> -->
-
+   
     <title>Shopit</title>
 </head>
 <body>
