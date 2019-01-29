@@ -62,10 +62,10 @@
 
 	<?php $sql = "SELECT * FROM item ORDER BY `created_at` DESC"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
 
-		<div class="col s12 l4 m6 xl4">
+		<div class="col s12 l3 m6 xl3">
 			<div class="card-panel product-showcase">
 				<h6 class="card-title center" style="padding-bottom: 10px;"><?php echo $row[2]?></h6>
-				<div class="card-image center"><a href="product.php?pname=<?php echo $row[2]; ?>&pid=<?php echo $row[0];?>"><img src="admin/img/<?php echo $row[3]; ?>" alt="<?php echo $row[2]; ?>" class="responsive-img" id="search-img"></a></div>
+				<div class="card-image center"><a class="tooltipped"  data-position="top" data-tooltip="<?php echo $row[2]; ?>" href="product.php?pname=<?php echo $row[2]; ?>&pid=<?php echo $row[0];?>"><img src="admin/img/<?php echo $row[3]; ?>" alt="<?php echo $row[2]; ?>" class="responsive-img" id="search-img"></a></div>
 				<div class="card-content">
 					<span class="truncate"><?php echo $row[5]; ?></span><br><a href="product.php?pid=<?php echo $row[0]; ?>&pname=<?php echo $row[2]; ?>" target="_blank">Read More</a>
 				</div>

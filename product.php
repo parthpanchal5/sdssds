@@ -28,7 +28,7 @@
 
               <?php if($row[7] <= 4) : ?>
 							
-              	<a href='#' class='btn btn-large blue darken-1 left'>Notify me <i class='fa fa-bell fa-1x' style='font-size: 15px; margin-left: 10px;'></i></a>
+              	<a href='#' class='btn btn-small blue darken-1 left'>Notify me <i class='fa fa-bell fa-1x' style='font-size: 15px; margin-left: 10px;'></i></a>
 							
               <?php else : ?>
 							

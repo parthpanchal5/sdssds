@@ -65,16 +65,15 @@
           <p class="left">You Searched for: <?php echo ucwords('<span class="blue-text darken-2">'.ucwords($productSearchId).'</span>'); ?></p><br>
           <!-- <p class="left">Products Found: <?php echo ('<span class="blue-text darken-2">'.$resultForCount. '</span>'); ?></p> -->
           <table class="table striped animated fadeIn">
-          <?php while($row = mysqli_fetch_array($resultOfSearchQuery)) { ?>
-            <tr>
-              <td class="left"><a href="product.php?pname=<?= $row[2]; ?>&pcat=<?= $row[4]; ?>&pid=<?= $row[0]; ?>" target="_blank"><img src="admin/img/<?php echo $row[3]; ?>" class="responsive-img" id="search-img" alt="<?php echo $row[2]; ?>"></a><br><?= $row[2];?></td>
-              <td><p style="margin-right: 120px !important;" id="product-desc" ><?= $row[5]; ?> <a href="product.php?pname=<?= $row[2]; ?>&pid=<?= $row[0]; ?>" class="truncate" target="_blank">See more...</a></p></td>
-              <td><p style="margin-right: 120px !important;"><i class="fa fa-rupee-sign"></i> <?= $row[6]; ?></p></td>
-            </tr>
-            <tr>
-              <td class="left" colspan="1"><a href="product.php?pname=<?= $row[2]; ?>&pcat=<?= $row[4]; ?>&pid=<?= $row[0]; ?>" class="btn teal btn-small"  target="_blank" style="margin-right: 20px;">See more <i class="fa fa-eye"></i></a></td>
-            </tr>
 
+          <?php while($row = mysqli_fetch_array($resultOfSearchQuery)) { ?>
+
+            <tr>
+              <td class="left-align"><a href="product.php?pname=<?= $row[2]; ?>&pcat=<?= $row[4]; ?>&pid=<?= $row[0]; ?>" target="_blank"><img src="admin/img/<?php echo $row[3]; ?>" height="300" width="250" id="search-img" alt="<?php echo $row[2]; ?>"></a><br><?= $row[2];?></td>
+              <td class="left-align"><p id="product-desc" ><?= $row[5]; ?> <a href="product.php?pname=<?= $row[2]; ?>&pid=<?= $row[0]; ?>" class="truncate" target="_blank">See more...</a></p></td>
+              <td><p class="left-align"><i class="fa fa-rupee-sign"></i> <?= $row[6]; ?></p></td>
+            </tr>
+  
             <?php } ?>
           
           </table>

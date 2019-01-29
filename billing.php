@@ -31,7 +31,7 @@
 
   }
   // Payment Success
-  $sql = "SELECT od.order_details_id, od.item_id, od.user_id, od.bill_no, od.price, od.quantity, od.discount, od.sub_total, od.order_date, it.item_name FROM order_details AS od, item AS it WHERE od.user_id = '".$_SESSION['user_id']."' AND od.item_id=it.item_id";
+  $sql = "SELECT od.order_details_id, od.item_id, od.user_id, od.bill_no, od.price, od.quantity, od.discount, od.sub_total, od.order_date, it.item_name FROM order_details AS od, item AS it WHERE od.user_id = '".$_SESSION['user_id']."' AND od.item_id = it.item_id";
   $result = mysqli_query($conn, $sql);
   // echo $sql;
 
@@ -59,6 +59,7 @@
                 <th>Qty</th>
                 <th>Price</th>
                 <th>Discount</th>
+                <th>Order Date</th>
                 <th>Total</th>
               </tr>
             </thead>
@@ -71,11 +72,10 @@
                 <td><?php echo $row['quantity']; ?></td>
                 <td><i class="fa fa-rupee-sign"></i> <?php echo $row['price']; ?> </td>
                 <td><?php echo $row['discount']; ?>%</td>
+                <td><?php echo $date = date('d-M-y',  strtotime($row['order_date'])); ?></td>
                 <td><?php echo $row['sub_total']; ?></td>
               </tr>
-							<tr>
-								</td>
-							</tr>
+						
 							<?php 
 								 $sp = $row['item_price'] - ($row['item_price'] * ($row['discount'] / 100)); 
 								 $total = $row['sub_total'] + ($row['quantity'] * $sp); ?>
