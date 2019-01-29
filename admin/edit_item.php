@@ -18,7 +18,7 @@
     $subCat = $storeRecord['sub_cat'];
     $qty = $storeRecord['item_qty'];
     $itemDesc = $storeRecord['item_desc'];
-    $discount = $storeRecord['disc'];
+    $discount = $storeRecord['discount'];
     $newFileName = $storeRecord['item_img'];
     
   }
@@ -129,27 +129,33 @@
               </div>
             </div>
             <div class="row">
-              <div class="input-field col s6">
-                <select name="item_cat">
-                  <option value="none">Categories</option>
-                  <?php $sql = "SELECT COUNT(*) AS `Rows`, `cat_name` FROM `category` GROUP BY `cat_name` ORDER BY `cat_name`"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)) { ?>
-                  <option class="blue-text" value="<?php echo $row[1]; ?>"><?php echo $row[1]?></option>
-                  <?php }?>
-                </select>
-                <label>Select Category</label>
-                <span class="red-text animated fadeIn"><?php echo $category_err; ?></span>
-              </div>
-              <div class="input-field col s6">
-                <select name="sub_cat" >
-                  <option value="none" selected>Sub-Category</option>
-                  <?php $sql = "SELECT * FROM category"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)) { ?>
-                  <option class="blue-text" value="<?php echo $row[2]; ?>"><?php echo $row[2]; ?></option>
-                  <?php }?>
-                </select>
-                <label>Select Sub-Category</label>
-                <span class="red-text animated fadeIn"><?php echo $subCat_err; ?></span>
-              </div>
-            </div>
+								<div class="input-field col s12 m12 l6 xl6">
+    							<select name="item_cat" class="browser-default">
+										<option value="none" selected>Category</option>
+
+										<?php $sql = "SELECT COUNT(*) AS `Rows`, `cat_name` FROM `category` GROUP BY `cat_name` ORDER BY `cat_name`"; $result = mysqli_query($conn, $sql);  while($row = mysqli_fetch_array($result)) { ?>
+
+										<option class="blue-text" value="<?php echo $row[1]; ?>"><?php echo $row[1]; ?></option>
+
+										<?php } ?>
+
+    							</select>
+									<span class="red-text animated fadeIn"><?php echo $category_err; ?></span>
+								</div>
+								<div class="input-field col s12 m12 l6 xl6">
+    							<select name="sub_cat" class="browser-default">
+										<option value="none" selected>Sub-Category</option>
+										
+										<?php $sql = "SELECT * FROM category ORDER BY `sub_cat_name` ASC"; $result = mysqli_query($conn, $sql);  while($row = mysqli_fetch_array($result)) { ?>
+
+										<option class="blue-text" value="<?php echo $row[2]; ?>"><?php echo $row[2]; ?></option>
+
+										<?php } ?>
+
+    							</select>
+									<span class="red-text animated fadeIn"><?php echo $subCat_err; ?></span>
+								</div>
+							</div>
             <div class="row">	
               <div class="input-field col s6">
                 <input type="text" name="qty" id="qty" value="<?php echo $qty; ?>" >

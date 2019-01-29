@@ -2,15 +2,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> <?php if(isset($_GET['pname'])){ $titleBar =  $_GET['pname']; echo "Shop it | ".$titleBar; } else{ echo $titleBar = 'Shopit'; }  ?></title>
+	
+<title> <?php if(isset($_GET['pname'])){ $titleBar =  $_GET['pname']; echo "Shop it | ".$titleBar; } else{ echo $titleBar = 'Shopit'; }  ?></title>
+	
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	
 	<meta name="description" content="<?php if(isset($_GET['pid'])){ include 'inc/conn.php'; $metadesc =  $_GET['pid']; $sql = "SELECT * FROM item WHERE `item_id` = '$metadesc'"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)){ echo "Shop it | ".$row['item_desc']; } } else{ echo $metadesc = 'Shopit is a place where all your wishes of buying products come true so welcome and buy your dream products'; }  ?>"/>
+	
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="shortcut icon" href="img/logo/logo.png">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
-	<link rel="stylesheet" href="js/pace-master/themes/blue/pace-theme-corner-indicators.css">
-	<link rel="stylesheet" href="js/num-spinner/jquery.nice-number.css">
+	<link rel="stylesheet" href="js/pace-master/themes/blue/ppace-theme-center-radar.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" />
 	<link rel="stylesheet" href="css/style.css">

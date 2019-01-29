@@ -115,10 +115,7 @@ $(document).ready(function(){
     });
 
 
-    // $('#modal1').blur(function(){
-    //     $('#modal1').addClass('animated fadeOutDown');
-    //  });
-
+   
     // Config for dropdown
     $(".dropdown-trigger").dropdown({
         hover: true,
@@ -163,18 +160,8 @@ $(document).ready(function(){
         outDuration: 180
     });
 
-    // Carousel
-    $('.carousel.carousel-slider').carousel({
-        fullWidth: false,
-        // indicators: true,
-        duration: 250,
-        autoplay: true
-      });
-    //   autoplay();
-    //   function autoplay() {
-    //     $('.carousel').carousel('next');
-    //     setTimeout(autoplay, 6000);
-    // }
+    
+   
     ScrollReveal().reveal('.product-showcase');
     // For materialbox
     $('.materialboxed').materialbox();
@@ -182,17 +169,13 @@ $(document).ready(function(){
     // Select 
     $('select').formSelect();
 
-    // Floating Button
-    // $('.fixed-action-btn').floatingActionButton({
-    //     toolbarEnabled: false
-    // });
+   
     // Tooltip
     $('.tooltipped').tooltip();
 
     // Scroll reveal
     ScrollReveal().reveal('.row .product-showcase');      
 
-    // tiny text editor   
 
     // Slider
     $('.slider').slider({
@@ -203,23 +186,6 @@ $(document).ready(function(){
     });
     
 
-    function remove(){
-        Swal({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
-            if (result.value) {
-              Swal(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-              )
-            }
-          });
-    }
+  
+    
 });

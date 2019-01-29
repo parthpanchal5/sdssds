@@ -29,8 +29,11 @@
 			<div class="card gradient-4 z-depth-1 hoverable center-align">
 				<div class="card-content white-text">
 					<p class="card-stats-title"><i class="fa fa-user-plus" style="margin-right: 5px;"></i> Total Users</p>
+
 					<?php $sql = "SELECT COUNT(`user_id`) FROM users"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)) { ?>
+
 					<h4 class="card-stats-number"><?php echo $row[0]; ?></h4>
+
 					<?php } ?>
 				</div>			
 			</div>
@@ -39,9 +42,13 @@
 			<div class="card gradient-1 z-depth-1 hoverable center-align">
 				<div class="card-content white-text">
 					<p class="card-stats-title"><i class="fa fa-shopping-cart" style="margin-right: 5px;"></i> Total Products</p>
+
 					<?php $sql = "SELECT COUNT(`item_id`) FROM item"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)) { ?>
+
 					<h4 class="card-stats-number"><?php echo $row[0]; ?></h4>
+
 					<?php } ?>
+
 				</div>			
 			</div>
 		</div>                                                   
@@ -49,9 +56,13 @@
 			<div class="card gradient-2 hoverable z-depth-1 center-align">
 				<div class="card-content white-text">
 					<p class="card-stats-title"><i class="fa fa-list-ul" style="margin-right: 5px;"></i> Total Categories</p>
+
 					<?php $sql = "SELECT COUNT(`cat_id`) FROM category"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)) { ?>
+
 					<h4 class="card-stats-number"><?php echo $row[0]; ?></h4>
+
 					<?php } ?>
+
 				</div>			
 			</div>
 		</div>
@@ -59,9 +70,13 @@
 			<div class="card z-depth-1 hoverable gradient-5 center-align">
 				<div class="card-content white-text">
 					<p class="card-stats-title"><i class="fa fa-chart-bar" style="margin-right: 5px;"></i> Total Sales</p>
+
 					<?php $sql = "SELECT COUNT(`user_id`) FROM users"; $result = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result)) { ?>
+
 					<h4 class="card-stats-number"><?php echo $row[0]; ?></h4>
+
 					<?php } ?>
+
 				</div>			
 			</div>
 		</div>
@@ -115,7 +130,9 @@
 								<th>Action</th>
 							</thead>
 							<tbody>
+
 							<?php while ($row = mysqli_fetch_array($result)) { ?>
+
 								<tr>
 									<td><?php echo $row[1]; ?></td>
 									<td style="text-align:center;"><?php echo $row[2]; ?></td>
@@ -123,9 +140,12 @@
                 		<a href="dashboard.php?d=<?php echo $row[0]; ?>" id="deleteBtn" class="red-text"><i class="fa fa-trash"></i></a>
               		</td>
 								</tr>
-							<?php }?>          
+
+							<?php } ?>  
+
 							</tbody>
 						</table>	
+
 						<?php 
 							echo "<ul class='pagination center'>";
 								for ($page=1; $page <= $noOfPages; $page++) { 
@@ -135,12 +155,13 @@
 								}
 								echo "</ul>";
       				?>
+
 					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-<script>
+<!-- <script>
 	swal({
   position: 'top-end',
   type: 'success',
@@ -148,7 +169,7 @@
   showConfirmButton: false,
   timer: 1500
 });
-</script>
+</script> -->
 <?php include 'inc/footer.php'; ?>
 
         

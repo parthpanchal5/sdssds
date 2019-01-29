@@ -31,7 +31,6 @@
           $sql = "UPDATE category SET cat_name = '$catName', sub_cat_name = '$subCatName',cat_desc = '$catDesc' WHERE cat_id = $id";
           mysqli_query($conn, $sql);
           header("Location:view_cat.php?Updated");
-          exit;
         }
       }
     }
@@ -81,10 +80,14 @@
               </div> 
 						  <div class="row">
 							<div class="input-field">
+
 								<?php if ($edit_state == true) : ?> 
+
 								  <input type="hidden" name="id" value="<?php echo $id; ?>">
 								  <input type="submit" value="Update" name="update" class="btn blue">
+
 								<?php endif; ?>
+                
 							</div>
 						</div>                    
 				  </div>

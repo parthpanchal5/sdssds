@@ -24,6 +24,7 @@
 						$item_array = array('item_id' => $_GET['pid'], 'item_name' => $_POST['hidden_name'], 'item_price' => $_POST['hidden_price'], 'item_img' => $_POST['hidden_img'], 'discount' => $_POST['hidden_discount'], 'quantity' => $_POST['quantity']);
 					
 						$_SESSION['cart'][$count] = $item_array;
+						
 					}else{
 						echo "Item already added";
 					}

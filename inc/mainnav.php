@@ -5,7 +5,6 @@
 		<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 		
 		<ul class="right hide-on-med-and-down" id="menu-items">
-      <!--concept.php  -->
 			<li><a class="dropdown-trigger" data-target="more-dropdown" >More <i class="fa fa-angle-down fa-1x" id="child" style="margin-left: 5px;"></i></a></li>                                       
 			<li><a class="dropdown-trigger" data-target='cart-dropdown'>Cart <i class="fa fa-shopping-cart fa-1x white-text" style="margin-left: 5px;"></i></a></li>
 			<li><a class="dropdown-trigger" data-target='profile-dropdown'>Profile <i class="fa fa-user fa-1x" style="margin-left: 5px;"></i></a></li>
@@ -24,8 +23,7 @@
 				</div>
 			</div>
 		</div>
-
-</div>
+	</div>
 	<!-- Dropdown Contents (Non-Mobile) -->
 	<ul id="profile-dropdown" class="dropdown-content">
 
@@ -54,7 +52,6 @@
 			<a href="cart.php" class="left blue-text">View Cart <span class="new rounded badge red right"><?php echo count($_SESSION['cart']); ?> </span><i class="fa fa-shopping-cart fa-1x right" style="padding-left: 2px; margin-left: 2px;"></i></a>
 		</li>
 	</ul>
-	
 </nav>
 
 <!--Mobile nav-->
