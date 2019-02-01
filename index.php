@@ -36,7 +36,7 @@
 
 	<div class="slider" style="margin-top: 10px; padding: px 0px;">
     <ul class="slides">
-		<?php $sql = "SELECT * FROM item ORDER BY `created_at` DESC LIMIT 4"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
+		<?php $sql = "SELECT * FROM item WHERE RAND(`item_id`) ORDER BY `created_at` DESC LIMIT 5"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
       
 			<li>
 			<a href="product.php?pcat=<?php echo $row[4]; ?>&pname=<?php echo $row[2]; ?>&pid=<?php echo $row[0]; ?>" data-target="_blank">
@@ -54,30 +54,82 @@
 
     </ul>
   </div>
-	
 </div>
 
-<div class="container-fluid animated fadeIn grey lighten-3" style="padding-top: 20px;">
+<div class="container-fluid animated fadeIn" style="margin: 10px 15px;">
 	<div class="row">
+		<div class="card-panel">
+			<h5 class="card-title">Shop by Electronics</h5>
+			<div class="card-content">
+				<div class="row">
 
-	<?php $sql = "SELECT * FROM item ORDER BY `created_at` DESC"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
+				<?php $sql = "SELECT * FROM item WHERE `item_cat` = 'Electronics' ORDER BY `created_at` DESC"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
 
-		<div class="col s12 l3 m6 xl3">
-			<div class="card-panel product-showcase">
-				<h6 class="card-title center" style="padding-bottom: 10px;"><?php echo $row[2]?></h6>
-				<div class="card-image center"><a class="tooltipped"  data-position="top" data-tooltip="<?php echo $row[2]; ?>" href="product.php?pname=<?php echo $row[2]; ?>&pid=<?php echo $row[0];?>"><img src="admin/img/<?php echo $row[3]; ?>" alt="<?php echo $row[2]; ?>" class="responsive-img" id="search-img"></a></div>
-				<div class="card-content">
-					<span class="truncate"><?php echo $row[5]; ?></span><br><a href="product.php?pid=<?php echo $row[0]; ?>&pname=<?php echo $row[2]; ?>" target="_blank">Read More</a>
+					<div class="col s12 m6 l3 xl3">
+						<div class="card-panel">
+							<div class="card-image center"><a class="tooltipped"  data-position="top" data-tooltip="<?php echo $row[2]; ?>" href="product.php?pname=<?php echo $row[2]; ?>&pid=<?php echo $row[0];?>"><img src="admin/img/<?php echo $row[3]; ?>" alt="<?php echo $row[2]; ?>" class="responsive-img" id="search-img"></a></div>
+							<div class="card-content">
+								<span class="truncate"><?php echo $row[5]; ?></span><br><a href="product.php?pid=<?php echo $row[0]; ?>&pname=<?php echo $row[2]; ?>" target="_blank">Read More</a>
+							</div>					
+						</div>
+					</div>
+
+				<?php } ?>
+
 				</div>
 			</div>
-		</div>	
-		
-	<?php } ?>
-	
+		</div>
 	</div>
+
+	<div class="row">
+		<div class="card-panel">
+			<h5 class="card-title">Shop by Accessories</h5>
+			<div class="card-content">
+				<div class="row">
+
+				<?php $sql = "SELECT * FROM item WHERE `item_cat` = 'Accessories' ORDER BY `created_at` DESC"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
+
+					<div class="col s12 m6 l3 xl3">
+						<div class="card-panel">
+							<div class="card-image center"><a class="tooltipped"  data-position="top" data-tooltip="<?php echo $row[2]; ?>" href="product.php?pname=<?php echo $row[2]; ?>&pid=<?php echo $row[0];?>"><img src="admin/img/<?php echo $row[3]; ?>" alt="<?php echo $row[2]; ?>" class="responsive-img" id="search-img"></a></div>
+							<div class="card-content">
+								<span class="truncate"><?php echo $row[5]; ?></span><br><a href="product.php?pid=<?php echo $row[0]; ?>&pname=<?php echo $row[2]; ?>" target="_blank">Read More</a>
+							</div>					
+						</div>
+					</div>
+
+				<?php } ?>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="card-panel">
+			<h5 class="card-title">Shop by Clothes</h5>
+			<div class="card-content">
+				<div class="row">
+
+				<?php $sql = "SELECT * FROM item WHERE `item_cat` = 'Clothes' ORDER BY `created_at` ASC"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
+
+					<div class="col s12 m6 l3 xl3">
+						<div class="card-panel">
+							<div class="card-image center"><a class="tooltipped"  data-position="top" data-tooltip="<?php echo $row[2]; ?>" href="product.php?pname=<?php echo $row[2]; ?>&pid=<?php echo $row[0];?>"><img src="admin/img/<?php echo $row[3]; ?>" alt="<?php echo $row[2]; ?>" class="responsive-img" id="search-img"></a></div>
+							<div class="card-content">
+								<span class="truncate"><?php echo $row[5]; ?></span><br><a href="product.php?pid=<?php echo $row[0]; ?>&pname=<?php echo $row[2]; ?>" target="_blank">Read More</a>
+							</div>					
+						</div>
+					</div>
+
+				<?php } ?>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	
 </div>
-
-
 
 <script type="text/javascript">
 	var uri = window.location.toString();

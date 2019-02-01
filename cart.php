@@ -67,11 +67,11 @@
 <!--Content area -->
 <div class="container-fluid lighten-4 animated fadeIn" style="margin: 0px 10px 0px 10px;">
   <div class="row" style="margin-top: 10px;">
-		<div class="col s12 m12 l12 xl12">
+		<div class="col s12 m12 l8 xl8">
 			<div class="card-panel center">
 				<div class="card-content">
 					<h4 class="center">My Cart</h4><hr>
-					<table class="table centered">
+					<table class="table">
 						<thead>
 
 					<?php if(!empty($_SESSION['cart'])) : ?>
