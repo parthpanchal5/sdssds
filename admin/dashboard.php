@@ -158,9 +158,15 @@
 
 					</div>
 				</div>
+				<textarea name="content" id="editor"></textarea>
+
 			</div>
 		</div>
+
+	
+		
 	</div>
+	
 <!-- <script>
 	swal({
   position: 'top-end',

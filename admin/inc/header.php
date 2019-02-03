@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="../css/style.css">
     
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js"></script>
+
    
     <title>Shopit</title>
 </head>
