@@ -116,7 +116,10 @@
 
   </div>
 
-    <div class="col s12 m12 xl6">
+  
+</div>
+<div class="row animated fadeIn">
+    <div class="col s12 m12 xl6 right">
       <div class="card-panel">
         <div class="card-title"><h5>Ratings & Review</h5></div><hr>
         <div class="card-content">
@@ -143,7 +146,6 @@
       </div>
     </div>
   </div>
-
 <?php include 'inc/footer.php'; ?>
 
 
