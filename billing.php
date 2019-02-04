@@ -17,9 +17,11 @@
     $status = mysqli_real_escape_string($conn, $_GET['t_status']);
     
     if($status == "k"){
-      $successMsg = '<h2 class="center white-text animated fadeInUp">Purchased Successfully</h2>
+      $successMsg = ' <div class="col s12 m12 l12 xl12">
+			<div class="card-panel center gradient-2 animated fadeIn" style="padding-bottom: 50px !important;"><h2 class="center white-text animated fadeInUp">Purchased Successfully</h2>
 			<h5 class="center  white-text animated fadeIn">Thanks for Shopping with us</h5><br>
-			<a href="index.php?s=empty" class="btn btn-small blue">Continue Shopping <i class="fa fa-shopping-cart"></i></a>';
+			<a href="index.php?s=empty" class="btn btn-small blue">Continue Shopping <i class="fa fa-shopping-cart"></i></a>	</div> 
+      </div>';
 			unset($_SESSION['cart']);
       $sqlForCardBalance = "";
 
@@ -31,7 +33,7 @@
 
   }
   // Payment Success
-  $sql = "SELECT od.order_details_id, od.item_id, od.user_id, od.bill_no, od.price, od.quantity, od.discount, od.sub_total, od.order_date, it.item_name FROM order_details AS od, item AS it WHERE od.user_id = '".$_SESSION['user_id']."' AND od.item_id = it.item_id";
+  $sql = "SELECT od.order_details_id, od.item_id, od.user_id, od.bill_no, od.price, od.quantity, od.discount, od.sub_total, od.order_date, od.shipping_date, it.item_name FROM order_details AS od, item AS it WHERE od.user_id = '".$_SESSION['user_id']."' AND od.item_id = it.item_id ORDER BY `shipping_date` DESC";
   $result = mysqli_query($conn, $sql);
   // echo $sql;
 
@@ -41,12 +43,7 @@
 
 
 <div class="container-fluid" style="margin: 10px 10px;">
-  <div class="row">
-    <div class="col s12 m12 l12 xl12">
-			<div class="card-panel center gradient-2 animated fadeIn" style="padding-bottom: 50px !important;">
-				<?php echo $successMsg; ?>
-			</div> 
-		</div>
+  <div class="row">		
     <div class="col s12 m6 l6 xl6">
       <div class="card-panel">
         <div class="card-content">
@@ -59,8 +56,9 @@
                 <th>Qty</th>
                 <th>Price</th>
                 <th>Discount</th>
-                <th>Order Date</th>
-                <th>Total</th>
+                <th>Order Dt</th>
+                <th>Shipping Dt</th>
+                <th>Tot.</th>
               </tr>
             </thead>
             <tbody>
@@ -73,6 +71,7 @@
                 <td><i class="fa fa-rupee-sign"></i> <?php echo $row['price']; ?> </td>
                 <td><?php echo $row['discount']; ?>%</td>
                 <td><?php echo $date = date('d-M-y',  strtotime($row['order_date'])); ?></td>
+                <td><?php echo $date = date('d-M-y',  strtotime($row['shipping_date'])); ?></td>
                 <td><?php echo $row['sub_total']; ?></td>
               </tr>
 						
@@ -116,12 +115,7 @@
               <td class="grey lighten-3">Email <i class="fa fa-at"></i></td>
 							<td class="left-align white"><?php echo $row[2]; ?></td>
             </tr>
-							
-            <tr>
-              <td class="grey lighten-3">Delivery Dt: </td>
-							<td class="left-align white"><?php echo $date = date('d-M-Y', strtotime($row[5])); ?></td>
-            </tr> 
-            
+                        
 					<?php } ?>
 
           </tbody>

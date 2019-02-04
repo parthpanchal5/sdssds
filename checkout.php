@@ -16,7 +16,7 @@
 		// Pay
 		if(isset($_POST['pay'])){			
 			
-			$pay = mysqli_real_escape_string($conn, $_POST['pay']);
+			// $pay = mysqli_real_escape_string($conn, $_POST['pay']);
 
 			$payee_name = $card_no = $expiry = $cvv = '';
 			$payee_name_err = $card_no_err = $expiry_err = $cvv_err = '';
@@ -122,9 +122,7 @@
 							
 					<?php } ?>		
 					
-					</div>
-					
-							
+					</div>							
 				</div>
 				
 
