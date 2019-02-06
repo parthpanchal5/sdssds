@@ -73,7 +73,7 @@
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <textarea id="desc" name="cat_desc" class="materialize-textarea <?php echo (!empty($catDesc_err)) ? 'invalid' : ''; ?>" autocomplete="off"><?php echo $catDesc; ?></textarea>
+                <input type="text" id="desc" name="cat_desc" value="<?php echo $catDesc; ?>" class="<?php echo (!empty($catDesc_err)) ? 'invalid' : ''; ?>" autocomplete="off">
                 <label for="desc">Category Description</label>    
                 <span class="red-text animated fadeIn"><?php echo $catDesc_err; ?></span>    
               </div>

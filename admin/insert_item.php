@@ -151,8 +151,11 @@
 							<div class="row">
 								<div class=" col s12 m12 l12 xl12">
 									<!-- <textarea id="item_desc" name="item_desc" class="materialize-textarea <?php echo (!empty($catDesc_err)) ? 'invalid' : ''; ?>" autocomplete="off"></textarea> -->
-									<textarea name="item_desc" id="editor" class="<?php echo (!empty($catDesc_err)) ? 'invalid' : ''; ?>"><?php echo $itemDesc; ?></textarea>
+									<!-- <textarea name="item_desc" id="editor" class="<?php echo (!empty($catDesc_err)) ? 'invalid' : ''; ?>"><?php echo $itemDesc; ?></textarea> -->
 									<label for="item_desc">Item Description</label>    
+
+									<textarea name="item_desc" class="<?php echo (!empty($catDesc_err)) ? 'invalid' : ''; ?>"><?php echo $itemDesc; ?></textarea>
+
 									<span class="red-text animated fadeIn"><?php echo $itemDesc_err; ?></span>    
 								</div>
             	</div>
