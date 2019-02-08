@@ -72,7 +72,17 @@
           </tr>
           <tr>
             <th class="left">Price:</th>
-            <td><?php echo $row[6];?> <i class="fas fa-rupee-sign"></i></td>
+
+            <?php if(!empty($row[9]) && $row[9] > 0) : ?>
+
+            <td><a class="tooltipped black-text rounded" data-position="right" data-tooltip="Discount: <?php echo $row[9]."%"; ?>"><strike class="grey-text"><?php echo $row[6];?> </strike> <span class="black-text"><?php echo $row[9]; ?></span><i class="fas fa-rupee-sign"></i></a</td>
+
+            <?php else : ?>
+
+            <td><a class="tooltipped black-text rounded" data-position="right" data-tooltip="No Discounts Available"><?php echo $row[6];?></a> <i class="fas fa-rupee-sign"></i></td>
+
+            <?php endif; ?>
+
           </tr>
           <tr>
             <th class="left">Category: </th>
@@ -116,7 +126,6 @@
 
   </div>
 
-<<<<<<< HEAD
   <!--Rating & Review Panel  -->
   <div class="col s12 m12 xl6 right">
     <div class="card-panel">
@@ -148,38 +157,6 @@
 </div>
    
     
-=======
-  
-</div>
-<div class="row animated fadeIn">
-    <div class="col s12 m12 xl6 right">
-      <div class="card-panel">
-        <div class="card-title"><h5>Ratings & Review</h5></div><hr>
-        <div class="card-content">
-          <table class="table">
-            <tbody>
-              <tr>
-                <td class="left-align"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam cumque eius voluptas at ipsum provident blanditiis, labore neque quo non! At! <br> <span class=" grey-text" style="margin-top: 20px;">-By Parth Panchal <a class="tooltipped black-text rounded" style="margin-left: 10px;" data-position="right" data-tooltip="Ratings: 4.5"><i class="amber-text darken-4 fa fa-star"></i><span style="margin-left: 8px;">4.5</span></a></span></span></td>
-              </tr>
-              <tr>
-                <td class="left-align"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam cumque eius voluptas at ipsum provident blanditiis, labore neque quo non! At! <br> <span class=" grey-text">-By Parth Panchal <a class="tooltipped black-text rounded" style="margin-left: 10px;" data-position="right" data-tooltip="Ratings: 4.5"><i class="amber-text darken-4 fa fa-star"></i><span style="margin-left: 8px;">4.5</span></a></span></span></td>
-              </tr>
-              <tr>
-                <td class="left-align"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam cumque eius voluptas at ipsum provident blanditiis, labore neque quo non! At! <br> <span class=" grey-text">-By Parth Panchal <a class="tooltipped black-text rounded" style="margin-left: 10px;" data-position="right" data-tooltip="Ratings: 4.5"><i class="amber-text darken-4 fa fa-star"></i><span style="margin-left: 8px;">4.5</span></a></span></span></td>
-              </tr>
-              <tr>
-                <td class="left-align"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam cumque eius voluptas at ipsum provident blanditiis, labore neque quo non! At! <br> <span class=" grey-text">-By Parth Panchal <a class="tooltipped black-text rounded" style="margin-left: 10px;" data-position="right" data-tooltip="Ratings: 4.5"><i class="amber-text darken-4 fa fa-star"></i><span style="margin-left: 8px;">4.5</span></a></span></span></td>
-              </tr>
-              <tr>
-                <td class="left-align"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam cumque eius voluptas at ipsum provident blanditiis, labore neque quo non! At! <br> <span class=" grey-text">-By Parth Panchal <a class="tooltipped black-text rounded" style="margin-left: 10px;" data-position="right" data-tooltip="Ratings: 4.5"><i class="amber-text darken-4 fa fa-star"></i><span style="margin-left: 8px;">4.5</span></a></span></span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>										
-      </div>
-    </div>
-  </div>
->>>>>>> 08e3317672ef3e402208b69dddf74097a2a75a11
 <?php include 'inc/footer.php'; ?>
 
 
