@@ -60,7 +60,7 @@
   <div class="row">
     <div class="col s12 m0 l2"></div>
     <div class="col s12 m12 l8 black-text" id="content">
-      <div class="card hoverable">  
+      <div class="card">  
         <div class="card-content">
           <table class="highlight animated fadeIn striped responsive-table black-text" style="margin-top: 10px;"  id="searchTable">
           <thead>
@@ -91,16 +91,19 @@
             <?php } ?>
           </tbody>
         </table>
-        <?php 
-          echo "<ul class='pagination center' id='page-container'>";
-            for ($page=1; $page <= $noOfPages; $page++) { 
-            echo "<li class='waves-effect pagination-links'>";
-              echo '<a href="view_user.php?page='.$page.'">'. $page . '</a>';
-            echo "</li>";
-          }
-          echo "</ul>";
-        ?>
+        
       </div>    
+      <div class="card-action">
+					<?php 
+						echo "<ul class='pagination center-align' id='page-container'>";
+							for ($page=1; $page <= $noOfPages; $page++) { 
+							echo "<li class='waves-effect  pagination-links '>";
+								echo '<a class="green-text" href="view_user.php?page='.$page.'">' . $page ." . ". '</a>';
+							echo "</li>";
+						}
+						echo "</ul>";
+					?>
+				</div>
     </div>	
   <div class="col s12 m0 l2"></div>
 </div>    

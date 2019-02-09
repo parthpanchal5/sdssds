@@ -40,70 +40,70 @@
 	<div class="row">
 		<div class="col s12 m12 l12 xl12" id="content">
 			<div class="card-panel">
-				<table class="table striped highlight responsive-table">
-					<thead>
-						<th>Transaction ID</th>
-						<th>Item name</th>
-						<th>Qty</th>
-						<th>Subtotal</th>
-						<th>User name</th>
-						<th>Email</th>
-						<th>Address</th>
-						<th>Phone</th>
-						<th>Order Dt</th>
-						<th>Shipping Dt</th>
-						<th>Status</th>
-
-					</thead>
-					<tbody>
+				<div class="card-content">
+					<table class="table striped highlight responsive-table">
+						<thead class="gradient-5 white-text">
+							<th>Transaction ID</th>
+							<th>Item name</th>
+							<th>Qty</th>
+							<th>Subtotal</th>
+							<th>User name</th>
+							<th class="left-align">Address</th>
+							<th>Email</th>
+							<th>Phone</th>
+							<th>Order Dt</th>
+							<th>Shipping Dt</th>
+							<th>Status</th>
+						</thead>
+						<tbody>
 						
-						<?php 
-							$sqlForTransactions = "SELECT 
-														ord.order_details_id, ord.item_id, ord.user_id, 
-														ord.price, ord.quantity, ord.discount, 
-														ord.sub_total, ord.order_date, ord.shipping_date, ord.status, 
-														it.item_name, 
-														us.firstname, us.lastname, us.address, us.email, us.phone 
-													FROM 
-														order_details AS ord, item AS it, users AS us 
-													WHERE ord.item_id = it.item_id AND ord.user_id = us.user_id
-													ORDER BY `shipping_date` DESC LIMIT ". $startingLimitNo .','. $resultPerPage .";";
+							<?php 
+								$sqlForTransactions = "SELECT 
+															ord.order_details_id, ord.item_id, ord.user_id, 
+															ord.price, ord.quantity, ord.discount, 
+															ord.sub_total, ord.order_date, ord.shipping_date, ord.status, 
+															it.item_name, 
+															us.firstname, us.lastname, us.address, us.email, us.phone 
+														FROM 
+															order_details AS ord, item AS it, users AS us 
+														WHERE ord.item_id = it.item_id AND ord.user_id = us.user_id
+														ORDER BY `order_date` DESC LIMIT ". $startingLimitNo .','. $resultPerPage .";";
 
-										$result = mysqli_query($conn, $sqlForTransactions); 
-										while($row = mysqli_fetch_array($result)) { 
-						?>
-						
-						<tr>
-							<td><?= $row['order_details_id']; ?></td>
-							<td><?= $row['item_name']; ?></td>
-							<td><?= $row['quantity']; ?></td>
-							<td><?= $row['sub_total']; ?></td>
-							<td><?= $row['firstname']." ".$row['lastname']; ?></td>
-							<td><?= $row['email']; ?></td>
-							<td><?= $row['address']; ?></td>
-							<td><?= $row['phone']; ?></td>
-							<td><?php echo $orddate = date('d-M-y', strtotime($row['order_date']));  ?></td>
-							<td><?php echo $shipdate = date('d-M-y', strtotime($row['shipping_date']));  ?></td>
-							<td><?php echo $row['status']; ?></td>
-						</tr>
+											$result = mysqli_query($conn, $sqlForTransactions); 
+											while($row = mysqli_fetch_array($result)) { 
+							?>
+							
+							<tr>
+								<td><?= $row['order_details_id']; ?></td>
+								<td class="center-align"><?= $row['item_name']; ?></td>
+								<td><?= $row['quantity']; ?></td>
+								<td><?= $row['sub_total']; ?></td>
+								<td><?= $row['firstname']." ".$row['lastname']; ?></td>
+								<td class="left-align"><?= $row['address']; ?></td>
+								<td><?= $row['email']; ?></td>
+								<td><?= $row['phone']; ?></td>
+								<td><?php echo $orddate = date('d-M-y', strtotime($row['order_date']));  ?></td>
+								<td><?php echo $shipdate = date('d-M-y', strtotime($row['shipping_date']));  ?></td>
+								<td><?php echo $row['status']; ?></td>
+							</tr>
 
-						<?php  } ?>
+							<?php  } ?>
 
-					</tbody>
-				</table>
+						</tbody>
+					</table>
+				</div>
 				
-				<?php 
-
-          echo "<ul class='pagination center' id='page-container'>";
-            for ($page=1; $page <= $noOfPages; $page++) { 
-            echo "<li class='waves-effect pagination-links'>";
-              echo '<a href="view_transaction.php?page='.$page.'">'. $page . '</a>';
-            echo "</li>";
-          }
-					echo "</ul>";
-					
-        ?>
-			
+				<div class="card-action">
+					<?php 
+						echo "<ul class='pagination center-align' id='page-container'>";
+							for ($page=1; $page <= $noOfPages; $page++) { 
+							echo "<li class='waves-effect  pagination-links '>";
+								echo '<a class="green-text" href="view_transaction.php?page='.$page.'">' . $page ." . ". '</a>';
+							echo "</li>";
+						}
+						echo "</ul>";
+					?>
+				</div>
 			</div>
 		</div>
 	</div>    
