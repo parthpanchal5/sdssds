@@ -1,6 +1,16 @@
 <?php 
     include 'inc/header.php'; 
-    include 'inc/conn.php';
+		include 'inc/conn.php';
+		
+		$sqlForTransactions = "SELECT 
+														ord.order_details_id, ord.item_id, ord.user_id, 
+														ord.price, ord.quantity, ord.discount, 
+														ord.sub_total, ord.order_date, ord.shipping_date, ord.status, 
+														it.item_name, 
+														us.firstname, us.lastname, us.address, us.email, us.phone 
+													FROM 
+														order_details AS ord, item AS it, users AS us 
+													WHERE ord.item_id = it.item_id AND ord.user_id = us.user_id ";
 ?>
 <?php include 'inc/horizonnav.php'; ?>       
 
@@ -18,12 +28,20 @@
 			<div class="card-panel">
 				<table class="table">
 					<thead>
-						<th></th>
-						<th></th>
-						<th></th>
-						<th></th>
-						<th></th>
+						<th>Transaction</th>
+						<th>Item name</th>
+						<th>User name</th>
+						<th>Qty</th>
+						<th>Subtotal</th>
 					</thead>
+					<tbody>
+
+						<tr>
+						
+						</tr>
+
+
+					</tbody>
 				</table>
 			</div>
 		</div>
