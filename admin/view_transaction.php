@@ -10,7 +10,8 @@
 														us.firstname, us.lastname, us.address, us.email, us.phone 
 													FROM 
 														order_details AS ord, item AS it, users AS us 
-													WHERE ord.item_id = it.item_id AND ord.user_id = us.user_id ";
+													WHERE ord.item_id = it.item_id AND ord.user_id = us.user_id";
+		$result = mysqli_query($conn, $sqlForTransactions);
 ?>
 <?php include 'inc/horizonnav.php'; ?>       
 
@@ -35,11 +36,18 @@
 						<th>Subtotal</th>
 					</thead>
 					<tbody>
-
-						<tr>
 						
+						<?php while($row = mysqli_fetch_array($result)) { ?>
+						
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
 						</tr>
 
+						<?php  } ?>
 
 					</tbody>
 				</table>
