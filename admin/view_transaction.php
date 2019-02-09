@@ -55,7 +55,7 @@
 							<th>Shipping Dt</th>
 							<th>Status</th>
 						</thead>
-						<tbody>
+						<tbody class="animated fadeIn">
 						
 							<?php 
 								$sqlForTransactions = "SELECT 

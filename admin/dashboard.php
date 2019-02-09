@@ -158,7 +158,7 @@
 
 					</div>
 				</div>
-				<textarea name="content" id="editor"></textarea>
+				<!-- <textarea name="content" id="editor"></textarea> -->
 
 			</div>
 		</div>
