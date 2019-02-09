@@ -1,7 +1,7 @@
 <div class="navbar-fixed">
-<nav class="blue lighten-2 z-depth-2">
+<nav class="blue darken-3 z-depth-2">
 	<div class="nav-wrapper">
-		<a href="dashboard.php" class="brand-logo" id="admin-brand-logo">Shop</a>
+		<a href="dashboard.php" class="brand-logo" id="admin-brand-logo">Shop it | Admin Panel</a>
 		<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 		<ul class="right hide-on-med-and-down" id="menu-items">
 			<li><a class="dropdown-trigger" data-target="user-dropdown" id="parent">Users <i class="fa fa-angle-down fa-1x" style="margin-left: 5px;" id="child"></i></a></li>                                       

@@ -39,8 +39,7 @@
                 $_SESSION['firstname'] = $row['firstname'];
                 $_SESSION['lastname'] = $row['lastname'];
                 $_SESSION['email'] = $row['email'];
-                header("Location:dashboard.php?hello");
-                exit;
+                header("Location:dashboard.php");
               }
             } 
           }
@@ -50,7 +49,7 @@
 
 ?>
 <!-- navbar -->
-<nav class="blue lighten-2">
+<nav class="blue darken-2">
     <div class="container">
         <div class="nav-wrapper">
             <a href="#" class="brand-logo center">Shop</a>
