@@ -2,16 +2,29 @@
     include 'inc/header.php'; 
 		include 'inc/conn.php';
 		
-		$sqlForTransactions = "SELECT 
-														ord.order_details_id, ord.item_id, ord.user_id, 
-														ord.price, ord.quantity, ord.discount, 
-														ord.sub_total, ord.order_date, ord.shipping_date, ord.status, 
-														it.item_name, 
-														us.firstname, us.lastname, us.address, us.email, us.phone 
-													FROM 
-														order_details AS ord, item AS it, users AS us 
-													WHERE ord.item_id = it.item_id AND ord.user_id = us.user_id";
-		$result = mysqli_query($conn, $sqlForTransactions);
+  
+  
+
+		// Define results per page
+		$resultPerPage = 10;
+
+		$sql2 = "SELECT * FROM order_details";
+		$result2 = mysqli_query($conn, $sql2);
+		$noOfResults = mysqli_num_rows($result2);
+	
+	
+		// Determine no of total pages available
+		$noOfPages = ceil($noOfResults / $resultPerPage);
+	
+		// Determine which page number visitor is on
+		if (!isset($_GET['page'])) {
+			$page = 1;
+		}else{
+			$page = $_GET['page'];
+		}
+	
+		// Determine sql LIMIT starting no for result on the displaying page
+		$startingLimitNo = ($page - 1) * $resultPerPage;	
 ?>
 <?php include 'inc/horizonnav.php'; ?>       
 
@@ -27,30 +40,70 @@
 	<div class="row">
 		<div class="col s12 m12 l12 xl12" id="content">
 			<div class="card-panel">
-				<table class="table">
+				<table class="table striped highlight responsive-table">
 					<thead>
-						<th>Transaction</th>
+						<th>Transaction ID</th>
 						<th>Item name</th>
-						<th>User name</th>
 						<th>Qty</th>
 						<th>Subtotal</th>
+						<th>User name</th>
+						<th>Email</th>
+						<th>Address</th>
+						<th>Phone</th>
+						<th>Order Dt</th>
+						<th>Shipping Dt</th>
+						<th>Status</th>
+
 					</thead>
 					<tbody>
 						
-						<?php while($row = mysqli_fetch_array($result)) { ?>
+						<?php 
+							$sqlForTransactions = "SELECT 
+														ord.order_details_id, ord.item_id, ord.user_id, 
+														ord.price, ord.quantity, ord.discount, 
+														ord.sub_total, ord.order_date, ord.shipping_date, ord.status, 
+														it.item_name, 
+														us.firstname, us.lastname, us.address, us.email, us.phone 
+													FROM 
+														order_details AS ord, item AS it, users AS us 
+													WHERE ord.item_id = it.item_id AND ord.user_id = us.user_id
+													ORDER BY `shipping_date` DESC LIMIT ". $startingLimitNo .','. $resultPerPage .";";
+
+										$result = mysqli_query($conn, $sqlForTransactions); 
+										while($row = mysqli_fetch_array($result)) { 
+						?>
 						
 						<tr>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
+							<td><?= $row['order_details_id']; ?></td>
+							<td><?= $row['item_name']; ?></td>
+							<td><?= $row['quantity']; ?></td>
+							<td><?= $row['sub_total']; ?></td>
+							<td><?= $row['firstname']." ".$row['lastname']; ?></td>
+							<td><?= $row['email']; ?></td>
+							<td><?= $row['address']; ?></td>
+							<td><?= $row['phone']; ?></td>
+							<td><?php echo $orddate = date('d-M-y', strtotime($row['order_date']));  ?></td>
+							<td><?php echo $shipdate = date('d-M-y', strtotime($row['shipping_date']));  ?></td>
+							<td><?php echo $row['status']; ?></td>
 						</tr>
 
 						<?php  } ?>
 
 					</tbody>
 				</table>
+				
+				<?php 
+
+          echo "<ul class='pagination center' id='page-container'>";
+            for ($page=1; $page <= $noOfPages; $page++) { 
+            echo "<li class='waves-effect pagination-links'>";
+              echo '<a href="view_transaction.php?page='.$page.'">'. $page . '</a>';
+            echo "</li>";
+          }
+					echo "</ul>";
+					
+        ?>
+			
 			</div>
 		</div>
 	</div>    
