@@ -12,6 +12,11 @@
     if(empty($productSearchId)){
       header('Location:index.php');
     }
+
+   
+
+    if($totalProducts < 1) {
+    }
    
      // check sort options is clicked
     if(isset($_GET['sort_order'])){
@@ -52,8 +57,8 @@
               <i class="material-icons">sort</i>Sort By</div>
             <div class="collapsible-body">
             <ul>
-              <li style="margin: 0px 0px 20px 0px;!important"><a href="search.php?q=<?php echo $productSearchId; ?>&sort_order=new" class="blue-text">Latest</a><br></li>
-              <li style="margin: 0px 0px 20px 0px;!important"><a href="search.php?q=<?php echo $productSearchId; ?>&sort_order=low" class="blue-text">Price: Low to High</a></li>
+              <li style="margin: 0px 0px 20px 0px !important;"><a href="search.php?q=<?php echo $productSearchId; ?>&sort_order=new" class="blue-text">Latest</a><br></li>
+              <li style="margin: 0px 0px 20px 0px !important;"><a href="search.php?q=<?php echo $productSearchId; ?>&sort_order=low" class="blue-text">Price: Low to High</a></li>
               <li><a href="search.php?q=<?php echo $productSearchId; ?>&sort_order=high" class="blue-text">Price: High to Low</a></li>
               </ul>
             </div>
@@ -65,6 +70,14 @@
           <p class="left">You Searched for: <?php echo ucwords('<span class="blue-text darken-2">'.ucwords($productSearchId).'</span>'); ?></p><br>
           <!-- <p class="left">Products Found: <?php echo ('<span class="blue-text darken-2">'.$resultForCount. '</span>'); ?></p> -->
           <table class="table striped animated fadeIn">
+            <?php 
+              $totalProducts = mysqli_num_rows($resultOfSearchQuery); 
+              if ($totalProducts < 1) { 
+                $emptyRow = "<tr><td colspan='5'>Sorry we don't have any alien products</td></tr>";
+                echo $emptyRow;
+              }
+
+            ?>
 
           <?php while($row = mysqli_fetch_array($resultOfSearchQuery)) { ?>
 
@@ -73,9 +86,9 @@
               <td class="left-align"><p id="product-desc" ><?= $row[5]; ?> <a href="product.php?pname=<?= $row[2]; ?>&pid=<?= $row[0]; ?>" class="truncate" target="_blank">See more...</a></p></td>
               <td><p class="left-align"><i class="fa fa-rupee-sign"></i> <?= $row[6]; ?></p></td>
             </tr>
+
   
             <?php } ?>
-          
           </table>
         </div>
       </div>  

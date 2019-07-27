@@ -30,34 +30,34 @@
 			if(empty($payee_name)){
 				$payee_name_err = 'Enter card name';
 			}
-			if(empty($card_no)){
+			else if(empty($card_no)){
 				$card_no_err = 'Enter 14-digit card no';
 			}
-			if(empty($expiry)){
+			else if(empty($expiry)){
 				$expiry_err = "Enter card-expiry date";
 			}
-			if(empty($cvv)){
+			else if(empty($cvv)){
 				$cvv_err = "Enter 3-digit CVV no";
 			}
-			if(preg_match("/^[a-zA-Z]*$/", $payee_name)){
+			else if(preg_match("/^[a-zA-Z]*$/", $payee_name)){
 				$payee_name_err = "Invalid name";
 			}
-			if(!preg_match("/^[0-9 ]/", $card_no)){
+			else if(!preg_match("/^[0-9 ]/", $card_no)){
 				$card_no_err = "Invalid card no";
 			}
-			if(!preg_match('/^[0-9-\/ ]/', $expiry)){
+			else if(!preg_match('/^[0-9-\/ ]/', $expiry)){
 				$expiry_err = "Invalid expiry";
 			}
-			if(!preg_match('/^[0-9]{3}/', $cvv)){
+			else if(!preg_match('/^[0-9]{3}/', $cvv)){
 				$cvv_err = "Invalid CVV no";
 			}
-			if(strlen($card_no) > 14){
+			else if(strlen($card_no) > 14){
 				$card_no_err = "Card no limit exceded";
 			}
-			if(strlen($expiry)> 5){
+			else if(strlen($expiry)> 5){
 				$expiry_err = "Expiry exceded";
 			}
-			if(strlen($cvv) > 3){
+			else if(strlen($cvv) > 3){
 				$cvv_err = "Invalid cvv";
 			}else{
 				foreach($_SESSION['cart'] as $key => $value) {			
@@ -70,7 +70,7 @@
 					$sp = $value['item_price'] * $value['quantity'] - ($value['item_price'] * ($value['discount'] / 100));
 					$total = $total + $sp;				
 					$bill_no = 100;
-					$shippingdt = date('Y-m-d', mktime(0, 0, 0, date('m'), date('d') + 5, date('Y')));
+					$shippingdt = date('Y-m-d', mktime(0, 0, 0, date('m'), date('d') + 3, date('Y')));
 					$sql = "INSERT INTO order_details (`item_id`, `user_id`, `bill_no`, `price`, `quantity`, `discount`, `sub_total`, `shipping_date`, `status`) VALUES ('$item_id', '$inSessionUser', '$bill_no', '$price', '$quantity', '$discount', '$total','$shippingdt', 'Paid')";
 					$result = mysqli_query($conn, $sql);
 					// echo $sql;
@@ -118,9 +118,9 @@
 									<textarea class="materialize-textarea" disabled id="disabled-inputs"><?php echo $row[4];?></textarea>
 									<label for="address">Delivery Address</label>
 								</div>
-						</form>
+							</form>
 							
-					<?php } ?>		
+						<?php } ?>		
 					
 					</div>							
 				</div>
@@ -158,37 +158,35 @@
 				</div>
 				
 				<div class="col s12 m12 l5 xl5 left" style="margin: 10px 0px;">
-					<div class="card-panel small">
-						<span class="card-title">Card</span><br>
+					<div class="card-panel">
+						<div class="card-title blue center white-text" style="padding: 10px 10px;">Card</div><br>
+						<div class="row">
 						<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-							
 							<div class="input-field col s12 l12 m6">
-								<input type="text" name="card_name" class="validate <?php echo (!empty($payee_name_err)) ? 'invalid' : ''; ?>" id="input-cc" value="<?php echo $payee_name; ?>">
+								<input type="text" name="card_name" class="<?php echo (!empty($payee_name_err)) ? 'invalid' : ''; ?>" id="input-cc" value="<?php echo $payee_name; ?>"/>
 								<label for="card-name">Card holder's name</label>
 								<span class="red-text"><?php echo $payee_name_err; ?></span>
 							</div>
-							
 							<div class="input-field col s12 l12 m6">
-								<input type="text" id="card-no" class="validate <?php echo (!empty($card_no_err)) ? 'invalid' : ''; ?>" name="card_no" maxlength="14" data-length="14" value="<?php echo $card_no; ?>">
+								<input type="text" id="card-no" class="<?php echo (!empty($card_no_err)) ? 'invalid' : ''; ?>" name="card_no" maxlength="14" data-length="14" value="<?php echo $card_no; ?>">
 								<label for="card-no">Enter 14-digit number</label>
 								<span class="red-text"><?php echo $card_no_err; ?></span>
 							</div>
-							
 							<div class="row">
 								<div class="input-field col s12 l6 xl6 m6">
-									<input type="text" name="expiry"  class="validate <?php echo (!empty($expiry_err)) ? 'invalid' : ''; ?>" value="<?php echo $expiry; ?>">
-									<label for="expiry">Expiry</label>
+									<input type="text" name="expiry"  class="<?php echo (!empty($expiry_err)) ? 'invalid' : ''; ?>" value="<?php echo $expiry; ?>">
+									<label for="expiry">Expiry (MM / YY)</label>
 									<span class="red-text"><?php echo $expiry_err; ?></span>
 								</div>
 								<div class="input-field col s12 l6 m6 xl5">
-									<input type="text" maxlength="3" id="cvv" data-length="3" name="cvv" class="validate <?php echo (!empty($cvv_err)) ? 'invalid' : ''; ?>" value="<?php echo $cvv; ?>">
-									<label for="cvv">CVV</label>
+									<input type="text" maxlength="3" id="cvv" data-length="3" name="cvv" class="<?php echo (!empty($cvv_err)) ? 'invalid' : ''; ?>" value="<?php echo $cvv; ?>">
+									<label for="cvv">CVV (123)</label>
 									<span class="red-text"><?php echo $cvv_err; ?></span>
 								</div>
 							</div>
-
 							<input type="submit" value="Pay it" name="pay" class="btn blue darken-2">
 						</form>
+						</div>
 					</div>
 				</div>
   		</div>      
@@ -201,7 +199,7 @@
 
 				<?php $sql = "SELECT * FROM `item` ORDER BY RAND() LIMIT 1"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>
 
-          <img src="admin/img/<?php echo $row[3]; ?>" class=" animated fadeIn responsive-img">
+          <img src="admin/img/<?php echo $row[3]; ?>" class="animated fadeIn responsive-img">
         </div>
         <div class="card-content">
 					<span class="card-title black-text"><?php echo $row[2]; ?></span>

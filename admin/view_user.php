@@ -10,7 +10,7 @@
   }
 
   // Define results per page
-  $resultPerPage = 3;
+  $resultPerPage = 10;
 
   $sql1 = "SELECT * FROM category";
   $result1 = mysqli_query($conn, $sql1);
@@ -75,7 +75,11 @@
             </tr>
           </thead>
           <tbody>
-            <?php $sql = "SELECT * FROM users ORDER BY user_id DESC LIMIT ". $startingLimitNo .','. $resultPerPage; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>
+            <?php $sql = "SELECT * FROM users ORDER BY user_id DESC LIMIT ". $startingLimitNo .','. $resultPerPage; $result = mysqli_query($conn, $sql); $checkRecord = mysqli_num_rows($result);
+if ($checkRecord < 1) {
+  echo '<tr><td colspan="11">No Data Found</td></tr>';
+} 
+ while ($row = mysqli_fetch_array($result)) { ?>
             <tr>	
               <td><?php echo $row['user_id']; ?></td>
               <td><?php echo $row['firstname']; ?></td>

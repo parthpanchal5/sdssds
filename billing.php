@@ -11,31 +11,43 @@
 	// if(!isset($_SESSION['user_id']) || empty($_SESSION['email'])){
 	// 	header('Location:index.php');
 	// }
+  $curUser = $_SESSION['user_id'];
   
   if(isset($_GET['t_status'])){
     // $user_id = ;
     $status = mysqli_real_escape_string($conn, $_GET['t_status']);
     
     if($status == "k"){
-      $successMsg = ' <div class="col s12 m12 l12 xl12">
+      echo $successMsg = ' <div class="col s12 m12 l12 xl12">
 			<div class="card-panel center gradient-2 animated fadeIn" style="padding-bottom: 50px !important;"><h2 class="center white-text animated fadeInUp">Purchased Successfully</h2>
 			<h5 class="center  white-text animated fadeIn">Thanks for Shopping with us</h5><br>
 			<a href="index.php?s=empty" class="btn btn-small blue">Continue Shopping <i class="fa fa-shopping-cart"></i></a>	</div> 
       </div>';
-			unset($_SESSION['cart']);
-      $sqlForCardBalance = "";
-
     }
-
-    if($status == "nk"){
-      echo "Not Ok";
-    }
-
   }
   // Payment Success
-  $sql = "SELECT od.order_details_id, od.item_id, od.user_id, od.bill_no, od.price, od.quantity, od.discount, od.sub_total, od.order_date, od.shipping_date, it.item_name FROM order_details AS od, item AS it WHERE od.user_id = '".$_SESSION['user_id']."' AND od.item_id = it.item_id ORDER BY `shipping_date` DESC";
+  $sql = "SELECT
+  od.order_details_id,
+  od.item_id,
+  od.user_id,
+  od.bill_no,
+  od.price,
+  od.quantity,
+  od.discount,
+  od.sub_total,
+  od.order_date,
+  od.shipping_date,
+  it.item_name
+FROM
+  order_details AS od,
+  item AS it
+WHERE
+  od.user_id = '$curUser' AND od.item_id = it.item_id
+ORDER BY
+  `shipping_date`
+DESC";
+
   $result = mysqli_query($conn, $sql);
-  // echo $sql;
 
 ?>
 
@@ -125,12 +137,12 @@
   </div>
 </div>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	var uri = window.location.toString();
 	if (uri.indexOf("?") > 0) {
 			var clean_uri = uri.substring(0, uri.indexOf("?"));
 			window.history.replaceState({}, document.title, clean_uri);
 	}
-</script>
+</script> -->
 
 <?php include 'inc/footer.php'; ?>

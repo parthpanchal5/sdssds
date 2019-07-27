@@ -47,10 +47,8 @@
     if(!preg_match("/^[a-zA-Z]*$/", $firstname) || !preg_match("/^[a-zA-Z]*$/", $lastname)){
         $firstname_err =  "Firstname is invalid";
         $lastname_err = "Lastname is invalid";
-      }else{
-        if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-          $email_err = "Email is invalid";                        
-        }else{
+      }
+      else{
           if(strlen($password) < 8){
             $password_err = "Password must be 8 characters long";
           }else{
@@ -77,7 +75,7 @@
                     }
                 }
               }
-            }
+            
         }
  } } ?>
 <!-- navbar -->

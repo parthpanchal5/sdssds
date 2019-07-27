@@ -84,10 +84,6 @@
               <span class="red-text" style="margin-left: 40px;"><?php echo $password_err; ?></span>
             </div>
           </div>
-          <label style="margin-left: 5px;">
-            <input type="checkbox" class="filled-in" name="remember"/>
-            <span class="grey-text lighten-2">Remember me</span>
-          </label>
           <div class="row" style=" margin-top: 20px; margin-left: 10px;">
             <input type="submit" value="Login" name="login" class="btn btn-small blue" style="margin-right: 20px;">
             <input type="reset" value="cancel" class="btn grey btn-small lighten-1">

@@ -42,13 +42,13 @@
 			<div class="card-panel">
 				<div class="card-content">
 					<table class="table striped highlight responsive-table">
-						<thead class="gradient-5 white-text">
-							<th>Transaction ID</th>
+						<thead>
+							<th>Trans id</th>
 							<th>Item name</th>
 							<th>Qty</th>
 							<th>Subtotal</th>
 							<th>User name</th>
-							<th class="left-align">Address</th>
+							<th>Address</th>
 							<th>Email</th>
 							<th>Phone</th>
 							<th>Order Dt</th>
@@ -70,7 +70,14 @@
 														ORDER BY `order_date` DESC LIMIT ". $startingLimitNo .','. $resultPerPage .";";
 
 											$result = mysqli_query($conn, $sqlForTransactions); 
-											while($row = mysqli_fetch_array($result)) { 
+											
+											$checkRecord = mysqli_num_rows($result);
+											if ($checkRecord < 1) {
+												echo '<tr><td colspan="11">No Data Found</td></tr>';
+											} else {
+												while($row = mysqli_fetch_array($result)) { 
+											
+											
 							?>
 							
 							<tr>
@@ -84,10 +91,10 @@
 								<td><?= $row['phone']; ?></td>
 								<td><?php echo $orddate = date('d-M-y', strtotime($row['order_date']));  ?></td>
 								<td><?php echo $shipdate = date('d-M-y', strtotime($row['shipping_date']));  ?></td>
-								<td><?php echo $row['status']; ?></td>
+								<td><?php if($row['status'] === "Paid") { echo '<span class="white-text badge green rounded z-depth-2">'.$row['status'].'</span>'; } else { echo '<span class="new badge red rounded z-depth-2">'.$row['status'].'</span>'; }  ?></td>
 							</tr>
 
-							<?php  } ?>
+							<?php 	}  }  ?>
 
 						</tbody>
 					</table>

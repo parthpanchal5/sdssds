@@ -2,20 +2,10 @@
 	session_start(); 
   include 'inc/conn.php';
 
-  if(isset($_GET['delete'])){
-    $id = $_GET['delete'];
-    mysqli_query($conn, "DELETE FROM item WHERE item_id = $id");
-    header("Location:view_item.php?Deleted");
-  }
-  if(isset($_GET['s'])){
-    $status = mysqli_real_escape_string($conn, $_GET['s']);
-    if($status == "su"){
-      echo "<script>  M.toast({html: 'I am a toast!'})
-      </script>";
-    }
-  }
+  
+
   // Define results per page
-	$resultPerPage = 3;
+	$resultPerPage = 4;
 
   $sql1 = "SELECT * FROM item";
   $result1 = mysqli_query($conn, $sql1);
@@ -34,19 +24,25 @@
   
   // Determine sql LIMIT starting no for result on the displaying page
   $startingLimitNo = ($page - 1) * $resultPerPage;	
-  
+
+
+
+  if(isset($_GET['delete'])){
+    $id = $_GET['delete'];
+    mysqli_query($conn, "DELETE FROM item WHERE item_id = $id");
+    header("Location:view_item.php?Deleted");
+  }
 ?>
 <?php include 'inc/header.php'; ?>
 <?php include 'inc/horizonnav.php'; ?>
 <div class="container-fluid">
   <div class="row">
-    <div class="col s12 m0 l0"></div>
     <div class="col s12 m12 l12">
       <h3 class="center">View Item</h3>            
       <?php $sql = "SELECT COUNT(`item_id`) FROM item"; $result1 = mysqli_query($conn, $sql); while($row = mysqli_fetch_array($result1)) { ?>
       <p class="center">Total no of products: <h5 class="center-align"><?php echo $row[0]; ?></h5></p>
       <?php }?>
-      <div class="card-panel">
+      <div class="card">
         <div class="card-content">
           <table class="table highlight responsive-table striped animated fadeIn">
             <thead>
@@ -105,4 +101,12 @@
     <div class="col s12 m0 l0"></div>
   </div>
 </div>
+<!-- <script type="text/javascript">
+	var uri = window.location.toString();
+	if (uri.indexOf("?") > 0) {
+			var clean_uri = uri.substring(0, uri.indexOf("?"));
+			window.history.replaceState({}, document.title, clean_uri);
+	}
+</script> -->
+
 <?php include 'inc/footer.php'; ?>

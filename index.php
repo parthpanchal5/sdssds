@@ -36,6 +36,7 @@
 
 	<div class="slider" style="margin-top: 10px; padding: px 0px;">
     <ul class="slides">
+		
 		<?php $sql = "SELECT * FROM item WHERE RAND(`item_id`) ORDER BY `created_at` DESC LIMIT 5"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
       
 			<li>
@@ -63,7 +64,7 @@
 			<div class="card-content">
 				<div class="row">
 
-				<?php $sql = "SELECT * FROM item WHERE `item_cat` = 'Electronics' ORDER BY `created_at` DESC"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
+				<?php $sql = "SELECT * FROM item WHERE `item_cat` = 'Electronics' ORDER BY `created_at` ASC"; $result = mysqli_query($conn, $sql); while ($row = mysqli_fetch_array($result)) { ?>	
 
 					<div class="col s12 m6 l3 xl3">
 						<div class="card-panel">
